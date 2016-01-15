@@ -3,51 +3,50 @@ description: na
 keywords: na
 title: Protect a file on a device (protect in-place) by using the Rights Management sharing application
 search: na
-ms.date: 2015-11-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 33920329-5247-4f6c-8651-6227afb4a1fa
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Protect a file on a device (protect in-place) by using the Rights Management sharing application
-When you protect a file in-place, it replaces the original, unprotected file. You can then leave the file where it is, copy it to another folder or device, or share the folder that it is in and the file will remain protected. You could also attach the protected file to an email message, although the recommended way to share a protected file by email is directly from File Explorer or an Office application (see [Protect a file that you share by email by using the Rights Management sharing application](../Topic/Protect_a_file_that_you_share_by_email_by_using_the_Rights_Management_sharing_application.md)).
+# Een bestand op een apparaat worden beveiligd (beveiligen) met behulp van de Rights Management-toepassing delen
+Wanneer u een bestand in plaats beveiligt, vervangt de oorspronkelijke, niet-beveiligde bestand. Vervolgens kunt u het bestand waar is, kopiëren naar een andere map of het apparaat of delen van de map die is in en het bestand wordt beveiligd blijven. U kunt ook het beveiligde bestand aan een e-mailbericht koppelen Hoewel u de aanbevolen manier om een beveiligd bestand delen via e-mail rechtstreeks vanuit het bestand Explorer of een Office-toepassing (Zie [Een bestand dat u per e-mail delen met behulp van de Rights Management-toepassing delen beveiligen](../Topic/Protect_a_file_that_you_share_by_email_by_using_the_Rights_Management_sharing_application.md)).
 
 > [!TIP]
-> If you see any errors when you try to protect files, refer to [FAQ for Microsoft Rights Management Sharing Application for Windows](http://go.microsoft.com/fwlink/?LinkId=303971).
+> Als er fouten wanneer u probeert om bestanden te beschermen, verwijzen naar [Veelgestelde vragen over Microsoft Rights Management delen van de toepassing voor Windows](http://go.microsoft.com/fwlink/?LinkId=303971).
 
-## To protect a file on a device (protect in-place)
+## Ter bescherming van een bestand op een apparaat (beveiligen)
 
-1.  In File Explorer, select a file to protect. Right-click, select **Protect with RMS**, and then select **Protect in-place**. For example:
+1.  In File Explorer, selecteert u een bestand te beschermen. Klik met de rechtermuisknop, selecteer **beveiligen met RMS**, en selecteer vervolgens **beveiligen**. Bijvoorbeeld:
 
     ![](../Image/ADRMS_MSRMSApp_SP_CompanyDefined.png)
 
     > [!NOTE]
-    > If you do not see the **Protect with RMS** option, it’s likely that either the RMS sharing application is not installed on your computer, or your computer must be restarted to complete the installation. For more information about how to install the RMS sharing application, see [Download and install the Rights Management sharing application](../Topic/Download_and_install_the_Rights_Management_sharing_application.md).
+    > Als u dat niet ziet het **beveiligen met RMS** selecteert, is het waarschijnlijk dat de RMS sharing van toepassing is niet geïnstalleerd op uw computer of uw computer moet opnieuw worden gestart om de installatie te voltooien. Zie voor meer informatie over het installeren van de RMS sharing toepassing [Download en installeer de Rights Management-toepassing delen](../Topic/Download_and_install_the_Rights_Management_sharing_application.md).
 
-2.  Do one of the following:
+2.  Een van de volgende handelingen uit:
 
-    -   Select a policy template: These are predefined permissions that typically restrict access and usage to people in your organization. For example, if your organization name is "Contoso, Ltd", you might see **Contoso, Ltd - Confidential View Only**. If this is the first time you have protected a file on this computer, you will first need to select **Company-defined Protection** to download the templates.
+    -   Selecteer een sjabloon: Dit zijn vooraf gedefinieerde machtigingen voor doorgaans toegang en gebruik voor mensen in uw organisatie. Bijvoorbeeld als de naam van uw organisatie "Contoso, Ltd" ziet u mogelijk **Contoso, Ltd - alleen vertrouwelijke weergeven**. Als dit de eerste keer dat u hebt een bestand op deze computer beveiligd, moet u eerst selecteren **bedrijf gedefinieerde beveiliging** te downloaden van de sjablonen.
 
-        The next time you click the **Protect in-place** option, you will see up to 10 templates to choose from. If there are more than 10 templates available and the one you want isn’t displayed, click **Company-defined Protection** to download and see all the templates.
+        De volgende keer dat u op de **beveiligen** selecteert, ziet u maximaal 10 sjablonen kiezen uit. Als er meer dan 10 sjablonen die beschikbaar zijn en die u wilt niet wordt weergegeven, klikt u op **bedrijf gedefinieerde beveiliging** alle sjablonen te downloaden.
 
-        When you select a policy template, you can also protect multiple files and a folder. When you select a folder, all the files in that folder are automatically selected for protection but new files that you create in that folder will not be automatically protected.
+        Wanneer u een sjabloon selecteert, kunt u ook meerdere bestanden en een map beveiligen. Wanneer u een map selecteert, alle bestanden in deze map worden geselecteerd voor beveiliging, maar nieuwe bestanden die u in de map maakt niet automatisch beveiligd.
 
-    -   Select **Custom Permissions**: Choose this option if the templates don’t provide the level of protection that you need  or you want to explicitly set the protection options yourself. Specify the options that you want for this file in the [add protection dialog box](http://technet.microsoft.com/library/dn574738.aspx), and then click **Apply**.
+    -   Selecteer **aangepaste machtigingen**: Selecteer deze optie als u de sjablonen niet het niveau van bescherming die u nodig hebt of wilt u de beveiligingsopties expliciet instellen zelf. Geef de opties die u wilt gebruiken voor dit bestand in de [dialoogvenster Beveiliging toevoegen](http://technet.microsoft.com/library/dn574738.aspx), en klik vervolgens op **toepassen**.
 
-3.  You might quickly see a dialog box to tell you that the file is being protected, and the focus then returns to File Explorer. The selected file or files are now protected. In some cases (when adding protection changes the file name extension), the original file in File Explorer is replaced with a new file that has the Rights Management protection lock icon. For example:
+3.  U kunt snel een dialoogvenster u vertellen dat het bestand is beveiligd en vervolgens de focus naar bestand Explorer retourneert zien. Nu zijn het geselecteerde bestand of de bestanden beveiligd. In sommige gevallen (wanneer de bestandsextensie toe te voegen beveiliging wordt gewijzigd), het oorspronkelijke bestand in Verkenner is vervangen door een nieuw bestand met het pictogram Rights Management beveiliging vergrendelen. Bijvoorbeeld:
 
     ![](../Image/ADRMS_MSRMSApp_Pfile.png)
 
-If you later need to remove protection from a file, see [Remove protection from a file by using the Rights Management sharing application](../Topic/Remove_protection_from_a_file_by_using_the_Rights_Management_sharing_application.md).
+Als u later beveiliging verwijderen uit een bestand wilt, raadpleegt u [Beveiliging verwijderen uit een bestand met behulp van de Rights Management-toepassing delen](../Topic/Remove_protection_from_a_file_by_using_the_Rights_Management_sharing_application.md).
 
-## Examples and other instructions
-For examples for how you might use the Rights Management sharing application, and how-to instructions, see the following sections from the Rights Management sharing application user guide:
+## Voorbeelden en andere instructies
+Zie de volgende secties van de Rights Management delen application user guide voor voorbeelden voor het gebruik van de Rights Management-toepassing en praktische instructies delen:
 
--   [Examples for using the RMS sharing application](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
+-   [Voorbeelden voor het gebruik van de RMS sharing toepassing](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
 
--   [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
+-   [Wat wilt u doen?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
 
-## See Also
-[Rights Management sharing application user guide](../Topic/Rights_Management_sharing_application_user_guide.md)
+## Zie ook
+[Rights Management delen toepassing handleiding](../Topic/Rights_Management_sharing_application_user_guide.md)
 

@@ -3,324 +3,311 @@ description: na
 keywords: na
 title: Requirements for Azure Rights Management
 search: na
-ms.date: 2016-01-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: dc78321d-d759-4653-8818-80da74b6cdeb
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Requirements for Azure Rights Management
-To deploy Microsoft Azure Rights Management (Azure RMS) in your organization, make sure that you have the following prerequisites. You can then use the [Azure Rights Management Deployment Roadmap](../Topic/Azure_Rights_Management_Deployment_Roadmap.md) to deploy Rights Management for your organization.
+# Vereisten voor Azure Rights Management
+Zorg ervoor dat u de volgende vereisten hebt voor de implementatie van Microsoft Azure Rights Management (Azure RMS) in uw organisatie. U kunt de [Azure Rights Management-implementatieschema](../Topic/Azure_Rights_Management_Deployment_Roadmap.md) Rights Management implementeren voor uw organisatie.
 
-|Requirement|More information|
-|---------------|--------------------|
-|A cloud subscription for RMS|Your organization must have a cloud subscription that supports RMS.<br /><br />For licensing information, see the [Cloud subscriptions that support Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedSubscriptions) section in this topic.|
-|Azure AD directory|Your organization must have an Azure AD directory to support user authentication for RMS. In addition, if you want to use your user accounts from your on-premises directory (AD DS), you must also configure directory integration.<br /><br />Multi-factor authentication (MFA) is supported with Azure RMS when you have the required client software and correctly configured     MFA supporting infrastructure.<br /><br />For more information, see the [Azure AD directory](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_AzureADTenant) section in this topic.|
-|Client devices|Users must have a client devices (computer or mobile device) that run an operating system that supports RMS.<br /><br />For more information, see the [Client devices that support Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedDevices) section in this topic.|
-|Applications|Users must run applications that support RMS.<br /><br />For more information, see the [Applications that support Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedApplications) section in this topic.|
-|Infrastructure that supports connectivity to the Internet and dependent cloud services|If you have a firewall or similar intervening network devices that must be configured to allow specific connections, see [Office 356 URLs and IP address ranges](https://support.office.com/en-US/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).<br /><br />The list of URLs and IP addresses in the **Office 356 portal and identity** section apply to the Office 365 portal, Azure Active Directory resources, and Azure Rights Management. Use the instructions in this article to keep up-to-date with changes to this information, by subscribing to an RSS feed.<br /><br />In addition to the information in the Office article, specific to Azure RMS:<br /><br />Do not terminate the TLS client-to-service connection (for example, to do packet-level inspection). Doing so breaks the certificate pinning that RMS clients use with Microsoft-managed CAs to help secure their communication with Azure RMS.<br /><br />Do not use a web proxy configuration that authenticates on behalf of a user.|
+|Vereiste|Meer informatie|
+|------------|-------------------|
+|Een cloud-abonnement voor RMS|Uw organisatie moet een cloud-abonnement biedt ondersteuning voor RMS hebben.<br /><br />Voor informatie over licenties, Zie de [Cloud-abonnementen die ondersteuning van Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedSubscriptions) in dit onderwerp.|
+|Azure AD-map|Uw organisatie moet een Azure AD-map voor de verificatie van de gebruiker ondersteuning voor RMS hebben. Als u uw gebruikersaccounts van uw on-premises directory (AD DS) gebruiken wilt, moet u bovendien ook Active directory-integratie configureren.<br /><br />Multi-factorauthenticatie (MFA) wordt ondersteund met Azure RMS wanneer u de vereiste clientsoftware en correct geconfigureerde ondersteunende MFA-infrastructuur hebt.<br /><br />Zie voor meer informatie de [Azure AD-map](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_AzureADTenant) in dit onderwerp.|
+|Clientapparaten|Gebruikers hebben een clientapparaten (computer of een mobiel apparaat) met een besturingssysteem dat RMS ondersteunt.<br /><br />Zie voor meer informatie de [Clientapparaten die ondersteuning van Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedDevices) in dit onderwerp.|
+|Toepassingen|Gebruikers moeten toepassingen die ondersteuning bieden voor RMS uitvoeren.<br /><br />Zie voor meer informatie de [Toepassingen die ondersteuning van Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedApplications) in dit onderwerp.|
+|Infrastructuur die verbinding met het Internet en afhankelijke cloudservices ondersteunt|Als er een firewall of een vergelijkbare betrokken zijn netwerkapparaten die moeten worden geconfigureerd om te zien, specifieke verbindingen toe [Office 356 URL's en IP-adresbereiken](https://support.office.com/en-US/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).<br /><br />De lijst met URL's en IP-adressen in het **Office 356 portal en identiteit** sectie van toepassing op de Office 365-portal, Azure Active Directory-bronnen en Azure Rights Management. Volg de instructies in dit artikel om up-to-date te houden met wijzigingen in deze informatie met een abonnement op een RSS-feed.<br /><br />Naast de gegevens in het Office-artikel specifiek voor Azure RMS:<br /><br />-   Eindigt niet het TLS-clientservice-verbinding (bijvoorbeeld te doen pakket niveau controle). Hierdoor kunt u het certificaat dat clients met RMS met Microsoft beheerde CA's gebruiken te beveiligen de communicatie met Azure RMS vastzetten.<br />-   Gebruik een webproxyconfiguratie waarmee wordt geverifieerd namens een gebruiker niet.|
 
-If you want to use Azure RMS with on-premises servers, the following products are supported:
+Als u gebruiken Azure RMS met lokale servers wilt, worden de volgende producten worden ondersteund:
 
--   Exchange Server
+-   Exchange-Server
 
--   SharePoint Server
+-   SharePoint-Server
 
--   Windows Server file servers that support File Classification Infrastructure
+-   Windows Server-bestandsservers die ondersteuning bieden voor bestand classificatie infrastructuur
 
-For information about the additional Azure RMS requirements for this scenario, see the [On-premises servers that support Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedServers) section in this topic.
+Zie voor meer informatie over de aanvullende Azure RMS-vereisten voor dit scenario de [Servers die ondersteuning van Azure RMS lokaal](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedServers) in dit onderwerp.
 
 > [!IMPORTANT]
-> The following deployment scenario is not supported:
+> Het volgende scenario wordt niet ondersteund:
 > 
-> -   Running AD RMS and Azure RMS side-by-side in the same organization, except during migration, as described in [Migrating from AD RMS to Azure Rights Management](../Topic/Migrating_from_AD_RMS_to_Azure_Rights_Management.md).
+> -   AD RMS en Azure RMS naast elkaar in dezelfde organisatie, met uitzondering van tijdens de migratie wordt uitgevoerd zoals beschreven in [Migratie van AD RMS naar Azure Rights Management](../Topic/Migrating_from_AD_RMS_to_Azure_Rights_Management.md).
 > 
-> There is a supported migration path [from AD RMS to Azure RMS](http://technet.microsoft.com/library/Dn858447.aspx), and from [Azure RMS to AD RMS](http://msdn.microsoft.com/library/azure/dn629429.aspx). If you deploy Azure RMS and then decide that you no longer want to use this cloud service, see [Decommissioning and Deactivating Azure Rights Management](../Topic/Decommissioning_and_Deactivating_Azure_Rights_Management.md).
+> Er is een migratiepad ondersteunde [van AD RMS naar Azure RMS](http://technet.microsoft.com/library/Dn858447.aspx), en uit [Azure RMS naar AD RMS](http://msdn.microsoft.com/library/azure/dn629429.aspx). Als u Azure RMS implementeren en vervolgens besluit dat u niet meer wilt gebruiken deze cloudservice, raadpleegt u [Buiten gebruik stellen en Azure Rights Management deactiveren](../Topic/Decommissioning_and_Deactivating_Azure_Rights_Management.md).
 
-Use the following sections to learn more about the Azure RMS requirements.
+Gebruik de volgende secties voor meer informatie over de Azure RMS-vereisten.
 
-## <a name="BKMK_SupportedSubscriptions"></a>Cloud subscriptions that support Azure RMS
-To use Azure RMS, your organization must have at least one of the following subscriptions with a sufficient number of licenses for users and services that will protect files and email messages. If you have a service that will apply protection for users (owners of the files or email messages), those users require one of these licenses. Users who will only consume (for example, read and edit) this protected data do not need a license.
+## <a name="BKMK_SupportedSubscriptions"></a>Cloud-abonnementen die ondersteuning van Azure RMS
+Voor gebruik van Azure RMS moet van uw organisatie ten minste één van de volgende abonnementen met een voldoende aantal licenties voor gebruikers en services die bestanden beveiligen en e-mailberichten. Als u een service die van toepassing zijn beveiliging voor gebruikers (eigenaars van de bestanden of e-mailberichten), moeten deze gebruikers een van deze licenties. Gebruikers die alleen wordt gebruiken (bijvoorbeeld lezen en bewerken) deze beveiligde gegevens niet een licentie nodig.
 
 -   Office 365
 
--   Azure Rights Management Premium (formerly Azure RMS Standalone)
+-   Azure Rights Management Premium (voorheen Azure RMS zelfstandig)
 
--   Enterprise Mobility Suite
+-   Enterprise mobiliteit Suite
 
--   RMS for individuals
+-   RMS voor personen
 
-Use the following sections for more information and sign up options.
+Gebruik de volgende secties voor meer informatie en meld u aan opties.
 
-For a licensing comparison of the Azure RMS capabilities for the paid subscriptions, see [Comparison of Rights Management Services (RMS) Offerings](http://technet.microsoft.com/dn858608).
+Zie voor een licentie vergelijking van de Azure RMS-mogelijkheden voor de betaalde abonnementen [aanbiedingen voor vergelijking van Rights Management Services (RMS)](http://technet.microsoft.com/dn858608).
 
-### Office 365 subscription
-[Free 30-day trial: Enterprise E3](http://go.microsoft.com/fwlink/p/?LinkID=403802)
+### Office 365-abonnement
+[Gratis proefversie van 30 dagen: Enterprise E3](http://go.microsoft.com/fwlink/p/?LinkID=403802)
 
-This subscription is designed for organizations who want to use the Office online services and use their Information Rights Management feature, which uses Azure RMS. However, not all Office 365 subscriptions include Azure RMS.
+Dit abonnement is ontworpen voor organisaties die u wilt gebruiken de Office online services en hun Information Rights Management-functie die gebruikmaakt van Azure RMS te gebruiken. Niet alle Office 365-abonnementen bevatten echter Azure RMS.
 
-|Licensing option|Office 365 Business Essentials|Office 365 Business Premium|Office 365 Enterprise E1<br /><br />Office 365 Education A1|Office 365 Enterprise E3<br /><br />Office 365 Education A3<br /><br />Office 365 Government G3|Office 365 Enterprise E4<br /><br />Office 365 Education A4<br /><br />Office 365 Government G4|Office 365 Enterprise E5<br /><br />Office 365 Education A5<br /><br />Office 365 Government G5|Office 365 Enterprise K1|SharePoint Plan 1<br />SharePoint Plan 2|Exchange Online Plan 1<br />Exchange Online Plan 2|
-|--------------------|----------------------------------|-------------------------------|-------------------------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|----------------------------|----------------------------------------|--------------------------------------------------|
-|Information Rights Protection (IRM)|No|No|No|Yes|Yes|Yes|No|No|No|
+|Optie-Licentieverlening|Office 365-bedrijfsfuncties|Office 365 Business Premium|Office 365 Enterprise E1<br /><br />Office 365 onderwijs A1|Office 365 Enterprise E3<br /><br />Office 365 onderwijs A3<br /><br />Office 365 overheid G3|Office 365 Enterprise e 4<br /><br />Office 365 onderwijs A4<br /><br />Office 365 overheid G4|Office 365 Enterprise K1|SharePoint Plan 1<br />SharePoint Plan 2|Exchange Online Plan 1<br />Exchange Online Plan 2|
+|---------------------------|-------------------------------|-------------------------------|-------------------------------------------------------|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------|----------------------------------------|--------------------------------------------------|
+|Information Rights Protection (IRM)|Nee|Nee|Nee|Ja|Ja|Nee|Nee|Nee|
 
-### Azure Rights Management Premium subscription
-[Free 30-day trial](https://portal.microsoftonline.com/Signup/MainSignUp15.aspx?&amp;OfferId=A43415D3-404C-4df3-B31B-AAD28118A778&amp;dl=RIGHTSMANAGEMENT&amp;ali=1)
+### Azure Rights Management Premium-abonnement
+[Gratis proefversie van 30 dagen](https://portal.microsoftonline.com/Signup/MainSignUp15.aspx?&amp;OfferId=A43415D3-404C-4df3-B31B-AAD28118A778&amp;dl=RIGHTSMANAGEMENT&amp;ali=1)
 
-This subscription was formerly known as Azure RMS Standalone and it is designed for organizations that want to use Azure RMS but don’t have subscription that includes Azure RMS. For example, if you have a subscription for Office 365 Business Essentials or Office 365 Enterprise E1, these subscriptions do not include Azure RMS (see the table in the preceding section). To use Azure RMS, you could purchase a subscription for Azure Rights Management Premium (or purchase another subscription, such as Office 365 Enterprise E4, that includes Azure RMS).
+Dit abonnement was voorheen bekend als Azure RMS zelfstandige en is bedoeld voor organisaties die u wilt gebruiken Azure RMS maar geen abonnement met Azure RMS. Bijvoorbeeld, hebt u een abonnement voor Office 365 Business Essentials of Office 365 Enterprise E1, deze abonnementen geen Azure RMS (Zie de tabel in de vorige sectie). Voor gebruik van Azure RMS u een abonnement voor Azure Rights Management Premium (of een ander abonnement, zoals Office 365 Enterprise e 4, waarin Azure RMS).
 
-For more information, see [Microsoft Azure Rights Management](http://products.office.com/business/microsoft-azure-rights-management).
+Zie voor meer informatie [Microsoft Azure Rights Management](http://products.office.com/business/microsoft-azure-rights-management).
 
-This subscription also offers a trial period for you to try out Azure RMS for 25 users, at no charge. If the subscription expires before you purchase a replacement subscription, see the following section, “What happens when the trial subscription expires?”
+Dit abonnement biedt tevens een evaluatieperiode voor u Azure RMS voor 25 gebruikers gratis uitproberen. Als het abonnement is verlopen voordat u een vervanging-abonnement aanschaffen, raadpleegt u de volgende sectie "Wat gebeurt er wanneer de proefabonnement verloopt?"
 
-|Licensing option|Office 365 Business Essentials|Office 365 Business Premium|Office 365 Enterprise E1<br /><br />Office 365 Education A1|Office 365 Enterprise E3<br /><br />Office 365 Education A3<br /><br />Office 365 Government G3|Office 365 Enterprise E4<br /><br />Office 365 Education A4<br /><br />Office 365 Government G4|Office 365 Enterprise E5<br /><br />Office 365 Education A5<br /><br />Office 365 Government G5|Office 365 Enterprise K1|SharePoint Plan 1<br />SharePoint Plan 2|Exchange Online Plan 1<br />Exchange Online Plan 2|
-|--------------------|----------------------------------|-------------------------------|-------------------------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|----------------------------|----------------------------------------|--------------------------------------------------|
-|Information Rights Protection (IRM)|Yes|Yes [footnote 1]|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-Footnote 1:
-             For Business Premium, there are some client restrictions: You can protect content and consume protected content with RMS by using the Outlook Web App and the RMS sharing app. You can consume protected content by using all other Office applications, which includes Office Online and the client applications for Office 365 Business Premium.
+|Optie-Licentieverlening|Office 365-bedrijfsfuncties|Office 365 Business Premium|Office 365 Enterprise E1<br /><br />Office 365 onderwijs A1|Office 365 Enterprise E3<br /><br />Office 365 onderwijs A3<br /><br />Office 365 overheid G3|Office 365 Enterprise e 4<br /><br />Office 365 onderwijs A4<br /><br />Office 365 overheid G4|Office 365 Enterprise K1|SharePoint Plan 1<br />SharePoint Plan 2|Exchange Online Plan 1<br />Exchange Online Plan 2|
+|---------------------------|-------------------------------|-------------------------------|-------------------------------------------------------|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------|----------------------------------------|--------------------------------------------------|
+|Information Rights Protection (IRM)|Ja|Yes <sup>1</sup>|Ja|Ja|Ja|Ja|Ja|Ja|
+<sup>1</sup> voor Business Premium zijn enkele beperkingen client: U kunt inhoud beveiligen en gebruiken van beveiligde inhoud met RMS met behulp van de Outlook Web-App en de app RMS sharing. U kunt beveiligde inhoud met behulp van alle andere Office-toepassingen, inclusief Office Online en de clienttoepassingen voor Office 365 Business Premium verbruiken.
 
-#### <a name="BKMK_TrialExpiryBehavior"></a>What happens when the trial subscription expires?
-If your trial subscription expires, you will lose access to content that was protected by using your trial subscription for Azure RMS. However, if you then purchase a subscription that supports Azure RMS, access is automatically restored.
+#### <a name="BKMK_TrialExpiryBehavior"></a>Wat gebeurt er wanneer de proefabonnement verloopt?
+Als uw proefabonnement is verlopen, verliest u toegang tot inhoud die is beveiligd met behulp van uw proefabonnement voor Azure RMS. Als u vervolgens een abonnement dat Azure RMS ondersteunt, wordt toegang echter automatisch hersteld.
 
-An exception to losing access upon expiry is if your organization used Azure RMS with the RMS for individuals subscription before you obtained the trial subscription. Then, access to previously protected content remains, even after the trial subscription expires.
+Een uitzondering toegang meer hebt na het verstrijken is als uw organisatie Azure RMS met de RMS voor personen abonnement gebruikt voordat u het proefabonnement verkregen. Vervolgens toegang tot eerder beveiligde inhoud blijft, zelfs nadat de evaluatieversie abonnement is verlopen.
 
-### Enterprise Mobility Suite subscription
-[Free 30-day trial](http://go.microsoft.com/fwlink/?LinkId=615385)
+### Enterprise mobiliteit Suite-abonnement
+[Gratis proefversie van 30 dagen](http://go.microsoft.com/fwlink/?LinkId=615385)
 
-This subscription is designed for organizations who want to use a combination of Azure Active Directory Premium, Windows Intune, and Azure Rights Management. For more information, see the [Microsoft Enterprise Mobility Overview](http://go.microsoft.com/fwlink/?LinkId=615386).
+Dit abonnement is ontworpen voor organisaties die willen gebruiken om een combinatie van Azure Active Directory Premium, Windows Intune en Azure Rights Management. Zie voor meer informatie de [overzicht van Microsoft Enterprise mobiliteit](http://go.microsoft.com/fwlink/?LinkId=615386).
 
-|Licensing option|Office 365 Business Essentials|Office 365 Business Premium|Office 365 Enterprise E1<br /><br />Office 365 Education A1|Office 365 Enterprise E3<br /><br />Office 365 Education A3<br /><br />Office 365 Government G3|Office 365 Enterprise E4<br /><br />Office 365 Education A4<br /><br />Office 365 Government G4|Office 365 Enterprise E5<br /><br />Office 365 Education A5<br /><br />Office 365 Government G5|Office 365 Enterprise K1|SharePoint Plan 1<br />SharePoint Plan 2|Exchange Online Plan 1<br />Exchange Online Plan 2|
-|--------------------|----------------------------------|-------------------------------|-------------------------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|----------------------------|----------------------------------------|--------------------------------------------------|
-|Information Rights Protection (IRM)|Yes|Yes [footnote 1]|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-Footnote 1:  For Business Premium, there are some client restrictions: You can protect content and consume protected content with RMS by using the Outlook Web App and the RMS sharing app. You can consume protected content by using all other Office applications, which includes Office Online and the client applications for Office 365 Business Premium.
+|Optie-Licentieverlening|Office 365-bedrijfsfuncties|Office 365 Business Premium|Office 365 Enterprise E1<br /><br />Office 365 onderwijs A1|Office 365 Enterprise E3<br /><br />Office 365 onderwijs A3<br /><br />Office 365 overheid G3|Office 365 Enterprise e 4<br /><br />Office 365 onderwijs A4<br /><br />Office 365 overheid G4|Office 365 Enterprise K1|SharePoint Plan 1<br />SharePoint Plan 2|Exchange Online Plan 1<br />Exchange Online Plan 2|
+|---------------------------|-------------------------------|-------------------------------|-------------------------------------------------------|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------|----------------------------|----------------------------------------|--------------------------------------------------|
+|Information Rights Protection (IRM)|Ja|Yes <sup>1</sup>|Ja|Ja|Ja|Ja|Ja|Ja|
+<sup>1</sup> voor Business Premium zijn enkele beperkingen client: U kunt inhoud beveiligen en gebruiken van beveiligde inhoud met RMS met behulp van de Outlook Web-App en de app RMS sharing. U kunt beveiligde inhoud met behulp van alle andere Office-toepassingen, inclusief Office Online en de clienttoepassingen voor Office 365 Business Premium verbruiken.
 
-### RMS for individuals subscription
-This subscription is designed for individuals in an organization that hasn’t deployed Azure RMS or AD RMS. It lets these people read content that has been protected by an organization that is using Azure RMS, and they can also protect their own content.
+### RMS voor personen-abonnement
+Dit abonnement is ontworpen voor personen in een organisatie die nog niet geïmplementeerd Azure RMS of AD RMS. Kunnen deze mensen inhoud die is beveiligd door een organisatie die van Azure RMS gebruikmaakt lezen en ze kunnen ook hun eigen inhoud beveiligen.
 
-For more information, see [RMS for Individuals and Azure Rights Management](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md).
+Zie voor meer informatie [RMS voor personen en Azure Rights Management](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md).
 
-## <a name="BKMK_AzureADTenant"></a>Azure AD directory
-You must have an Azure AD directory to use Azure RMS. You use your organization account for this directory to sign in to the Azure classic portal, where, for example, you can configure and manage Rights Management templates.
+## <a name="BKMK_AzureADTenant"></a>Azure AD-map
+U hebt een map Azure AD RMS Azure gebruiken. U uw account organisatie voor deze map gebruiken voor aanmelding bij de Azure-beheerportal, waar, bijvoorbeeld, kunt u configureren en beheren Rights Management-sjablonen.
 
-If you do not already have an Azure subscription for your organization, you can get one by signing up for a free trial.: Go to the [Azure Get started](https://account.windowsazure.com/organization) page and follow the instructions.
+Als u geen Azure-abonnement niet al voor uw organisatie hebt, kunt u een door u zich aanmeldt voor een gratis proefversie downloaden.: Ga naar de [Azure ophalen gestart](https://account.windowsazure.com/organization) pagina en volg de instructies.
 
-For more information, see the following resources in the Azure Active Directory documentation:
+Zie de volgende bronnen in de Azure Active Directory-documentatie voor meer informatie:
 
--   [What is an Azure AD directory?](http://msdn.microsoft.com/en-us/library/185da266-58a9-43e6-9c66-2c8f702545c6)
+-   [Wat is een Azure AD-directory?](http://msdn.microsoft.com/en-us/library/185da266-58a9-43e6-9c66-2c8f702545c6)
 
--   [How Azure subscriptions are associated with Azure AD](http://msdn.microsoft.com/en-us/library/edf05c2e-944a-4da5-a330-dc9dc479f127)
+-   [Hoe de Azure-abonnementen zijn gekoppeld aan Azure AD](http://msdn.microsoft.com/en-us/library/edf05c2e-944a-4da5-a330-dc9dc479f127)
 
-If you want to integrate your Azure AD directory with your on-premises AD forests, see [Directory integration](http://msdn.microsoft.com/en-us/library/bf82bdff-2467-403b-8c1a-0e9eebcf31e8).
+Als u wilt dat uw Azure AD-directory integreren met uw lokale AD forests, Zie [Active Directory-integratie](http://msdn.microsoft.com/en-us/library/bf82bdff-2467-403b-8c1a-0e9eebcf31e8).
 
 > [!NOTE]
-> If you have mobile devices or Mac computers that authenticate on-premises by using AD FS or an equivalent authentication provider:
+> Als u mobiele apparaten of Mac-computers die lokaal worden geverifieerd door AD FS of een equivalente verificatieprovider:
 > 
-> -   You must use AD FS on the minimum server version of **Windows Server 2012 R2**, or an alternative authentication provider that supports the OAuth 2.0 protocol.
+> -   U moet gebruikmaken van AD FS op de minimale serverversie van **Windows Server 2012 R2**, of een alternatieve verificatieprovider die het protocol OAuth 2.0 ondersteunt.
 
-### <a name="BKMK_MFA"></a>Multi-factor authentication (MFA) and Azure RMS
-To use multi-factor authentication (MFA) with Azure RMS requires at least one of the following:
+### <a name="BKMK_MFA"></a>Multi-factorauthenticatie (MFA) en Azure RMS
+Voor het gebruik van multi-factor moet authentication (MFA) met Azure RMS ten minste één van de volgende:
 
--   Office 2013 (minimum version):
+-   Office 2013 (minimumversie):
 
-    -   If you have Office 2013, you must also install the [June 9, 2015, update for Office 2013 (KB3054853)](https://support.microsoft.com/kb/3054853). For more information about this update and how modern authentication brings Active Directory Authentication Library (ADAL)-based sign in to Office 2013, see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)  on the Office blog.
+    -   Als u Office 2013 hebt, moet u ook installeren de [9 juni 2015 bijwerken voor Office 2013 (KB3054853)](https://support.microsoft.com/kb/3054853). Voor meer informatie over deze update en hoe moderne verificatie, op basis van Active Directory-verificatie bibliotheek ADAL teken Office 2013 wordt, Zie [Office 2013 moderne verificatie openbare preview aangekondigd](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)  op de Office-blog.
 
--   Rights Management sharing application for Windows:
+-   Rights Management-toepassing voor Windows delen:
 
-    -   You must have installed the minimum version of 1.0.1908.0, which can be confirmed by using Control Panel, Programs and Features. For more information about the sharing application, see  [Rights Management Sharing Application for Windows](../Topic/Rights_Management_Sharing_Application_for_Windows.md).
+    -   U moet minimaal de versie van 1.0.1908.0, kunnen worden bevestigd met behulp van het Configuratiescherm, programma's en onderdelen hebt geïnstalleerd. Zie voor meer informatie over het delen toepassing  [Rights Management-toepassing voor Windows delen](../Topic/Rights_Management_Sharing_Application_for_Windows.md).
 
--   Rights Management sharing app for mobile devices and Mac computers:
+-   Rights Management-app voor mobiele apparaten en Mac-computers delen:
 
-    -   Make sure that you have the latest version installed. MFA support went into the September 2015 release of the RMS sharing app.
+    -   Zorg ervoor dat u hebt de meest recente versie geïnstalleerd. MFA-ondersteuning is een fout bij de release September 2015 van de app RMS sharing.
 
-Then, configure your MFA solution:
+Stel uw MFA-oplossing:
 
--   For Microsoft-managed tenants (you have Azure Active Directory or Office 365):
+-   Microsoft beheerde tenants (hebt u Azure Active Directory of Office 365):
 
-    -   Configure Azure MFA to enforce MFA for users. For instructions, see [Getting started with Azure Multi-Factor Authentication in the cloud](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started-cloud/) from the Azure documentation.
+    -   Configureer de MFA Azure om af te dwingen MFA voor gebruikers. Zie voor instructies [aan de slag met Azure multi-factor Authentication in de cloud](https://azure.microsoft.com/documentation/articles/multi-factor-authentication-get-started-cloud/) van de documentatie van Azure.
 
-        For more information about Azure MFA, see [What is Azure Multi-Factor Authentication?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/)
+        Zie voor meer informatie over Azure MFA [Wat is Azure multi-Factorauthenticatie?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/)
 
--   For federated tenants (you operate federation servers on-premises):
+-   Federatieve tenants (u werkt federation-servers op de lokale):
 
-    -   Configure your federation servers for Azure Active Directory or Office 365. For example, if you are using AD FS, see [Configure Additional Authentication Methods for AD FS](https://technet.microsoft.com/library/dn758113.aspx) on TechNet.
+    -   De federatieservers configureren voor Azure Active Directory of Office 365. Bijvoorbeeld als u van AD FS gebruikmaakt, Zie [aanvullende verificatiemethoden configureren voor AD FS](https://technet.microsoft.com/library/dn758113.aspx) op TechNet.
 
-        For more information about this scenario, see  [The Works with Office 365 – Identity program now streamlined](https://blogs.office.com/2014/01/30/the-works-with-office-365-identity-program-now-streamlined/) on the Office blog.
+        Zie voor meer informatie over dit scenario  [het werken met Office 365-identiteit programma nu gestroomlijnde](https://blogs.office.com/2014/01/30/the-works-with-office-365-identity-program-now-streamlined/) op de Office-blog.
 
-## <a name="BKMK_SupportedDevices"></a>Client devices that support Azure RMS
-Use the following sections to identify which devices support Azure Rights Management (RMS), and which RMS capabilities they support:
+## <a name="BKMK_SupportedDevices"></a>Clientapparaten die ondersteuning van Azure RMS
+De volgende secties gebruiken om te bepalen welke apparaten Azure RMS (Rights Management), ondersteuning en welke RMS-mogelijkheden die worden ondersteund:
 
 -   [Computers](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_RMSSupportedComputers)
 
--   [Mobile devices](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_RMSSupportedMobileDevices)
+-   [Mobiele apparaten](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_RMSSupportedMobileDevices)
 
--   [Client device capabilities](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_ClientCapabilities)
+-   [Client-apparaatmogelijkheden](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_ClientCapabilities)
 
 ### <a name="BKMK_RMSSupportedComputers"></a>Computers
-The following computer operating systems support Azure Rights Management:
+De volgende besturingssystemen ondersteunen Azure Rights Management:
 
--   **Windows 7** (x86, x64)
+-   **Windows 7** (x 86, x 64)
 
--   **Windows 8** (x86, x64)
+-   **Windows 8** (x 86, x 64)
 
--   **Windows 8.1** (x86, x64)
+-   **Windows 8.1** (x 86, x 64)
 
--   **Windows 10** (x86, x64)
+-   **Windows 10** (x 86, x 64)
 
--   **Mac OS X**: Minimum version of Mac OS X 10.8 (Mountain Lion)
+-   **Mac OS X**: Minimumversie van Mac OS X 10,8 (Mountain Lion)
 
-### <a name="BKMK_RMSSupportedMobileDevices"></a>Mobile devices
-The following mobile device operating systems support Azure Rights Management:
+### <a name="BKMK_RMSSupportedMobileDevices"></a>Mobiele apparaten
+De volgende besturingssystemen voor mobiele apparaten ondersteunen Azure Rights Management:
 
--   **Windows Phone**: Windows Phone 8.1
+-   **Windows Phone**: Windows Phone 8.1
 
--   **Android phones and tablets**: Minimum version of Android 4.0.3
+-   **Android telefoons en tablets**: Minimumversie van Android 4.0.3
 
--   **iPhone and iPad**: Minimum version of iOS 7.0
+-   **iPhone en iPad**: Minimumversie van iOS 7.0
 
--   **Windows RT tablets**: Windows 8 RT, Windows 8.1 RT
+-   **Windows RT tablets**: Windows 8 RT, Windows 8.1 RT
 
-### <a name="BKMK_ClientCapabilities"></a>Client device capabilities
-Not all supported client devices currently support all RMS capabilities. Use the following table to identify which applications support the RMS capabilities, and the exceptions.
+### <a name="BKMK_ClientCapabilities"></a>Client-apparaatmogelijkheden
+Niet alle ondersteunde clientapparaten ondersteuning momenteel voor alle RMS-mogelijkheden. Gebruik de volgende tabel om te bepalen welke toepassingen ondersteunen de RMS-mogelijkheden en de uitzonderingen.
 
-Unless stated otherwise, the supported capabilities apply to both Azure RMS and AD RMS. In addition, AD RMS support on iOS, Android, OS X, and Windows Phone 8.1 requires [Active Directory Rights Management Services Mobile Device Extension](http://technet.microsoft.com/library/a69ead9d-7dd3-4b38-9830-4728e9757341).
+Tenzij anders vermeld, zijn de ondersteunde mogelijkheden van toepassing op Azure RMS en AD RMS. Bovendien AD RMS-ondersteuning voor iOS, Android, OS X en Windows Phone 8.1 vereist [Active Directory Rights Management Services mobiele apparaat extensie](http://technet.microsoft.com/library/a69ead9d-7dd3-4b38-9830-4728e9757341).
 
-Information about the table columns:
+Informatie over de tabelkolommen:
 
--   **Protected PDF**: Files that have a .ppdf file name extension and that are automatically created when you use the RMS sharing application to share Office files and PDF files by email. The RMS sharing application includes a reader for protected PDF files. Previously, if you created PDF files that you protected by using Azure RMS or AD RMS, you can continue to read these files on Windows, iOS, and Android devices by using Foxit Reader and Nitro Pro.
+-   **PDF beveiligd**: Bestanden die extensie .ppdf hebben en die automatisch worden gemaakt wanneer u de RMS sharing toepassing gebruiken voor het delen van bestanden van Office en PDF-bestanden per e-mail. De RMS-toepassing voor delen bevat een lezer voor beveiligde PDF-bestanden. Eerder, als u PDF-bestanden die u met behulp van Azure RMS of AD RMS beveiligde gemaakt, kunt u blijven deze bestanden op Windows, iOS en Android-apparaten met behulp van Foxit lezer en Nitro Pro lezen.
 
--   **Email:** The email clients listed can protect the email message itself, which will automatically protect any attached files. In this scenario, the client’s preview feature can display the protected content (message and attachment) to authorized recipients. However, if an email message itself is not protected but the attachment is protected, the client’s preview feature cannot display the protected attachment to authorized recipients.
+-   **E-mailadres:** De e-clients die worden vermeld kunnen de e-mailbericht zelf, die wordt automatisch elke bijgevoegde bestanden worden beveiligd worden beveiligd. In dit scenario weergegeven functie van de client de beveiligde inhoud (bericht en bijlage) voor geautoriseerde ontvangers. Als een e-mailbericht zelf is niet beveiligd, maar de bijlage is beveiligd, weergeven niet met de functie van de client preview echter de beveiligde bijlage naar geautoriseerde ontvangers.
 
--   **Other file types**: Text and image files include files that have a file name extension such as .txt, .xml, .jpg, .and jpeg. These files change their file name extension after they are natively protected by RMS, and become read-only. Files that cannot be natively protected have a .pfile file name extension after they are generically protected by RMS. For more information, see the [Levels of protection – native and generic](https://technet.microsoft.com/library/dn339003.aspx) and [Supported file types and file name extensions](https://technet.microsoft.com/library/dn339003.aspx) sections from the [Rights Management sharing application administrator guide](http://technet.microsoft.com/library/dn339003%28v=ws.10%29.aspx).
+-   **Andere bestandstypen**: Tekst en afbeeldingsbestanden bevatten bestanden met de extensie zoals .txt, .xml, JPG, jpeg en. Deze bestanden de bestandsnaamextensie wijzigen nadat ze systeemeigen worden beschermd door RMS en worden alleen-lezen. Bestanden die systeemeigen kunnen niet worden beveiligd hebben extensie .pfile nadat deze RMS generieke zijn beveiligd. Zie voor meer informatie de [beschermingsniveau – systeemeigen en algemene](https://technet.microsoft.com/library/dn339003.aspx) en [ondersteunde bestandstypen en extensies](https://technet.microsoft.com/library/dn339003.aspx) secties van de [delen toepassing Rights Management-beheerdershandleiding](http://technet.microsoft.com/library/dn339003%28v=ws.10%29.aspx).
 
-|**Device operating system**|Word, Excel, PowerPoint|Protected PDF|Email|Other file types|
-|-------------------------------|---------------------------|-----------------|---------|--------------------|
-|**Windows**|Office 2010<br /><br />Office 2013<br /><br />Office Mobile apps (Azure RMS only) [footnote 1]<br /><br />Office Online [footnote 2]|Gaaiho Doc<br /><br />GigaTrust Desktop PDF Client for Adobe<br /><br />Foxit Reader<br /><br />Nitro PDF Reader<br /><br />RMS sharing app|Outlook 2010<br /><br />Outlook 2013<br /><br />Outlook Web App (OWA) [footnote 3]<br /><br />Windows Mail [footnote 4]|RMS sharing application for Windows: Text, images, pfile<br /><br />Siemens JT2Go: JT files (Windows 10 only)|
-|**iOS**|Office for iPad and iPhone [footnote 5]<br /><br />Office Online [footnote 2]<br /><br />TITUS Docs|Foxit Reader<br /><br />RMS sharing app [footnote 1]<br /><br />TITUS Docs|NitroDesk [footnote 4]<br /><br />Outlook for iPad and iPhone [footnote 4]<br /><br />OWA for iOS [footnote 3]<br /><br />TITUS Mail|RMS sharing app [footnote 1]: Text, images, pfile<br /><br />TITUS Docs: Pfile|
-|**Android**|GigaTrust App for Android<br /><br />Office Online [footnote 2]|GigaTrust App for Android<br /><br />Foxit Reader<br /><br />RMS sharing app [footnote 1]|9Folders [footnote 4]<br /><br />GigaTrust App for Android [footnote 4]<br /><br />NitroDesk [footnote 4]<br /><br />OWA for Android [footnote 3 and 6]<br /><br />Samsung Email (S3 and later) [footnote 6]<br /><br />TITUS Classification for Mobile|RMS sharing app [footnote 1]: Text, images, pfile|
-|**OS X**|Office 2011 (AD RMS only)<br /><br />Office 2016 for Mac<br /><br />Office Online [footnote 2]|Foxit Reader<br /><br />RMS sharing app [footnote 1]|Outlook 2011 (AD RMS only)<br /><br />Outlook 2016 for Mac<br /><br />Outlook for Mac|RMS sharing app [footnote 1]: Text, images, pfile|
-|**Windows RT**|Office 2013 RT<br /><br />Office Online [footnote 2]|Not supported|Outlook 2013 RT<br /><br />Mail app for Windows<br /><br />Windows Mail [footnote 4]|Siemens JT2Go: JT files|
-|**Windows Phone 8.1**|Office Mobile (AD RMS only)|RMS sharing app [footnote 1]|Outlook Mobile [footnote 4]|RMS sharing app [footnote 1]: Text, images, pfile|
-|**Blackberry 10**|Not supported|Not supported|Blackberry email [footnote 4]|Not supported|
-Footnote 1: Supports viewing protected content.
+|**Besturingssysteem apparaat**|Word, Excel en PowerPoint|Beveiligde PDF-bestand|E-mailbericht|Andere bestandstypen|
+|----------------------------------|-----------------------------|--------------------------|-----------------|------------------------|
+|**Windows**|Office 2010<br /><br />Office 2013<br /><br />Mobiele apps voor Office (alleen Azure RMS)<sup>1</sup><br /><br />Office Online<sup>2</sup>|Gaaiho Doc<br /><br />GigaTrust Desktop PDF-Client voor Adobe<br /><br />Foxit lezer<br /><br />Nitro PDF-Reader<br /><br />RMS delen app|Outlook 2010<br /><br />Outlook 2013<br /><br />Outlook Web-App (OWA)<br /><br />Windows Mail<sup>3</sup>|RMS delen van de toepassing voor Windows: Tekst, afbeeldingen, pfile<br /><br />Siemens JT2Go: JT-bestanden (alleen Windows-10)|
+|**iOS**|Office voor iPad en iPhone<sup>4</sup><br /><br />Office Online<sup>2</sup><br /><br />TITUS documenten|Foxit lezer<br /><br />App RMS sharing<sup>1</sup><br /><br />TITUS documenten|NitroDesk<br /><br />Outlook voor iPad en iPhone<sup>3</sup><br /><br />OWA voor iOS<br /><br />Secure eilanden IQProtector<sup>1</sup><br /><br />TITUS Mail|App RMS sharing<sup>1</sup>: Tekst, afbeeldingen, pfile<br /><br />TITUS documenten: Pfile|
+|**Android**|GigaTrust App voor Android<br /><br />Office Online<sup>2</sup>|GigaTrust App voor Android<br /><br />Foxit lezer<br /><br />App RMS sharing<sup>1</sup>|9Folders<br /><br />GigaTrust App voor Android<br /><br />NitroDesk<br /><br />OWA voor Android<sup>5</sup><br /><br />Samsung E-mail (S3 en hoger)<br /><br />Secure eilanden IQProtector<sup>1</sup><br /><br />TITUS classificatie voor mobiel|App RMS sharing<sup>1</sup>: Tekst, afbeeldingen, pfile|
+|**OS X**|Office 2011 (alleen AD RMS)<br /><br />2016 Office voor Mac<br /><br />Office Online<sup>2</sup>|Foxit lezer<br /><br />App RMS sharing<sup>1</sup>|Outlook 2011 (alleen AD RMS)<br /><br />Outlook 2016 voor Mac<br /><br />Outlook voor Mac|App RMS sharing<sup>1</sup>: Tekst, afbeeldingen, pfile|
+|**Windows RT**|Office 2013 RT<br /><br />Office Online<sup>2</sup>|Niet ondersteund|Outlook 2013 RT<br /><br />Mail-app voor Windows<br /><br />Windows Mail<sup>3</sup>|Siemens JT2Go: JT-bestanden|
+|**Windows Phone 8.1**|Office Mobile (alleen AD RMS)|App RMS sharing<sup>1</sup>|Outlook Mobile|App RMS sharing<sup>1</sup>: Tekst, afbeeldingen, pfile|
+|**BlackBerry 10**|Niet ondersteund|Niet ondersteund|BlackBerry e<sup>3</sup>|Niet ondersteund|
+<sup>1</sup> biedt ondersteuning voor beveiligde inhoud te bekijken.
 
-Footnote 2: Supports viewing protected content in SharePoint Online, OneDrive for Business, and Outlook Web Access.
+<sup>2</sup> ondersteunt beveiligde inhoud in SharePoint Online, OneDrive voor bedrijfs- en Outlook Web Access bekijken.
 
-Footnote 3: If a recipient has a mailbox in Exchange on-premises, and receives a protected email, this content can be opened only in a rich email client, such as Outlook.  This content cannot be opened from Outlook Web Access.
+<sup>3</sup> maakt gebruik van Exchange ActiveSync IRM, die moet worden ingeschakeld door de Exchange-beheerder. Gebruikers kunnen bekijken, reageren en beantwoord dat alle voor beveiligde e-mailberichten, maar gebruikers nieuwe e-mailberichten zelf kan niet worden beveiligd.
 
-Footnote 4:  Uses Exchange ActiveSync IRM, which must be enabled by the Exchange administrator. Users can view, reply, and reply all for protected email messages but users cannot protect new email messages themselves.
+<sup>4</sup> ondersteunt weergeven en bewerken van beveiligde documenten. Voor meer informatie raadpleegt u het volgende bericht op de Office-blog: [Ondersteuning van Azure Rights Management wordt geleverd op Office voor iPad en iPhone](https://blogs.office.com/2015/07/22/azure-rights-management-support-comes-to-office-for-ipad-and-iphone-2/)
 
-If a recipient has a mailbox in Exchange on-premises, and receives a protected email from another organization who is using Exchange, this content can be opened only in a rich email client, such as Outlook.  This content cannot be opened from a device that uses Exchange Active Sync IRM.
-
-Footnote 5:  Supports viewing and editing protected documents. For more information, see the following post on the Office blog: [Azure Rights Management support comes to Office for iPad and iPhone](https://blogs.office.com/2015/07/22/azure-rights-management-support-comes-to-office-for-ipad-and-iphone-2/)
-
-Footnote 6:
-             For more information, see the following post on the Office blog: [OWA for Android now available on select devices](http://blogs.office.com/2014/06/11/owa-for-android-now-available-on-select-devices/)
+<sup>5</sup> voor meer informatie, raadpleegt u het volgende bericht op de Office-blog: [OWA voor Android nu beschikbaar voor select-apparaten](http://blogs.office.com/2014/06/11/owa-for-android-now-available-on-select-devices/)
 
 > [!TIP]
-> For more information about upcoming RMS support in Office for different platforms, see the following post from the Office blog: [Office everywhere, encryption everywhere](http://blogs.office.com/2015/02/18/office-everywhere-encryption-everywhere/)
+> Zie het volgende bericht van de Office-blog voor meer informatie over de komende RMS-ondersteuning in Office voor verschillende platforms: [Office overal, overal codering](http://blogs.office.com/2015/02/18/office-everywhere-encryption-everywhere/)
 
-## <a name="BKMK_SupportedApplications"></a>Applications that support Azure RMS
-The following applications natively support Azure RMS, which means that RMS is tightly integrated into these applications by using RMS APIs to support usage restrictions. These applications are also known as RMS-enlightened:
+## <a name="BKMK_SupportedApplications"></a>Toepassingen die ondersteuning van Azure RMS
+De volgende toepassingen ondersteund standaard Azure RMS, wat betekent dat RMS is nauw geïntegreerd in deze toepassingen met behulp van RMS APIs ter ondersteuning van gebruiksbeperkingen. Deze toepassingen zijn ook bekend als RMS-enlightened:
 
--   **Microsoft Office applications** (Word, Excel, PowerPoint, and Outlook) from the following suites can protect content by using Azure RMS:
+-   **Microsoft Office-toepassingen** (Word, Excel, PowerPoint en Outlook) van de volgende pakketten kunt inhoud beveiligen door Azure RMS:
 
-    -   Office 365 ProPlus
+    -   Office 365 ProPlus
 
-    -   Office 365 Enterprise E3
+    -   Office 365 Enterprise E3
 
-    -   Office 365 Enterprise E4
-
-    -   Office 365 Enterprise E5
+    -   Office 365 Enterprise e 4
 
     -   Office Professional Plus 2016
 
-    -   Office Professional Plus 2013
+    -   Office Professional Plus 2013
 
-    -   Office Professional Plus 2010
+    -   Office Professional Plus 2010
 
-    Other editions of Office (with the exception of Office 2007) can consume protected content.
+    Andere edities van Office (met uitzondering van Office 2007) kunnen gebruikmaken van beveiligde inhoud.
 
     > [!NOTE]
-    > Azure RMS with Office Professional Plus 2010 or Office Professional 2010:
+    > Azure RMS met Office Professional Plus 2010 of Office Professional 2010:
     > 
-    > -   Requires the Rights Management sharing application for Windows
-    > -   Not supported on Windows 10
+    > -   Is vereist voor het delen van toepassingen voor Windows Rights Management
+    > -   Niet ondersteund op Windows 10
 
--   **The Rights Management sharing application for Windows**
+-   **Delen van de toepassing voor Windows Rights Management**
 
-    For more information about the Rights Management sharing application for Windows, see the following resources:
+    Zie voor meer informatie over het delen Rights Management-toepassing voor Windows de volgende bronnen:
 
-    -   [Rights Management sharing application administrator guide](http://technet.microsoft.com/library/dn339003.aspx)
+    -   [Rights Management delen toepassing beheerdershandleiding](http://technet.microsoft.com/library/dn339003.aspx)
 
-    -   [Rights Management sharing application user guide](http://technet.microsoft.com/library/dn339006.aspx)
+    -   [Rights Management delen toepassing handleiding](http://technet.microsoft.com/library/dn339006.aspx)
 
--   **The Rights Management sharing application for mobile platforms**
+-   **De Rights Management-toepassing voor mobiele platforms delen**
 
-    For more information about the Rights Management sharing application for mobile platforms, see the following resources:
+    Zie de volgende bronnen voor meer informatie over de delen Rights Management-toepassing voor mobiele platforms:
 
-    -   Download the relevant app by using the links on the [Microsoft Rights Management page](http://go.microsoft.com/fwlink/?LinkId=303970)
+    -   De relevante app downloaden via de koppelingen in de [pagina Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970)
 
-    -   If you have Microsoft Intune, you can deploy and manage the app by using a policy managed app:
+    -   Als u mobiele apparaten met Microsoft Intune beheren, u kunt implementeren en configureren van de app op [iOS en Android-apparaten als een beleid beheerd app](https://technet.microsoft.com/library/dn878026.aspx).
 
-        -   For iOS and Android devices that are enrolled by Intune: [Control apps using mobile application management policies with Microsoft Intune](https://technet.microsoft.com/library/dn878026.aspx)
+    -   [Veelgestelde vragen over Microsoft Rights Management-toepassing voor mobiele Platforms delen](http://technet.microsoft.com/dn451248)
 
-        -   For Android devices that are not enrolled by Intune: [Create and deploy mobile app management policies with Microsoft Intune](https://technet.microsoft.com/library/mt627829.aspx)
+-   **Andere toepassingen die ondersteuning voor de RMS APIs**:
 
-    -   [FAQ for Microsoft Rights Management Sharing Application for Mobile Platforms](http://technet.microsoft.com/dn451248)
+    -   Line-of-business-toepassingen die intern zijn geschreven met behulp van de RMS-SDK
 
--   **Other applications that support the RMS APIs**:
+    -   Toepassingen van softwareleveranciers die zijn geschreven met behulp van de RMS-SDK
 
-    -   Line-of-business applications that are written in-house by using the RMS SDK
-
-    -   Applications from software vendors that are written by using the RMS SDK
-
-    For more information about the SDK, see the [Microsoft Rights Management SDK](http://msdn.microsoft.com/library/hh552972%28v=vs.85%29.aspx).
+    Zie voor meer informatie over de SDK, de [Microsoft Rights Management SDK](http://msdn.microsoft.com/library/hh552972%28v=vs.85%29.aspx).
 
 > [!IMPORTANT]
-> The following applications are not currently supported by Azure RMS:
+> De volgende toepassingen worden momenteel niet ondersteund door Azure RMS:
 > 
-> -   Microsoft Office for Mac 2011
-> -   Microsoft OneDrive for Business for SharePoint Server 2013
-> -   XPS Viewer
+> -   Microsoft Office voor Mac 2011
+> -   Microsoft OneDrive voor zakelijke voor SharePoint Server 2013
+> -   XPS-Viewer
 > 
-> In addition, the RMS sharing application has the following restrictions:
+> De RMS sharing toepassing heeft bovendien de volgende beperkingen:
 > 
-> -   For Windows computers: Requires a minimum version of Windows 7 Service Pack 1
+> -   Voor Windows-computers: Vereist een minimale versie van Windows 7 Service Pack 1
 
-For more information about how these applications support Azure RMS, see [How Applications Support Azure Rights Management](../Topic/How_Applications_Support_Azure_Rights_Management.md).
+Zie voor meer informatie over hoe deze toepassingen Azure RMS ondersteunen, [Hoe toepassingen ondersteunen Azure Rights Management](../Topic/How_Applications_Support_Azure_Rights_Management.md).
 
-For information about how to configure them, see [Configuring Applications for Azure Rights Management](../Topic/Configuring_Applications_for_Azure_Rights_Management.md).
+Zie voor meer informatie over het configureren van deze [Toepassingen voor Azure Rights Management configureren](../Topic/Configuring_Applications_for_Azure_Rights_Management.md).
 
-## <a name="BKMK_SupportedServers"></a>On-premises servers that support Azure RMS
-The following on-premises server products are supported with Azure RMS when you use the Azure RMS connector, which acts as a communications interface (a relay) between the on-premises servers and Azure RMS. In addition, this configuration requires that you configure directory synchronization between your Active Directory forests and Azure Active Directory.
+## <a name="BKMK_SupportedServers"></a>Servers die ondersteuning van Azure RMS lokaal
+De volgende lokale serverproducten worden ondersteund met Azure RMS wanneer u de Azure RMS-connector die als een communicatie-interface (relay) tussen de lokale servers en Azure RMS fungeert gebruikt. Deze configuratie is bovendien vereist tussen uw Active Directory-forest en Azure Active Directory directory-synchronisatie te configureren.
 
 -   **Exchange Server**:
 
-    -   Exchange Server 2013
+    -   Exchange Server 2013
 
-    -   Exchange Server 2010
+    -   Exchange Server 2010
 
 -   **Office SharePoint Server**:
 
-    -   Office SharePoint Server 2013
+    -   Office SharePoint Server 2013
 
-    -   Office SharePoint Server 2010
+    -   Office SharePoint Server 2010
 
--   **File servers that run Windows Server and use File Classification Infrastructure (FCI)**:
+-   **File servers waarop Windows Server wordt uitgevoerd en gebruiken van bestand classificatie infrastructuur (FCI)**:
 
-    -   Windows Server 2012 R2
+    -   Windows Server 2012 R2
 
-    -   Windows Server 2012
+    -   Windows Server 2012
 
     > [!NOTE]
-    > Because file servers that run Windows Server 2008 R2 do not have a built-in file management task action to apply RMS protection, you cannot use the RMS connector for this scenario. However, you can use File Classification Infrastructure and Azure RMS on these operating systems if you configure a custom file management task to run an executable or script that can protect files by using Azure RMS. For example, a Windows PowerShell script that uses the [RMS Protection cmdlets](https://msdn.microsoft.com/library/azure/mt433195.aspx).
+    > Omdat bestandsservers waarop Windows Server 2008 R2 een ingebouwde bestand management taak toe te passen actie RMS beveiliging niet hebt, kunt u de RMS-connector voor dit scenario. Echter, kunt u bestand classificatie infrastructuur en Azure RMS op deze besturingssystemen als u een taak voor het beheer van aangepaste-bestand voor uitvoering van een uitvoerbaar bestand of een script dat u bestanden beveiligen kunt door Azure RMS configureren. Bijvoorbeeld een Windows PowerShell-script dat gebruikmaakt van de [RMS Protection cmdlets](https://msdn.microsoft.com/library/azure/mt433195.aspx).
     > 
-    > You can also use these cmdlets with servers running later versions of Windows Server, with the benefit that these cmdlets can protect all file types. The RMS connector protects Office files only. For how-to instructions, see [RMS Protection with Windows Server File Classification Infrastructure &#40;FCI&#41;](../Topic/RMS_Protection_with_Windows_Server_File_Classification_Infrastructure__FCI_.md).
+    > U kunt deze cmdlets ook gebruiken met servers met nieuwere versies van Windows Server met het voordeel dat deze cmdlets alle bestandstypen kunt beveiligen. De RMS-connector beschermen Office-bestanden. Zie voor instructies instructies [RMS-beveiliging met Windows Server-bestand classificatie netwerkinfrastructuur &#40;FCI&#41;](../Topic/RMS_Protection_with_Windows_Server_File_Classification_Infrastructure__FCI_.md).
 
-The RMS connector is supported on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
+De RMS-connector wordt ondersteund op Windows Server 2012 R2, Windows Server 2012 en Windows Server 2008 R2.
 
-For more information about how to configure the RMS connector for these on-premises servers, see [Deploying the Azure Rights Management Connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md).
+Zie voor meer informatie over het configureren van de RMS-connector voor deze servers lokale [Implementatie van de Connector van de Azure Rights Management](../Topic/Deploying_the_Azure_Rights_Management_Connector.md).
 
-## See Also
-[Getting Started with Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md)
+## Zie ook
+[Aan de slag met Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md)
 

@@ -3,29 +3,28 @@ description: na
 keywords: na
 title: Preparing for Azure Rights Management
 search: na
-ms.date: 2015-11-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: afbca2d6-32a7-4bda-8aaf-9f93f5da5abc
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Preparing for Azure Rights Management
-After you have signed up for a cloud subscription and established your organization with an account for [!INCLUDE[o365_1](../Token/o365_1_md.md)] or Azure Active Directory, you’re ready to enable the [!INCLUDE[aad_rightsmanagement_2](../Token/aad_rightsmanagement_2_md.md)] service.
+# Voorbereiden voor Azure Rights Management
+Nadat u hebt aangemeld voor een cloud-abonnement en tot stand gebracht van uw organisatie met een account voor [!INCLUDE[o365_1](../Token/o365_1_md.md)] of Azure Active Directory, bent u klaar om in te schakelen de [!INCLUDE[aad_rightsmanagement_2](../Token/aad_rightsmanagement_2_md.md)] service.
 
-However, before you do so, make sure that the following are in place:
+Voordat u dit doet, zorg er echter dat de volgende zijn:
 
--   User accounts and groups in the cloud that you create manually or that are automatically created and synchronized from Active Directory Domain Services (AD DS).
+-   Gebruikersaccounts en groepen in de cloud die u handmatig maken of die automatisch gemaakt en gesynchroniseerd met Active Directory Domain Services (AD DS).
 
-    When you synchronize your on-premises accounts and groups, not all attributes need to be synchronized. For a list of the attributes that must be synchronized for Azure RMS, see this [Azure RMS section](https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-attributes-synchronized/) from the Azure Active Directory documentation. For ease of deployment, we recommend that you use [Azure AD Connect](http://azure.microsoft.com/documentation/articles/active-directory-aadconnect/) to connect your on-premises directories with Azure Active Directory but you can use any directory synchronization method that achieves the same result.
+    Wanneer u uw lokale accounts en groepen synchroniseert, niet alle kenmerken moeten worden gesynchroniseerd. Zie voor een lijst van de kenmerken die moeten worden gesynchroniseerd voor Azure RMS [Azure RMS sectie](https://azure.microsoft.com/documentation/articles/active-directory-aadconnectsync-attributes-synchronized/) van de documentatie van Azure Active Directory. Voor gemakkelijke implementatie, raden we aan dat u gebruikt [Azure AD Connect](http://azure.microsoft.com/documentation/articles/active-directory-aadconnect/) uw lokale mappen met Azure Active Directory, maar u kunnen gebruiken een map synchronisatiemethode die hetzelfde resultaat bereikt.
 
--   Mail-enabled groups in the cloud that you will use with Rights Management. These can be built-in groups or manually created groups that contain users who will use Rights Management.
+-   E-mailadres groepen in de cloud die u met Rights Management gebruiken gaat. Dit kunnen ingebouwde groepen of het handmatig gemaakte groepen met gebruikers die Rights Management wordt gebruikt.
 
-    If you have Exchange Online, you can create and use mail-enabled groups by using the Exchange admin center. If you have AD DS and are synchronizing to Azure AD, you can create and use mail-enabled groups that are either security groups or distribution groups.
+    Als u Exchange Online, kunt u deze kunt maken en gebruiken van e-mailadres groepen met behulp van de Exchange-beheercentrum. Als u AD DS hebt en naar Azure AD synchroniseert, kunt u maken en e-mailadres groepen die beveiligingsgroepen of distributiegroepen zijn gebruikt.
 
-## Enable Rights Management
-By default, [!INCLUDE[aad_rightsmanagement_2](../Token/aad_rightsmanagement_2_md.md)] is disabled when you sign up for your [!INCLUDE[o365_2](../Token/o365_2_md.md)] or Azure AD account. To enable [!INCLUDE[aad_rightsmanagement_2](../Token/aad_rightsmanagement_2_md.md)] for your organization, you must activate the service. For more information, see [Activating Azure Rights Management](../Topic/Activating_Azure_Rights_Management.md).
+## Rights Management inschakelen
+Standaard [!INCLUDE[aad_rightsmanagement_2](../Token/aad_rightsmanagement_2_md.md)] wordt uitgeschakeld wanneer u zich aanmeldt voor uw [!INCLUDE[o365_2](../Token/o365_2_md.md)] of Azure AD-account. Om in te schakelen [!INCLUDE[aad_rightsmanagement_2](../Token/aad_rightsmanagement_2_md.md)] voor uw organisatie, moet u de service activeren. Zie voor meer informatie [Azure Rights Management activeren](../Topic/Activating_Azure_Rights_Management.md).
 
-## See Also
-[Configuring Azure Rights Management](../Topic/Configuring_Azure_Rights_Management.md)
+## Zie ook
+[Azure Rights Management configureren](../Topic/Configuring_Azure_Rights_Management.md)
 

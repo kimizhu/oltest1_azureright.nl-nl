@@ -3,29 +3,28 @@ description: na
 keywords: na
 title: Planning and Implementing Your Azure Rights Management Tenant Key
 search: na
-ms.date: 2015-10-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: f0d33c5f-a6a6-44a1-bdec-5be1bc8e1e14
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Planning and Implementing Your Azure Rights Management Tenant Key
-Use the information in this topic to help you plan for and manage your Rights Management service (RMS) tenant key for Azure RMS. For example, instead of Microsoft managing your tenant key (the default), you might want to manage your own tenant key to comply with specific regulations that apply to your organization.  Managing your own tenant key is also referred to as bring your own key, or BYOK.
+# Plannen en implementeren van uw Azure Rights Management Tenant-sleutel
+Gebruik de informatie in dit onderwerp om te plannen en beheren van uw Rights Management-service (RMS) tenant sleutel voor Azure RMS. In plaats van Microsoft voor het beheren van uw tenant sleutel (standaard), kunt u bijvoorbeeld voor het beheren van uw eigen sleutel tenant om te voldoen aan specifieke regelingen die van toepassing op uw organisatie.  Beheer van uw eigen sleutel tenant wordt ook om als uw eigen sleutel of BYOK verwezen.
 
 > [!NOTE]
-> The RMS tenant key is also known as the Server Licensor Certificate (SLC) key. Azure RMS maintains one or more keys for each organization that subscribes to Azure RMS. Whenever a key is used for RMS within an organization (such as user keys, computer keys, document encryption keys), they cryptographically chain to your RMS tenant key.
+> De sleutel voor RMS tenant is ook wel bekend als de sleutel Server Licentiegever certificaat (SLC). Azure RMS onderhoudt een of meer sleutels voor elke organisatie die Azure RMS worden bijgehouden. Wanneer een sleutel wordt gebruikt voor RMS binnen een organisatie (zoals gebruikerssleutels, computersleutels, versleutelingssleutels document), koppelen ze versleutelen aan de RMS-tenant-sleutel.
 
-**At a glance:** Use the following table as a quick guide to your recommended tenant key topology. Then, use the additional sections for more information.
+**In één oogopslag:** Gebruik de volgende tabel als een snelle handleiding voor de aanbevolen tenant key-topologie. Vervolgens gebruikt u de aanvullende secties voor meer informatie.
 
-If you deploy Azure RMS by using a tenant key that is managed by Microsoft, you can change to BYOK later. However, you cannot currently change your Azure RMS tenant key from BYOK to managed by Microsoft.
+Als u Azure RMS implementeren met behulp van een tenant-sleutel die wordt beheerd door Microsoft, kunt u later om BYOK te wijzigen. Echter wijzigen op dat moment uw Azure RMS tenant sleutel niet van BYOK beheerd door Microsoft.
 
-|Business requirement|Recommended tenant key topology|
-|------------------------|-----------------------------------|
-|Deploy Azure RMS quickly and without requiring special hardware|Managed by Microsoft|
-|Need full IRM functionality in Exchange Online with Azure RMS|Managed by Microsoft|
-|Your keys are created by you and protected in a hardware security module (HSM)|BYOK<br /><br />Currently, this configuration will result in reduced IRM functionality in Exchange Online. For more information, see the [BYOK pricing and restrictions](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_Pricing) section.|
-Use the following sections to help you choose which tenant key topology to use, understand the tenant key lifecycle, how to implement bring your own key (BYOK), and what steps to take next:
+|Zakelijke vereisten|Aanbevolen tenant key-topologie|
+|-----------------------|-----------------------------------|
+|Azure RMS snel en zonder speciale hardware implementeren|Beheerd door Microsoft|
+|Volledige IRM-functionaliteit in Exchange Online met Azure RMS nodig hebt|Beheerd door Microsoft|
+|De sleutels zijn gemaakt door u en wordt beveiligd in een hardware HSM (security module)|BYOK<br /><br />Momenteel leidt deze configuratie tot gereduceerde IRM Exchange Online. Zie voor meer informatie de [BYOK pricing and restrictions](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_Pricing) sectie.|
+Met de volgende secties kunt u kiezen welke toets tenant topologie te gebruiken, de levenscyclus van de tenant begrijpen, het implementeren van brengt uw eigen sleutel (BYOK) en wat in werking te laten volgende stappen:
 
 -   [Choose your tenant key topology: Managed by Microsoft (the default) or managed by you (BYOK)](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_ChooseTenantKey)
 
@@ -35,76 +34,76 @@ Use the following sections to help you choose which tenant key topology to use, 
 
 -   [Next steps](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_NextSteps)
 
-## <a name="BKMK_ChooseTenantKey"></a>Choose your tenant key topology: Managed by Microsoft (the default) or managed by you (BYOK)
-Decide which tenant key topology is best for your organization. By default, Azure RMS generates your tenant key and manages most aspects of the tenant key lifecycle. This is the simplest option with the lowest administrative overheads. In most cases, you do not even need to know that you have a tenant key. You just sign up for Azure RMS and the rest of the key management process is handled by Microsoft.
+## <a name="BKMK_ChooseTenantKey"></a>Kies uw tenant sleutel topologie: Beheerd door Microsoft (standaard) of beheerd door u (BYOK)
+Bepalen welke sleutel topologie tenant is het meest geschikt voor uw organisatie. Standaard Azure RMS uw tenant sleutel genereert en beheert de meeste aspecten van de levenscyclus van de tenant. Dit is de eenvoudigste optie met de laagste administratieve overhead. In de meeste gevallen hoeft u zelfs te weten dat u een sleutel tenant hebt. U alleen aanmelden bij Azure RMS en de rest van het proces Sleutelbeheer kan worden opgelost door Microsoft.
 
-Alternatively, you might want complete control over your tenant key, which involves creating your tenant key and keeping the master copy on your premises. This scenario is often referred to as bring your own key (BYOK). With this option, the following happens:
+U kunt ook volledige controle over uw tenant sleutel, waarbij de tenant-sleutel maken en het bijhouden van het originele exemplaar op uw locatie. Dit scenario wordt vaak genoemd brengt uw eigen sleutel (BYOK). Met deze optie gebeurt het volgende:
 
-1.  You generate your tenant key on your premises, in line with your IT policies.
+1.  U uw tenant sleutel genereren op uw locatie, in overeenstemming met uw IT-beleid.
 
-2.  You securely transfer the tenant key from a Hardware Security Module (HSM) in your possession to HSMs that are owned and managed by Microsoft. Throughout this process, your tenant key never leaves the hardware protection boundary.
+2.  U omzetten veilig in de tenant-sleutel van een Hardware Security Module HSM () in uw bezit HSM's die eigendom zijn van en beheerd door Microsoft. Tijdens dit proces blijven uw tenant sleutel nooit de rand van de hardware-beveiliging.
 
-3.  When you transfer your tenant key to Microsoft, it stays protected by Thales HSMs. Microsoft has worked with Thales to ensure that your tenant key cannot be extracted from Microsoft’s HSMs.
+3.  Wanneer u uw tenant sleutel naar Microsoft overbrengen, blijft het beveiligde door Thales HSM's. Microsoft heeft gewerkt met Thales om ervoor te zorgen dat uw tenant sleutel kan niet worden geëxtraheerd uit HSM's van Microsoft.
 
-Although it’s optional, you will also probably want to use the near real-time usage logs from Azure RMS to see exactly how and when your tenant key is being used.
+Hoewel dit optioneel is, u waarschijnlijk ook wilt gebruiken de nabije real-time Gebruik Logboeken van Azure RMS om te zien hoe precies en wanneer de tenant-sleutel wordt gebruikt.
 
 > [!NOTE]
-> As an additional protection measure, Azure RMS uses separate security worlds for its data centers in North America, EMEA (Europe, Middle East and Africa), and Asia. When you manage your own tenant key, it is tied to the security world of the region in which your RMS tenant is registered. For example, a tenant key from a European customer cannot be used in data centers in North America or Asia.
+> Als een meting aanvullende beveiliging Azure RMS afzonderlijke beveiliging werelden gebruikt voor de datacenters in Noord-Amerika, EMEA (Europa, Midden-Oosten en Afrika) en Azië. Wanneer u uw eigen sleutel tenant beheren, is het gebonden aan de wereld van de beveiliging van de regio waarin uw RMS-tenant is geregistreerd. Bijvoorbeeld kan niet een sleutel tenant van een Europese klant worden gebruikt in datacenters in Noord-Amerika of Azië.
 
-## <a name="BKMK_OverviewLifecycle"></a>The tenant key lifecycle
-If you decide that Microsoft should manage your tenant key, Microsoft handles most of the key lifecycle operations. However, if you decide to manage your tenant key, you are responsible for many of the key lifecycle operations and some additional procedures.
+## <a name="BKMK_OverviewLifecycle"></a>De levenscyclus van de tenant
+Als u besluit dat Microsoft uw tenant-sleutel moet beheren, voert Microsoft het grootste deel van de sleutel lifecycle-bewerkingen. Echter, als u besluit voor het beheren van uw tenant sleutel, u bent verantwoordelijk voor veel van de sleutel lifecycle-bewerkingen en enkele aanvullende procedures.
 
-The following diagrams show and compares these two options. The first diagram shows how little administrator overheads there are for you in the default configuration when Microsoft manages the tenant key.
+De volgende diagrammen weergeven en deze twee opties worden vergeleken. Het eerste diagram ziet u hoe weinig beheerder overhead er voor u in de standaardconfiguratie zijn wanneer Microsoft de tenant-sleutel beheert.
 
 ![](../Image/RMS_BYOK_cloud.png)
 
-The second diagram shows the additional steps required when you manage your own tenant key.
+Het tweede diagram ziet u de extra stappen vereist bij het beheren van uw eigen tenant-sleutel.
 
 ![](../Image/RMS_BYOK_onprem.png)
 
-If you decide to let Microsoft manage your tenant key, no further action is required for you to generate the key and you can skip the following sections and go straight to [Next steps](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_NextSteps).
+Als u de Microsoft beheren van uw tenant sleutel, kunnen geen verdere actie is vereist voor het genereren van de sleutel en u kunt de volgende secties overslaan en ga direct naar [Next steps](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_NextSteps).
 
-If you decide to manage your tenant key yourself, read the following sections for more information.
+Als u besluit voor het beheren van uw tenant sleutel, lees de volgende secties voor meer informatie.
 
-### More information about Thales HSMs and Microsoft additions
-Azure RMS uses Thales HSMs to protect your keys.
+### Meer informatie over Thales HSM's en Microsoft-toevoegingen
+Azure RMS gebruikt Thales HSM's om uw sleutels worden beveiligd.
 
-Thales e-Security is a leading global provider of data encryption and cyber security solutions to the financial services, high technology, manufacturing, government, and technology sectors. With a 40-year track record of protecting corporate and government information, Thales solutions are used by four of the five largest energy and aerospace companies, 22 NATO countries, and secure more than 80 per cent of worldwide payment transactions.
+Thales e-beveiliging is een toonaangevende globale leverancier van gegevensversleuteling en cyber security oplossingen voor de financiële diensten, hoge technologie productie, overheid en technologie sectoren. Met een 40 jaar ervaring van het beschermen van zakelijke en overheid van de informatie Thales oplossingen worden gebruikt door vier van de vijf grootste energie en ruimtevaart bedrijven, 22 NAVO landen en meer dan 80% van wereldwijd betalingstransacties beveiligen.
 
-Microsoft has collaborated with Thales to enhance the state of art for HSMs. These enhancements enable you to get the typical benefits of hosted services without relinquishing control over your keys. Specifically, these enhancements let Microsoft manage the HSMs so that you do not have to. As a cloud service, Azure RMS scales up at short notice to meet your organization’s usage spikes. At the same time, your key is protected inside Microsoft’s HSMs: You retain control over the key lifecycle because you generate the key and transfer it to Microsoft’s HSMs.
+Microsoft werkt samen treedt met Thales voor het verbeteren van de status van illustraties voor HSM's. Deze verbeteringen kunnen u de standaard voordelen van gehoste services zonder prijsgeeft controle over uw sleutels. Deze verbeteringen laten bijzonder, de HSM's beheren, zodat u geen naar hebt Microsoft. Als een cloudservice Azure RMS geschaald op korte termijn om te voldoen aan uw organisatie gebruik punten van. Tegelijkertijd, uw sleutel beveiligd binnen HSM's van Microsoft: U behouden controle over de sleutel lifecycle omdat u de sleutel genereren en naar HSM's van Microsoft overzetten.
 
-For more information, see [Thales HSMs and Azure RMS](http://www.thales-esecurity.com/msrms/cloud) on the Thales web site.
+Zie voor meer informatie [Thales HSM's en Azure RMS](http://www.thales-esecurity.com/msrms/cloud) op de website Thales.
 
-## <a name="BKMK_Pricing"></a>BYOK pricing and restrictions
-Organization that have an IT-managed Azure subscription can use BYOK and log its usage at no extra charge. Organizations that use RMS for individuals cannot use BYOK and logging because they do not have a tenant administrator to configure these features.
+## <a name="BKMK_Pricing"></a>BYOK prijzen en beperkingen
+Organisatie die een IT-beheerde Azure-abonnement hebt, kunt BYOK gebruiken en meld u het gebruik ervan zonder extra kosten. Organisaties die gebruikmaken van RMS voor personen niet BYOK en logboekregistratie omdat ze niet een tenantbeheerder hebben configureren van deze functies gebruiken.
 
 > [!NOTE]
-> For more information about RMS for individuals, see [RMS for Individuals and Azure Rights Management](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md).
+> Zie voor meer informatie over RMS voor personen [RMS voor personen en Azure Rights Management](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md).
 
 ![](../Image/RMS_BYOK_noExchange.png)
 
-BYOK and logging work seamlessly with every application that integrates with Azure RMS. This includes cloud services such as SharePoint Online, on-premises servers that run Exchange and SharePoint that work with Azure RMS by using the RMS connector, and client applications such as Office 2013. You will get key usage logs regardless of which application makes requests of Azure RMS.
+BYOK en logboekregistratie werken naadloos met elke toepassing die is geïntegreerd met Azure RMS. Dit omvat cloudservices, zoals SharePoint Online, het lokale servers met Exchange en SharePoint die met Azure RMS werken met behulp van de RMS-connector en de clienttoepassingen zoals Office 2013. U krijgt sleutelgebruik logboeken ongeacht welke toepassing aanvragen van Azure RMS maakt.
 
-There is one exception: Currently, **Azure RMS BYOK is not compatible with Exchange Online**.  If you want to use Exchange Online, we recommend that you deploy Azure RMS in the default key management mode now, where Microsoft generates and manages your key. You have the option to move to BYOK later, for example, when Exchange Online does support Azure RMS BYOK. However, if you cannot wait, another option is to deploy Azure RMS with BYOK now, with reduced RMS functionality for Exchange Online (unprotected emails and unprotected attachments remain fully functional):
+Er is een uitzondering: Op dit moment **Azure RMS BYOK is niet compatibel met Exchange Online**.  Als u gebruiken Exchange Online wilt, wordt u aangeraden u Azure RMS in de Sleutelbeheer standaardmodus nu waar Microsoft genereert en beheert de sleutel implementeren. U hebt de mogelijkheid om te verplaatsen naar BYOK later, bijvoorbeeld wanneer Exchange Online biedt ondersteuning voor Azure RMS BYOK. Als u geen tijd, moet een andere optie is echter Azure RMS met BYOK nu implementeren met verminderde RMS-functionaliteit voor Exchange Online (niet-beveiligde e-mailberichten en niet-beveiligde bijlagen blijven volledig functioneel):
 
--   Protected emails or protected attachments in Outlook Web Access cannot be displayed.
+-   Beveiligde e-mailberichten of beveiligde bijlagen in Outlook Web Access kunnen niet worden weergegeven.
 
--   Protected emails on mobile devices that use Exchange ActiveSync IRM cannot be displayed.
+-   Beveiligde e-mailberichten op mobiele apparaten die gebruikmaken van Exchange ActiveSync IRM kunnen niet worden weergegeven.
 
--   Transport decryption (for example, to scan for malware) and journal  decryption is not possible, so protected emails and protected attachments will be skipped.
+-   Transport decodering (bijvoorbeeld scannen op malware) en journal decodering is niet mogelijk is, dus beveiligd e-mailberichten en beveiligde bijlagen worden overgeslagen.
 
--   Transport protection rules and data loss prevention (DLP) that enforce IRM policies is not possible, so RMS protection cannot be applied by using these methods.
+-   Transport protection regels en gegevens gegevensverlies voorkomen (DLP) die IRM afdwingen is niet mogelijk, zodat RMS beveiliging kan niet worden toegepast met behulp van deze methoden.
 
--   Server-based search for protected emails, so protected emails will be skipped.
+-   Zoeken op basis van een server voor beveiligde e-mailberichten, zodat beveiligde e-mailberichten worden overgeslagen.
 
-When you use Azure RMS BYOK with reduced RMS functionality for Exchange Online, RMS will work with email clients in Outlook on Windows and Mac, and on other email clients that don't use Exchange ActiveSync IRM.
+Wanneer u Azure RMS BYOK met verminderde RMS-functionaliteit voor Exchange Online, werkt RMS met clients e-mail in Outlook op Windows en Mac en andere e-clients die geen Exchange ActiveSync IRM gebruiken.
 
-If you are migrating to Azure RMS from AD RMS, you might have imported your key as a trusted publishing domain (TPD) to Exchange Online (also called BYOK in Exchange terminology, which is separate from Azure RMS BYOK). In this scenario, you must remove the TPD from Exchange Online to avoid conflicting templates and policies. For more information, see [Remove-RMSTrustedPublishingDomain](https://technet.microsoft.com/library/jj200720%28v=exchg.150%29.aspx) from the Exchange Online cmdlets library.
+Als u naar Azure RMS van AD RMS migreert, u mogelijk hebt geïmporteerd uw sleutel als een vertrouwde publicatieserver domein (vertrouwde Uitgiftedomein) naar Exchange Online (ook BYOK in Exchange-terminologie gescheiden van Azure RMS BYOK is genoemd). In dit geval moet u het vertrouwde Uitgiftedomein van Exchange Online conflicterende sjablonen en beleid te voorkomen. Zie voor meer informatie [verwijderen RMSTrustedPublishingDomain](https://technet.microsoft.com/library/jj200720%28v=exchg.150%29.aspx) uit de bibliotheek met Exchange Online-cmdlets.
 
-Sometimes, the Azure RMS BYOK  exception for Exchange Online is not a problem in practice. For example, organizations that need BYOK and logging run their data applications (Exchange, SharePoint, Office) on-premises, and use Azure RMS for functionality that is not easily available with on-premises AD RMS (for example, collaboration with other companies and access from mobile clients). Both BYOK and logging work well in this scenario and allow the organization to have full control over their Azure RMS subscription.
+Soms is de uitzondering Azure RMS BYOK voor Exchange Online niet een probleem optreedt in de praktijk. Bijvoorbeeld, uitvoeren organisaties die BYOK en logboekregistratie moeten hun gegevens toepassingen (Exchange, SharePoint, Office) op de lokale en gebruik Azure RMS voor functionaliteit die niet gemakkelijk beschikbaar is met de lokale AD RMS (bijvoorbeeld de samenwerking met andere bedrijven en toegang via mobiele clients). BYOK en logboekregistratie werk goed in dit scenario en de organisatie volledige controle over hun abonnement Azure RMS toestaan.
 
-## <a name="BKMK_ImplementBYOK"></a>Implementing bring your own key (BYOK)
-Use the information and procedures in this section if you have decided to generate and manage your tenant key; the bring your own key (BYOK) scenario:
+## <a name="BKMK_ImplementBYOK"></a>Implementatie van brengt uw eigen sleutel (BYOK)
+De informatie en procedures in dit gedeelte te gebruiken als u hebt besloten te genereren en beheren van uw tenant sleutel; het Breng uw eigen scenario sleutel (BYOK):
 
 -   [Prerequisites for BYOK](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_Preqs)
 
@@ -113,43 +112,43 @@ Use the information and procedures in this section if you have decided to genera
 -   [Generate and transfer your tenant key – in person](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOK_InPerson)
 
 > [!IMPORTANT]
-> If you have already started to use [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] (the service is activated) and you have users who run Office 2010, contact Microsoft Customer Support Services (CSS) before you run these procedures. Depending on your scenario and requirements, you can still use BYOK but with some limitations or additional steps.
+> Als u al hebt gestart gebruiken [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] (de service is geactiveerd) en moet u gebruikers die Office 2010 uitvoeren, neem contact op met Microsoft klantenondersteuning (CSS) voordat u deze procedures uitvoert. Afhankelijk van uw scenario en vereisten, kunt u BYOK, maar met een aantal beperkingen of extra stappen.
 > 
-> Also contact CSS if your organization has specific policies for handling keys.
+> Ook contact opnemen met CSS als uw organisatie specifiek beleid heeft voor het verwerken van sleutels.
 
-### <a name="BKMK_Preqs"></a>Prerequisites for BYOK
-See the following table for a list of prerequisites for bring your own key (BYOK).
+### <a name="BKMK_Preqs"></a>Vereisten voor BYOK
+Zie de volgende tabel voor een lijst met vereisten voor brengt uw eigen sleutel (BYOK).
 
-|Requirement|More information|
-|---------------|--------------------|
-|A subscription that supports Azure RMS.|For more information about the available subscriptions, see the [Cloud subscriptions that support Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedSubscriptions) section in the [Requirements for Azure Rights Management](../Topic/Requirements_for_Azure_Rights_Management.md) topic.|
-|You do not use RMS for individuals or Exchange Online. Or, if you use Exchange Online, you understand and accept the limitations of using BYOK with this configuration.|For more information about the restrictions and current limitations for BYOK, see the [BYOK pricing and restrictions](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_Pricing) section in this topic.<br /><br />**Important**: Currently, BYOK is not compatible with Exchange Online.|
-|Thales HSM, smartcards, and support software.<br /><br />**Note**: If you are migrating from AD RMS to Azure RMS by using software key to hardware key, you must have a minimum version of 11.62 for the Thales drivers.|You must have access to a Thales Hardware Security Module and basic operational knowledge of Thales HSMs. See [Thales Hardware Security Module](http://www.thales-esecurity.com/msrms/buy) for the list of compatible models, or to purchase an HSM if you do not have one.|
-|If you want to transfer your tenant key over the Internet rather than physically be present in Redmond, USA. there are 3 requirements:<br /><br />Requirement 1: An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.62.<br /><br />If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](http://go.microsoft.com/fwlink/?LinkId=225702).<br /><br />Requirement 2: A workstation that is connected to the Internet and has a minimum Windows operation system of Windows 7.<br /><br />Requirement 2: A USB drive or other portable storage device that has at least 16 MB free space.|These prerequisites are not required if you travel to Redmond and transfer your tenant key in person.<br /><br />For security reasons, we recommend that the first workstation is not connected to a network. However, this is not programmatically enforced.<br /><br />Note: In the instructions that follow, this first workstation is referred to as the **disconnected workstation**.<br /><br />In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br /><br />Note: In the instructions that follow, this second workstation is referred to as the **Internet-connected workstation**.|
-|Optional: Azure subscription.|If you want to log your tenant key usage (and Rights Management usage), you must have a subscription to Azure and sufficient storage on Azure to store your logs.|
-The procedures to generate and use your own tenant key depend on whether you want to do this over the Internet or in person:
+|Vereiste|Meer informatie|
+|------------|-------------------|
+|Een abonnement dat Azure RMS ondersteunt|Zie voor meer informatie over de beschikbare abonnementen, de [Cloud-abonnementen die ondersteuning van Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedSubscriptions) sectie de [Vereisten voor Azure Rights Management](../Topic/Requirements_for_Azure_Rights_Management.md) onderwerp.|
+|U gebruik geen RMS voor personen of Exchange Online. Of als u Exchange Online, u begrijpt en de beperkingen van BYOK met deze configuratie accepteren.|Zie voor meer informatie over de beperkingen en de huidige beperkingen voor BYOK de [BYOK pricing and restrictions](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_Pricing) in dit onderwerp. **Important:** BYOK is momenteel niet compatibel met Exchange Online.|
+|Thales HSM, smartcards en ondersteuningssoftware<br /><br />Als u een migratie van AD RMS naar Azure RMS met behulp van softwaresleutel voor hardwaresleutel, hebt u een minimumversie van 11.62 voor de Thales stuurprogramma's.|U moet toegang hebben tot een Thales Hardware Security Module en basic operationele kennis van Thales HSM's. Zie [Thales Hardware Security Module](http://www.thales-esecurity.com/msrms/buy) voor de lijst met compatibele modellen of een HSM aanschaffen als u geen hebt.|
+|Als u wilt uw tenant sleutel overbrengen via het Internet in plaats van fysiek aanwezig zijn in Redmond, VS:<br /><br />1.  Een offline x 64 werkstation met een minimale Windows-besturingssysteem van Windows 7 en Thales nShield software die ten minste versie 11.62.<br />    Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Installeer Microsoft .NET Framework 4.5](http://go.microsoft.com/fwlink/?LinkId=225702).<br />2.  Een werkstation dat is verbonden met Internet en een minimale Windows-besturingssysteem van Windows 7.<br />3.  Een USB-station of andere portable opslagapparaat met ten minste 16 MB vrije ruimte.|Deze vereisten zijn niet vereist als u Redmond en op de tenant-sleutel in persoon te dragen.<br /><br />Uit veiligheidsoverwegingen wordt aangeraden de eerste werkstation is niet verbonden met een netwerk. Maar wordt dit niet programmatisch afgedwongen. **Note:** In de instructies die volgen, dit werkstation verbroken werkstation genoemd.<br />Bovendien als uw tenant sleutel voor een productienetwerk is, wordt aangeraden een tweede, afzonderlijke werkstation te downloaden van de toolset en uploaden van de tenant-sleutel te gebruiken. Maar voor testdoeleinden, kunt u hetzelfde werkstation gebruiken als het eerste. **Note:** In de instructies die volgen, dit tweede werkstation werkstation met de internetverbinding genoemd.|
+|Optioneel: Azure-abonnement|Als u wilt registreren uw tenant sleutelgebruik (en gebruik van Rights Management), hebt u een abonnement op Azure en voldoende opslag op Azure voor het opslaan van de logboeken.|
+De procedures voor het genereren en het gebruik van uw eigen tenant-sleutel is afhankelijk van of wilt u dit doen via het Internet of in persoon:
 
--   **Over the Internet:** This requires some extra configuration steps, such as downloading and using a toolset and Windows PowerShell cmdlets. However, you do not have to physically be in a Microsoft facility to transfer your tenant key. Security is maintained by the following methods:
+-   **Via het Internet:** Dit is vereist voor een aantal extra configuratiestappen, zoals het downloaden en het gebruik van een pakket hulpprogramma's en Windows PowerShell-cmdlets. U hebt echter niet fysiek worden in een Microsoft-faciliteit overzetten van uw tenant-sleutel. Beveiliging wordt beheerd door de volgende methoden:
 
-    -   You generate the tenant key from an offline workstation, which reduces the attack surface.
+    -   U de tenant-sleutel genereren van een offline werkstation, waardoor de aanvallen.
 
-    -   The tenant key is encrypted with a Key Exchange Key (KEK), which stays encrypted until it is transferred to the Azure RMS HSMs. Only the encrypted version of your tenant key leaves the original workstation.
+    -   De sleutel tenant is versleuteld met een sleutel Exchange sleutel (KEK), dat versleutelde blijft voordat deze worden overgebracht naar de Azure RMS HSM's. Alleen de gecodeerde versie van uw tenant sleutel blijft het oorspronkelijke werkstation.
 
-    -   A tool sets properties on your tenant key that binds your tenant key to the Azure RMS security world. So after the Azure RMS HSMs receive and decrypt your tenant key, only these HSMs can use it. Your tenant key cannot be exported. This binding is enforced by the Thales HSMs.
+    -   Een hulpprogramma stelt de eigenschappen van de tenant-sleutel die uw tenant sleutel aan de hele wereld Azure RMS-beveiliging gebonden. Dus kunnen de Azure RMS HSM's ontvangt en uw tenant sleutel ontsleuteld, deze HSM's gebruiken. De sleutel tenant kan niet worden geëxporteerd. Deze binding wordt afgedwongen door de Thales HSM's.
 
-    -   The Key Exchange Key (KEK) that is used to encrypt your tenant key is generated inside the Azure RMS HSMs and is not exportable. The HSMs enforce that there can be no clear version of the KEK outside the HSMs. In addition, the toolset includes attestation from Thales that the KEK is not exportable and was generated inside a genuine HSM that was manufactured by Thales.
+    -   De sleutel Exchange sleutel (KEK) die wordt gebruikt voor het versleutelen van de tenant-sleutel wordt gegenereerd vanuit de Azure RMS HSM's en kan niet worden geëxporteerd. De HSM's afdwingen dat er geen duidelijke versie van de KEK buiten de HSM's kunnen worden. Bovendien bevat de toolset verklaring van Thales dat de KEK kan niet worden geëxporteerd en binnen een legitieme HSM die is gemaakt door Thales is gegenereerd.
 
-    -   The toolset includes attestation from Thales that the Azure RMS security world was also generated on a genuine HSM manufactured by Thales. This proves to you that Microsoft is using genuine hardware.
+    -   De toolset bevat verklaring van Thales dat de hele wereld Azure RMS-beveiliging ook op een legitieme HSM geproduceerd door Thales is gegenereerd. Dit blijkt voor u dat Microsoft genuine hardware wordt gebruikt.
 
-    -   Microsoft uses separate KEKs as well as separate Security Worlds in each geographical region, which ensures that your tenant key can be used only in data centers in the region in which you encrypted it. For example, a tenant key from a European customer cannot be used in data centers in North American or Asia.
+    -   Microsoft maakt gebruik van afzonderlijke KEKs, evenals scheiden beveiliging werelden in elke geografische regio, die zorgt ervoor dat uw tenant sleutel kan alleen worden gebruikt in datacenters in de regio waarin u het gecodeerd. Bijvoorbeeld kan niet een sleutel tenant van een Europese klant worden gebruikt in datacenters in Noord-Amerika of Azië.
 
     > [!NOTE]
-    > Your tenant key can safely move through untrusted computers and networks because it is encrypted and secured with access control level permissions, which makes it usable only within your HSMs and Microsoft’s HSMs for Azure RMS. You can use the scripts that are provided in the toolset to verify the security measures and read more information about how this works from Thales: [Hardware Key management in the RMS Cloud](https://www.thales-esecurity.com/knowledge-base/white-papers/hardware-key-management-in-the-rms-cloud).
+    > De sleutel tenant kunt veilig verplaatsen door niet-vertrouwde computers en netwerken omdat deze is versleuteld en beveiligd met niveau toegangsmachtigingen, die ervoor zorgt dat alleen binnen uw HSM's en HSM's van Microsoft voor Azure RMS. U kunt de scripts die zijn opgegeven in de toolset om te controleren of de veiligheidsmaatregelen en meer informatie over deze procedure uit Thales lezen: [Hardware Sleutelbeheer in de Cloud RMS](https://www.thales-esecurity.com/knowledge-base/white-papers/hardware-key-management-in-the-rms-cloud).
 
--   **In person:** This requires that you contact Microsoft Customer Support Services (CSS) to schedule a key transfer appointment for Azure RMS. You must travel to a Microsoft office in Redmond, Washington, United States of America to transfer your tenant key to the Azure RMS security world.
+-   **Persoonlijk:** Dit is vereist dat u contact opneemt met Microsoft klantenondersteuning (CSS) om een sleutel overdracht afspraak voor Azure RMS. U moet een Microsoft Office reis in Redmond, Washington, Verenigde Staten van Amerika overzetten van uw tenant-sleutel in de wereld Azure RMS beveiliging.
 
-### <a name="BKMK_BYOK_Internet"></a>Generate and transfer your tenant key – over the Internet
-Use the following procedures if you want to transfer your tenant key over the Internet rather than travel to a Microsoft facility to transfer the tenant key in person:
+### <a name="BKMK_BYOK_Internet"></a>Genereren en uw tenant sleutel – overbrengen via het Internet
+De volgende procedures gebruiken als u wilt uw tenant sleutel overbrengen via het Internet in plaats van een Microsoft-mogelijkheid om over te dragen van de tenant-sleutel in persoon naartoe:
 
 -   [Prepare your Internet-connected workstation](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetPrepareWorkstation)
 
@@ -161,8 +160,8 @@ Use the following procedures if you want to transfer your tenant key over the In
 
 -   [Transfer your tenant key to Azure RMS](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetTransfer)
 
-#### <a name="BKMK_InternetPrepareWorkstation"></a>Prepare your Internet-connected workstation
-To prepare your workstation that is connected to the Internet, follow these 3 steps:
+#### <a name="BKMK_InternetPrepareWorkstation"></a>Uw internetverbinding werkstation voorbereiden
+Als u met het voorbereiden van het werkstation dat is verbonden met Internet, volgt 3:
 
 -   [Step 1: Install Windows PowerShell for Azure Rights Management](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_PrepareInternetConnectedWorkstation1)
 
@@ -170,89 +169,89 @@ To prepare your workstation that is connected to the Internet, follow these 3 st
 
 -   [Step 3: Download the BYOK toolset](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_PrepareInternetConnectedWorkstation3)
 
-##### <a name="BKMK_PrepareInternetConnectedWorkstation1"></a>Step 1: Install Windows PowerShell for Azure Rights Management
-From the Internet-connected workstation, download and install the Windows PowerShell module for Azure Rights Management.
+##### <a name="BKMK_PrepareInternetConnectedWorkstation1"></a>Stap 1: Windows PowerShell voor Azure Rights Management installeren
+Vanaf het werkstation internetverbinding download en installeer de Windows PowerShell-module voor Azure Rights Management.
 
 > [!NOTE]
-> If you have previously downloaded this Windows PowerShell module, run the following command to check that your version number is at least 2.1.0.0: `(Get-Module aadrm -ListAvailable).Version`
+> Als u deze Windows PowerShell-module eerder hebt gedownload, voert u de volgende opdracht om te controleren of het versienummer ten minste 2.1.0.0 is: `(Get-Module aadrm -ListAvailable).Version`
 
-For installation instructions, see [Installing Windows PowerShell for Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
+Zie voor installatie-instructies [Installatie van Windows PowerShell voor Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
 
-##### <a name="BKMK_PrepareInternetConnectedWorkstation2"></a>Step 2: Get your Azure Active Directory tenant ID
-Start Windows PowerShell with the **Run as administrator** option, and then run the following commands:
+##### <a name="BKMK_PrepareInternetConnectedWorkstation2"></a>Stap 2: Uw Azure Active Directory-tenant-ID ophalen
+Start van Windows PowerShell met de **Als administrator uitvoeren** optie en voer de volgende opdrachten:
 
--   Use the [Connect-AadrmService](http://msdn.microsoft.com/library/windowsazure/dn629415.aspx) cmdlet to connect to the Azure RMS service:
+-   Gebruik de [Connect AadrmService](http://msdn.microsoft.com/library/windowsazure/dn629415.aspx) cmdlet verbinding maken met de Azure RMS-service:
 
     ```
     Connect-AadrmService
     ```
-    When prompted, enter your [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] tenant administrator credentials (typically, you will use an account that is a global administrator for Azure Active Directory or Office 365).
+    Wanneer u wordt gevraagd, typt u uw [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] tenant beheerdersreferenties (meestal, gebruikt u een account dat een globale beheerder voor Azure Active Directory of Office 365).
 
--   Use the [Get-AadrmConfiguration](http://msdn.microsoft.com/library/windowsazure/dn629410.aspx) cmdlet to display the configuration of your tenant:
+-   Gebruik de [Get-AadrmConfiguration](http://msdn.microsoft.com/library/windowsazure/dn629410.aspx) cmdlet weer te geven van de configuratie van uw tenant:
 
     ```
     Get-AadrmConfiguration
     ```
-    From the output, save the GUID from the first line (BPOSId). This is your Azure Active Directory tenant ID, which you will need later when you prepare your tenant key for upload.
+    Sla de GUID van de eerste regel (BPOSId) van de uitvoer. Dit is uw Azure Active Directory-tenant-ID, die u later moet bij het voorbereiden van de tenant-sleutel voor het uploaden van bestanden.
 
--   Use the [Disconnect-AadrmService](http://msdn.microsoft.com/library/windowsazure/dn629416.aspx) cmdlet to disconnect from the Azure RMS service until you are ready to upload your key:
+-   Gebruik de [verbinding verbreken AadrmService](http://msdn.microsoft.com/library/windowsazure/dn629416.aspx) cmdlet loskoppelen van de Azure RMS-service totdat u uw sleutel uploaden:
 
     ```
     Disconnect-AadrmService
     ```
 
-Do not close the Windows PowerShell window.
+De Windows PowerShell-venster niet sluiten.
 
-##### <a name="BKMK_PrepareInternetConnectedWorkstation3"></a>Step 3: Download the BYOK toolset
-Go to the Microsoft Download Center and [download the BYOK toolset](http://go.microsoft.com/fwlink/?LinkId=335781) for your region:
+##### <a name="BKMK_PrepareInternetConnectedWorkstation3"></a>Stap 3: De toolset BYOK downloaden
+Ga naar het Microsoft Download Center en [downloaden van de toolset BYOK](http://go.microsoft.com/fwlink/?LinkId=335781) voor uw regio:
 
-|Region|Package name|
-|----------|----------------|
-|North America|AzureRMS-BYOK-tools-UnitedStates.zip|
-|Europe|AzureRMS-BYOK-tools-Europe.zip|
-|Asia|AzureRMS-BYOK-tools-AsiaPacific.zip|
-The toolset includes the following :
+|Regio|Pakketnaam|
+|---------|--------------|
+|Noord-Amerika|AzureRMS-BYOK-hulpprogramma's-Verenigd States.zip|
+|Europa|AzureRMS BYOK-hulpprogramma's voor Europe.zip|
+|Azië|AzureRMS BYOK-hulpprogramma's voor AsiaPacific.zip|
+De toolset bevat het volgende:
 
--   A Key Exchange Key (KEK) package that has a name beginning with **BYOK-KEK-pkg-**.
+-   Een sleutel Exchange sleutel (KEK)-pakket met een naam die beginnen met **BYOK-KEK-pak -**.
 
--   A Security World package that has a name beginning with **BYOK-SecurityWorld-pkg-**.
+-   Een pakket Security World met een naam die beginnen met **BYOK-SecurityWorld-pak -**.
 
--   A python script named **verifykeypackage.py**.
+-   Een python script met de naam **verifykeypackage.py**.
 
--   A command-line executable file named **KeyTransferRemote.exe**, a metadata file named **KeyTransferRemote.exe.config**, and associated DLLs.
+-   Een opdrachtregelprogramma uitvoerbaar bestand met de naam **KeyTransferRemote.exe**, een bestand met metagegevens met de naam **KeyTransferRemote.exe.config**, en de bijbehorende DLL-bestanden.
 
--   A Visual C++ Redistributable Package, named **vcredist_x64.exe**.
+-   Een Visual C++ herdistributiepakket, met de naam **vcredist_x64.exe**.
 
-Copy the package to a USB drive or other portable storage.
+Kopieer het pakket naar een USB-station of andere portable opslag.
 
-#### <a name="BKMK_DisconnectedPrepareWorkstation"></a>Prepare your disconnected workstation
-To prepare your workstation that is not connected to a network (either the Internet or your internal network), follow these 2 steps:
+#### <a name="BKMK_DisconnectedPrepareWorkstation"></a>Uw verbroken werkstation voorbereiden
+Als u uw werkstation die niet is verbonden met een netwerk (Internet of uw interne netwerk) voorbereiden, volgt 2:
 
 -   [Step 1: Prepare the disconnected workstation with Thales HSM](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_PrepareDisconnectedWorkstation1)
 
 -   [Step 2: Install the BYOK toolset on the disconnected workstation](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_PrepareDisconnectedWorkstation2)
 
-##### <a name="BKMK_PrepareDisconnectedWorkstation1"></a>Step 1: Prepare the disconnected workstation with Thales HSM
-On the disconnected workstation, install the nCipher (Thales) support software on a Windows computer, and then attach a Thales HSM to that computer.
+##### <a name="BKMK_PrepareDisconnectedWorkstation1"></a>Stap 1: Het verbonden werkstation met Thales HSM voorbereiden
+Op het werkstation verbroken ondersteuningssoftware nCipher (Thales) op een Windows-computer installeren en vervolgens een HSM Thales aan die computer koppelen.
 
-Ensure that the Thales tools are in your path **(%nfast_home%\bin** and **%nfast_home%\python\bin**). For example, type the following:
+Zorg ervoor dat de Thales-hulpprogramma's in het pad **(%nfast_home%\bin** en **%nfast_home%\python\bin**). Typ bijvoorbeeld het volgende:
 
 ```
 set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 ```
-For more information, see the user guide included with the Thales HSM, or visit the Thales website for Azure RMS at [http://www.thales-esecurity.com/msrms/cloud](http://www.thales-esecurity.com/msrms/cloud).
+Voor meer informatie raadpleegt u de gids voor gebruiker opgenomen met de HSM Thales of Ga naar de website Thales voor Azure RMS op [http://www.thales-esecurity.com/msrms/cloud](http://www.thales-esecurity.com/msrms/cloud).
 
-##### <a name="BKMK_PrepareDisconnectedWorkstation2"></a>Step 2: Install the BYOK toolset on the disconnected workstation
-Copy the BYOK toolset package from the USB drive or other portable storage, and then do the following:
+##### <a name="BKMK_PrepareDisconnectedWorkstation2"></a>Stap 2: De toolset BYOK installeren op het werkstation met de verbinding is verbroken
+Het pakket BYOK toolset van het USB-station of andere portable opslag kopiëren en voer de volgende handelingen uit:
 
-1.  Extract the files from the downloaded package into any folder.
+1.  Pak de bestanden uit het gedownloade pakket naar een map.
 
-2.  From that folder, run vcredist_x64.exe.
+2.  Voer vcredist_x64.exe uit die map.
 
-3.  Follow the instructions to the install the Visual C++ runtime components for Visual Studio 2012.
+3.  Volg de instructies voor de installatie de Visual C++-runtime-onderdelen voor Visual Studio 2012.
 
-#### <a name="BKMK_InternetGenerate"></a>Generate your tenant key
-On the disconnected workstation, following these 3 steps to generate your own tenant key:
+#### <a name="BKMK_InternetGenerate"></a>Uw tenant sleutel genereren
+Op het verbonden werkstation volgende 3 stappen om uw eigen tenant-sleutel te genereren:
 
 -   [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1)
 
@@ -260,107 +259,107 @@ On the disconnected workstation, following these 3 steps to generate your own te
 
 -   [Step 3: Create a new key](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate3)
 
-##### <a name="BKMK_InternetGenerate1"></a>Step 1: Create a security world
-Start a command prompt and run the Thales new-world program.
+##### <a name="BKMK_InternetGenerate1"></a>Stap 1: Maken van een wereld beveiliging
+Start een opdrachtprompt en het nieuwe wereld Thales programma uitvoeren.
 
 ```
 new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 ```
-This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards will be required to have administrative access to the security world (your specified quorum).  These cards become the **Administrator Card Set** for the new security world. At this stage, you can specify the password or PIN for each ACS card, or add it later with a command.
+Dit programma maakt een **beveiliging World** bestand % NFAST_KMDATA%\local\world die overeenkomt met de map C:\ProgramData\nCipher\Key Management Settings\User. U kunt verschillende waarden voor het quorum, maar in ons voorbeeld wordt u gevraagd drie lege kaarten en pincodes voor iedere invoeren. Klik, twee kaarten moet administratorbevoegdheden toegang hebben tot de beveiliging wereld (opgegeven quorum).  Deze kaarten worden de **beheerder kaart ingesteld** voor de nieuwe security wereld. In deze fase kunt u het wachtwoord of PINCODE opgeven voor elke ACS-kaart of later toevoegen met de opdracht.
 
 > [!TIP]
-> You can verify the current configuration status of your HSM by using the `nkminfo` command.
+> U kunt de huidige status van de configuratie van uw HSM controleren met behulp van de `nkminfo` opdracht.
 
-Then do the following:
+Ga als volgt:
 
-1.  Install the Thales CNG provider as described in the Thales documentation, and configure it to use the new security world.
+1.  De Thales CNG-provider installeren zoals beschreven in de documentatie van Thales en configureren voor het gebruik van nieuwe beveiliging ter wereld.
 
-2.  Back up the world file in **%nfast_kmdata%\local**. Secure and protect the world file, the Administrator Cards, and their pins, and make sure that no single person has access to more than one card.
+2.  Maak een back-up van het bestand wereld in **%nfast_kmdata%\local**. Zorg ervoor dat er geen enkele persoon toegang tot meer dan een kaart heeft beveiligen en bescherming van het bestand wereld, de beheerder kaarten en hun pincodes.
 
-##### <a name="BKMK_InternetGenerate2"></a>Step 2: Validate the downloaded package
-This step is optional but recommended so that you can validate the following:
+##### <a name="BKMK_InternetGenerate2"></a>Stap 2: Het gedownloade pakket valideren
+Deze stap is optioneel maar aanbevolen zodat u kunt de volgende valideren:
 
--   The Key Exchange Key that is included in the toolset has been generated from a genuine Thales HSM.
+-   De Exchange Key die is opgenomen in de werkset is van een legitieme Thales HSM gegenereerd.
 
--   The hash of the Azure RMS Security World that is included in the toolset has been generated in a genuine Thales HSM.
+-   De hash van de wereld Azure RMS beveiliging die is opgenomen in de toolset is in een legitieme Thales HSM gegenereerd.
 
--   The Key Exchange Key is non-exportable.
+-   De Key Exchange is niet geëxporteerd.
 
 > [!NOTE]
-> To validate the downloaded package, the HSM must be connected, powered on, and must have a security world on it (such as the one you’ve just created).
+> Voor het valideren van het gedownloade pakket moet de HSM moet worden verbonden, ingeschakeld, en een wereld beveiliging op het (zoals die u net hebt gemaakt).
 
-###### To validate the downloaded package
+###### Het gedownloade pakket valideren
 
-1.  Run the verifykeypackage.py script by tying one of the following, depending on your region:
+1.  Voer het script verifykeypackage.py door te koppelen een van de volgende, afhankelijk van uw regio:
 
-    -   For North America:
+    -   Voor Noord-Amerika:
 
         ```
         python verifykeypackage.py -k BYOK-KEK-pkg-NA-1 -w BYOK-SecurityWorld-pkg-NA-1
         ```
 
-    -   For Europe:
+    -   Voor Europa:
 
         ```
         python verifykeypackage.py -k BYOK-KEK-pkg-EU-1 -w BYOK-SecurityWorld-pkg-EU-1
         ```
 
-    -   For Asia:
+    -   Voor Azië:
 
         ```
         python verifykeypackage.py -k BYOK-KEK-pkg-AP-1 -w BYOK-SecurityWorld-pkg-AP-1
         ```
 
     > [!TIP]
-    > The Thales software includes a Python interpreter at %NFAST_HOME%\python\bin
+    > De software Thales bevat een interpreter Python op %NFAST_HOME%\python\bin
 
-2.  Confirm that you see the following, which indicates successful validation: **Result:  SUCCESS**
+2.  Bevestigen dat u de volgende waarmee wordt aangegeven geslaagde validatie zien: **Resultaat:  GESLAAGD**
 
-This script validates the signer chain up to the Thales root key. The hash of this root key is embedded in the script and its value should be **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. You can also confirm this value separately by visiting the [Thales website](http://www.thalesesec.com/).
+Dit script valideert de keten ondertekenaar tot aan de hoofdsleutel Thales. De hash van deze hoofdsleutel is ingesloten in het script en de waarde moet **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. U kunt deze waarde ook afzonderlijk controleren door naar de pagina de [Thales website](http://www.thalesesec.com/).
 
-You’re now ready to create a new key that will be your RMS tenant key.
+U bent nu gereed voor het maken van een nieuwe sleutel die de sleutel voor RMS-tenant.
 
-##### <a name="BKMK_InternetGenerate3"></a>Step 3: Create a new key
-Generate a CNG key by using the Thales **generatekey** and **cngimport** programs.
+##### <a name="BKMK_InternetGenerate3"></a>Stap 3: Maak een nieuwe sleutel
+Een CNG-sleutel genereren met behulp van de Thales **generatekey** en **cngimport** programma's.
 
-Run the following command to generate the key:
+Voer de volgende opdracht om de sleutel te genereren:
 
 ```
 generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey plainname=contosokey nvram=no pubexp=
 ```
-When you run this command, use these instructions:
+Als u deze opdracht uitvoert, gebruikt u deze instructies:
 
--   For the key size, we recommend 2048 but also support 1024-bit RSA keys for existing AD RMS customers who have such keys and are migrating to Azure RMS.
+-   Voor de sleutelgrootte we raden aan 2048 maar ook de RSA-verificatiesleutels 1024 bits ondersteuning voor bestaande AD RMS-klanten die deze sleutels en migreert naar Azure RMS.
 
--   Replace the value of *contosokey* for the **ident** and **plainname** with any string value. To minimize administrative overheads and reduce the risk of errors, we recommend that you use the same value for both, and use all lower case characters.
+-   Vervang de waarde van *contosokey* voor de **ident** en **plainname** met een tekenreekswaarde. Administratieve overhead minimaliseren en het risico van fouten, wordt aangeraden dezelfde waarde voor beide gebruiken en alle kleine letters gebruiken.
 
--   The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the Thales documentation.
+-   De pubexp is leeg (standaard) links in dit voorbeeld, maar u kunt specifieke waarden opgeven. Zie de documentatie van Thales voor meer informatie.
 
-Then run the following command to import the key to CNG:
+Voer de volgende opdracht om te importeren in de sleutel CNG:
 
 ```
 cngimport --import -M --key=contosokey --appname=simple contosokey
 ```
-When you run this command, use these instructions:
+Als u deze opdracht uitvoert, gebruikt u deze instructies:
 
--   Replace *contosokey* with the same value that you specified in [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1) from the *Generate your tenant key* section.
+-   Vervang *contosokey* met dezelfde waarde die u hebt opgegeven in [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1) van de *uw tenant sleutel genereren* sectie.
 
--   Use the **-M** option so that the key is suitable for this scenario. Without this, the resultant key will be a user-specific key for the current user.
+-   Gebruik de **- M** optie zodat de sleutel geschikt voor dit scenario is. Zonder dit zijn de resulterende sleutel een bepaalde gebruiker sleutel voor de huidige gebruiker.
 
-This command creates a Tokenized Key file in your %NFAST_KMDATA%\local folder with a name starting with **key_caping_** followed by a SID. For example: **key_caping_machine--801c1a878c925fd9df4d62ba001b94701c039e2fb**. This file contains an encrypted key.
+Met deze opdracht wordt een bestand Getokeniseerd sleutel gemaakt in de map %NFAST_KMDATA%\local een beginnen met **key_caping_** gevolgd door een SID. Voorbeeld: **key_caping_machine--801c1a878c925fd9df4d62ba001b94701c039e2fb**. Dit bestand bevat een versleutelde sleutel.
 
 > [!TIP]
-> You can see the current configuration status of your keys by using the `nkminfo –k` command.
+> Ziet u de huidige status van de configuratie van de sleutels met behulp van de `nkminfo –k` opdracht.
 
-Back up this Tokenized Key File in a safe location.
+Back-up van deze sleutel Getokeniseerd bestand in een veilige locatie.
 
 > [!IMPORTANT]
-> When you later transfer your key to Azure RMS, Microsoft cannot export this key back to you so it becomes extremely important that you back up your key and security world safely. Contact Thales for guidance and best practices for backing up your key.
+> Wanneer u later uw sleutel naar Azure RMS overbrengen, kan niet Microsoft deze sleutel aan u exporteren zodat het erg belangrijk back-up van uw wereld sleutel en beveiliging veilig wordt. Neem contact op met Thales voor richtlijnen en aanbevolen procedures voor back-ups van uw sleutel.
 
-You are now ready to transfer your tenant key to Azure RMS.
+U bent nu uw tenant sleutel overbrengen naar Azure RMS gereed.
 
-#### <a name="BKMK_InternetPrepareTransfer"></a>Prepare your tenant key for transfer
-On the disconnected workstation, following these 4 steps to prepare your own tenant key:
+#### <a name="BKMK_InternetPrepareTransfer"></a>De sleutel van de tenant voor overdracht voorbereiden
+Op het verbonden werkstation volgende 4 stappen voor het voorbereiden van uw eigen tenant-sleutel:
 
 -   [Step 1: Create a copy of your key with reduced permissions](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetPrepareTransfer1)
 
@@ -370,39 +369,39 @@ On the disconnected workstation, following these 4 steps to prepare your own ten
 
 -   [Step 4: Copy your key transfer package to the Internet-connected workstation](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetPrepareTransfer4)
 
-##### <a name="BKMK_InternetPrepareTransfer1"></a>Step 1: Create a copy of your key with reduced permissions
-To reduce the permissions on your tenant key, do the following:
+##### <a name="BKMK_InternetPrepareTransfer1"></a>Stap 1: Een kopie van de sleutel maken met minder machtigingen
+Als u wilt beperken de machtigingen voor uw tenant sleutel, het volgende doen:
 
--   From a command prompt, run one of the following, depending on your region:
+-   Vanaf een opdrachtprompt een van de volgende, afhankelijk van uw regio worden uitgevoerd:
 
-    -   For North America:
+    -   Voor Noord-Amerika:
 
         ```
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-NA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-NA-1
         ```
 
-    -   For Europe:
+    -   Voor Europa:
 
         ```
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-EU-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-EU-1
         ```
 
-    -   For Asia:
+    -   Voor Azië:
 
         ```
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AP-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AP-1
         ```
 
-When you run this command, replace *contosokey* with the same value you specified in [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1) from the *Generate your tenant key* section.
+Als u deze opdracht uitvoert, vervangen *contosokey* met dezelfde waarde u hebt opgegeven in [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1) van de *uw tenant sleutel genereren* sectie.
 
-You will be asked to plug in your security world ACS cards, and if specified, their password or PIN..
+U wordt gevraagd uw beveiliging world ACS-kaarten aansluiten en opgegeven hun wachtwoord of PINCODE...
 
-When the command completes, you will see **Result: SUCCESS** and the copy of your tenant key with reduced permissions will be in the file named key_xferacId_*&lt;contosokey&gt;*.
+Als de opdracht is voltooid, ziet u **resultaat: SUCCES** en de kopie van uw tenant sleutel met minder machtigingen in het bestand met de naam key_xferacId_*&lt; contosokey &gt;*.
 
-##### <a name="BKMK_InternetPrepareTransfer2"></a>Step 2: Inspect the new copy of the key
-Optionally, run the Thales utilities to confirm the minimal permissions on the new tenant key:
+##### <a name="BKMK_InternetPrepareTransfer2"></a>Stap 2: Bekijk de nieuwe kopie van de sleutel
+Eventueel de Thales's uitvoeren om de minimale machtigingen voor de nieuwe sleutel tenant bevestigen:
 
--   aclprint.py:
+-   aclprint.PY:
 
     ```
     "%nfast_home%\bin\preload.exe" -m 1 -A xferacld -K contosokey "%nfast_home%\python\bin\python" "%nfast_home%\python\examples\aclprint.py"
@@ -414,47 +413,47 @@ Optionally, run the Thales utilities to confirm the minimal permissions on the n
     "%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
     ```
 
-When you run these command, replace *contosokey* with the same value you specified in [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1) from the *Generate your tenant key* section.
+Wanneer u deze opdracht uitvoert, vervangen door *contosokey* met dezelfde waarde u hebt opgegeven in [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1) van de *uw tenant sleutel genereren* sectie.
 
-##### <a name="BKMK_InternetPrepareTransfer3"></a>Step 3: Encrypt your key by using Microsoft’s Key Exchange Key
-Run one of the following commands, depending on your region:
+##### <a name="BKMK_InternetPrepareTransfer3"></a>Stap 3: De sleutel met behulp van Microsoft sleutel uitwisselingssleutel versleutelen
+Voer een van de volgende opdrachten, afhankelijk van uw regio:
 
--   For North America:
+-   Voor Noord-Amerika:
 
     ```
     KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-NA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-NA-1 -TenantBposId GUID -KeyFriendlyName ContosoFirstkey
     ```
 
--   For Europe:
+-   Voor Europa:
 
     ```
     KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-EU-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-EU-1 -TenantBposId GUID -KeyFriendlyName ContosoFirstkey
     ```
 
--   For Asia:
+-   Voor Azië:
 
     ```
     KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AP-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AP-1 -TenantBposId GUID -KeyFriendlyName ContosoFirstkey
     ```
 
-When you run this command, use these instructions:
+Als u deze opdracht uitvoert, gebruikt u deze instructies:
 
--   Replace *contosokey* with the identifier that you used to generate the key in [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1) from the *Generate your tenant key* section.
+-   Vervang *contosokey* met de id die u gebruikt voor het genereren van de sleutel in [Step 1: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetGenerate1) van de *uw tenant sleutel genereren* sectie.
 
--   Replace *GUID* with your Azure Active Directory tenant ID that you retrieved in [Step 2: Get your Azure Active Directory tenant ID](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_PrepareInternetConnectedWorkstation2) from the *Prepare your Internet-connected workstation* section.
+-   Vervangen *GUID* tenant met uw Azure Active Directory-ID die u hebt opgevraagd in [Step 2: Get your Azure Active Directory tenant ID](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_PrepareInternetConnectedWorkstation2) van de *voorbereiden van uw internetverbinding werkstation* sectie.
 
--   Replace *ContosoFirstKey* with a label that will be used for your output file name.
+-   Vervang *ContosoFirstKey* met een label dat wordt gebruikt voor de naam van het uitvoerbestand.
 
-When this completes successfully it displays **Result: SUCCESS** and there will be a new file in the current folder that has the following name: TransferPackage-*ContosoFirstkey*.byok
+Wanneer deze is voltooid met succes het beeldschermen **resultaat: SUCCES** en er wordt een nieuw bestand in de huidige map met de volgende naam: TransferPackage -*ContosoFirstkey*.byok
 
-##### <a name="BKMK_InternetPrepareTransfer4"></a>Step 4: Copy your key transfer package to the Internet-connected workstation
-Use a USB drive or other portable storage to copy the output file from the previous step (KeyTransferPackage-*ContosoFirstkey*.byok) to your Internet-connected workstation.
+##### <a name="BKMK_InternetPrepareTransfer4"></a>Stap 4: Het pakket sleutel overdracht naar het werkstation internetverbinding kopiëren
+Gebruik een USB-station of andere portable opslag om het uitvoerbestand van de vorige stap (KeyTransferPackage -*ContosoFirstkey*.byok) bij uw internetverbinding werkstation.
 
 > [!NOTE]
-> Use security practices to protect the file because it includes your private key.
+> Gebruik beveiligingsvoorschriften om het bestand worden beveiligd omdat het uw persoonlijke sleutel bevat.
 
-#### <a name="BKMK_InternetTransfer"></a>Transfer your tenant key to Azure RMS
-On the Internet-connected workstation,  follow these 3 steps To transfer your new tenant key to Azure RMS, :
+#### <a name="BKMK_InternetTransfer"></a>De sleutel tenant overbrengen naar Azure RMS
+Volg deze 3 stappen om uw nieuwe sleutel tenant overbrengen naar Azure RMS op het werkstation internetverbinding:
 
 -   [Step 1: Connect to Azure RMS](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetTransfer1)
 
@@ -462,53 +461,53 @@ On the Internet-connected workstation,  follow these 3 steps To transfer your ne
 
 -   [Step 3: Enumerate your tenant keys – as needed](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_InternetTransfer3)
 
-##### <a name="BKMK_InternetTransfer1"></a>Step 1: Connect to Azure RMS
-Return to the Windows PowerShell window and type the following:
+##### <a name="BKMK_InternetTransfer1"></a>Stap 1: Verbinding maken met Azure RMS
+Terug naar de Windows PowerShell-venster en typ het volgende:
 
-1.  Reconnect to the [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] service:
+1.  Maak opnieuw verbinding met de [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] service:
 
     ```
     Connect-AadrmService
     ```
 
-2.  Use the [Get-AadrmKeys](http://msdn.microsoft.com/library/windowsazure/dn629420.aspx) cmdlet to see your current tenant key configuration:
+2.  Gebruik de [Get-AadrmKeys](http://msdn.microsoft.com/library/windowsazure/dn629420.aspx) cmdlet om te zien van uw huidige configuratie van de tenant-sleutel:
 
     ```
     Get-AadrmKeys
     ```
 
-##### <a name="BKMK_InternetTransfer2"></a>Step 2: Upload the key package
-Use the [Add-AadrmKey](http://msdn.microsoft.com/library/windowsazure/dn629418.aspx) cmdlet to upload the key transfer package that you copied from the disconnected workstation:
+##### <a name="BKMK_InternetTransfer2"></a>Stap 2: De sleutel pakket uploaden
+Gebruik de [toevoegen AadrmKey](http://msdn.microsoft.com/library/windowsazure/dn629418.aspx) cmdlet voor het uploaden van de sleutel overdracht pakket die u hebt gekopieerd vanuit het verbonden werkstation:
 
 ```
 Add-AadrmKey –KeyFile <PathToPackageFile> -Verbose
 ```
 > [!WARNING]
-> You are prompted to confirm this action. It’s important to understand that this action cannot be undone. When you upload a tenant key, it automatically becomes your organization’s primary tenant key and users will start to use this tenant key when they protect documents and files.
+> U wordt gevraagd om deze actie te bevestigen. Het is belangrijk te weten dat deze actie kan niet gemaakt worden. Als u een sleutel tenant uploadt, wordt automatisch van uw organisatie tenant primaire sleutel en gebruikers gaat deze sleutel tenant gebruiken als ze documenten en bestanden worden beveiligd.
 
-If the upload is successful, you will see the following message: **The Rights management service successfully added the key.**
+Als het uploaden geslaagd is, ziet u het volgende bericht: **Rights management-service is de sleutel toegevoegd.**
 
-Expect a replication delay for the change to propagate to all [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] data centers.
+Verwacht een replicatievertraging voor de wijziging doorgeven aan alle [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] datacenters.
 
-##### <a name="BKMK_InternetTransfer3"></a>Step 3: Enumerate your tenant keys – as needed
-Use the Get-AadrmKeys cmdlet again to see the change in your tenant key, and whenever you want to see a list of your tenant keys. The tenant keys displayed include the initial tenant key that Microsoft generated for you, and any tenant keys that you added:
+##### <a name="BKMK_InternetTransfer3"></a>Stap 3: Inventarisatie van de sleutels tenant – indien nodig
+De cmdlet Get-AadrmKeys opnieuw gebruiken om de wijziging in uw tenant sleutel en wanneer u een overzicht van de tenant-sleutels wilt. De tenant-sleutels weergegeven omvat de initiële tenant-sleutel die Microsoft voor u gegenereerd en tenant sleutels die u hebt toegevoegd:
 
 ```
 Get-AadrmKeys
 ```
-The tenant key that is marked **Active** is the one that your organization is currently using to protect documents and files.
+De tenant-sleutel die is gemarkeerd als **Active** dat uw organisatie momenteel wordt gebruikt om documenten en bestanden te beschermen.
 
-You have now completed all the steps required for bring your own key over the Internet and can go to [Next steps](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_NextSteps).
+U hebt nu voltooid alle de stappen die nodig zijn voor uw eigen sleutel brengen via het Internet en gaat u naar [Next steps](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_NextSteps).
 
-### <a name="BKMK_BYOK_InPerson"></a>Generate and transfer your tenant key – in person
-Use the following procedures if you do not want to transfer your tenant key over the Internet, but instead, transfer your tenant key in person.
+### <a name="BKMK_BYOK_InPerson"></a>Genereren en de sleutel tenant – in persoon te brengen
+De volgende procedures gebruiken als u niet wilt dat uw tenant sleutel overbrengen via het Internet, maar in plaats daarvan de tenant-sleutel in persoon te dragen.
 
 -   [Generate your tenant key](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_GenerateKey)
 
 -   [Transfer your tenant key to Azure RMS](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_Transfer)
 
-#### <a name="BKMK_GenerateKey"></a>Generate your tenant key
-To generate your own tenant key, follow these 3 steps:
+#### <a name="BKMK_GenerateKey"></a>Uw tenant sleutel genereren
+Volg onderstaande 3 stappen voor het genereren van uw eigen tenant-sleutel:
 
 -   [Step 1: Prepare a workstation with Thales HSM](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_GenerateYourKey1)
 
@@ -516,63 +515,63 @@ To generate your own tenant key, follow these 3 steps:
 
 -   [Step 3: Create a new key](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_GenerateYourKey3)
 
-##### <a name="BKMK_GenerateYourKey1"></a>Step 1: Prepare a workstation with Thales HSM
-Install the nCipher (Thales) support software on a Windows computer. Attach a Thales HSM to that computer. Ensure the Thales tools are in your path. For more information, see the user guide included with the Thales HSM, or visit the Thales website for Azure RMS at [http://www.thales-esecurity.com/msrms/cloud](http://www.thales-esecurity.com/msrms/cloud).
+##### <a name="BKMK_GenerateYourKey1"></a>Stap 1: Een werkstation met Thales HSM voorbereiden
+De nCipher (Thales) ondersteuningssoftware installeren op een Windows-computer. Een HSM Thales aan die computer koppelen. Controleer of de Thales-hulpprogramma's in het pad. Voor meer informatie raadpleegt u de gids voor gebruiker opgenomen met de HSM Thales of Ga naar de website Thales voor Azure RMS op [http://www.thales-esecurity.com/msrms/cloud](http://www.thales-esecurity.com/msrms/cloud).
 
-##### <a name="BKMK_GenerateYourKey2"></a>Step 2: Create a security world
-Start a command prompt and run the Thales new-world program.
+##### <a name="BKMK_GenerateYourKey2"></a>Stap 2: Maken van een wereld beveiliging
+Start een opdrachtprompt en het nieuwe wereld Thales programma uitvoeren.
 
 ```
 new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 ```
-This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards will give full access to the security world.  These cards become the **Administrator Card Set** for the new security world.
+Dit programma maakt een **beveiliging World** bestand % NFAST_KMDATA%\local\world die overeenkomt met de map C:\ProgramData\nCipher\Key Management Settings\User. U kunt verschillende waarden voor het quorum, maar in ons voorbeeld wordt u gevraagd drie lege kaarten en pincodes voor iedere invoeren. Vervolgens wordt elke twee kaarten volledige toegang geven tot de wereld beveiliging.  Deze kaarten worden de **beheerder kaart ingesteld** voor de nieuwe security wereld.
 
-Then do the following:
+Ga als volgt:
 
-1.  Install the Thales CNG provider as described in the Thales documentation, and configure it to use the new security world.
+1.  De Thales CNG-provider installeren zoals beschreven in de documentatie van Thales en configureren voor het gebruik van nieuwe beveiliging ter wereld.
 
-2.  Back up the world file. Secure and protect the world file, the Administrator Cards, and their pins, and make sure that no single person has access to more than one card.
+2.  Back-up van het bestand voor de hele wereld. Zorg ervoor dat er geen enkele persoon toegang tot meer dan een kaart heeft beveiligen en bescherming van het bestand wereld, de beheerder kaarten en hun pincodes.
 
-You’re now ready to create a new key that will be your RMS tenant key.
+U bent nu gereed voor het maken van een nieuwe sleutel die de sleutel voor RMS-tenant.
 
-##### <a name="BKMK_GenerateYourKey3"></a>Step 3: Create a new key
-Generate a CNG key by using the Thales **generatekey** and **cngimport** programs.
+##### <a name="BKMK_GenerateYourKey3"></a>Stap 3: Maak een nieuwe sleutel
+Een CNG-sleutel genereren met behulp van de Thales **generatekey** en **cngimport** programma's.
 
-Run the following command to generate the key:
+Voer de volgende opdracht om de sleutel te genereren:
 
 ```
 generatekey --generate simple type=RSA size=2048 protect=module ident=contosokey plainname=contosokey nvram=no pubexp=
 ```
-When you run this command, use these instructions:
+Als u deze opdracht uitvoert, gebruikt u deze instructies:
 
--   For the key size, we recommend 2048 but also support 1024-bit RSA keys for existing AD RMS customers who have such keys and are migrating to Azure RMS.
+-   Voor de sleutelgrootte we raden aan 2048 maar ook de RSA-verificatiesleutels 1024 bits ondersteuning voor bestaande AD RMS-klanten die deze sleutels en migreert naar Azure RMS.
 
--   Replace the value of *contosokey* for the **ident** and **plainname** with any string value. To minimize administrative overheads and reduce the risk of errors, we recommend that you use the same value for both, and use all lower case characters.
+-   Vervang de waarde van *contosokey* voor de **ident** en **plainname** met een tekenreekswaarde. Administratieve overhead minimaliseren en het risico van fouten, wordt aangeraden dezelfde waarde voor beide gebruiken en alle kleine letters gebruiken.
 
--   The pubexp is left blank (default) in this example, but you can specify specific values. For more information, see the Thales documentation.
+-   De pubexp is leeg (standaard) links in dit voorbeeld, maar u kunt specifieke waarden opgeven. Zie de documentatie van Thales voor meer informatie.
 
-Then run the following command to import the key to CNG:
+Voer de volgende opdracht om te importeren in de sleutel CNG:
 
 ```
 cngimport --import –M --key=contosokey --appname=simple contosokey
 ```
-When you run this command, use these instructions:
+Als u deze opdracht uitvoert, gebruikt u deze instructies:
 
--   Replace *contosokey* with the same value that you specified in Step 1.
+-   Vervang *contosokey* met dezelfde waarde die u in stap 1 hebt opgegeven.
 
--   Use the **-M** option so that the key is suitable for this scenario. Without this, the resultant key will be a user-specific key for the current user.
+-   Gebruik de **- M** optie zodat de sleutel geschikt voor dit scenario is. Zonder dit zijn de resulterende sleutel een bepaalde gebruiker sleutel voor de huidige gebruiker.
 
-This command creates a Tokenized Key file in your %NFAST_KMDATA%\local folder with a name starting with **key_caping_** followed by a SID. For example: **key_caping_machine--801c1a878c925fd9df4d62ba001b94701c039e2fb**. This file contains an encrypted key.
+Met deze opdracht wordt een bestand Getokeniseerd sleutel gemaakt in de map %NFAST_KMDATA%\local een beginnen met **key_caping_** gevolgd door een SID. Voorbeeld: **key_caping_machine--801c1a878c925fd9df4d62ba001b94701c039e2fb**. Dit bestand bevat een versleutelde sleutel.
 
-Back up this Tokenized Key File in a safe location.
+Back-up van deze sleutel Getokeniseerd bestand in een veilige locatie.
 
 > [!IMPORTANT]
-> When you later transfer your key to Azure RMS, Microsoft will have a non-recoverable copy of your key. This means that nobody can retrieve your key from the HSMs at Microsoft. This allows you to retain exclusive control over your tenant key. Therefore it becomes extremely important that you back up your key and security world safely. Contact Thales for guidance and best practices for backing up your key.
+> Wanneer u uw sleutel later naar Azure RMS overbrengt, is Microsoft heeft een niet-herstelbare kopie van de sleutel. Dit betekent dat niemand uw sleutel uit de HSM's van Microsoft ophalen kan. Hiermee kunt u exclusieve controle over uw tenant sleutel behouden. Het wordt daarom zeer belangrijk back-up van uw wereld sleutel en beveiliging veilig. Neem contact op met Thales voor richtlijnen en aanbevolen procedures voor back-ups van uw sleutel.
 
-You are now ready to transfer your tenant key to Azure RMS.
+U bent nu uw tenant sleutel overbrengen naar Azure RMS gereed.
 
-#### <a name="BKMK_Transfer"></a>Transfer your tenant key to Azure RMS
-After you have generated your own key, you must transfer it to Azure RMS before you use it. For the highest level of security, this transfer is a manual process that requires you to fly to the Microsoft office in Redmond, Washington, United States of America. To complete this process, follow these 3 steps:
+#### <a name="BKMK_Transfer"></a>De sleutel tenant overbrengen naar Azure RMS
+Nadat u uw eigen sleutel zijn gegenereerd, moet u het overdragen naar Azure RMS voordat u deze gebruiken. Voor het hoogste niveau van beveiliging is deze overdracht een handmatig proces dat moet worden ingevoegd op de Microsoft office in Redmond, Washington, Verenigde Staten van Amerika. Als u wilt voltooien, volgt 3:
 
 -   [Step 1: Bring your key to Microsoft](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_TransferYourKey1)
 
@@ -580,70 +579,70 @@ After you have generated your own key, you must transfer it to Azure RMS before 
 
 -   [Step 3: Closing procedures](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_TransferYourKey3)
 
-###### Step 1: Bring your key to Microsoft
+###### Stap 1: Breng uw sleutel naar Microsoft
 
--   Contact Microsoft Customer Support Services (CSS) to schedule a key transfer appointment for Azure RMS. Bring the following to Microsoft in Redmond:
+-   Neem contact op met Microsoft klantenondersteuning (CSS) naar een sleutel overdracht afspraak voor Azure RMS. Breng de volgende naar Microsoft Redmond:
 
-    -   A quorum of your Administrative Cards. If you followed the previous instructions in [Step 2: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_GenerateYourKey2), these are any two of your three cards.
+    -   Een quorum van uw administratieve kaarten. Als u de vorige instructies in gevolgd [Step 2: Create a security world](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_GenerateYourKey2), dit zijn twee van de drie kaarten.
 
-    -   Personnel authorized to carry your Administrative Cards and pins, typically two (one for each card).
+    -   Personeel geautoriseerd voor het transport van uw administratieve kaarten en pincodes, meestal twee (één voor elke kaart).
 
-    -   Your Security World file (%NFAST_KMDATA%\local\world) on a USB drive.
+    -   Uw beveiliging World-bestand (% NFAST_KMDATA%\local\world) op een USB-station.
 
-    -   Your Tokenized Key File on a USB drive.
+    -   Uw Getokeniseerd sleutelbestand op een USB-station.
 
-###### Step 2: Transfer your key to the Window Azure RMS security world
+###### Stap 2: De sleutel overbrengen naar de hele wereld venster Azure RMS-beveiliging
 
-1.  When you arrive at Microsoft to transfer your key, the following happens:
+1.  Wanneer u op Microsoft overzetten van uw sleutel bereikt, gebeurt het volgende:
 
-    -   Microsoft provides you with an offline workstation that has a Thales HSM attached, Thales software installed, and a Azure RMS Security World file pre-loaded into the folder C:\Temp\Destination.
+    -   Microsoft biedt u een offline werkstation waarop een Thales HSM gekoppeld, Thales software is geïnstalleerd en een vooraf geladen Azure RMS beveiliging World-bestand in de map C:\Temp\Destination.
 
-    -   On this workstation, you load your Security World file and Tokenized Key File from your USB drive into the C:\Temp\Source folder.
+    -   Op dit werkstation laden u uw beveiliging wereld en Getokeniseerd sleutelbestand vanaf uw USB-station in de map C:\Temp\Source.
 
-    -   Azure RMS operators securely transfer your key to the Azure RMS security world by using Thales utilities.
+    -   De sleutel overbrengen in de wereld van de beveiliging Azure RMS Azure RMS operators veilig via Thales hulpprogramma's.
 
-    This process will look similar to the following, where the last parameter of key-xfer-im in this example is replaced by your Tokenized Key File name:
+    Dit proces bekijken lijkt op de volgende waarbij de laatste parameter van de sleutel xfer im in dit voorbeeld wordt vervangen door de bestandsnaam Getokeniseerd sleutel:
 
-    **C:\&gt; mk-reprogram.exe --owner c:\Temp\Destination add c:\Temp\Source**
+    **C:\ &gt; mk-reprogram.exe--eigenaar c:\Temp\Destination c:\Temp\Source toevoegen**
 
-    **C:\&gt; key-xfer-im.exe c:\Temp\Source c:\Temp\Destination --module c:\Temp\Source\key_caping_machine--801c1a878c925fd9df4d62ba001b94701c039e2fb**
+    **C:\ &gt; sleutel-xfer-im.exe c:\Temp\Source c:\Temp\Destination--module c:\Temp\Source\key_caping_machine--801c1a878c925fd9df4d62ba001b94701c039e2fb**
 
-2.  Mk-reprogram will ask you and the Azure RMS operators to plug in their respective Administrator cards and pins. These commands output a Tokenized Key File in C:\Temp\Destination that contains your key protected by Azure RMS security world.
+2.  Opnieuw MK programmeren, vraagt u en de operators Azure RMS plug-in hun respectieve beheerder kaarten en pincodes. Deze opdrachten uitvoerbestand een Getokeniseerd sleutel in C:\Temp\Destination met de sleutel beveiligd door Azure RMS beveiliging ter wereld.
 
-###### Step 3: Closing procedures
+###### Stap 3: Procedures sluiten
 
--   In your presence, Azure RMS operators do the following:
+-   In uw aanwezigheid doen Azure RMS operators het volgende:
 
-    -   Run a tool that Microsoft developed in collaboration with Thales that removes two permissions: The permission to recover the key, and the permission to change permissions. After this is done, this copy of your key is locked to the Azure RMS security world. Thales HSMs will not allow Azure RMs operators with their Administrator cards to recover the plaintext copy of your key.
+    -   Een hulpprogramma dat Microsoft ontwikkeld in samenwerking met Thales uitgevoerd die twee machtigingen worden verwijderd: De machtiging voor het herstellen van de sleutel en de machtiging machtigingen wijzigen. Nadat deze is voltooid, wordt dit exemplaar van de sleutel in de wereld Azure RMS beveiliging vergrendeld. Thales HSM's kunnen niet Azure RMs-operators met hun kaarten beheerder op de platte tekst kopie van uw sleutel hersteld.
 
-    -   Copy the resulting key file to a USB drive to later upload to the Azure RMS service.
+    -   Kopieer de resulterende sleutelbestand naar een USB-station later uploaden naar de Azure RMS-service.
 
-    -   Factory-reset the HSM, and wipe the workstation clean.
+    -   De HSM Factory-reset en het werkstation schone wissen.
 
-You have now completed all the steps required for bring your own key in person and can return to your organization for the next steps.
+U hebt nu alle de stappen die nodig zijn voor uw eigen sleutel persoonlijk brengen en kunnen terugkeren naar uw organisatie voor de volgende stappen voltooid.
 
-## <a name="BKMK_NextSteps"></a>Next steps
+## <a name="BKMK_NextSteps"></a>Volgende stappen
 
-1.  Start to use your tenant key:
+1.  Start uw tenant sleutel te gebruiken:
 
-    -   If you haven’t already done so, you must now activate Rights Management so that your organization can start to use RMS. Users immediately start to use your tenant key (managed by Microsoft or managed by you).
+    -   Als u nog niet hebt gedaan, moet u nu Rights Management activeren zodat uw organisatie beginnen met het kunt gebruik van RMS. Gebruikers starten direct met de tenant-toets (beheerd door Microsoft of door u beheerd).
 
-        For more information about activation, see [Activating Azure Rights Management](../Topic/Activating_Azure_Rights_Management.md).
+        Zie voor meer informatie over het activeren van [Azure Rights Management activeren](../Topic/Activating_Azure_Rights_Management.md).
 
-    -   If you had already activated Rights Management and then decided to manage your own tenant key, users gradually transition from the old tenant key to the new tenant key, and this staggered transition can take a few weeks to complete. Documents and files that were protected with the old tenant key remains accessible to authorized users.
+    -   Als u had al geactiveerd Rights Management en vervolgens besloten voor het beheren van uw eigen tenant sleutel, gebruikers overgang geleidelijk uit de oude tenant sleutel naar de nieuwe tenant-sleutel en deze einde overgang duren enkele weken om te voltooien. Documenten en bestanden die zijn beveiligd met de oude tenant sleutel blijft toegankelijk voor geautoriseerde gebruikers.
 
-2.  Consider enabling usage logging, which logs every transaction that RMS performs.
+2.  Overweeg het gebruikslogboekregistratie registreert elke transactie waarmee RMS inschakelen.
 
-    If you decided to manage your own tenant key, logging includes information about using your tenant key. See the following example of a log file displayed in Excel where the **Decrypt** and **SignDigest** Request Types show that the tenant key is being used.
+    Als u bepaald voor het beheren van uw eigen tenant sleutel, bevat logboekregistratie voor informatie over het gebruik van de tenant-sleutel. Zie het volgende voorbeeld van een logboekbestand weergegeven in Excel waar de **decoderen** en **SignDigest** soorten verzoeken laten zien dat de tenant-sleutel wordt gebruikt.
 
     ![](../Image/RMS_Logging.gif)
 
-    For more information about usage logging, see [Logging and Analyzing Azure Rights Management Usage](../Topic/Logging_and_Analyzing_Azure_Rights_Management_Usage.md).
+    Zie voor meer informatie over het van gebruikslogboekregistratie [Logboekregistratie en analyseren van Azure Rights Management-gebruik](../Topic/Logging_and_Analyzing_Azure_Rights_Management_Usage.md).
 
-3.  Maintain your tenant key.
+3.  Uw tenant sleutel bijhouden.
 
-    For more information, see [Operations for Your Azure Rights Management Tenant Key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md).
+    Zie voor meer informatie [Bewerkingen voor uw Azure Rights Management Tenant-sleutel](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md).
 
-## See Also
-[Configuring Azure Rights Management](../Topic/Configuring_Azure_Rights_Management.md)
+## Zie ook
+[Azure Rights Management configureren](../Topic/Configuring_Azure_Rights_Management.md)
 

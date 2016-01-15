@@ -3,14 +3,13 @@ description: na
 keywords: na
 title: Full screen picture: Select RMS templates in applications, such as File Explorer and Word
 search: na
-ms.date: 2015-11-01
+ms.date: na
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 597a3402-fd5a-4bcf-b5e6-5c983dbde697
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Full screen picture: Select RMS templates in applications, such as File Explorer and Word
+# Volledig schermafbeelding: Selecteer een RMS-sjablonen in toepassingen, zoals File Explorer en Word
 ![](../Image/AzRMS_TemplatesPortal_ExplorerWord.png)
 
-Back to [Azure RMS in action: Activating and configuring Rights Management](http://technet.microsoft.com/library/jj585026.aspx)
+Terug naar [Azure RMS in actie: Activeren en Rights Management configureren](http://technet.microsoft.com/library/jj585026.aspx)
 

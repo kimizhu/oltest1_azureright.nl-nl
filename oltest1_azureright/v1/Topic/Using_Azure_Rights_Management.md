@@ -3,34 +3,33 @@ description: na
 keywords: na
 title: Using Azure Rights Management
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 18564e4a-9364-4ed2-8f17-89d24fc0d878
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Using Azure Rights Management
+# Met behulp van Azure Rights Management
 > [!NOTE]
-> This information is for IT administrators and consultants who have deployed Microsoft Azure Rights Management (Azure RMS). If you are looking for user help and information about how to use Rights Management for a specific application, use the help and guidance that accompanies your application.
+> Deze informatie is voor IT-beheerders en voor adviseurs die Microsoft Azure Rights Management (Azure RMS) hebt geïmplementeerd. Als u zoekt naar Help-informatie en informatie over het gebruik van Rights Management voor een bepaalde toepassing, gebruikt u help en hulp bij uw toepassing.
 > 
-> For example, for Office applications, click the Help icon and enter search terms such as **Rights Management** or **IRM**. For the RMS sharing application for Windows, see the [Rights Management sharing application user guide](http://technet.microsoft.com/library/dn339006.aspx).
+> Bijvoorbeeld voor Office-toepassingen, klikt u op het Help-pictogram en voer zoektermen zoals **Rights Management** of **IRM**. Voor de RMS sharing van toepassing voor Windows, raadpleegt u de [delen toepassing Rights Management-handleiding](http://technet.microsoft.com/library/dn339006.aspx).
 
-This section contains operations information for after you have configured   [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)]:
+Deze sectie bevat informatie over bewerkingen voor nadat u hebt geconfigureerd   [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)]:
 
--   [Verifying Azure Rights Management](../Topic/Verifying_Azure_Rights_Management.md)
+-   [Azure Rights Management verifiëren](../Topic/Verifying_Azure_Rights_Management.md)
 
--   [Helping Users to Protect Files by Using Azure Rights Management](../Topic/Helping_Users_to_Protect_Files_by_Using_Azure_Rights_Management.md)
+-   [Waardoor gebruikers kunnen bestanden beveiligen met Azure Rights Management](../Topic/Helping_Users_to_Protect_Files_by_Using_Azure_Rights_Management.md)
 
--   [Logging and Analyzing Azure Rights Management Usage](../Topic/Logging_and_Analyzing_Azure_Rights_Management_Usage.md)
+-   [Logboekregistratie en analyseren van Azure Rights Management-gebruik](../Topic/Logging_and_Analyzing_Azure_Rights_Management_Usage.md)
 
--   [Operations for Your Azure Rights Management Tenant Key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md)
+-   [Bewerkingen voor uw Azure Rights Management Tenant-sleutel](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md)
 
 > [!TIP]
-> If you’re new to Azure RMS, you might find the [Getting Started with Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md) section useful, because it contains information to help you learn more about Azure RMS and how it can help you to protect information in your organization.
+> Als u geen ervaring hebt met Azure RMS, vindt u mogelijk de [Aan de slag met Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md) sectie handig, omdat deze informatie waarmee u meer informatie over Azure RMS en hoe deze kan u helpen te beschermen van gegevens in uw organisatie bevat.
 > 
-> If you’re looking for deployment instructions for Azure RMS, see [Configuring Azure Rights Management](../Topic/Configuring_Azure_Rights_Management.md). And if you’re a Windows PowerShell user, or just want to see how you can administer Azure RMS from the command line, see [Administering Azure Rights Management by Using Windows PowerShell](../Topic/Administering_Azure_Rights_Management_by_Using_Windows_PowerShell.md).
+> Als u instructies voor Azure RMS zoekt, raadpleegt u [Azure Rights Management configureren](../Topic/Configuring_Azure_Rights_Management.md). En als u een Windows PowerShell-gebruiker bent of gewoon wilt zien hoe u Azure RMS kunt beheren vanaf de opdrachtregel, Zie [Azure Rights Management beheren met behulp van Windows PowerShell](../Topic/Administering_Azure_Rights_Management_by_Using_Windows_PowerShell.md).
 
-## See Also
+## Zie ook
 [Azure Rights Management](../Topic/Azure_Rights_Management.md)
 

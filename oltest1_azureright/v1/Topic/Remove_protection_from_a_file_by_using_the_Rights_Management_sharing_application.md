@@ -3,36 +3,35 @@ description: na
 keywords: na
 title: Remove protection from a file by using the Rights Management sharing application
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: da95b938-eaad-4c83-a21e-ff1d4872aae4
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Remove protection from a file by using the Rights Management sharing application
-To remove protection from a file (that is, unprotect a file) that was previously protected by using the RMS sharing application, use the **Remove Protection** option from File Explorer.
+# Beveiliging verwijderen uit een bestand met behulp van de Rights Management-toepassing delen
+Beveiliging verwijderen uit een bestand (dat wil zeggen, een bestand opheffen) die eerder is beveiligd met behulp van de RMS sharing toepassing, gebruikt u de **beveiliging verwijderen** optie vanuit bestand Explorer.
 
 > [!IMPORTANT]
-> You must be an owner of the file to remove protection.
+> U moet een eigenaar van het bestand opheffen.
 
-### To remove protection from a file
+### Beveiliging verwijderen uit een bestand
 
-1.  From File Explorer, right-click the file (for example, Sample.ptxt), select **Protect with RMS**, click **Protect in-place**, and then click **Remove Protection**:
+1.  Met de rechtermuisknop op het bestand (bijvoorbeeld Sample.ptxt) van File Explorer, selecteert u **beveiligen met RMS**, klikt u op **beveiligen**, en klik vervolgens op **beveiliging verwijderen**:
 
     ![](../Image/ADRMS_MSRMSApp_RemoveProtection.png)
 
-    You might be prompted for credentials.
+    Mogelijk moet u referenties.
 
-The original protected file is deleted (for example, Sample.ptxt) and replaced with a file that has the same name but with the unprotected file name extension (for example, Sample.txt).
+De oorspronkelijke beveiligde bestand is (bijvoorbeeld Sample.ptxt) verwijderd en vervangen met een bestand met dezelfde naam, maar de niet-beveiligde bestandsnaamextensie (bijvoorbeeld voorbeeld.txt).
 
-## Examples and other instructions
-For examples for how you might use the Rights Management sharing application, and how-to instructions, see the following sections from the Rights Management sharing application user guide:
+## Voorbeelden en andere instructies
+Zie de volgende secties van de Rights Management delen application user guide voor voorbeelden voor het gebruik van de Rights Management-toepassing en praktische instructies delen:
 
--   [Examples for using the RMS sharing application](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
+-   [Voorbeelden voor het gebruik van de RMS sharing toepassing](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
 
--   [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
+-   [Wat wilt u doen?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
 
-## See Also
-[Rights Management sharing application user guide](../Topic/Rights_Management_sharing_application_user_guide.md)
+## Zie ook
+[Rights Management delen toepassing handleiding](../Topic/Rights_Management_sharing_application_user_guide.md)
 
