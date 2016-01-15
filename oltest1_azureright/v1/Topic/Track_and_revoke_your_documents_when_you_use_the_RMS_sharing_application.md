@@ -3,85 +3,84 @@ description: na
 keywords: na
 title: Track and revoke your documents when you use the RMS sharing application
 search: na
-ms.date: 2015-11-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 61f349ce-bdd2-45c1-acc5-bc83937fb187
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Track and revoke your documents when you use the RMS sharing application
-After you have protected your documents by using the RMS sharing application, if your organization is using Azure Rights Management rather than Active Directory Rights Management Services, you can track how people are using your protected documents. If necessary, you can also revoke access to these documents when you want to stop sharing them. To do this, you use the **document tracking site**, which you can access from Windows computers, Mac computers, and even from tablets and phones.
+# Bijhouden en uw documenten intrekken wanneer u de RMS sharing toepassing
+Nadat u hebt uw documenten beveiligd met behulp van de RMS sharing toepassing, als uw organisatie van Azure Rights Management in plaats van Active Directory Rights Management Services gebruikmaakt, kunt u bijhouden hoe mensen uw beveiligde documenten gebruiken. Indien nodig, kunt u ook toegang tot deze documenten intrekken als u wilt delen stoppen. Hiervoor gebruikt u de **document bijhouden site**, die u kunt openen vanuit de Windows-computers, Mac-computers en zelfs van tablets en telefoons.
 
 > [!TIP]
-> Two minute video: [Azure RMS Document Tracking and Revocation](http://channel9.msdn.com/Series/Information-Protection/Azure-RMS-Document-Tracking-and-Revocation)
+> Twee minuut video: [Azure RMS Document bijhouden en intrekken](http://channel9.msdn.com/Series/Information-Protection/Azure-RMS-Document-Tracking-and-Revocation)
 
-When you access this site, sign in to track your documents. Providing your organization has a [subscription that supports document tracking and revocation](https://technet.microsoft.com/dn858608.aspx) and you are assigned a license for this subscription, you can then see who tried to open the files that you protected and whether they were successful (they were successfully authenticated) or not. Each time they tried to access the document, and their location at the time. In addition:
+Als u toegang deze site tot, moet u zich aanmelden voor het bijhouden van uw documenten. Geven van uw organisatie heeft een [abonnement dat document bijhouden en intrekken ondersteunt](https://technet.microsoft.com/dn858608.aspx) en u een licentie voor dit abonnement zijn toegewezen, kunt u zien die er is geprobeerd om de bestanden die u beveiligd te openen en of ze zijn voltooid (ze zijn geverifieerd) of niet. Telkens wanneer ze heeft geprobeerd toegang tot het document en de locatie op het moment. Bovendien:
 
--   If you need to stop sharing a document: Click **Revoke access**, note the period of time that the document will continue to be available, and decide whether to let people know that you’re revoking access to the document you previously shared, and provide a customized message.
+-   Als u een document delen stoppen: Klik op **Toegang intrekken**, ziet u de tijd die het document blijft beschikbaar, en bepaalt of om te laten weten dat u toegang tot het document bent u mensen u eerder hebt gedeeld, en een eigen bericht bieden.
 
--   If you want to export to Excel: Click **Open in Excel**, so that you can then modify the data, and create your own views and graphs.
+-   Als u exporteren naar Excel wilt: Klik op **openen in Excel**, zodat u kunt vervolgens de gegevens wijzigen en uw eigen weergaven en diagrammen maken.
 
--   If you want to configure email notifications: Click **Settings** and select how and whether to be emailed when the document is accessed.
+-   Als u e-mailmeldingen configureren wilt: Klik op **instellingen** en selecteren hoe en of moet worden gestuurd wanneer het document wordt geopend.
 
--   If you have questions or want to provide feedback about the document tracking site: Click the Help icon to access the [FAQ for Document Tracking](http://go.microsoft.com/fwlink/?LinkId=523977).
+-   Als u vragen hebt of wilt u feedback over het document bijhouden site: Klik op het pictogram Help voor toegang tot de [Veelgestelde vragen voor het bijhouden van Document](http://go.microsoft.com/fwlink/?LinkId=523977).
 
-## Using Office to access the document tracking site
+## Toegang tot het bijhouden van site document met behulp van Office
 
--   For the Office applications, Word, Excel, and PowerPoint: On the **Home** tab, in the **RMS** group, click **Share Protected**, and then click **Track Usage**.
+-   Voor de Office-toepassingen, Word, Excel en PowerPoint: Op de **Home** tabblad in de **RMS** groep, klikt u op **beveiligd delen**, en klik vervolgens op **bijhouden gebruik**.
 
     ![](../Image/ADRMS_MSRMSApp_OfficeToolbarTrackUsage.png)
 
--   For Outlook: On the **Home** tab, in the  **RMS** group, click **Track Usage**:
+-   Voor Outlook: Op de **Home** tabblad in de  **RMS** groep, klikt u op **bijhouden gebruik**:
 
     ![](../Image/ADRMS_MSRMSApp_OutlookTrackUsage.png)
 
-If you do not see these options for RMS, it’s likely that either the RMS sharing application is not installed on your computer, the latest version isn’t installed, or your computer must be restarted to complete the installation. For more information about how to install the sharing application, see [Download and install the Rights Management sharing application](../Topic/Download_and_install_the_Rights_Management_sharing_application.md).
+Als u deze opties voor RMS niet ziet, is het waarschijnlijk dat de RMS sharing van toepassing is niet geïnstalleerd op uw computer, de meest recente versie is niet geïnstalleerd of de computer moet opnieuw worden gestart om de installatie te voltooien. Zie voor meer informatie over het installeren van de toepassing delen [Download en installeer de Rights Management-toepassing delen](../Topic/Download_and_install_the_Rights_Management_sharing_application.md).
 
-### Other ways to track and revoke your documents
-In addition to tracking your documents on Windows computers by using Office applications, you can also use these alternatives:
+### Andere manieren om te controleren en uw documenten intrekken
+Naast uw documenten op Windows-computers met behulp van Office-toepassingen bijhouden, kunt u ook andere deze alternatieven gebruiken:
 
--   **Using a web browser**: This method works for all supported devices.
+-   **Met een webbrowser**: Deze methode werkt voor alle ondersteunde apparaten.
 
--   **Using File Explorer**: This method works for Windows computers.
+-   **Bestand Verkenner**: Deze methode werkt voor Windows-computers.
 
--   **Using an Outlook email message**: This method works for Windows computers.
+-   **Met behulp van een e-mailbericht van Outlook**: Deze methode werkt voor Windows-computers.
 
-##### Using a web browser to access the doc tracking site
+##### Met behulp van een webbrowser toegang tot de site doc bijhouden
 
--   Using a supported browser, go to the [document tracking site](http://go.microsoft.com/fwlink/?LinkId=529562).
+-   Met een ondersteunde browser, gaat u naar de [document bijhouden site](http://go.microsoft.com/fwlink/?LinkId=529562).
 
-    Supported browsers: We recommend using Internet Explorer that is at least version 10, but you can use any of following browsers to use the document tracking site:
+    Ondersteunde browsers: Gebruik van Internet Explorer die wordt ten minste versie 10, maar u kunt een van de volgende browsers gebruiken het document bijhouden van de site te gebruiken:
 
-    -   Internet Explorer: At least version 10
+    -   Internet Explorer: Ten minste versie 10
 
-    -   Internet Explorer 9 with at least MS12-037: Cumulative Security Update for Internet Explorer: June 12, 2012
+    -   Internet Explorer 9 met ten minste MS12-037: Cumulatieve beveiligingsupdate voor Internet Explorer: 12 juni 2012
 
-    -   Mozilla Firefox: At least version 12
+    -   Mozilla Firefox: Ten minste versie 12
 
-    -   Apple Safari 5: At least version 5
+    -   Apple Safari 5: Ten minste versie 5
 
-    -   Google Chrome: At least version 18
+    -   Google Chrome: Ten minste versie 18
 
-##### Using File Explorer to access the doc tracking site
+##### File Explorer gebruiken voor toegang tot het document bijhouden van site
 
--   Right-click the file, select **Protect with RMS**, and then select **Track Usage**:
+-   Met de rechtermuisknop op het bestand, selecteert u **beveiligen met RMS**, en selecteer vervolgens **bijhouden gebruik**:
 
     ![](../Image/ADRMS_MSRMSApp_ExplorerTrackUsage.png)
 
-##### Using an Outlook email message to access the doc tracking site
+##### Met behulp van een e-mailbericht van Outlook toegang tot de site doc bijhouden
 
--   In an email message, in the **Message** tab, in the  **RMS** group, click **Share Protected**, and then click **Track Usage**:
+-   In een e-mailbericht in de **bericht** tabblad in de  **RMS** groep, klikt u op **beveiligd delen**, en klik vervolgens op **bijhouden gebruik**:
 
     ![](../Image/ADRMS_MSRMSApp_OutlookMessageTrackUsage.png)
 
-## Examples and other instructions
-For examples for how you might use the Rights Management sharing application, and how-to instructions, see the following sections from the Rights Management sharing application user guide:
+## Voorbeelden en andere instructies
+Zie de volgende secties van de Rights Management delen application user guide voor voorbeelden voor het gebruik van de Rights Management-toepassing en praktische instructies delen:
 
--   [Examples for using the RMS sharing application](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
+-   [Voorbeelden voor het gebruik van de RMS sharing toepassing](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
 
--   [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
+-   [Wat wilt u doen?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
 
-## See Also
-[Rights Management sharing application user guide](../Topic/Rights_Management_sharing_application_user_guide.md)
+## Zie ook
+[Rights Management delen toepassing handleiding](../Topic/Rights_Management_sharing_application_user_guide.md)
 

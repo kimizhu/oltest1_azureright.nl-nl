@@ -6,34 +6,33 @@ search: na
 ms.date: na
 ms.tgt_pltfrm: na
 ms.assetid: a69ead9d-7dd3-4b38-9830-4728e9757341
-ms.author: e8f708ba3bce4153b61467184c747c7f
 robots: noindex,nofollow
 ---
-# Active Directory Rights Management Services Mobile Device Extension
-The Active Directory Rights Management Services (AD RMS) mobile device extension runs on top of an existing AD RMS deployment. This lets users who have mobile devices protect and consume sensitive data when their device supports the latest RMS client and uses RMS-enlightened apps. For example, users on these device can do the following:
+# Uitbreiding voor mobiele apparaten voor Active Directory Rights Management Services
+De extensie van de Active Directory Rights Management Services (AD RMS) voor mobiele apparaten wordt bovenop een bestaande AD RMS-installatie uitgevoerd. Hiermee kunnen gebruikers die mobiele apparaten hebben gevoelige gegevens beveiligen en gebruiken wanneer hun apparaat de nieuwste RMS-client ondersteunt en apps met RMS gebruikt. Gebruikers op deze apparaten kunnen bijvoorbeeld het volgende doen:
 
--   Use the RMS sharing app to consume protected text files in different formats (including .txt, .csv, and .xml).
+-   De RMS-app voor delen gebruiken om beveiligde tekstbestanden te gebruiken in verschillende indelingen (zoals .txt, .csv en .xml).
 
--   Use the RMS sharing app to consume protected image files (including .jpg, .gif, and .tif.
+-   De RMS-app voor delen gebruiken om beveiligde afbeeldingsbestanden te gebruiken in verschillende indelingen (zoals .jpg, .gif en .tif).
 
--   Use the RMS sharing app to open any file that have been generically protected (.pfile format).
+-   De RMS-app voor delen gebruiken om bestanden te openen die algemeen beveiligd zijn (.pfile-indeling).
 
--   Use the RMS sharing app to protect image files on the device.
+-   De RMS-app voor delen gebruiken om afbeeldingsbestanden op het apparaat te beveiligen.
 
--   Use an RMS-enlightened PDF viewer for mobile devices to open PDF files that were protected with the RMS sharing application for Windows, or another RMS-enlightened application.
+-   Een PDF-viewer met RMS gebruiken voor mobiele apparaten om PDF-bestanden te openen die beveiligd zijn met de RMS-toepassing voor delen voor Windows, of door een andere toepassing met RMS.
 
--   Use other apps from software vendors who provide RMS-enlightened apps that support file types that natively support RMS.
+-   Andere apps van softwareleveranciers gebruiken die apps leveren met RMS en bestandstypen ondersteunen die standaard RMS ondersteunen.
 
--   Use your internally developed RMS-enlightened apps that were written by using the RMS SDK.
+-   Uw eigen ontwikkelde apps met RMS gebruiken die zijn geschreven met de RMS SDK.
 
 > [!NOTE]
-> You can download the RMS sharing app from the [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) page on the Microsoft website.
+> U kunt RMS-app voor delen downloaden van de pagina [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) op de website van Microsoft.
 > 
-> For more information about the different file types that RMS supports, see the [Supported file types and file name extensions](http://technet.microsoft.com/library/dn339003.aspx) section in the Rights Management sharing application administrator guide.
+> Zie voor meer informatie over de verschillende typen die RMS ondersteunt de sectie [Ondersteunde bestandstypen en bestandsnaamextensies](http://technet.microsoft.com/library/dn339003.aspx) in de Beheerdershandleiding voor de Rights Management-toepassing voor delen.
 
-You don’t need the mobile device extension to consume or author protected email on devices if they use mail applications that support Exchange ActiveSync IRM. This native support for RMS and mobile devices was introduced with Exchange 2010 Service Pack 1.
+U hoeft de mobiele apparaat-extensie niet te gebruiken om beveiligde e-mail te autoriseren op apparaten als deze mailtoepassingen gebruiken die Exchange ActiveSync IRM ondersteunen. Deze ondersteuning voor RMS en mobiele apparaten is geïntroduceerd met Exchange 2010 Service Pack 1.
 
-Use the following sections to deploy the Active Directory Rights Management Services (AD RMS) mobile device extension:
+Gebruik de volgende secties om de Active Directory Rights Management Services (AD RMS)-extensie voor mobiele apparaten te implementeren:
 
 -   [Prerequisites for the AD RMS mobile device extension](../Topic/Active_Directory_Rights_Management_Services_Mobile_Device_Extension.md#BKMK_Preqs)
 
@@ -45,24 +44,24 @@ Use the following sections to deploy the Active Directory Rights Management Serv
 
 -   [Deploying the AD RMS mobile device extension](../Topic/Active_Directory_Rights_Management_Services_Mobile_Device_Extension.md#BKMK_Deploy)
 
-## <a name="BKMK_Preqs"></a>Prerequisites for the AD RMS mobile device extension
-Before you install the AD RMS mobile device extension, make sure that these dependencies are in place.
+## <a name="BKMK_Preqs"></a>Vereisten voor de AD RMS-extensie voor mobiele apparaten
+Voordat u de AD RMS-extensie voor mobiele apparaten installeert, moet u ervoor zorgen dat deze afhankelijkheden op locatie zijn.
 
-|Requirement|More information|
-|---------------|--------------------|
-|An existing AD RMS deployment on Windows Server 2012 R2 or Windows Server 2012. **Note:** AD RMS must be using a full Microsoft SQL Server-based database on a separate server and not the Windows Internal Database that is often used for testing on the same server.|For documentation about AD RMS, see [Active Directory Rights Management Services](http://technet.microsoft.com/library/hh831364.aspx) in the Windows Server library.|
-|AD FS deployed on Windows Server 2012 R2|For documentation about AD FS, see [Windows Server 2012 R2 AD FS Deployment Guide](http://technet.microsoft.com/library/dn486820.aspx) in the Windows Server library.<br /><br />AD FS must be configured for the mobile device extension. For instructions, see the [Configuring AD FS for the AD RMS mobile device extension](../Topic/Active_Directory_Rights_Management_Services_Mobile_Device_Extension.md#BKMK_ADFS) section in this topic.|
-|SRV records in DNS|Create one or more SRV records in your company domain or domains:<br /><br />-   One record for each email domain suffix that users will use<br />-   One record for every FQDN used by your RMS clusters to protect content<br /><br />When users supply their email address from their mobile device, the domain suffix is used to identify whether they should use an AD RMS infrastructure or Azure RMS. When the SRV record is found, clients are redirected to the AD RMS server that responds to that URL.<br /><br />When users consume protected content with a mobile device, the client application looks in DNS for a record that matches the FQDN in the URL of the cluster that protected the content. The device is then directed to the AD RMS cluster specified in the DNS record and acquires a license to open the content. In most cases, the RMS cluster will be the same RMS cluster that protected the content.<br /><br />For information about how to specify the SRV records, see the [Specifying the DNS SRV records for the AD RMS mobile device extension](../Topic/Active_Directory_Rights_Management_Services_Mobile_Device_Extension.md#BKMK_SRV) section in this topic.|
-|Currently supported clients:<br /><br />-   Android devices using the latest version of the RMS sharing app for Android|Minimum version of Android 4.0.3.<br /><br />Download the RMS sharing app for Android from the [Microsoft Connect site](https://connect.microsoft.com/site1170/Downloads) and sideload it onto the device.|
+|Vereiste|Meer informatie|
+|------------|-------------------|
+|Een bestaande AD RMS-implementatie op Windows Server 2012 R2 of Windows Server 2012. **Note:** AD RMS moet een volledige op Microsoft SQL Server-gebaseerde database gebruiken op een afzonderlijke server en niet Windows Internal Database, welke vaak wordt gebruikt voor het testen op dezelfde server.|Zie voor documentatie over AD RMS [Active Directory Rights Management Services](http://technet.microsoft.com/library/hh831364.aspx) in de bibliotheek voor Windows Server.|
+|AD FS is geïmplementeerd op Windows Server 2012 R2|Zie voor documentatie over AD FS de [Windows Server 2012 R2 AD FS Deployment Guide](http://technet.microsoft.com/library/dn486820.aspx) in de Windows Server Library.<br /><br />AD FS moet worden geconfigureerd voor de extensie van het mobiele apparaat. Zie voor instructies de sectie [Configuring AD FS for the AD RMS mobile device extension](../Topic/Active_Directory_Rights_Management_Services_Mobile_Device_Extension.md#BKMK_ADFS) in dit onderwerp.|
+|SRV-records in DNS|Een of meer SRV-records maken in uw bedrijfsdomein of -domeinen:<br /><br />-   Een record voor elk e-maildomeinachtervoegsel dat door gebruikers wordt gebruikt<br />-   Een record voor elke FQDN die wordt gebruikt door uw RMS-clusters om inhoud te beveiligen<br /><br />Wanneer gebruikers het e-mailadres van hun mobiele apparaat opgeven, wordt het domeinachtervoegsel gebruikt om te bepalen of ze een AD RMS-infrastructuur of Azure RMS moeten gebruiken. Als de SRV-record wordt gevonden, worden clients omgeleid naar de AD RMS-server die op die url reageert.<br /><br />Als gebruikers beveiligde inhoud gebruiken met een mobiel apparaat, dan zoekt de zoekt de clienttoepassing in DNS naar een record die overeenkomt met de FQDN in de url of het cluster dat de inhoud beveiligd. Het apparaat wordt vervolgens omgeleid naar het AD RMS-cluster dat is opgegeven in de DNS-record en krijgt een licentie om de inhoud te openen. In de meeste gevallen is het RMS-cluster hetzelfde als het RMS-cluster dat de inhoud beveiligt.<br /><br />Zie voor meer informatie over het opgeven van de SRV-records de sectie [Specifying the DNS SRV Records for the AD RMS mobile device extension](../Topic/Active_Directory_Rights_Management_Services_Mobile_Device_Extension.md#BKMK_SRV) in dit onderwerp.|
+|Huidige ondersteunde clients:<br /><br />-   Android-apparaten met de nieuwste versie van de RMS-app voor delen voor Android|Minimale versie van Android 4.0.3.<br /><br />Download de RMS-app voor delen voor Android van de [Microsoft Connect-site](https://connect.microsoft.com/site1170/Downloads) en sideload deze op het apparaat.|
 
-### <a name="BKMK_ADFS"></a>Configuring AD FS for the AD RMS mobile device extension
-You must first configure AD FS, and then authorize the RMS sharing app for Android.
+### <a name="BKMK_ADFS"></a>AD FS voor de AD RMS-extensie voor mobiele apparaten configureren
+U moet eerst de AD FS configureren en vervolgens de RMS-app voor delen voor Android autoriseren.
 
-##### Step 1: To configure AD FS
+##### Stap 1: AD FS configureren
 
--   You can either run a Windows PowerShell script to automatically configure AD FS to support the AD RMS mobile device extension, or you can manually specify the configuration options and values:
+-   U kunt een Windows PowerShell-script uitvoeren om AD FS automatisch te configureren voor ondersteuning van de AD RMS-extensie voor mobiele apparaten, of u kunt de configuratieopties en -waarden handmatig opgeven:
 
-    -   To automatically configure AD FS, copy and paste the following into a Windows PowerShell script file, and then run it:
+    -   Kopieer en plak het volgende in een Windows PowerShell-scriptbestand om AD FS automatisch te configureren en voer het vervolgens uit:
 
         ```
         # This Script Configures the Microsoft Rights Management Mobile Device Extension and Claims used in the ADFS Server
@@ -123,27 +122,27 @@ You must first configure AD FS, and then authorize the RMS sharing app for Andro
         }
         ```
 
-    -   To manually configure AD FS, use these settings:
+    -   Gebruik deze instellingen om AD FS handmatig te configureren:
 
-        |Configuration|Value|
-        |-----------------|---------|
+        |Configuratie|Waarde|
+        |----------------|----------|
         |**Relying Party Trust**|api.rms.rest.com|
-        |**Claim rule**|**Attribute store**:  Active Directory<br /><br />**E Mail-Addresses**:  E-Mail-Address<br /><br />**User-Principal-Name**:  UPN<br /><br />**Proxy-Address**:  https://schemas.xmlsoap.org/claims/ProxyAddresses|
+        |**Claimregel**|**Kenmerkopslag**:  Active Directory<br /><br />**E-mailadressen**:  E-mailadres<br /><br />**Principal-naam van gebruiker**:  UPN<br /><br />**Proxy-adres**:  https://schemas.xmlsoap.org/claims/ProxyAddresses|
 
-##### Step 2: Authorize the RMS sharing app for Android
+##### Stap 2: De RMS-app voor delen voor Android autoriseren
 
--   Run the following Windows PowerShell command to add support for Android devices:
+-   Voer de volgende Windows PowerShell-opdracht uit om Android-apparaten te ondersteunen:
 
     ```
     Add-AdfsClient -Name "RMSsharingAndroid" -ClientId "com.microsoft.ipviewer" -RedirectUri @("com.microsoft.ipviewer://authorize")
     ```
 
-### <a name="BKMK_SRV"></a>Specifying the DNS SRV records for the AD RMS mobile device extension
-You must create DNS SRV records for each email domain that your users use. If all your users use child domains from a single parent domain, and all users from this contiguous namespace use the same RMS cluster, you can use just one SRV record in the parent domain, and RMS will find the appropriate DNS records.
+### <a name="BKMK_SRV"></a>DNS SRV-records opgeven voor de AD RMS-extensie voor mobiele apparaten
+U moet DNS SRV-records maken voor elk e-maildomein dat uw gebruikers gebruiken. Als al uw gebruikers onderliggende domeinen gebruiken voor een enkel bovenliggend domein en alle gebruikers van deze aaneengesloten naamruimte hetzelfde RMS-cluster gebruiken, dan kunt u één SRV-record gebruiken in het bovenliggend domein en RMS zal de juiste DNS-records vinden.
 
-The SRV records have the following format: _rmsdisco._http._tcp. *&lt;emailsuffix&gt;**&lt;portnumber&gt;**&lt;RMSClusterFQDN&gt;*
+De SRV-records hebben de volgende indeling: _rmsdisco._http._tcp. *&lt;emailsuffix&gt;**&lt;portnumber&gt;**&lt;RMSClusterFQDN&gt;*
 
-For example, if your organization has users with the following email addresses:
+Als uw organisatie bijvoorbeeld gebruikers heeft met de volgende e-mailadressen:
 
 -   user@contoso.com
 
@@ -151,26 +150,26 @@ For example, if your organization has users with the following email addresses:
 
 -   user@fabrikam.com
 
-- and there are no other child domains for contoso.com that use a different RMS cluster than the one named **rmsserver.contoso.com**, create two DNS SRV records that have these values:
+- en er zijn geen andere onderliggende domeinen voor contoso.com die gebruikmaken van een ander RMS-cluster dan de cluster met de naam **rmsserver.contoso.com**, maakt u twee DNS SRV-records die deze waarden hebben:
 
 -   _rmsdisco._http._tcp.contoso.com 443 rmsserver.contoso.com
 
 -   _rmsdisco._http._tcp.fabrikam.com 443 rmsserver.contoso.com
 
-In addition to these DNS SRV records for your email domains, you must create another DNS SRV record in the user domains. This record must specify the URLs of your RMS cluster that protects content. Every file that is protected by RMS includes a URL to the cluster that protected that file. Mobile devices use the DNS SRV record and the URL FQDN specified in the record to find the corresponding RMS cluster that can support mobile devices.
+Naast deze DNS SRV-records voor uw e-maildomeinen, moet u nog een DNS SRV-record maken in de gebruikersdomeinen. Deze record moet de url's van uw RMS-cluster opgeven dat de inhoud beveiligt. Elk bestand dat wordt beveiligd door RMS bevat een url naar het cluster welke dat bestand heeft beveiligd. Mobiele apparaten gebruiken de DNS SRV-record en de url-FQDN die in de record is opgegeven om het overeenkomstige RMS-cluster te vinden dat mobiele apparaten ondersteunt.
 
-For example, if your RMS cluster is **rmsserver.contoso.com**, create a DNS SRV record that has the following values: **_rmsdisco._http._tcp.rmsserver.contoso.com 443 rmsserver.contoso.com**
+Als uw RMS-cluster bijvoorbeeld **rmsserver.contoso.com** is, maakt u een DNS SRV-record met de volgende waarden: **_rmsdisco._http._tcp.rmsserver.contoso.com 443 rmsserver.contoso.com**
 
-## <a name="BKMK_Deploy"></a>Deploying the AD RMS mobile device extension
-Before you install the AD RMS mobile device extension, make sure that the prerequisites from the preceding section are first in place, and that you know the URL of your AD FS server. Then do the following:
+## <a name="BKMK_Deploy"></a>AD RMS-extensie voor mobiele apparaten implementeren
+Zorg voordat u de AD RMS-extensie voor mobiele apparaten installeert dat de vereisten van de voorgaande sectie aanwezig zijn en dat u de url van uw AD FS-server weet. Ga als volgt verder:
 
-1.  Download the AD RMS mobile device extension from the [Microsoft Connect site](http://go.microsoft.com/fwlink/?LinkId=397245).
+1.  Download de AD RMS-extensie voor mobiele apparaten van de [Microsoft Connect-site](http://go.microsoft.com/fwlink/?LinkId=397245).
 
-2.  Run Setup.exe to start the Active Directory Rights Management Services Mobile Device Extension Setup Wizard.
+2.  Voer Setup.exe uit om de wizard Active Directory Rights Management Services Mobile Device Extension Setup te starten.
 
-3.  When prompted, enter the URL of the AD FS server that you configured previously.
+3.  Geef, wanneer u daarom wordt gevraagd, de URL op van de AD FS-server op die u eerder hebt geconfigureerd.
 
-4.  Complete the wizard.
+4.  Voltooi de wizard.
 
-Run this wizard on all the nodes in your RMS cluster.
+Voer deze wizard uit op alle knooppunten in uw RMS-cluster.
 

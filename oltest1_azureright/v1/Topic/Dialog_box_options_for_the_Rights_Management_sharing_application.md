@@ -3,64 +3,63 @@ description: na
 keywords: na
 title: Dialog box options for the Rights Management sharing application
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7b91ab30-6363-4929-bcbd-4dfbd05f644a
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Dialog box options for the Rights Management sharing application
-Use this information to help you specify the options in the RMS sharing application **add protection** dialog box or the **share protected** dialog box. You will see this dialog box when you [protect a file to share](http://technet.microsoft.com/library/dn574735.aspx) or you [protect a file in place](http://technet.microsoft.com/library/dn574733.aspx) and choose custom permissions.
+# De opties in het dialoogvenster voor de Rights Management-toepassing delen
+Deze informatie gebruiken om te helpen u de opties in de RMS sharing toepassing opgeven **Beveiliging toevoegen** in het dialoogvenster of de **beveiligd delen** in het dialoogvenster. Ziet u dit dialoogvenster vak wanneer u [een bestand te delen beveiligd](http://technet.microsoft.com/library/dn574735.aspx) of u [beveiligen van een bestand in plaats](http://technet.microsoft.com/library/dn574733.aspx) en kies aangepaste machtigingen.
 
 > [!IMPORTANT]
-> If the options you see are different from those documented here, you probably don’t have the latest version of the sharing application installed. You can download the latest version from the [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) page.
+> Als de opties die u ziet verschillen van de hier beschreven, hebt u waarschijnlijk niet de nieuwste versie van de delen toepassing is geïnstalleerd. U kunt download de nieuwste versie van de [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) pagina.
 > 
-> How do you know if you have the latest version? Look for **Microsoft Rights Management sharing application** listed in Programs and Features, and check the corresponding version number. To see and use the options in the table, the version should be at least **1.0.1770.0**. You can check the latest version number from the download page.
+> Hoe weet u als u de meest recente versie? Zoek naar **Microsoft Rights Management-toepassing voor delen** vermeld in programma's en onderdelen en de bijbehorende versienummer controleren. Als u wilt zien en gebruikt u de opties in de tabel, de versie moet ten minste **1.0.1770.0**. U kunt het nummer van de meest recente versie van de downloadpagina controleren.
 
-In addition to the options that you can choose, you might also be wondering:
+Naast de opties die u kunt kiezen, vraagt u mogelijk ook worden af:
 
--   [What’s the .ppdf file that’s automatically created?](../Topic/Dialog_box_options_for_the_Rights_Management_sharing_application.md#BKMK_PPDF)
+-   [Wat is het bestand .ppdf die automatisch wordt gemaakt?](../Topic/Dialog_box_options_for_the_Rights_Management_sharing_application.md#BKMK_PPDF)
 
--   [What’s the difference between generic protection and built-in (native) protection?](../Topic/Dialog_box_options_for_the_Rights_Management_sharing_application.md#BKMK_GenericNative)
+-   [Wat is het verschil tussen algemene bescherming en ingebouwde (standaard)?](../Topic/Dialog_box_options_for_the_Rights_Management_sharing_application.md#BKMK_GenericNative)
 
-|Option|Description|
-|----------|---------------|
-|**USERS**|If you haven’t already specified an email address from Outlook, type the email addresses of the people that you want to be able to open the file.<br /><br />If your organization uses the on-premises version of Rights Management (AD RMS), the email addresses you can  specify are restricted to  people within your organization. When this applies, and you try to specify external email addresses, you will see a message that says your company configuration allows sharing of protected content only within the company. However, if your organization uses Azure RMS, these email addresses can be for people within  your  organization, or for people in another organization.<br /><br />For example: janetm@contoso.com; p.dover@fabrikam.com|
-|**Generic Protection**|If this option is selected, it means that the file you selected cannot be natively protected. For more information, see. [What’s the difference between generic protection and built-in (native) protection?](../Topic/Dialog_box_options_for_the_Rights_Management_sharing_application.md#BKMK_GenericNative) in this topic.|
-|**Viewer – View Only**<br /><br />**Reviewer – View and Edit**<br /><br />**Co-Author – View, Edit, Copy, and Print**<br /><br />**Co-Owner – All Permissions**<br /><br />Note: All these options have a round icon before the name, which represent a world globe. This icon is used because typically, you select one of these options when you send your attachment to somebody in a different organization.|Select one of these options if you want to define the rights for your protected document. Click each option to view a description.<br /><br />When you choose one of these options, only the people you specify in **USERS** have the rights you specify to open and use the document. For example, if they forward to somebody else, the document would not open.|
-|Policy templates that your administrator configures.<br /><br />For example, if your company name is Contoso, Ltd: **Contoso, Ltd - Confidential View Only**<br /><br />Note: All these options have a square icon before the name, which represent an office building. This icon is used because typically, you select one of these options when you send your attachment to somebody in your organization.|When you share a document with people who work for your organization, you see the available policy templates that your administrator configures. Choose one of these when the document should not be shared outside your organization.<br /><br />When you choose one of these options, your administrator defines the rights for the document and who can open it.|
-|**Expire these documents on**|Select this option only for time-sensitive files that the users that you selected should not be able to open after a date that you specify. You will still be able to open the original file but after midnight (your current time zone), on the day that you specify, others will not be able to open the file.<br /><br />This option is not available if you select a policy template that your administrator configures.|
-|**Email me when somebody tries to open these documents**|Note: This option is currently in preview.<br /><br />Select this option if you want to receive email notifications whenever somebody tries to open the document that you’re protecting. The email message will say who tried to open it, when, and whether they were successful.<br /><br />This option is available only if your organization uses Azure RMS. If your organization uses the on-premises version of Rights Management (AD RMS), you will not see this option.|
-|**Allow me to instantly revoke access to these documents**|Choose this option if you might need to revoke access to the documents later by using the document tracking site, and revocation needs to take effect immediately. However, setting this option means that while the document is not revoked, users always need an Internet connection to read the document, each time they access it. There might be some scenarios where users can’t connect their device to the Internet, and users can’t read your document as you intended.<br /><br />If you do not choose this option, you can still revoke the documents later, by using the document tracking site. However, because users do not always need an Internet connection to read the document, they won’t know immediately that the document is revoked and can continue to read it until they next authenticate with Azure RMS. By default, the maximum number of days that somebody could continue to read a protected document that you’ve revoked is 30 days, but an administrator can change this value to be fewer or greater than 30 days.<br /><br />This option is available only if your organization uses Azure RMS. If your organization uses the on-premises version of Rights Management (AD RMS), you will not see this option.|
+|Optie|Beschrijving|
+|---------|----------------|
+|**GEBRUIKERS**|Als u al een e-mailadres van Outlook nog niet hebt opgegeven, typt u de e-mailadressen van de mensen die u wilt kan het bestand te openen.<br /><br />Als uw organisatie gebruikmaakt van de lokale versie van Rights Management (AD RMS), is de kunt u e-mailadressen zijn beperkt tot mensen binnen uw organisatie. Wanneer dit is van toepassing en probeer het externe e-mailadressen opgeven, ziet u een bericht weergegeven dat de configuratie van uw bedrijf kunt delen van beveiligde inhoud binnen het bedrijf. Als uw organisatie gebruikmaakt van Azure RMS, kunnen deze e-mailadressen echter voor mensen binnen uw organisatie of voor mensen in een andere organisatie.<br /><br />Voorbeeld: janetm@contoso.com; p.Dover@Fabrikam.com|
+|**Algemene beveiliging**|Als deze optie is geselecteerd, betekent dit dat het geselecteerde bestand systeemeigen kan niet worden beveiligd. Zie voor meer informatie. [Wat is het verschil tussen algemene bescherming en ingebouwde (standaard)?](../Topic/Dialog_box_options_for_the_Rights_Management_sharing_application.md#BKMK_GenericNative) in dit onderwerp.|
+|**Viewer – alleen weergeven**<br /><br />**Revisor – weergeven en bewerken**<br /><br />**Auteurs – weergeven, bewerken, kopiëren en afdrukken**<br /><br />**Collega eigenaar – alle machtigingen** **Note:** Deze opties hebben een rond pictogram voordat u de naam die een globe world vertegenwoordigen. Dit pictogram wordt gebruikt, omdat er meestal u een van deze opties wanneer u uw bijlage naar iemand anders te in een andere organisatie verzenden.|Selecteer een van deze opties als u wilt de rechten voor het beveiligde document definiëren. Klik op elke optie om een beschrijving weer te geven.<br /><br />Wanneer u een van de volgende opties kiezen, alleen de mensen die u opgeeft in **gebruikers** beschikt over de rechten u opgeeft om te openen en gebruiken van het document. Bijvoorbeeld als ze naar iemand anders doorstuurt, zou het document niet openen.|
+|Beleidssjablonen die uw beheerder configureert.<br /><br />Bijvoorbeeld als de naam van uw bedrijf Contoso, Ltd: **Contoso, Ltd - alleen vertrouwelijke weergeven** **Note:** Deze opties hebben een vierkant pictogram voordat u de naam die een office ontwikkelen vertegenwoordigen. Dit pictogram wordt gebruikt, omdat er meestal u een van deze opties wanneer u uw bijlage naar iemand anders te in uw organisatie verzenden.|Wanneer u een document met mensen die werken voor uw organisatie delen, ziet u de beschikbare sjablonen die uw beheerder configureert. Kies een van deze wanneer het document mag niet worden gedeeld buiten uw organisatie.<br /><br />Wanneer u een van deze opties kiest, bepaalt de beheerder de rechten voor het document en wie het kunt openen.|
+|**Deze documenten verlopen op**|Selecteer deze optie alleen voor tijdgebonden bestanden die de gebruikers die u hebt geselecteerd niet kunnen openen na een datum die u opgeeft. U kunt zich nog steeds het oorspronkelijke bestand openen, maar na middernacht (uw huidige tijdzone) op de dag die u opgeeft, anderen niet mogelijk om het bestand te openen.<br /><br />Deze optie is niet beschikbaar als u een beleidssjabloon die uw beheerder configureert.|
+|**E-mail me wanneer iemand probeert te openen van deze documenten**|**Note:** Deze optie is momenteel preview.<br />Selecteer deze optie als u e-mailmeldingen ontvangen wilt wanneer iemand probeert te openen van het document dat u bent beschermen. Het e-mailbericht kan aangeven die probeert te openen, wanneer en of ze voltooid zijn.<br /><br />Deze optie is alleen beschikbaar als uw organisatie Azure RMS gebruikt. Als uw organisatie gebruikt de lokale versie van Rights Management (AD RMS), ziet u deze optie niet.|
+|**Kan ik toegang tot deze documenten meteen intrekken**|Selecteer deze optie als u toegang tot de documenten later intrekken moet mogelijk met behulp van het document site bijhouden en intrekken moet onmiddellijk van kracht. Instellen van deze optie manier die tijdens het document niet is ingetrokken, moeten gebruikers altijd echter een internetverbinding nodig om te lezen van het document telkens wanneer die ze toegang hebben. Er is mogelijk een aantal scenario's waar gebruikers hun apparaat kunnen geen verbinding met Internet en gebruikers het document als u de bedoeling kunnen niet lezen.<br /><br />Als u deze optie niet kiest, kunt u de documenten nog steeds later intrekken met behulp van de site document bijhouden. Echter, omdat gebruikers niet altijd een internetverbinding nodig om te lezen van het document hoeven, ze weet niet direct het document is ingetrokken en kan worden voortgezet totdat ze vervolgens met Azure RMS verifiëren lezen. Het maximum aantal dagen dat iemand kan doorgaan met het lezen van een beveiligd document die u hebt ingetrokken is 30 dagen standaard, maar deze waarde groter dan 30 dagen of minder zijn door een beheerder kan wijzigen.<br /><br />Deze optie is alleen beschikbaar als uw organisatie Azure RMS gebruikt. Als uw organisatie gebruikt de lokale versie van Rights Management (AD RMS), ziet u deze optie niet.|
 
-## <a name="BKMK_GenericNative"></a>What’s the difference between generic protection and built-in (native) protection?
+## <a name="BKMK_GenericNative"></a>Wat is het verschil tussen algemene bescherming en ingebouwde (standaard)?
 
--   When you **generically protect a file**, unauthorized people cannot open the file. But after authorized people open the file, they could then forward it unprotected to other people or save it in a location that others could access. They do, however, see a message that tells them what permissions they have for the file, and they are asked to honor these, but this protection cannot be enforced. In addition, when you generically protect a file, you cannot restrict the permissions further than authorization. For example you cannot restrict the content to view-only, or do not print.:
-
-    > [!NOTE]
-    > A generically protected file always has a file name extension of **.pfile**.
-
--   In comparison, when you use the **built-in (native) protection** of Rights Management with applications that support this (for example, Office files), the protection applies to the file even if the file is then sent to somebody else or saved in another location. And, when you protect these files, you can use restrictive permissions such as read-only, or the permission to edit but not print or copy. For example, you could select **Viewer – View Only**, so that the content cannot be edited, printed, or copied.
-
-For additional technical information, see the [Levels of protection – native and generic](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_LevelsofProtection) section in the [Rights Management sharing application administrator guide](../Topic/Rights_Management_sharing_application_administrator_guide.md).
-
-## <a name="BKMK_PPDF"></a>What’s the .ppdf file that’s automatically created?
-
--   When you share a protected file by email (share protected), the RMS sharing application automatically creates a **.ppdf** version of the file for Word, Excel, PowerPoint, or PDF. This is a read-only protected version of the file that only authorized people can open, and it ensures that the recipients can always read the attachment, even if they are using a mobile device that doesn’t have an application that natively supports Rights Management. Providing these people have the RMS sharing app installed, they will be able to read the attachment.
-
-    In this scenario, unlike a generically protected file, usage restriction is enforced. The recipient will not be able to save this version of the file and if they forward the attachment to somebody else, the original restrictions remain with the document. Only people that were authorized for the protected document will be able to open it.
+-   Wanneer u **generieke een bestand beveiligd**, niet-geautoriseerde personen het bestand niet openen. Maar als gemachtigde personen het bestand opent, kan vervolgens doorsturen naar anderen de beveiliging is opgeheven of op een locatie die anderen kunnen toegang krijgen tot opslaan. Ze een bericht dat ze machtigingen die ze voor het bestand hebben echter doet, zien en hun wordt gevraagd om deze, maar deze beveiliging kan niet worden afgedwongen. Wanneer u een bestand generieke beveiligt, beperken niet u bovendien de machtigingen heeft meer dan autorisatie. Zoals u de inhoud niet beperken tot alleen-lezen of niet afdrukken.:
 
     > [!NOTE]
-    > A .ppdf file is automatically created when you share protected (share by email) but is not created when you protect in-place.
+    > Een algemeen beveiligd bestand heeft altijd extensie van **.pfile**.
 
-## Examples and other instructions
-For examples for how you might use the Rights Management sharing application, and how-to instructions, see the following sections from the Rights Management sharing application user guide:
+-   In de vergelijking, wanneer u de **ingebouwde (standaard) bescherming** van Rights Management met toepassingen die deze (bijvoorbeeld Office-bestanden ondersteunen), de bescherming van toepassing op het bestand zelfs als het bestand vervolgens wordt verzonden naar iemand anders of opgeslagen in een andere locatie. En als u deze bestanden worden beveiligd, kunt u beperkte machtigingen, zoals alleen-lezen, of de machtiging bewerken, maar niet afdrukken of kopiëren. Bijvoorbeeld, kunt u selecteren **Viewer – alleen weergeven**, zodat de inhoud kan niet worden bewerkt, afgedrukt of gekopieerd.
 
--   [Examples for using the RMS sharing application](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
+Zie voor aanvullende technische informatie, de [Niveaus van beveiliging – systeemeigen en algemene](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_LevelsofProtection) sectie de [Rights Management delen toepassing beheerdershandleiding](../Topic/Rights_Management_sharing_application_administrator_guide.md).
 
--   [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
+## <a name="BKMK_PPDF"></a>Wat is het bestand .ppdf die automatisch wordt gemaakt?
 
-## See Also
-[Rights Management sharing application user guide](../Topic/Rights_Management_sharing_application_user_guide.md)
+-   De RMS sharing toepassing automatisch wordt gemaakt wanneer u een beveiligd bestand delen via e-mail (beveiligd delen), een **.ppdf** versie van het bestand voor Word, Excel, PowerPoint of PDF-bestand. Dit is een alleen-lezen beschermde versie van het bestand dat alleen gemachtigde personen kunt openen, en zorgt ervoor dat de geadresseerden de bijlage kunnen lezen zelfs als ze een mobiel apparaat dat een toepassing die Rights Management ondersteunt geen gebruiken. Mits deze mensen de app RMS sharing geïnstalleerd hebben, worden ze kunnen lezen van de bijlage.
+
+    In dit scenario, in tegenstelling tot een algemeen beveiligd bestand wordt gebruiksbeperking afgedwongen. De ontvanger worden niet met deze versie van het bestand opslaan en als ze de bijlage aan iemand anders doorsturen, de oorspronkelijke beperkingen blijven met het document. Alleen de personen die gemachtigd zijn voor het beveiligde document is het mogelijk om deze te openen.
+
+    > [!NOTE]
+    > Een bestand .ppdf wordt automatisch gemaakt wanneer u delen van beveiligde (share per e-mail), maar niet gemaakt is wanneer u direct beveiligen.
+
+## Voorbeelden en andere instructies
+Zie de volgende secties van de Rights Management delen application user guide voor voorbeelden voor het gebruik van de Rights Management-toepassing en praktische instructies delen:
+
+-   [Voorbeelden voor het gebruik van de RMS sharing toepassing](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
+
+-   [Wat wilt u doen?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
+
+## Zie ook
+[Rights Management delen toepassing handleiding](../Topic/Rights_Management_sharing_application_user_guide.md)
 

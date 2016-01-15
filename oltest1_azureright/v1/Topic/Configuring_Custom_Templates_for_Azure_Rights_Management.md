@@ -3,240 +3,233 @@ description: na
 keywords: na
 title: Configuring Custom Templates for Azure Rights Management
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1775d8d0-9a59-42c8-914f-ce285b71ac1c
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Configuring Custom Templates for Azure Rights Management
-After you have activated Azure Rights Management (Azure RMS), users are automatically able to use two default templates that make it easy for them to apply policies to sensitive files that restrict access to authorized users in your organization. These two templates have the following rights policy restrictions:
+# Aangepaste sjablonen configureren voor Azure Rights Management
+Nadat u Azure Rights Management (Azure RMS) hebt geactiveerd, zich kunnen gebruikers automatisch aan twee standaardsjablonen waarmee u eenvoudig kunnen beleid toepassen om gevoelige bestanden met toegang tot gemachtigde gebruikers in uw organisatie beperkte te gebruiken. Deze twee sjablonen hebben de volgende rechten beleidsbeperkingen:
 
--   Read-only viewing for the protected content
+-   Alleen-lezen voor de beveiligde inhoud weergeven
 
-    -   Display name: **&lt;organization name&gt; - Confidential View Only**
+    -   Weergavenaam: **&lt; organisatienaam &gt; - alleen vertrouwelijke weergeven**
 
-    -   Specific permission: View Content
+    -   Specifieke machtiging: Inhoud weergeven
 
--   Read or Modify permissions for the protected content
+-   Lezen of wijzigen van machtigingen voor de beveiligde inhoud
 
-    -   Display name: **&lt;organization name&gt; - Confidential**
+    -   Weergavenaam: **&lt; organisatienaam &gt; - vertrouwelijke**
 
-    -   Specific permissions: View Content, Save File, Edit Content, View Assigned Rights, Allow Macros, Forward, Reply, Reply All
+    -   Specifieke machtigingen: Inhoud weergeven, opslaan, bewerken, inhoud, toegewezen rechten weergeven, toestaan macro's, doorsturen, beantwoorden, Allen beantwoorden
 
-In addition, the [RMS sharing application](http://technet.microsoft.com/library/dn339006.aspx) lets users define their own set of permissions. And, for the Outlook client and Outlook Web Access, users can select the **Do Not Forward** option for email messages.
+Bovendien de [RMS sharing toepassing](http://technet.microsoft.com/library/dn339006.aspx) kiest, kunnen gebruikers hun eigen reeks machtigingen definiëren. En voor de Outlook-client en de Outlook Web Access, kunnen gebruikers selecteren de **niet doorsturen** optie voor e-mailberichten.
 
-For many organizations, the default templates might be sufficient. But if you want to create your own custom rights policy templates, you can do so. Reasons for creating a custom template include the following:
+In veel organisaties wordt de standaardsjablonen mogelijk voldoende. Maar als u wilt uw eigen aangepaste rechten om beleidssjablonen te maken, kunt u dit doen. Mogelijke oorzaken voor het maken van een aangepaste sjabloon zijn de volgende:
 
--   You want a template to grant rights to a subset of users in the organization rather than all users.
+-   Wilt u een sjabloon rechten voor een subset van gebruikers in de organisatie in plaats van alle gebruikers.
 
--   You want only a subset of users to be able to see and select a template (departmental template) from applications, rather than all users in the organization see and can select the template.
+-   U wilt dat alleen een subset van gebruikers kunnen zien en selecteer een sjabloon (afdelingen sjabloon) van toepassingen in plaats van alle gebruikers in de organisatie zien en de sjabloon kunt selecteren.
 
--   You want to define a custom right for a template, such as View and Edit, but not Copy and Print.
+-   U wilt definiëren van een aangepaste geschikt voor een sjabloon, zoals weergeven en bewerken, maar niet kopiëren en afdrukken.
 
--   You want to configure additional options in a template that include an expiration date and whether the content can be accessed without an Internet connection.
+-   Wilt u aanvullende opties configureren in een sjabloon met een verloopdatum en of de inhoud die toegankelijk zijn zonder een internetverbinding nodig.
 
-For users to be able to select a custom template that contains settings such as these, you must first create a custom template, configure it, and then publish it.
+Voor gebruikers kunnen een aangepaste sjabloon met instellingen zoals deze te selecteren, moet u eerst een aangepaste sjabloon maken, configureren en vervolgens te publiceren.
 
-Use the following sections to help you configure and use custom templates:
+Gebruik de volgende secties om te configureren en gebruiken van aangepaste sjablonen:
 
--   [How to create, configure, and publish a custom template](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_HowToConfigureCustomTemplates)
+-   [Het maken, configureren en publiceren van een aangepaste sjabloon](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_HowToConfigureCustomTemplates)
 
--   [How to copy a template](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_HowToCopyTemplates)
+-   [Het kopiëren van een sjabloon](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_HowToCopyTemplates)
 
--   [How to remove (archive) templates](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_HowToArchiveTemplates)
+-   [Het verwijderen van sjablonen (archief)](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_HowToArchiveTemplates)
 
--   [Refreshing templates for users](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_RefreshingTemplates)
+-   [Vernieuwen van sjablonen voor gebruikers](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_RefreshingTemplates)
 
--   [Windows PowerShell reference](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_PowerShellTemplates)
+-   [Windows PowerShell-verwijzing](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_PowerShellTemplates)
 
-## <a name="BKMK_HowToConfigureCustomTemplates"></a>How to create, configure, and publish a custom template
-You create and manage custom templates in the Azure classic portal. You can do this directly from the Azure classic portal, or you can sign in to the Office 365 admin center, and choose the **advanced features** for Rights Management, which then redirects you to the Azure classic portal.
+## <a name="BKMK_HowToConfigureCustomTemplates"></a>Het maken, configureren en publiceren van een aangepaste sjabloon
+U maakt en beheren van aangepaste sjablonen in de Azure-beheerportal. U kunt dit doen rechtstreeks vanuit de Azure-beheerportal of meld u aan bij het Office 365-beheercentrum en kies de **Geavanceerde functies** voor Rights Management, dat vervolgens opent wordt u omgeleid naar de Azure-beheerportal.
 
-Use the following procedures to create, configure, and publish custom templates for Rights Management.
+De volgende procedures gebruiken om te maken, configureren en publiceren van aangepaste sjablonen voor Rights Management.
 
-#### To create a custom template
+#### Een aangepaste sjabloon maken
 
-1.  Depending on whether you sign in to the Office 365 admin center, or the Azure classic portal, do one of the following:
+1.  Afhankelijk van of u zich aanmeldt bij het Office 365-beheercentrum of het Azure-Portal, voert u een van de volgende:
 
-    -   From the [Office 365 admin center](https://portal.office.com/):
+    -   Uit de [Office 365-beheercentrum](https://portal.office.com/):
 
-        1.  In the left pane, click **service settings**.
+        1.  Klik in het linkerdeelvenster op **service-instellingen**.
 
-        2.  From the **service settings** page, click **rights management**.
+        2.  Uit de **service-instellingen** pagina, klikt u op **rights management**.
 
-        3.  In the **Protect your information** section, click **Manage**.
+        3.  In de **beschermen van uw gegevens** sectie, klikt u op **beheren**.
 
-        4.  In the **rights management** section, click **advanced features**.
+        4.  In de **rights management** sectie, klikt u op **Geavanceerde functies**.
 
             > [!NOTE]
-            > If you haven’t activated Rights Management, first click **activate** and confirm your action. For more information, see [Activating Azure Rights Management](../Topic/Activating_Azure_Rights_Management.md).
+            > Als u Rights Management nog niet hebt geactiveerd, klikt u eerst **activeren** en de actie te bevestigen. Zie voor meer informatie [Azure Rights Management activeren](../Topic/Activating_Azure_Rights_Management.md).
             > 
-            > If you haven’t clicked **advanced features** before, after Rights Management is activated, follow the on-screen instructions to get a free Azure subscription that’s required to access the Azure classic portal.
+            > Als u nog niet hebt geklikt **Geavanceerde functies** nadat Rights Management is geactiveerd, voert u de activeringsinstructies op uw instructies voor het ophalen van een gratis Azure-abonnement die vereist zijn voor toegang tot het Azure-Portal.
 
-            Clicking **advanced features** loads the Azure classic portal, where you can manage **RIGHTS MANAGEMENT** for your organization's Azure Active Directory.
+            Te klikken op **Geavanceerde functies** wordt geladen het Azure-portal waar u kunt beheren **RIGHTS MANAGEMENT** voor uw organisatie Azure Active Directory.
 
-    -   From the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=275081):
+    -   Uit de [Azure-Portal](http://go.microsoft.com/fwlink/p/?LinkID=275081):
 
-        1.  In the left pane, click **ACTIVE DIRECTORY**.
+        1.  Klik in het linkerdeelvenster op **ACTIVE DIRECTORY**.
 
-        2.  From the **active directory** page, click **RIGHTS MANAGEMENT**.
+        2.  Uit de **active directory** pagina, klikt u op **RIGHTS MANAGEMENT**.
 
-        3.  Select the directory to manage for Rights Management.
+        3.  Selecteer de map voor het beheren van voor Rights Management.
 
-        4.  If you have not already activated Rights Management, click **ACTIVATE** and confirm your action.
+        4.  Als u Rights Management nog niet hebt geactiveerd, klikt u op **activeren** en de actie te bevestigen.
 
             > [!NOTE]
-            > For more information, see [Activating Azure Rights Management](../Topic/Activating_Azure_Rights_Management.md).
+            > Zie voor meer informatie [Azure Rights Management activeren](../Topic/Activating_Azure_Rights_Management.md).
 
-2.  Create a new template:
+2.  Maak een nieuwe sjabloon:
 
-    -   In the Azure classic portal, from the **Get started with Rights Management** quick start page, click **Create a new rights policy template**.
+    -   In de Azure-portal van de **aan de slag met Rights Management** snel startpagina, klikt u op **maken van een nieuwe rechtenbeleidssjabloon**.
 
-        If you do not immediately see this page after following the instructions for Office 365, use the navigation instructions, above,  for the Azure classic portal.
+        Als u deze pagina niet direct ziet nadat u de instructies voor Office 365, gebruikt u de navigatie-instructies hierboven voor de Azure-portal.
 
-3.  On the **Add a new rights policy template** page, choose a language in which you will type the template name and description that users will see (you can add more languages later). Then type a unique name and a description, and click the Complete button.
+3.  Op de **toevoegen van een nieuwe rechtenbeleidssjabloon** pagina, kiest u een taal waarin u de sjabloonnaam en beschrijving die gebruikers zien wordt typen (u kunt meer talen later toevoegen). Vervolgens typt u een unieke naam en beschrijving in en klik op de knop Voltooien.
 
-From the **Get started with Rights Management** quick start page, now click **Manage your rights policy templates**. You will see your newly created template added to the list of templates, with a status of **Archived**. At this stage, the template is created but not configured, and is not visible to users.
+Uit de **aan de slag met Rights Management** snel startpagina, klik op nu **beheren van uw rechtenbeleidssjablonen**. Ziet u de nieuwe sjabloon toegevoegd aan de lijst met sjablonen, met de status van **gearchiveerde**. In deze fase de sjabloon is gemaakt, maar niet is geconfigureerd, is niet zichtbaar voor gebruikers.
 
-#### To configure and publish a custom template
+#### Om te configureren en publiceren van een aangepaste sjabloon
 
-1.  Select your newly created template from the **TEMPLATES** page in the Azure classic portal.
+1.  Selecteer de zojuist gemaakte sjabloon van het **sjablonen** pagina in de Azure-beheerportal.
 
-2.  From the **Your template has been added** quick start page, click **Get started** from step 1, **Configure rights for users and groups,** then click **GET STARTED NOW** or **ADD**, and then select the users and groups who will have rights to use the content that is protected by the new template.
-
-    > [!NOTE]
-    > The users or groups that you select must have an email address. In a production environment, this will nearly always be the case but in a simple testing environment, you might need to add email addresses to user accounts or groups.
-
-    As a best practice, use groups rather than users, which simplifies management of the templates. If you have Active Directory on-premises and are synchronizing to Azure AD, you can use mail-enabled groups that are either security groups or distribution groups. However, if you want to grant rights to all users in the organization, it will be more efficient to copy one of the default templates rather than specify multiple groups. For more information, see the [How to copy a template](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_HowToCopyTemplates) section in this topic.
-
-    > [!TIP]
-    > You can later add users from outside your organization to the template by using the [Windows PowerShell module for Azure Rights Management](https://technet.microsoft.com/library/jj585012.aspx) and using one of the following methods:
-    > 
-    > -   **Use a rights definition object to update a template**:    Specify the external email addresses and their rights in a rights definition object, which you then use to update your template. You specify the rights definition object by using the [New-AadrmRightsDefinition](https://msdn.microsoft.com/library/azure/dn727080.aspx) cmdlet to create a variable and then supply this variable to the  -RightsDefinition parameter with the [Set-AadrmTemplateProperty](https://msdn.microsoft.com/library/azure/dn727076.aspx) cmdlet to modify an existing template. However, if you're adding these users to an existing template, you will also need to define rights definition objects for the existing groups in the templates and not just the new, external users.
-    > -   **Export, edit, and import the updated template**:Use the [Export-AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727078.aspx) cmdlet to export the template to a file that you can edit to add the external email addresses of these users and their rights to the existing groups and rights. Then use the [Import-AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727077.aspx) cmdlet to import this change back into Azure RMS.
-
-3.  Click the Next button, and then assign one of the listed rights to your selected users and groups.
-
-    Use the displayed description for more information about each right (and for custom rights). More detailed  information is also available in [Configuring Usage Rights for Azure Rights Management](../Topic/Configuring_Usage_Rights_for_Azure_Rights_Management.md). However, applications that support RMS might vary in how they implement these rights. Consult their documentation and do your own testing with the applications that users use to check the behavior before you deploy the template for users. To make this template visible to only administrators for this testing, make this template a departmental template (step 6).
-
-4.  If you selected **Custom**, click the Next button, and then select those custom rights.
-
-    Although you can use any combination of the individual rights available, in some applications, some rights might have dependencies on other individual rights. When this is the case, the dependent rights are automatically selected for you.
-
-    > [!TIP]
-    > Consider adding the **Copy and Extract Content** right and grant this to selected administrators or personnel in other roles that have responsibilities for information recovery. Granting this right lets them remove protection if needed, from files and emails that will be protected by using this template. This ability to remove protection at the template level provides more fine-grained control than using the super user feature.
-
-5.  Click the Complete button.
-
-6.  If you want the template to be visible to only a subset of users when they see a list of templates in applications: Click **SCOPE** to configure this as a departmental template, and click **GET STARTED NOW**. Otherwise, go to step 9.
-
-    More information about departmental templates: By default, all users in your Azure directory see all the published templates and they can then select them from applications when they want to protect content. If you want specific users only to see some of the published templates, you must scope the templates to these users. Then, only these users will be able to select these templates. Other users that you do not specify will not see the templates and therefore, cannot select them. This technique can make choosing the correct template easier for users, especially when you create templates that are designed to be used by specific groups or departments. Users then see only the templates that are designed for them.
-
-    For example, you’ve created a template for the Human Resources department that applies the Read-only permission to members of the Finance department. So that only members of the Human Resources department can apply this template when they use the Rights Management sharing application, you scope the template to the email-enabled group named HumanResources. Then, only members of this group see and can apply this template.
-
-7.  On the **TEMPLATE VISIBILITY** page, select the users and groups who will be able to see and select the template from the RMS-enlightened applications. As before, as a best practice, use groups rather than users, and the groups or users you select must have an email address.
-
-8.  Click the Next button, and decide whether you need to configure application compatibility for your departmental template. If you do, click **APPLICATION COMPATIBILITY**, select the check box, and click **Complete**.
-
-    Why might you need to configure application compatibility? Not all applications can support departmental templates. To do so, the application must first authenticate with the RMS service before downloading the templates. If the authentication process does not occur, by default, none of the departmental templates are downloaded. You can override this behavior by specifying that all the departmental templates should download, by configuring application compatibility and selecting the **Show this template to all users when the applications do not support user identity** check box.
-
-    For example, if you do not configure application compatibility for the departmental template in our Human Resources example, only users in the Human Resources department see the departmental template when they use the RMS sharing application, but no users see the departmental template when they use Outlook Web Access (OWA) from Exchange Server 2013 because Exchange OWA and Exchange ActiveSync do not currently support departmental templates. If you override this default behavior by configuring application compatibility, only users in the Human Resources department see the departmental template when they use the RMS sharing application, but all users see the departmental template when they use Outlook Web Access (OWA). If users use OWA or Exchange ActiveSync from Exchange Online, either all users will see the departmental templates or no users will see the department templates, based on the template status (archival or published) in Exchange Online.
-
-    Office 2016 natively supports departmental templates, and so does Office 2013 with the latest  Office updates ([KB 3054853](https://support.microsoft.com/kb/3054853)).
+2.  Uit de **de sjabloon is toegevoegd** snel startpagina, klikt u op **aan de slag** van stap 1, **configureren rechten voor gebruikers en groepen,** klikt u vervolgens op **nu aan de slag** of **toevoegen**, en selecteer vervolgens de gebruikers en groepen die de rechten voor het gebruik van de inhoud die wordt beveiligd door de nieuwe sjabloon.
 
     > [!NOTE]
-    > If you have applications that don’t yet natively support departmental templates, you can use a custom RMS template download script or other tools to deploy these templates to the local RMS client folder. Then, these applications will correctly display the departmental templates to only the users and groups that you selected for the template scope:
+    > De gebruikers of groepen die u selecteert, moeten een e-mailadres hebben. Dit is bijna altijd het geval in een productieomgeving maar in een eenvoudige testomgeving, moet u mogelijk e-mailadressen toevoegen aan accounts van gebruikers of groepen.
+
+    Beste, groepen in plaats van gebruikers, waardoor beheer van de sjablonen eenvoudiger te gebruiken. Als u Active Directory lokale hebben en naar Azure AD synchroniseert, kunt u e-mailadres groepen die beveiligingsgroepen of distributiegroepen zijn. Als u wilt rechten voor alle gebruikers in de organisatie, wordt het echter efficiënter te kopiëren een van de standaardsjablonen in plaats van meerdere groepen opgeven. Zie voor meer informatie de [Het kopiëren van een sjabloon](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_HowToCopyTemplates) in dit onderwerp.
+
+    > [!TIP]
+    > U kunt gebruikers van buiten uw organisatie aan de sjabloon later toevoegen met de [Windows PowerShell-module voor Azure Rights Management](https://technet.microsoft.com/library/jj585012.aspx) en het gebruik van een van de volgende methoden:
     > 
-    > -   For Office 2010, the client folder is **%localappdata%\Microsoft\DRM\Templates**.
-    > -   From a client computer that has downloaded all the templates, you can copy and then paste the template files to other computers.
+    > -   **Exporteren, bewerken en de bijgewerkte sjabloon importeren**:  Dit is de eenvoudigste methode voor externe gebruikers toevoegen aan een bestaande sjabloon met andere groepen. Gebruik de [exporteren AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727078.aspx) cmdlet exporteren van de sjabloon naar een. CSV-bestand dat u bewerken wilt, om toe te voegen van de externe e-mailadressen van deze gebruikers en hun rechten op de bestaande groepen en rechten. Gebruik vervolgens de [importeren AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727077.aspx) voor het importeren van deze wijziging van de cmdlet weer in Azure RMS.
+    > -   **Een rechten definition-object gebruiken om te werken van een sjabloon**:    Geef de externe e-mailadressen en hun rechten in een rechten definition-object dat u het bijwerken van de sjabloon gebruiken. U de rechten definition-object opgeeft door de [Nieuw AadrmRightsDefinition](https://msdn.microsoft.com/library/azure/dn727080.aspx) cmdlet naar een variabele maken en geef deze variabele naar de parameter - RightsDefinition met de [Set AadrmTemplateProperty](https://msdn.microsoft.com/library/azure/dn727076.aspx) cmdlet om een bestaande sjabloon te wijzigen. Echter, als u deze gebruikers aan een bestaande sjabloon toevoegen wilt, u moet ook rechten definitie om objecten te definiëren voor de bestaande groepen in de sjablonen en niet alleen de nieuwe externe gebruikers.
+
+3.  Klik op de knop Volgende en wijs een van de genoemde rechten voor de geselecteerde gebruikers en groepen.
+
+    Gebruik de beschrijving van de weergegeven voor meer informatie over elke rechts (en voor aangepaste rechten). Er is ook meer gedetailleerde informatie beschikbaar in [Gebruiksrechten voor Azure Rights Management configureren](../Topic/Configuring_Usage_Rights_for_Azure_Rights_Management.md). Toepassingen die ondersteuning bieden voor RMS kunnen echter variëren hoe zij deze rechten implementeren. Raadpleeg de documentatie en voer uw eigen testen met de toepassingen die gebruikers gebruiken voor het gedrag controleren voordat u de sjabloon voor gebruikers implementeren. Zorg met deze sjabloon zichtbaar is voor alleen beheerders voor deze testen, zodat deze sjabloon voor een sjabloon afdelingen (stap 6).
+
+4.  Als u hebt geselecteerd **aangepaste**, klikt u op de knop Volgende en selecteer vervolgens de aangepaste rechten.
+
+    Maar u een combinatie van de afzonderlijke rechten beschikbaar in sommige toepassingen gebruiken kunt, kunnen sommige rechten afhankelijkheden op andere individuele rechten hebben. Als dit het geval is, kan de afhankelijke rechten automatisch voor u worden geselecteerd.
+
+    > [!TIP]
+    > Voeg eventueel de **kopiëren en inhoud extraheren** rechts en dit geselecteerde beheerders of personeel in andere rollen toe die verantwoordelijk is voor informatie over herstel verlenen. Dit recht kiest, kunnen ze protection indien nodig, van bestanden en e-mailberichten die worden beschermd met deze sjabloon verwijderen. Deze mogelijkheid om te verwijderen van de beveiliging op het sjabloonniveau van de biedt meer afzonderlijke dan met de functie super-gebruiker.
+
+5.  Klik op voltooien.
+
+6.  Als u wilt dat de sjabloon voor slechts een subset van gebruikers zichtbaar zijn wanneer ze een van sjablonen in toepassingen overzicht: Klik op **bereik** configureren dit als een afdelingen sjabloon en klik op **nu aan de slag**. Anders gaat u naar stap 9.
+
+    Meer informatie over afdelingen sjablonen: Standaard alle gebruikers in uw Azure directory overzicht van de gepubliceerde sjablonen en ze kunnen deze selecteren in toepassingen wanneer ze wilt beveiligen van inhoud. Als u wilt dat bepaalde gebruikers slechts enkele van de gepubliceerde sjablonen, moet u het bereik van de sjablonen voor deze gebruikers. Vervolgens wordt alleen deze gebruikers zich kunnen deze sjablonen selecteren. Andere gebruikers die u opgeeft, ziet u de sjablonen en daarom kunnen niet worden geselecteerd. Deze techniek kunt ervoor kiezen de juiste sjabloon gemakkelijker voor gebruikers, vooral wanneer u sjablonen die zijn ontworpen om te worden gebruikt door de specifieke groepen of afdelingen maken. Gebruikers zien vervolgens alleen de sjablonen die zijn ontworpen voor deze.
+
+    U hebt bijvoorbeeld een sjabloon voor de afdeling Human Resources die de machtiging alleen-lezen voor leden van de afdeling Financiën van toepassing is gemaakt. Zodat alleen leden van de afdeling Human Resources deze sjabloon toepassen kunnen bij het gebruik van de Rights Management-toepassing delen, scope de sjabloon aan de groep met e-mailbericht met de naam Personeelszaken. Vervolgens toepassen alleen leden van deze groep Zie en kan deze sjabloon.
+
+7.  Op de **sjabloon zichtbaarheid** pagina, selecteert u de gebruikers en groepen beheerders kunnen zien en selecteer de sjabloon in de RMS-enlightened toepassingen. Als moeten voor, wordt aangeraden, groepen voor gebruik in plaats van gebruikers, en de groepen of gebruikers die u selecteert hebben een e-mailadres.
+
+8.  Klik op de knop Volgende en beslist of moet u de compatibiliteit van toepassingen voor de sjabloon afdelingen configureren. Als u, op **TOEPASSINGSCOMPATIBILITEIT**, schakel het selectievakje in en klik op **voltooid**.
+
+    Waarom mogelijk moet u configureren toepassingscompatibiliteit? Niet alle toepassingen kunnen afdelingen sjablonen ondersteunen. Hiervoor de toepassing moet eerst worden geverifieerd bij de RMS-service voor het downloaden van de sjablonen. Als het verificatieproces niet, standaard optreedt worden geen van de afdeling sjablonen gedownload. U kunt dit probleem negeren door te geven dat de afdelingen sjablonen te downloaden, toepassingscompatibiliteit configureren en selecteert u de **met deze sjabloon voor alle gebruikers worden weergegeven wanneer de toepassingen bieden geen ondersteuning voor gebruikers-id** selectievakje.
+
+    Bijvoorbeeld als compatibiliteit met de afdeling sjabloon niet is geconfigureerd in ons voorbeeld Human Resources, zien alleen gebruikers in de afdeling Human Resources de afdelingen sjabloon als ze de RMS-toepassing voor delen gebruiken, maar er zijn geen gebruikers de afdelingen sjabloon zien wanneer ze met Outlook Web Access (OWA) van Exchange Server 2013 omdat Exchange OWA en Exchange ActiveSync momenteel afdelingen sjablonen ondersteunen. Als u dit standaardgedrag door toepassingscompatibiliteit configureren, Zie alleen gebruikers in de afdeling Human Resources afdelingen sjabloon als ze de RMS sharing toepassing gebruiken, maar alle gebruikers de afdelingen sjabloon zien wanneer ze Outlook Web Access (OWA) gebruiken. Als gebruikers OWA of Exchange ActiveSync van Exchange Online, de afdelingen sjablonen zichtbaar voor alle gebruikers of er zijn geen gebruikers zien de afdeling sjablonen, op basis van de sjabloonstatus (archivering of gepubliceerde) in Exchange Online.
+
+    > [!NOTE]
+    > Als u toepassingen die afdelingen sjablonen systeemeigen nog niet ondersteunen, kunt u een [aangepast RMS sjabloon downloaden script](http://go.microsoft.com/fwlink/?LinkId=524506) of andere hulpprogramma's voor deze sjablonen implementeren naar de lokale map voor de RMS-client. Deze toepassingen worden de afdelingen sjablonen vervolgens correct weergegeven voor alleen de gebruikers en groepen die u hebt geselecteerd voor de sjabloon scope:
     > 
-    > You can [download the custom RMS template script from the Microsoft Connect site](http://go.microsoft.com/fwlink/?LinkId=524506). If you see an error when you click this link, you probably haven't registered on Microsoft Connect.   To register:
+    > -   Voor Office 2010 map voor de client is **%localappdata%\Microsoft\DRM\Templates**.
+    > -   Vanaf een clientcomputer die alle sjablonen heeft gedownload, kunt u Kopieer en plak de sjabloonbestanden met andere computers.
     > 
-    > 1.  Go to the [Microsoft Connect site](http://www.connect.microsoft.com) and sign in with your Microsoft Account.
-    > 2.  Click **Directory**, and select the **View Connect products currently not accepting feedback** category.
-    > 3.  Search for **Rights Management Services**, and for the **Microsoft RMS Enterprise Features** program, click **Join**.
+    > Office 2016 ondersteunt afdelingen sjablonen, evenals de Office 2013 met de meest recente updates voor Office ([KB 3054853](https://support.microsoft.com/kb/3054853)).
 
-9. Click **CONFIGURE** and add additional languages that users use, together with the name and description of this template in that language. When you have multi-language users, it’s important to add each language that they use, and supply a name and description in that language. Users will then see the name and description of the template in the same language as their client operating system, which ensures they understand the policy applied to a document or email message. If there is no match with their client operating system, the name and description that they see falls back to the language and description that you defined when you first created the template.
+9. Klik op **configureren** en extra talen die gebruikmaken van gebruikers, samen met de naam en beschrijving van deze sjabloon in die taal toevoegen. Als u meerdere talen gebruikers hebt, is het belangrijk toevoegen aan elke taal die ze gebruiken en geef een naam en beschrijving in die taal. Gebruikers vervolgens wordt de naam en beschrijving van de sjabloon in dezelfde taal als de client-besturingssysteem wordt uitgevoerd, waardoor dat ze begrijpen het beleid toegepast op een document of e-mailbericht. Als er geen overeenkomst met hun client-besturingssysteem wordt uitgevoerd, valt de naam en beschrijving die ze zien terug naar de taal en een beschrijving die u hebt gedefinieerd bij het maken van de sjabloon.
 
-    Then check whether you want to make any changes to the following settings:
+    Controleer of u wilt wijzigen in de volgende instellingen:
 
-    |Setting|More information|
-    |-----------|--------------------|
-    |**content expiration**|Define a date or number of days for this template when files that are protected by the template should not open. You can specify a date or specify a number of days starting from the time that the protection is applied to the file.<br /><br />When you specify a date, it is effective midnight, in your current time zone.|
-    |**offline access**|Use this setting to balance any security requirements that you have against the requirement that users must be able to open protected files when they don’t have an Internet connection.<br /><br />If you specify that content is not available without an Internet connection or that content is only available for a specified number of days, when that threshold is reached, users must be re-authenticated and their access is logged. When this happens, if their credentials are not cached, users are prompted to sign in before they can open the file.<br /><br />In addition to re-authentication, the policy and the user group membership is re-evaluated. This means that users could experience different access results for the same file if there are changes in the policy or group membership from when they last accessed the file.|
+    |Instelling|Meer informatie|
+    |--------------|-------------------|
+    |**verlopen van inhoud**|Definieer een datum of een aantal dagen voor deze sjabloon wanneer bestanden die worden beschermd door de sjabloon mag niet worden geopend. U kunt een datum opgeven of een aantal dagen vanaf het moment dat de beveiliging wordt toegepast op het bestand.<br /><br />Als u een datum opgeeft, is het effectieve middernacht in uw huidige tijdzone.|
+    |**offline toegang**|Gebruik deze instelling te voorkomen dat een beveiligingsvereisten dat u tegen de vereiste die gebruikers moeten kunnen openen bestanden beveiligde hebt wanneer ze niet over een internetverbinding nodig.<br /><br />Als u opgeven dat de inhoud niet beschikbaar zonder een internetverbinding is of die inhoud alleen beschikbaar voor een opgegeven aantal dagen is, als deze drempel is bereikt, gebruikers moeten opnieuw geverifieerde en hun toegang wordt vastgelegd. Als dit gebeurt, als hun referenties zijn niet in de cache, wordt gebruikers gevraagd zich aan te melden voordat ze het bestand kunnen openen.<br /><br />Naast de nieuwe verificatie is het beleid en het lidmaatschap van de gebruiker opnieuw wordt geëvalueerd. Dit betekent dat gebruikers verschillende toegangsresultaten voor hetzelfde bestand optreden kunnen als er wijzigingen in het beleid of groep lidmaatschap van wanneer ze het bestand het laatst is geopend.|
 
-10. When you are confident that the template is configured appropriately for your users, click **PUBLISH** to make the template visible for users, and then click **SAVE**.
+10. Als u er zeker van te zijn dat de sjabloon correct is geconfigureerd voor uw gebruikers, klikt u op **publiceren** de sjabloon zichtbaar voor gebruikers en klik vervolgens op **Opslaan**.
 
-11. Click the Back button in the classic portal to return to the **TEMPLATES** page, where your template now has an updated status of **Published**.
+11. Klik op de knop terug in de beheerportal wilt terugkeren naar de **sjablonen** pagina waar de sjabloon nu een bijgewerkte status heeft **gepubliceerd**.
 
-To make any changes to your template, select it, and then use the quick start steps again. Or, select one of the following options:
+Wijzigingen aanbrengen in de sjabloon, selecteert u het en gebruik de stappen snel starten vervolgens opnieuw. Of Selecteer een van de volgende opties:
 
--   To add more users and groups, and define the rights for those users and groups: Click **RIGHTS**, then click **ADD**.
+-   Meer gebruikers en groepen toevoegen en de rechten voor deze gebruikers en groepen definiëren: Klik op **rechten**, klikt u vervolgens op **toevoegen**.
 
--   To remove users or groups that you previously selected: Click **RIGHTS**, select the user or group from the list, and then click **DELETE**.
+-   Verwijderen van gebruikers of groepen die u eerder hebt geselecteerd: Klik op **rechten**, selecteer de gebruiker of groep in de lijst en klik vervolgens op **verwijderen**.
 
--   To change which users can see the templates to select them from applications: Click **SCOPE**, then click **ADD** or **DELETE**, or **APPLICATION COMPATIBILITY**.
+-   Wijzigen welke gebruikers ziet u de sjablonen om deze te selecteren van toepassingen: Klik op **bereik**, klikt u vervolgens op **toevoegen** of **verwijderen**, of **TOEPASSINGSCOMPATIBILITEIT**.
 
--   To make the template no longer visible to all users: Click **CONFIGURE**, click **ARCHIVE**, and then click **SAVE**.
+-   U de sjabloon niet meer zichtbaar voor alle gebruikers: Klik op **configureren**, klikt u op **ARCHIEF**, en klik vervolgens op **Opslaan**.
 
--   To make other configuration changes: Click **CONFIGURE**, make your changes, and then click **SAVE**.
+-   Andere configuratiewijzigingen aanbrengen: Klik op **configureren**, breng de gewenste wijzigingen aan en klik vervolgens op **Opslaan**.
 
 > [!WARNING]
-> When you make changes to a template that was previously saved, clients will not see those changes to the template until templates are refreshed on their computers. For more information, see the [Refreshing templates for users](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_RefreshingTemplates) section in this topic.
+> Als u wijzigingen in een sjabloon die is opgeslagen aanbrengt, ziet clients u de wijzigingen aan de sjabloon pas sjablonen worden vernieuwd op hun computers. Zie voor meer informatie de [Vernieuwen van sjablonen voor gebruikers](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_RefreshingTemplates) in dit onderwerp.
 
-## <a name="BKMK_HowToCopyTemplates"></a>How to copy a template
-If you want to create a new template that has very similar settings to an existing template, select the original template on the **TEMPLATES** page, click **COPY**, specify a unique name, and make the changes that you need.
+## <a name="BKMK_HowToCopyTemplates"></a>Het kopiëren van een sjabloon
+Als u maken van een nieuwe sjabloon die vergelijkbaar instellingen van een bestaande sjabloon wilt is, selecteert u de oorspronkelijke sjabloon op de **sjablonen** pagina, klikt u op **kopie**, Geef een unieke naam en de wijzigingen die u nodig hebt.
 
 > [!IMPORTANT]
-> When you copy a template, the **Published** or **Archived** status is also copied. So if you copy a published template, its immediate status will be published, unless you change it.
+> Wanneer u een sjabloon kopieert de **gepubliceerd** of **gearchiveerde** status wordt ook gekopieerd. Dus als u een gepubliceerde sjabloon kopieert, de onmiddellijke status wordt gepubliceerd, tenzij u deze wijzigt.
 
-You can copy custom templates and the default templates. As a best practice, copy one of the default templates instead of creating a new custom template if you want the template to grant rights to all users in your organization. This method means that you don’t have to create or select multiple groups to specify all users. In this scenario however, be sure to specify a new name and description for the copied template for additional languages.
+U kunt aangepaste sjablonen en de standaardsjablonen kopiëren. Kopieer aanbevolen om een van de standaardsjablonen in plaats van een nieuwe aangepaste sjabloon maken als u wilt dat de sjabloon rechten voor alle gebruikers in uw organisatie. Deze methode betekent dat u niet meer te maken of meerdere groepen op te geven van alle gebruikers te selecteren. In dit scenario echter wel moet u een nieuwe naam en beschrijving voor de gekopieerde sjabloon voor extra talen opgeven.
 
-## <a name="BKMK_HowToArchiveTemplates"></a>How to remove (archive) templates
-The default templates cannot be deleted, but they can be archived so that users do not see them.
+## <a name="BKMK_HowToArchiveTemplates"></a>Het verwijderen van sjablonen (archief)
+De standaardsjablonen kunnen niet worden verwijderd, maar ze kunnen worden gearchiveerd zodat gebruikers deze niet zien.
 
-Similarly, if you have published a custom template and no longer want users to be able to see it, you can edit the template and choose **ARCHIVE** and **SAVE** from the **CONFIGURE** page. Or, you can select it from the **TEMPLATES** page and select **ARCHIVE**.
+Op dezelfde manier als u een aangepaste sjabloon hebt gepubliceerd en niet meer wilt dat gebruikers kunnen zien, kunt u de sjabloon bewerken en kiezen **ARCHIEF** en **Opslaan** van de **configureren** pagina. Of kunt u het selecteren van de **sjablonen** pagina en selecteer **ARCHIEF**.
 
-Because you cannot edit the default templates, to archive these templates, you must use the **ARCHIVE** option from the **TEMPLATES** page. You cannot archive the Outlook **Do Not Forward** option.
+Omdat u niet de standaardsjablonen om te archiveren deze sjablonen bewerken moet u de **ARCHIEF** optie uit de **sjablonen** pagina. U kunt de Outlook kan niet archiveren **niet doorsturen** optie.
 
-#### To remove a default template
+#### Een standaardsjabloon verwijderen
 
--   From the **TEMPLATES** page, select the default template, and click **ARCHIVE**.
+-   Uit de **sjablonen** pagina, de standaardsjabloon selecteren en klik op **ARCHIEF**.
 
-The status changes from **Published** to **Archived**. If you change your mind, select the template and click **PUBLISH**.
+De status wordt gewijzigd van **gepubliceerd** naar **gearchiveerde**. Als u van gedachten verandert, selecteer de sjabloon en klik op **publiceren**.
 
-## <a name="BKMK_RefreshingTemplates"></a>Refreshing templates for users
-When you use Azure RMS, templates are automatically downloaded to client computers so that users can select them from their applications. However, you might need to take additional steps if you make changes to the templates:
+## <a name="BKMK_RefreshingTemplates"></a>Vernieuwen van sjablonen voor gebruikers
+Als u Azure RMS gebruikt, worden sjablonen automatisch gedownload op clientcomputers zodat gebruikers van hun toepassingen selecteren kunnen. Mogelijk moet u echter aanvullende maatregelen nemen als u wijzigingen in de sjablonen aanbrengt:
 
-|Application or service|How templates are refreshed after changes|
-|--------------------------|---------------------------------------------|
-|Exchange Online|Manual configuration required to refresh templates.<br /><br />For the configuration steps, expand the following section, [Exchange Online only: How to configure Exchange to download changed custom templates](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_ExchangeOnlineTemplatesUpdate).|
-|Office 365|Automatically refreshed  – no additional steps required.|
-|Office 2016 and Office 2013<br /><br />RMS sharing application for Windows|Automatically refreshed – on a schedule:<br /><br />For these later versions of Office: The default refresh interval  is every 7 days.<br /><br />For the RMS sharing application for Windows: Starting with version 1.0.1784.0, the default refresh interval is every 1 day. Prior versions have a default refresh interval of every 7 days.<br /><br />To force a refresh sooner than this schedule, expand the following section, [Office 2016, Office 2013, and RMS sharing application for Windows: How to force a refresh for a changed custom template](#BKMK_Office2013ForceUpdate).|
-|Office 2010|Refreshed when users log on.<br /><br />To force a refresh, ask or force users to log off and log back on again. Or, see the following section, [Office 2010 only: How to force a refresh for a changed custom template](#BKMK_Office2010ForceUpdate).|
-For mobile devices that use the RMS sharing application, templates are automatically downloaded (and refreshed if necessary) without additional configuration required.
+|Toepassing of service|Hoe sjablonen worden vernieuwd na wijzigingen|
+|-------------------------|-------------------------------------------------|
+|Exchange Online|Handmatige configuratie vereist voor het vernieuwen van sjablonen.<br /><br />Vouw in de volgende sectie voor de configuratiestappen [Alleen in Exchange Online: Het configureren van Exchange downloaden van aangepaste sjablonen gewijzigd](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md#BKMK_ExchangeOnlineTemplatesUpdate).|
+|Office 365|Automatisch vernieuwd: Er is geen aanvullende stappen vereist.|
+|Office 2016 en Office 2013<br /><br />RMS delen van de toepassing voor Windows|Automatisch vernieuwd – op basis van een schema:<br /><br />-   Deze nieuwere versies van Office: Het vernieuwen van interval is standaard 7 dagen.<br />-   Voor de RMS sharing van toepassing voor Windows: Het interval voor standaard vernieuwen is vanaf 1.0.1784.0-versie elke 1 dag. Eerdere versies hebben een standaardwaarde interval van 7 dagen vernieuwen.<br /><br />Om te vernieuwen sneller dan deze planning afdwingen uit, vouw de volgende sectie [Office 2016 Office 2013 en RMS sharing toepassing voor Windows: Hoe vernieuwd voor een gewijzigde aangepaste sjabloon](#BKMK_Office2013ForceUpdate).|
+|Office 2010|Vernieuwd wanneer gebruikers zich aanmelden.<br /><br />Als u een vernieuwen, vragen of afdwingen dat gebruikers zich afmelden en weer opnieuw aangemeld. Of raadpleegt u de volgende sectie [Office 2010: Hoe vernieuwd voor een gewijzigde aangepaste sjabloon](#BKMK_Office2010ForceUpdate).|
+Voor mobiele apparaten die gebruikmaken van de toepassing voor delen RMS sjablonen automatisch gedownload (en indien nodig vernieuwd) zonder aanvullende configuratie vereist.
 
-### <a name="BKMK_ExchangeOnlineTemplatesUpdate"></a>Exchange Online only: How to configure Exchange to download changed custom templates
-If you have already configured Information Rights Management (IRM) for Exchange Online, custom templates will not download for users until you make the following changes by using Windows PowerShell in Exchange Online.
+### <a name="BKMK_ExchangeOnlineTemplatesUpdate"></a>Alleen in Exchange Online: Het configureren van Exchange downloaden van aangepaste sjablonen gewijzigd
+Als u al Information Rights Management (IRM) voor Exchange Online hebt geconfigureerd, wordt niet aangepaste sjablonen downloaden voor gebruikers totdat u de volgende wijzigingen aanbrengen met behulp van Windows PowerShell Exchange Online.
 
 > [!NOTE]
-> For more information about how to use Windows PowerShell in Exchange Online, see [Using PowerShell with Exchange Online](https://technet.microsoft.com/library/jj200677%28v=exchg.160%29.aspx).
+> Zie voor meer informatie over het gebruik van Windows PowerShell in Exchange Online [met behulp van PowerShell met Exchange Online](https://technet.microsoft.com/library/jj200677%28v=exchg.160%29.aspx).
 
-You must do this procedure each time you change a template.
+Telkens wanneer die u een sjabloon wijzigt, moet u deze procedure doen.
 
-##### To update templates for Exchange Online
+##### Sjablonen voor Exchange Online bijwerken
 
-1.  Using Windows PowerShell in Exchange Online, connect to the service:
+1.  Met Windows PowerShell Exchange Online, verbinding maken met de service:
 
-    1.  Supply your Office 365 user name and password:
+    1.  Geef uw Office 365-gebruikersnaam en wachtwoord:
 
         ```
         $Cred = Get-Credential
         ```
 
-    2.  Connect to the Exchange Online service by running the following two commands:
+    2.  Verbinding maken met de Exchange Online-service door het uitvoeren van de volgende twee opdrachten:
 
         ```
         $Session = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://ps.outlook.com/powershell/ -Credential $Cred -Authentication Basic –AllowRedirection
@@ -246,148 +239,148 @@ You must do this procedure each time you change a template.
         Import-PSSession $Session
         ```
 
-2.  Use the [Import-RMSTrustedPublishingDomain](http://technet.microsoft.com/library/jj200724%28v=exchg.160%29.aspx) cmdlet to re-import your trusted publishing domain (TPD) from Azure RMS:
+2.  Gebruik de [importeren RMSTrustedPublishingDomain](http://technet.microsoft.com/library/jj200724%28v=exchg.160%29.aspx) cmdlet aan uw vertrouwde publicatieserver domein (vertrouwde Uitgiftedomein) van Azure RMS opnieuw te importeren:
 
     ```
     Import-RMSTrustedPublishingDomain -Name "<TPD name>" -RefreshTemplates -RMSOnline
     ```
-    For example, if your TPD name is **RMS Online - 1** (a typical name for many organizations), enter: **Import-RMSTrustedPublishingDomain -Name "RMS Online - 1" -RefreshTemplates -RMSOnline**
+    Als de naam van de vertrouwde Uitgiftedomein is bijvoorbeeld **Online RMS - 1** (een standaard naam voor veel organisaties) invoeren: **Import-RMSTrustedPublishingDomain -Name "RMS Online - 1" -RefreshTemplates -RMSOnline**
 
     > [!NOTE]
-    > To verify your TPD name, you can use the [Get-RMSTrustedPublishingDomain](http://technet.microsoft.com/library/jj200707%28v=exchg.160%29.aspx) cmdlet.
+    > Om te controleren of de naam van uw vertrouwde Uitgiftedomein, kunt u de [Get-RMSTrustedPublishingDomain](http://technet.microsoft.com/library/jj200707%28v=exchg.160%29.aspx) cmdlet.
 
-3.  To confirm that the templates have imported successfully, wait a few minutes and then run the [Get-RMSTemplate](http://technet.microsoft.com/library/dd297960%28v=exchg.160%29.aspx) cmdlet and set the Type to All. For example:
+3.  Om te bevestigen dat de sjablonen hebt geïmporteerd, wacht enkele minuten en voer de [Get-RMSTemplate](http://technet.microsoft.com/library/dd297960%28v=exchg.160%29.aspx) cmdlet en het Type ingesteld op alle. Bijvoorbeeld:
 
     ```
     Get-RMSTemplate -TrustedPublishingDomain "RMS Online - 1" -Type All
     ```
     > [!TIP]
-    > It's useful to keep a copy of the output so that you can easily copy the template names or GUIDs if you later archive a template.
+    > Het is handig om een kopie van de uitvoer bewaren zodat u eenvoudig kopiëren kunt de sjabloonnamen of de GUID's als u een sjabloon later archiveert.
 
-4.  For each imported template that you want to be available in the Outlook Web App, you must use the [Set-RMSTemplate](http://technet.microsoft.com/library/hh529923%28v=exchg.160%29.aspx) cmdlet and set the Type to Distributed:
+4.  Voor elke geïmporteerde sjabloon die u wilt beschikbaar in de Outlook Web-App, moet u de [Set RMSTemplate](http://technet.microsoft.com/library/hh529923%28v=exchg.160%29.aspx) cmdlet en het Type ingesteld op gedistribueerde:
 
     ```
     Set-RMSTemplate -Identity "<name  or GUID of the template>" -Type Distributed
     ```
-    Because Outlook Web Access caches the UI for 24 hours, users might not see the new template for up to a day.
+    Omdat Outlook Web Access de gebruikersinterface voor 24 uur slaat, kunnen gebruikers de nieuwe sjabloon voor tot een dag niet zien.
 
-In addition, if you archive a template (custom or default) and use Exchange Online with Office 365, users will continue to see the archived templates if they use the Outlook Web App or mobile devices that use the Exchange ActiveSync Protocol.
+Als u een sjabloon archiveert bovendien (aangepaste of standaard) en gebruik van Exchange Online met Office 365 gebruikers blijven overzicht van de gearchiveerde sjablonen als ze de Outlook Web-App of mobiele apparaten die gebruikmaken van Exchange ActiveSync-Protocol.
 
-So that users no longer see these templates, connect to the service by using Windows PowerShell in Exchange Online, and then use the [Set-RMSTemplate](http://technet.microsoft.com/library/hh529923%28v=exchg.160%29.aspx) cmdlet by running the following command:
+Zodat gebruikers niet langer deze sjablonen zien, verbinding maken met de service met behulp van Windows PowerShell in Exchange Online en gebruikt u de [Set RMSTemplate](http://technet.microsoft.com/library/hh529923%28v=exchg.160%29.aspx) cmdlet door het uitvoeren van de volgende opdracht:
 
 ```
 Set-RMSTemplate -Identity "<name or GUID of the template>" -Type Archived
 ```
 
-### <a name="BKMK_Office2013ForceUpdate"></a>Office 2016,  Office 2013, and RMS sharing application for Windows: How to force a refresh for a changed custom template
-By editing the registry on the computers running Office 2016, Office 2013, or the Rights Management (RMS) sharing application for Windows, you can change the automatic schedule so that changed templates are refreshed on computers more frequently than their default value. You can also force an immediate refresh by deleting the existing data in a registry value.
+### <a name="BKMK_Office2013ForceUpdate"></a>Office 2016 Office 2013 en RMS sharing toepassing voor Windows: Hoe vernieuwd voor een gewijzigde aangepaste sjabloon
+Door het bewerken van het register op de computers met Office 2016, Office 2013 of de RMS (Rights Management) voor het delen van toepassingen voor Windows, kunt u de automatische planning wijzigen zodat gewijzigde sjablonen worden vernieuwd op computers vaker dan de standaardwaarde. U kunt ook een onmiddellijke vernieuwing afdwingen door de bestaande gegevens in een registerwaarde verwijderen.
 
 > [!WARNING]
-> If you use the Registry Editor incorrectly, you might cause serious problems that might require you to reinstall the operating system. Microsoft cannot guarantee that you can solve problems that result from using the Registry Editor incorrectly. Use the Registry Editor at your own risk.
+> Als u de Register-Editor onjuist gebruikt, kunt u er problemen die mogelijk moet u het besturingssysteem opnieuw installeren. Microsoft kan niet garanderen dat u problemen die het gevolg oplossen kunt van onjuist gebruik van de Register-Editor. Gebruik de Register-Editor voor uw eigen risico.
 
-##### To change the automatic schedule
+##### De automatische schema wijzigen
 
-1.  Using a registry editor, create and set one of the following registry values:
+1.  Gebruik de Registereditor en stel een van de volgende registerwaarden:
 
-    -   To set an update frequency in days (minimum of 1 day):  Create a new registry value named **TemplateUpdateFrequency** and define an integer value for the data, which specifies the frequency in days to download any changes to a downloaded template. Use the following table to locate the registry path to create this new registry value.
+    -   Een updatefrequentie in dagen (minimaal 1 dag) instellen:  Maak een nieuwe registerwaarde met de naam **TemplateUpdateFrequency** en definieer een geheel getal voor de gegevensbron waarmee de frequentie in dagen eventuele wijzigingen aan een gedownloade sjabloon kan worden gedownload. Gebruik de volgende tabel om de registerpad voor het maken van deze nieuwe registerwaarde te vinden.
 
-        |Registry path|Type|Value|
-        |-----------------|--------|---------|
+        |Register-pad|Type|Waarde|
+        |----------------|--------|----------|
         |HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\MSIPC|REG_DWORD|TemplateUpdateFrequency|
 
-    -   To set an update frequency in seconds (minimum of 1 second):  Create a new registry value named **TemplateUpdateFrequencyInSeconds** and define an integer value for the data, which specifies the frequency in seconds to download any changes to a downloaded template. Use the following table to locate the registry path to create this new registry value.
+    -   Een updatefrequentie in seconden (minimaal 1 seconde) instellen:  Maak een nieuwe registerwaarde met de naam **TemplateUpdateFrequencyInSeconds** en definieer een geheel getal voor de gegevensbron waarmee de frequentie in seconden voor het downloaden van eventuele wijzigingen aan een gedownloade sjabloon. Gebruik de volgende tabel om de registerpad voor het maken van deze nieuwe registerwaarde te vinden.
 
-        |Registry path|Type|Value|
-        |-----------------|--------|---------|
+        |Register-pad|Type|Waarde|
+        |----------------|--------|----------|
         |HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\MSIPC|REG_DWORD|TemplateUpdateFrequencyInSeconds|
 
-    Make sure that you create and set one of these registry values, not both. If both are present, **TemplateUpdateFrequency** is ignored.
+    Zorg ervoor dat u maakt en stel een van deze registerwaarden niet beide. Als beide aanwezig zijn, **TemplateUpdateFrequency** wordt genegeerd.
 
-2.  If you want to force an immediate refresh of the templates, go to the next procedure. Otherwise, restart your Office applications and instances of File Explorer now.
+2.  Als u afdwingen dat een onmiddellijke vernieuwing van de sjablonen wilt, gaat u naar de volgende procedure. Anders wordt nu opnieuw opstarten uw Office-toepassingen en exemplaren van File Explorer.
 
-##### To force an immediate refresh
+##### Voor het afdwingen van een onmiddellijk vernieuwen
 
-1.  Using a registry editor, delete the data for the **LastUpdatedTime** value. For example, the data might display **2015-04-20T15:52**; delete 2015-04-20T15:52 so that no data is displayed. Use the following table to locate the registry path to delete this registry value data.
+1.  Met een Registereditor, verwijdert u de gegevens voor de **LastUpdatedTime** waarde. Bijvoorbeeld, de gegevens mogelijk weergegeven **2015-04-20T15:52**; 2015 verwijderen-04-20T15:52 zodat er zijn geen gegevens wordt weergegeven. Gebruik de volgende tabel om de registerpad als u wilt verwijderen van deze gegevens registerwaarden te vinden.
 
-    |Registry path|Type|Value|
-    |-----------------|--------|---------|
-    |HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\MSIPC\&lt;MicrosoftRMS_FQDN&gt;\Template|REG_SZ|LastUpdatedTime|
+    |Register-pad|Type|Waarde|
+    |----------------|--------|----------|
+    |HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\MSIPC\ &lt; MicrosoftRMS_FQDN &gt; \Template|REG_SZ|LastUpdatedTime|
     > [!TIP]
-    > In the registry path, *&lt;MicrosoftRMS_FQDN&gt;* refers to your Microsoft RMS service FQDN. If you want to verify this value:
+    > In het registerpad *&lt; MicrosoftRMS_FQDN &gt;* verwijst naar de FQDN-naam van uw Microsoft RMS-service. Als u controleren of deze waarde wilt:
     > 
-    > 1.  Run the [Get-AadrmConfiguration](https://msdn.microsoft.com/library/windowsazure/dn629410.aspx) cmdlet for Azure RMS. If you haven’t already installed the Windows PowerShell module for Azure RMS, see [Installing Windows PowerShell for Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
-    > 2.  From the output, identify the **LicensingIntranetDistributionPointUrl** value.
+    > 1.  Voer de [Get-AadrmConfiguration](https://msdn.microsoft.com/library/windowsazure/dn629410.aspx) cmdlet voor Azure RMS. Als u hebt al de Windows PowerShell-module voor Azure RMS geïnstalleerd, Zie [Installatie van Windows PowerShell voor Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
+    > 2.  Uit de uitvoer identificeren de **LicensingIntranetDistributionPointUrl** waarde.
     > 
-    >     For example: **LicensingIntranetDistributionPointUrl   : https://5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com/_wmcs/licensing**
-    > 3.  From the value, remove **https://** and **/_wmcs/licensing** from this string. The remaining value is your Microsoft RMS service FQDN. In our example, the Microsoft RMS service FQDN would be the following value:
+    >     Bijvoorbeeld: **LicensingIntranetDistributionPointUrl: https://5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com/_wmcs/licensing**
+    > 3.  Verwijderen van de waarde **https://** en **_wmcs/licensing** van deze tekenreeks. De resterende waarde is de FQDN-naam van uw Microsoft RMS-service. In ons voorbeeld zouden de FQDN-naam van de Microsoft RMS-service de volgende waarde:
     > 
     >     **5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com**
 
-2.  Delete the following folder and all files it contains: **%localappdata%\Microsoft\MSIPC\Templates**
+2.  De volgende map en alle bestanden die zich verwijderen: **%localappdata%\Microsoft\MSIPC\Templates**
 
-3.  Restart your Office applications and instances of File Explorer.
+3.  Uw Office-toepassingen en exemplaren van File Explorer opnieuw gestart.
 
-### <a name="BKMK_Office2010ForceUpdate"></a>Office 2010 only: How to force a refresh for a changed custom template
-By editing the registry on the computers running Office 2010, you can set a value so that changed templates are refreshed on computers without waiting for users to log off and back on. You can also force an immediate refresh by deleting the existing data in a registry value.
+### <a name="BKMK_Office2010ForceUpdate"></a>Office 2010: Hoe vernieuwd voor een gewijzigde aangepaste sjabloon
+Door het bewerken van het register op de computers met Office 2010 kunt u een waarde instellen zodat gewijzigde sjablonen worden vernieuwd op computers zonder te hoeven wachten gebruikers zich afmelden en weer aan. U kunt ook een onmiddellijke vernieuwing afdwingen door de bestaande gegevens in een registerwaarde verwijderen.
 
 > [!WARNING]
-> If you use the Registry Editor incorrectly, you might cause serious problems that might require you to reinstall the operating system. Microsoft cannot guarantee that you can solve problems that result from using the Registry Editor incorrectly. Use the Registry Editor at your own risk.
+> Als u de Register-Editor onjuist gebruikt, kunt u er problemen die mogelijk moet u het besturingssysteem opnieuw installeren. Microsoft kan niet garanderen dat u problemen die het gevolg oplossen kunt van onjuist gebruik van de Register-Editor. Gebruik de Register-Editor voor uw eigen risico.
 
-##### To change the update frequency
+##### De updatefrequentie wijzigen
 
-1.  Using a registry editor, create a new registry value named **UpdateFrequency** and define an integer value for the data, which specifies the frequency in days to download any changes to a downloaded template. Use the following table to locate the registry path to create this new registry value.
+1.  Met een Registereditor, maak een nieuwe registerwaarde met de naam **UpdateFrequency** en definieer een geheel getal voor de gegevensbron waarmee de frequentie in dagen eventuele wijzigingen aan een gedownloade sjabloon kan worden gedownload. Gebruik de volgende tabel om de registerpad voor het maken van deze nieuwe registerwaarde te vinden.
 
-    |Registry path|Type|Value|
-    |-----------------|--------|---------|
+    |Register-pad|Type|Waarde|
+    |----------------|--------|----------|
     |HKEY_CURRENT_USER\Software\Microsoft\MSDRM\TemplateManagement|REG_DWORD|UpdateFrequency|
 
-2.  If you want to force an immediate refresh of the templates, go to the next procedure. Otherwise, restart your Office applications now.
+2.  Als u afdwingen dat een onmiddellijke vernieuwing van de sjablonen wilt, gaat u naar de volgende procedure. Anders wordt nu opnieuw opstarten uw Office-toepassingen.
 
-##### To force an immediate refresh
+##### Voor het afdwingen van een onmiddellijk vernieuwen
 
-1.  Using a registry editor, delete the data for the **LastUpdatedTime** value. For example, the data might display **2015-04-20T15:52**; delete 2015-04-20T15:52 so that no data is displayed. Use the following table to locate the registry path to delete this registry value data.
+1.  Met een Registereditor, verwijdert u de gegevens voor de **LastUpdatedTime** waarde. Bijvoorbeeld, de gegevens mogelijk weergegeven **2015-04-20T15:52**; 2015 verwijderen-04-20T15:52 zodat er zijn geen gegevens wordt weergegeven. Gebruik de volgende tabel om de registerpad als u wilt verwijderen van deze gegevens registerwaarden te vinden.
 
-    |Registry path|Type|Value|
-    |-----------------|--------|---------|
+    |Register-pad|Type|Waarde|
+    |----------------|--------|----------|
     |HKEY_CURRENT_USER\Software\Microsoft\MSDRM\TemplateManagement|REG_SZ|lastUpdatedTime|
 
-2.  Delete the following folder and all files it contains: **%localappdata%\Microsoft\MSIPC\Templates**
+2.  De volgende map en alle bestanden die zich verwijderen: **%localappdata%\Microsoft\MSIPC\Templates**
 
-3.  Restart your Office applications.
+3.  Opnieuw opstarten uw Office-toepassingen.
 
-## <a name="BKMK_PowerShellTemplates"></a>Windows PowerShell reference
-Everything that you can do in the Azure classic portal to create and manage templates, you can do from the command line, by using Windows PowerShell. In addition, you can export and import templates, so that you can copy templates between tenants or perform bulk edits of complex properties in templates, such as multilingual names and descriptions.
+## <a name="BKMK_PowerShellTemplates"></a>Windows PowerShell-verwijzing
+Alles wat u kunt uitvoeren in de Azure-beheerportal maken en beheren van sjablonen, kunt u doen vanaf de opdrachtregel met behulp van Windows PowerShell. U kunt bovendien exporteren en importeren van sjablonen, zodat u kunt sjablonen tussen tenants kopiëren of bulksgewijs bewerkingen van complexe eigenschappen in sjablonen, zoals multilingual namen en beschrijvingen uitvoeren.
 
-You can also use export and import to back up and restore your custom templates, As a best practice, regularly back up your custom templates, so that if you make a change that was not intended, you can easily revert to a previous version.
+U kunt ook gebruiken exporteren en importeren om een back-up en herstellen van aangepaste sjablonen, wordt aangeraden, regelmatig back-up van de aangepaste sjablonen, zodat als u een wijziging die niet is bedoeld aanbrengt, u gemakkelijk naar een eerdere versie terugkeren kunt.
 
 > [!IMPORTANT]
-> To use Windows PowerShell to create and manage Azure RMS rights policy templates, you must have at least version 2.0.0.0 of the [Windows PowerShell module for Azure RMS](http://go.microsoft.com/fwlink/?LinkId=257721).
+> Als u Windows PowerShell wilt Azure RMS rechten beleidssjablonen maken en beheren, moet u er ten minste versie 2.0.0.0 van de [Windows PowerShell-module voor Azure RMS](http://go.microsoft.com/fwlink/?LinkId=257721).
 > 
-> If you have previously installed this Windows PowerShell module, run the following command in a PowerShell window to check the version number: `(Get-Module aadrm -ListAvailable).Version`
+> Als u deze Windows PowerShell-module eerder hebt geïnstalleerd, voert u de volgende opdracht in een PowerShell-venster om te controleren van het versienummer: `(Get-Module aadrm -ListAvailable).Version`
 
-For installation instructions, see [Installing Windows PowerShell for Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
+Zie voor installatie-instructies [Installatie van Windows PowerShell voor Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
 
-The cmdlets that support creating and managing templates:
+De cmdlets die ondersteuning bieden voor sjablonen maken en beheren:
 
--   [Add-AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727075.aspx)
+-   [Voeg AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727075.aspx)
 
--   [Export-AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727078.aspx)
+-   [Exporteren AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727078.aspx)
 
 -   [Get-AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727079.aspx)
 
 -   [Get-AadrmTemplateProperty](https://msdn.microsoft.com/library/azure/dn727081.aspx)
 
--   [Import-AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727077.aspx)
+-   [Importeer AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727077.aspx)
 
--   [New-AadrmRightsDefinition](https://msdn.microsoft.com/library/azure/dn727080.aspx)
+-   [Nieuwe AadrmRightsDefinition](https://msdn.microsoft.com/library/azure/dn727080.aspx)
 
--   [Remove-AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727082.aspx)
+-   [Verwijder AadrmTemplate](https://msdn.microsoft.com/library/azure/dn727082.aspx)
 
--   [Set-AadrmTemplateProperty](https://msdn.microsoft.com/library/azure/dn727076.aspx)
+-   [Set AadrmTemplateProperty](https://msdn.microsoft.com/library/azure/dn727076.aspx)
 
-## Next steps
-After you’ve configured custom templates for Azure Rights Management, use the [Azure Rights Management Deployment Roadmap](../Topic/Azure_Rights_Management_Deployment_Roadmap.md) to check whether there are other configuration steps that you might want to do before you roll out [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] to users and administrators. If there are no other configuration steps that you need to do, see [Using Azure Rights Management](../Topic/Using_Azure_Rights_Management.md) for operational guidance to support a successful deployment for your organization.
+## Volgende stappen
+Nadat u aangepaste sjablonen voor Azure Rights Management hebt geconfigureerd, gebruikt u de [Azure Rights Management-implementatieschema](../Topic/Azure_Rights_Management_Deployment_Roadmap.md) om te controleren of er andere configuratiestappen die u kunt doen zijn voor de implementatie [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] gebruikers en beheerders. Als er geen andere configuratiestappen die u nodig hebt om te doen, Zie [Met behulp van Azure Rights Management](../Topic/Using_Azure_Rights_Management.md) voor operationele richtlijnen ter ondersteuning van op een succesvolle implementatie voor uw organisatie.
 
-## See Also
-[Configuring Azure Rights Management](../Topic/Configuring_Azure_Rights_Management.md)
+## Zie ook
+[Azure Rights Management configureren](../Topic/Configuring_Azure_Rights_Management.md)
 

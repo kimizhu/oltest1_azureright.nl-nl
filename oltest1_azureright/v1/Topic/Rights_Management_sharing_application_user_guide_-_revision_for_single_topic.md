@@ -6,215 +6,214 @@ search: na
 ms.date: na
 ms.tgt_pltfrm: na
 ms.assetid: f10c8e7e-aa83-473d-857a-f01a7908552e
-ms.author: e8f708ba3bce4153b61467184c747c7f
 robots: noindex,nofollow
 ---
-# Rights Management sharing application user guide - revision for single topic
-The Microsoft Rights Management (RMS) sharing application for Windows helps you keep important documents and pictures safe from people who shouldn’t see them, even if you email them or save them to another device. You can also use this application to open and use files that other people have protected by using the same Rights Management technology.
+# Gebruikershandleiding voor Rights Management-toepassing voor delen: herziening voor enkel onderwerp
+Met de Microsoft Rights Management (RMS)-toepassing voor delen voor Windows kunt u belangrijke documenten en foto's veilig afschermen van mensen die deze niet hoeven te zien, zelfs als u deze e-mailt of opslaat op een ander apparaat. U kunt deze toepassing ook gebruiken om bestanden te openen en te gebruiken die andere mensen hebben beveiligd met dezelfde Rights Management-technologie.
 
-All you need is a computer that runs at least Windows 7, and a local administrator account to install the RMS sharing application. Then [download and install](http://go.microsoft.com/fwlink/?LinkId=303970) this free application from Microsoft.
+U hebt slechts een computer nodig hebt die ten minste Windows 7 uitvoert en een lokaal Administrator-account om de RMS-toepassing voor delen te installeren. [Download en installeer](http://go.microsoft.com/fwlink/?LinkId=303970) vervolgens deze gratis toepassing van Microsoft.
 
-If you have questions that are not answered by this guide, see [FAQ for Microsoft Rights Management Sharing Application for Windows](http://go.microsoft.com/fwlink/?LinkId=303971).
+Als u vragen hebt die worden niet beantwoord in deze handleiding, raadpleegt u [Veelgestelde vragen over Microsoft Rights Management-toepassing voor delen voor Windows](http://go.microsoft.com/fwlink/?LinkId=303971).
 
-Here are just some examples of how you might use the sharing application, to help protect your files.
+Hier volgen enkele voorbeelden van hoe u de toepassing voor delen kunt gebruiken om uw bestanden te beveiligen.
 
-|I want to …|How to do this|
-|---------------|------------------|
-|**… safely share financial information with somebody I trust who is outside my organization**<br /><br />You work with a partner company and want to email them an Excel spreadsheet that contains projected sales figures. You want them to be able to view the figures but not change them.|You use the Share Protected button on the ribbon in Excel, type the email addresses of the two people that you work with in the partner company, select Viewer on the slider, and click Send.<br /><br />When the email arrives at the partner company, only the recipients in the email can view the spreadsheet and they cannot save, edit, print, or forward it.<br /><br />Details: See **Protect a file that you share by email** in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.|
-|**… safely send a document by email to somebody who uses an iOS device**<br /><br />You want to email a highly confidential Word document to a coworker, who you know, regularly checks email on their iOS device.|You use File Explorer to right-click the file, and select Share Protected. In the RMS sharing application, you select the Allow consumption on all devices option, and send the file as an attachment to your coworker.<br /><br />The recipient receives the email on their iOS device, clicks the link in the email that tells them how to download the sharing application, installs the version for iOS devices, and then views the document.<br /><br />Details: See **Protect a file that you share by email** in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.|
-|**… read an attachment I’ve received in an email message that has a securely shared file attachment but I can’t read it because my company doesn’t use Rights Management**<br /><br />The email sender is somebody who you trust because you’ve done business with them in the past and you suspect that they might be sending you information about a potential new business opportunity.|You follow the instructions in the email and click the link to sign up for Microsoft Rights Management. Microsoft confirms that your organization does not have a subscription to Office 365, sends you an email to complete the free signup process, and you sign in with your new account. You click the second link in the email to install the Rights Management sharing app and can then open the email attachment to read about the new business opportunity.<br /><br />Details: See **View and use files that have been protected by Rights Management** in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.|
-|**… protect company-confidential files on my laptop so they can’t be accessed by people outside my company**<br /><br />You travel a lot and use your laptop to access and update files in a folder that must be secured against unauthorized access.|You have the RMS sharing application installed on your laptop. You use File Explorer to protect the files by using a template, which quickly protects the files. If your laptop is stolen, you have peace of mind that nobody outside your company can access these documents.<br /><br />Details: See **Protect a file on a device (protect in-place)** in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.|
+|Ik wil...|Hoe u dit doet|
+|-------------|------------------|
+|**... financiële gegevens veilig delen met iemand die ik vertrouw en die geen onderdeel van mijn bedrijf is**<br /><br />U werkt met een partnerbedrijf en wilt ze een Excel-werkblad mailen met geschatte verkoopcijfers. U wilt dat ze de cijfers kunnen zien, maar niet wijzigen.|Gebruik de knop Beveiligd delen in het lint in Excel, typ de e-mailadressen van de twee personen waarmee u samenwerkt in het partnerbedrijf, selecteer Viewer op de schuifregelaar en klik op Verzenden.<br /><br />Wanneer de e-mail bij het partnerbedrijf aankomt, kunnen alleen de ontvangers in de e-mail het werkblad bekijken en ze kunnen dit niet opslaan, bewerken, afdrukken of doorsturen.<br /><br />Details: Zie **Een bestand beveiligen dat u deelt via e-mail** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.|
+|**... veilig een document per e-mail verzenden aan iemand die gebruikmaakt van een iOS-apparaat**<br /><br />U wilt een uiterst vertrouwelijk Word-document mailen naar een collega waarvan u weet dat deze regelmatig e-mail bekijkt op zijn iOS-apparaat.|Gebruik Verkenner om met de rechtermuisknop op het bestand te klikken en Beveiligd delen te selecteren. Selecteer de optie Verbruik toestaan op alle apparaten in de RMS-toepassing voor delen en stuur het bestand als bijlage naar uw collega.<br /><br />De ontvanger ontvangt de e-mail op het iOS-apparaat, klikt op de koppeling in de e-mail waarin wordt uitgelegd hoe de toepassing voor delen kan worden gedownload, installeert de versie voor iOS-apparaten en kan vervolgens het document bekijken.<br /><br />Details: Zie **Een bestand beveiligen dat u deelt via e-mail** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.|
+|**... een bijlage lezen die ik in een e-mailbericht heb ontvangen en die is beveiligd maar ik niet kan lezen omdat mijn bedrijf geen gebruikmaakt van Rights Management**<br /><br />De afzender van het e-mailbericht is iemand die u vertrouwt omdat u al eerder zaken met hem hebt gedaan en u vermoedt dat deze persoon u informatie stuurt over een mogelijke nieuwe zakelijke kans.|U volg de instructies in het e-mailbericht en klikt op de koppeling om u aan te melden bij Microsoft Rights Management. U krijgt van Microsoft een bevestiging dat uw organisatie geen abonnement heeft op Office 365, u krijgt een e-mail waarin u het gratis aanmeldproces kunt voltooien en u meldt zich aan met uw nieuwe account. U klikt u op de tweede koppeling in het e-mailbericht voor het installeren van de Rights Management-app voor delen en vervolgens kunt u de e-mailbijlage openen om te lezen over de nieuwe zakelijke kans.<br /><br />Details: Zie **Bestanden weergeven en gebruiken die zijn beveiligd door Rights Management** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.|
+|**... vertrouwelijke bestanden op mijn laptop beveiligen zodat ze niet toegankelijk zijn voor mensen buiten mijn bedrijf**<br /><br />Als u veel op reis bent en uw laptop gebruikt voor toegang tot bestanden en ze wil updaten in een map die beveiligd is tegen onbevoegde toegang.|U hebt de RMS-toepassing voor delen op uw laptop geïnstalleerd. U gebruikt Verkenner om bestanden te beveiligen met een sjabloon waarmee u de bestanden snel kunt beveiligen. Als uw laptop wordt gestolen, hebt u zekerheid dat niemand buiten uw bedrijf toegang heeft tot deze documenten.<br /><br />Details: Zie **Een bestand op een apparaat beveiligen (direct beveiligen)** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.|
 
-## <a name="BKMK_UsingMSRMSApp"></a>What do you want to do?
-Use the following instructions to help you work with protected files.
+## <a name="BKMK_UsingMSRMSApp"></a>Wat wilt u doen?
+Gebruik de volgende instructies om te werken met beveiligde bestanden.
 
-### <a name="BKMK_DownloadInstall"></a>Download and install the Rights Management sharing application
+### <a name="BKMK_DownloadInstall"></a>De Rights Management-toepassing voor delen downloaden en installeren
 
-1.  Go to the [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) page on the Microsoft website.
+1.  Ga naar de pagina [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) op de website van Microsoft.
 
-2.  In the **Computers** section, click the icon for the **RMS app for Windows** and save the Microsoft Rights Management sharing application installation package to your computer.
+2.  Klik in de sectie  **Computers** op het pictogram voor de **RMS-app voor Windows** en sla het installatiepakket voor de Microsoft Rights Management-toepassing voor delen op uw computer op.
 
-3.  Double click the compressed file that was downloaded, and then double-click **setup.exe**. If you are prompted to continue, click **Yes**.
+3.  Dubbelklik op het gecomprimeerde bestand dat is gedownload en dubbelklik vervolgens op **setup.exe**. Als u wordt gevraagd om door te gaan, klikt u op **Ja**.
 
     > [!TIP]
-    > You might have to scroll to the bottom of the list in the current folder to see **setup.exe**.
+    > Mogelijk moet u naar de onderkant van de lijst gaan in de huidige map om **setup.exe** te kunnen zien.
 
-4.  On the **Setup Microsoft RMS** page, click **Next**, and wait for the installation to finish.
+4.  Klik op de pagina **Setup Microsoft RMS** op **Volgende** en wacht tot de installatie is voltooid.
 
-5.  When the installation finishes, click **Restart** to restart your computer and complete the installation. Or, click **Close** and restart your computer later to complete the installation.
+5.  Als de installatie is voltooid, klikt u op **Opnieuw starten** op uw computer opnieuw op te starten en de installatie te voltooien. U kunt ook op **Sluiten** klikken en de computer later opnieuw opstarten om de installatie te voltooien.
 
-You’re now ready to start protecting your files or read files that others have protected.
+U kunt nu uw bestanden beveiligen of bestanden lezen die anderen hebben beveiligd.
 
-#### More information
-You must have a local administrator account to install the sharing application. If you do not log in as a local administrator, you can use the **Run as administrator** option when you run Setup.exe in step 3.
+#### Meer informatie
+U moet een lokale beheerdersaccount hebben om de toepassing voor delen te installeren. Als u zich niet als lokale beheerder aanmeldt, kunt u de optie **Als administrator uitvoeren** gebruiken wanneer u Setup.exe in stap 3 uitvoert.
 
-### <a name="BKMK_ProtectInPlace"></a>Protect a file on a device (protect in-place)
+### <a name="BKMK_ProtectInPlace"></a>Een bestand op een apparaat beveiligen (direct beveiligen)
 
-1.  In File Explorer, select a file, a folder, or multiple files to protect. Right-click, and then select **Protect in-place**. For example:
+1.  Selecteer in Verkenner een bestand, map of meerdere bestanden om te beveiligen. Klik met de rechtermuisknop en selecteer vervolgens **Direct beveiligen**. Bijvoorbeeld:
 
     ![](../Image/ADRMS_MSRMSApp_SP_CompanyDefined.png)
 
     > [!NOTE]
-    > If you do not see the **Protect in-place** option, it’s likely that either the sharing application is not installed on your computer, or your computer must be restarted to complete the installation. For more information about how to install the sharing application, see the **Download and install the Rights Management sharing application** instructions in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.
+    > Als u de optie **Direct beveiligen** niet ziet, is het waarschijnlijk dat de toepassing voor delen niet is geïnstalleerd op uw computer of dat uw computer opnieuw moet worden gestart om de installatie te voltooien. Zie voor meer informatie over het installeren van de toepassing voor delen de instructies **De Rights Management-toepassing voor delen downloaden en installeren** instructies in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.
 
-2.  Do one of the following:
+2.  Voer een van de volgende handelingen uit:
 
-    -   Select a policy template: These are predefined permissions that restrict access and usage to people in your organization. If this is the first time you have protected a file on this computer, you will first need to select **Company-defined Protection** to download the templates. The name of the templates begin with your company name and then a descriptive name of the permission. For example: **Contoso - Confidential View Only**
+    -   Selecteer een beleidssjabloon: Dit zijn vooraf gedefinieerde machtigingen die toegang en gebruik beperken tot mensen in uw organisatie. Als dit de eerste keer dat u hebt een bestand op deze computer beveiligdt moet u eerst **Door bedrijf gedefinieerde beveiliging** selecteren om de sjablonen te downloaden. De naam van de sjablonen beginnen met de naam van uw bedrijf en vervolgens een beschrijvende naam van de machtiging. Bijvoorbeeld: **Contoso - alleen vertrouwelijke weergave**
 
-    -   Select **Custom permissions**: Choose this option if the templates don’t provide the level of protection that you need. For example, you want to grant access to people outside your organization, or you want to explicitly set the protection options yourself. Specify the options that you want for this file in the **add protection** dialog box, and then click **Apply**.
+    -   Selecteer **aangepaste machtigingen**: Selecteer deze optie als de sjablonen niet het niveau van beveiliging bieden dat u nodig hebt. Bijvoorbeeld als u toegang wilt verlenen aan mensen buiten uw organisatie of de beveiligingsopties expliciet zelf wilt instellen. Geef de opties die u voor dit bestand wilt gebruiken op het dialoogvenster **beveiliging toevoegen** en klik vervolgens op **Toepassen**.
 
         > [!NOTE]
-        > For more information about the options in this dialog box, see the **Specify options in the Rights Management dialog box** instructions in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.
+        > Zie voor meer informatie over de opties in dit dialoogvenster de instructies **Opties opgeven in het dialoogvenster Rights Management** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.
 
-3.  You might quickly see a dialog box to tell you that the file is being protected, and the focus then returns to File Explorer. The selected file or files are now protected. In some cases (when adding protection changes the file name extension), the original file in File Explorer is replaced with a new file that has the Rights Management protection lock icon. For example:
+3.  U ziet kort een dialoogvenster waarin wordt uitgelegd dat het bestand wordt beveiligd en vervolgens gaat de focus terug naar Verkenner. Nu is het geselecteerde bestand of zijn de geselecteerde bestanden beveiligd. In sommige gevallen (wanneer het beveiligen de bestandsextensie wijzigt) wordt het oorspronkelijke bestand in Verkenner vervangen door een nieuw bestand met het Rights Management-beveiligingspictogram. Bijvoorbeeld:
 
     ![](../Image/ADRMS_MSRMSApp_Pfile.png)
 
-If you later need to remove protection from a file, see the **Remove protection from a file** instructions in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.
+Als u later beveiliging van een bestand wilt verwijderen, raadpleegt u de instructies **Beveiliging van een bestand verwijderen** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.
 
-#### More information
-When you protect a file in-place, it replaces the original, unprotected file. You can then leave the file where it is, copy it to another folder or device, or share the folder that it is in and the file will remain protected. You could also attach the protected file to an email message, although the recommended way to share a protected file by email is directly from File Explorer or an Office application (see **Protect a file that you share by email** in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide).
+#### Meer informatie
+Wanneer u een bestand direct beveiligt, dan vervangt dit het oorspronkelijke, niet-beveiligde bestand. Vervolgens kunt u het bestand laten waar het is, kopiëren naar een andere map of apparaat, of de map waar het in zit delen en het bestand blijft beveiligd. U kunt ook het beveiligde bestand aan een e-mailbericht koppelen, hoewel de aanbevolen manier om een beveiligd bestand delen via e-mail rechtstreeks vanuit Verkenner of een Office-toepassing is (zie **Een bestand beveiligen dat u deelt via e-mail** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding).
 
-You can use the same technique to protect multiple files at the same time, or a folder. When you protect a folder, all the files in that folder are automatically selected for protection but new files that you create in that folder will not be automatically protected.
+U kunt met dezelfde techniek meerdere bestanden tegelijkertijd of een map beveiligen. Wanneer u een map beveiligt, worden alle bestanden in deze map geselecteerd voor beveiliging, maar worden nieuwe bestanden die u in die map maakt niet automatisch beveiligd.
 
-If you see any errors when you try to protect files, refer to [FAQ for Microsoft Rights Management Sharing Application for Windows](http://go.microsoft.com/fwlink/?LinkId=303971).
+Als u fouten ziet wanneer u probeert om bestanden te beschermen, raadpleegt u [Veelgestelde vragen over Microsoft Rights Management-toepassing voor delen voor Windows](http://go.microsoft.com/fwlink/?LinkId=303971).
 
-### <a name="BKMK_ProtectSharing"></a>Protect a file that you share by email
+### <a name="BKMK_ProtectSharing"></a>Een bestand beveiligen dat u per e-mail deelt
 
-1.  Use one of the following options:
+1.  Gebruik een van de volgende opties:
 
-    -   For File Explorer: Right-click the file and select **Share Protected**:
+    -   Voor Verkenner: Klik met de rechtermuisknop op het bestand en selecteer **Beveiligd delen**:
 
         ![](../Image/ADRMS_MSRMSApp_ShareProtectedMenu.png)
 
-    -   For Office application: Make sure that you have first saved the file. Then, on the **Protection** group, click **Share Protected**.
+    -   Voor Office-toepassing: Zorg ervoor dat u eerst het bestand hebt opgeslagen. Klik vervolgens in de groep **Beveiliging** op **Beveiligd delen**.
 
         ![](../Image/ADRMS_MSRMSApp_SP_OfficeToolbar.png)
 
     > [!NOTE]
-    > If you do not see these options for sharing protection, it’s likely that either the sharing application is not installed on your computer, or your computer must be restarted to complete the installation. For more information about how to install the sharing application, see the **Download and install the Rights Management sharing application** instructions in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.
+    > Als u deze opties voor beveiliging bij delen niet ziet, is het waarschijnlijk dat de toepassing voor delen niet is geïnstalleerd op uw computer of dat uw computer opnieuw moet worden gestart om de installatie te voltooien. Zie voor meer informatie over het installeren van de toepassing voor delen de instructies **De Rights Management-toepassing voor delen downloaden en installeren** instructies in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.
 
-2.  Specify the options that you want for this file in the **share protected** dialog box, and then click **Send**.
+2.  Geef de opties die u voor dit bestand wilt gebruiken op het dialoogvenster **beveiligd delen** en klik vervolgens op **Verzenden**.
 
     ![](../Image/ADRMS_MSRMSAPP_SP_ShareProtected.gif)
 
     > [!NOTE]
-    > For more information about the options in this dialog box, see the **Specify options in the Rights Management dialog box** instructions in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.
+    > Zie voor meer informatie over de opties in dit dialoogvenster de instructies **Opties opgeven in het dialoogvenster Rights Management** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.
 
-3.  You might quickly see a dialog box to tell you that the file is being protected, and then you see an email message created for you that has the subject **I have securely shared file(s) with you**. In this email message, the file that you selected is attached and protected, and the text in the email contains links for the following:
+3.  U ziet kort een dialoogvenster waarin wordt uitgelegd dat het bestand wordt beveiligd en vervolgens ziet u dat er een e-mailbericht voor u is gemaakt met het onderwerp **Ik heb een of meer bestanden veilig met u gedeeld**. In dit e-mailbericht is het bestand dat u hebt geselecteerd toegevoegd en beveiligd en bevat de tekst in het e-mailbericht een koppeling voor het volgende:
 
-    -   RMS for individuals
+    -   RMS voor personen
 
-    -   The RMS sharing application
+    -   De RMS-toepassing voor delen
 
-    -   This user guide
+    -   Deze gebruikershandleiding
 
-    Example:
+    Voorbeeld:
 
     ![](../Image/ADRMS_MSRMSApp_EmailMessage.PNG)
 
-4.  Optional: You can change anything that you want in this email message. For example, you can add to or change the subject or text in the message.
+4.  Optioneel: U kunt wijzigen wat u wilt in dit e-mailbericht. U kunt bijvoorbeeld het onderwerp of de tekst in het bericht wijzigen of tekst toevoegen.
 
     > [!WARNING]
-    > Although you can add or remove people from this email message, this does not change the permissions for the attachment that you specified in the **share protected** dialog box. If you want to change those permissions, for example, give a new person permissions to open the file, close the email message without saving or sending it, and return to step 1.
+    > Hoewel u mensen aan dit bericht kunt toevoegen of verwijderen, worden de machtigingen niet gewijzigd die u voor de bijlage hebt opgegeven in het dialoogvenster **beveiligd delen**. Als u deze machtigingen wilt wijzigen, bijvoorbeeld een nieuwe persoon toestemming geven om het bestand te openen, sluit dan het e-mailbericht zonder op te slaan of te verzenden en ga terug naar stap 1.
 
-5.  Send the email message.
+5.  Verzend het e-mailbericht.
 
-#### More information
-When you protect a file that you share by email, it creates a new version of the original file. The original file remains unprotected and the new version is protected and automatically attached to an email that you then send.
+#### Meer informatie
+Wanneer u een bestand beveiligt dat u per e-mail deelt, dan wordt er een nieuwe versie van het oorspronkelijke bestand gemaakt. Het oorspronkelijke bestand blijft onbeveiligd en de nieuwe versie is beveiligd en wordt automatisch toegevoegd aan een e-mailbericht dat u vervolgens verzendt.
 
-The email message has a default subject and default text that you can change before sending it.
+Het e-mailbericht heeft een standaardonderwerp en standaardtekst die u kunt wijzigen voordat u het verstuurt.
 
-There are two ways to protect a file that you share by email:
+Er zijn twee manieren om een bestand dat u via e-mail deelt te beveiligen
 
--   From File Explorer: This method works for all files.
+-   Via Verkenner: Deze methode werkt voor alle bestanden.
 
--   From an Office application: This method works for applications that the Rights Management sharing application supports by using the Office add-in so that you see the **Protection** group on the ribbon.
+-   Vanuit een Office-toepassing: Deze methode werkt voor toepassingen die worden ondersteund door de Right Management-toepassing voor delen met behulp van de invoegtoepassing Office zodat u de groep **Beveiliging** ziet op het lint.
 
 > [!NOTE]
-> In this version of the Rights Management sharing application, there is no add-in for Outlook that lets you protect files and email messages directly from the Outlook application. Instead, use the procedure in this section.
+> In deze versie van de Rights Management-toepassing voor delen is er geen invoegtoepassing voor Outlook waarmee u bestanden en e-mailberichten rechtstreeks vanuit de Outlook-toepassing kunt beveiligen. Gebruik in plaats daarvan de procedure in deze sectie.
 
-### <a name="BKMK_ViewUseProtected"></a>View and use files that have been protected by Rights Management
+### <a name="BKMK_ViewUseProtected"></a>Bestanden weergeven en gebruiken die zijn beveiligd door Rights Management
 
-#### <a name="BKMK_ViewPFILE"></a>To view a protected file
-By using File Explorer or the email message that contains the attachment, double-click the protected file, and enter your credentials if prompted to do so. How the file opens depends on how it was protected.
+#### <a name="BKMK_ViewPFILE"></a>Een beveiligd bestand weergeven
+Dubbelklik op het beveiligde bestand via de Verkenner of het e-mailbericht met de bijlage en voer uw referenties in als u daarom wordt gevraagd. Hoe het bestand wordt geopend is afhankelijk van hoe het is beveiligd.
 
--   If the file was generically protected (it has a .pfile file extension):
+-   Als het bestand algemeen is beveiligd (het heeft extensie .pfile):
 
-    You see a **protected file** dialog box from the sharing application that tells you who protected the file and that you are expected to honor the co-owner permissions. You are informed that when you open the file, this action is audited.
+    U ziet een dialoogvenster **beveiligd bestand** van de toepassing voor delen waarin staat wie het bestand heeft beveiligd en dat er van u wordt verwacht dat u de machtigingen voor de mede-eigenaar in acht neemt. U wordt geïnformeerd dat deze actie wordt gecontroleerd wanneer u het bestand opent.
 
     ![](../Image/ADRMS_MSRMSApp_PfilePermission.png)
 
-    Click **Open** to read the file.
+    Klik op **Openen** om het bestand te lezen.
 
--   If the file was natively protected (it does not have a .pfile file extension):
+-   Als het bestand systeemeigen is beveiligd (het heeft geen extensie .pfile):
 
-    The file opens by using the application that is associated with the original file name extension, and a restriction banner is displayed at the top of the file. The banner might display the permissions that are applied to the file, or it might provide a link to display them. For example, you might see the following where you must click **Permission is currently restricted** to see the actual permissions that are applied to the file and the people that can access it:
+    Het bestand wordt geopend met de toepassing dat is gekoppeld aan de originele bestandsnaamextensie en een beperkingsbanner wordt boven aan het bestand weergegeven. De banner bevat mogelijk de toestemmingen die van toepassing zijn op het bestand of bevat een koppeling om deze weer te geven. U ziet bijvoorbeeld het volgende waarbij u op **De toegang is momenteel beperkt** moet klikken om de werkelijke machtigingen die worden toegepast op het bestand en de mensen die er toegang toe hebben te zien.
 
     ![](../Image/ADRMS_MSRMSApp_RestrictedAccess.png)
 
-    This file is also audited and remains audited as long as it is protected.
+    Dit bestand wordt ook gecontroleerd en blijft gecontroleerd zolang het is beveiligd.
 
-##### More information
-Before you can view the protected file, RMS must first confirm that you are authorized to view the file, which it does by checking your user name and password. In some cases, this might be cached and you will not see a prompt that asks for your credentials. In other cases, you will be prompted to supply your credentials.
+##### Meer informatie
+Voordat u het beveiligde bestand kunt weergeven, moet RMS eerst bevestigen dat u bent gemachtigd om het bestand weer te geven door uw gebruikersnaam en wachtwoord te controleren. In sommige gevallen kan dit mogelijk in de cache worden opgeslagen en wordt u niet gevraagd om uw aanmeldgegevens. In andere gevallen wordt u gevraagd uw aanmeldgegevens op te geven.
 
-If your organization does not use either Windows Azure Rights Management (Windows Azure RMS) or AD RMS, you can apply for a free account that will accept your credentials so that you can open files that are protected by using RMS. To apply for this account, click the link to apply for [RMS for individuals](http://go.microsoft.com/fwlink/?LinkId=309469).
+Als uw organisatie geen gebruik maakt van Windows Azure Rights Management (Windows Azure RMS) of AD RMS kunt u zich aanmelden voor een gratis account waarmee uw referenties worden geaccepteerd, zodat u bestanden kunt openen die met RMS zijn beveiligd. Om u aan te melden voor dit account klikt u op de koppeling om u aan te melden voor [RMS voor personen](http://go.microsoft.com/fwlink/?LinkId=309469).
 
-#### <a name="BKMK_UserDefined"></a>To use files that have been protected (for example, edit and print the file)
-If the protected file has a .pfile file extension:
+#### <a name="BKMK_UserDefined"></a>Om bestanden te gebruiken die zijn beveiligd (bijvoorbeeld het bestand bewerken en afdrukken)
+Als het beveiligde bestand een extensie .pfile heeft:
 
--   Save the opened file and give it a new file name extension that is associated with the application that you want to use.
+-   Sla het geopende bestand op en geeft dit een nieuwe bestandsnaamextensie die is gekoppeld aan de toepassing die u wilt gebruiken.
 
-    For example, if a file was protected by using the file name document.vsdx.pfile, view the file and in File Explorer, save the file as document.vsdx.
+    Als een bestand bijvoorbeeld is beveiligd met gebruik van de bestandsnaam document.vsdx.pfile, bekijkt u het bestand en slaat u het bestand in Verkenner op als document.vsdx.
 
-    The new file is no longer protected. If you want to protect it, you must do this manually. For instructions, see **How to protect a file on a device (protect in-place) by using the Rights Management sharing application** in the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.
+    Het nieuwe bestand is niet langer beveiligd. Als u het wilt beveiligen, moet u dit handmatig doen. Zie voor instructies **Een bestand beveiligen op een apparaat (direct beveiligen) met behulp van de Rights Management-toepassing voor delen** in de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.
 
-If the originally protected file did not have a .pfile extension:
+Als het oorspronkelijk beveiligde bestand geen extensie .pfile heeft:
 
--   You cannot do anything other than view the file unless you have an application that understands Rights Management. These applications are called Rights Management enlightened applications. Applications from Office 2013 and Office 2010 (such as Word, Excel, PowerPoint, and Outlook) are examples of applications that are enlightened for Rights Management. But applications that do not come from Microsoft, such as other software companies and your own line-of-business applications, might also be enlightened for Rights Management.
+-   U kunt het bestand alleen weergeven, tenzij u een toepassing hebt die Rights Management begrijpt. Deze toepassingen heten Rights Management-geschikte toepassingen. Toepassingen van Office 2013 en Office 2010 (zoals Word, Excel, PowerPoint en Outlook) zijn voorbeelden van toepassingen die zijn 'enlightened' voor Rights Management. Maar ook toepassingen die niet afkomstig zijn van Microsoft, zoals andere softwarebedrijven en uw eigen zakelijke toepassingen, kunnen geschikt zijn voor Rights Management.
 
-    Applications that are enlightened for Rights Management know how to open files that have been protected by other Rights Management enlightened applications. They also persist the protection that is applied to them, even if you edit the file or save it to another file name or another location. These applications let you use the file according to the permissions that are currently applied to the file, so that if you have permissions to use the file, you can do so. For example, if the file was protected as Read-only, you will not be able to make changes or print the file.
+    Toepassingen die geschikt zijn voor Rights Management kunnen bestanden openen die zijn beveiligd door andere toepassingen die voor Rights Management geschikt zijn. Ze bewaren tevens de beveiliging die op ze is toegepast, zelfs wanneer u het bestand wijzigt of opslaat onder een andere bestandsnaam of op een andere locatie. Met deze toepassingen kunt u het bestand gebruiken volgens de machtigingen die momenteel van toepassingen zijn op het bestand, zodat u het bestand kunt gebruiken als u hiervoor bent gemachtigd. Als het bestand bijvoorbeeld is beveiligd als Alleen-lezen, kunt u het bestand niet wijzigen of afdrukken.
 
-### <a name="BKMK_RemoveProtection"></a>Remove protection from a file
-From File Explorer, right-click the file (for example, Sample.ptxt), click **Protect in-place**, and then click **Remove Protection**:
+### <a name="BKMK_RemoveProtection"></a>Beveiliging van een bestand verwijderen
+Klik vanuit Verkenner met de rechtermuisknop op het bestand (bijvoorbeeld Sample.ptxt), klik op **Direct beveiligen** en klik vervolgens op **Beveiliging opheffen**:
 
 ![](../Image/ADRMS_MSRMSApp_RemoveProtection.png)
 
-You might be prompted for credentials.
+Mogelijk moet u uw referenties invoeren.
 
-#### More information
-The original protected file is deleted (for example, Sample.ptxt) and replaced with a file that has the same name but with the unprotected file name extension (for example, Sample.txt).
+#### Meer informatie
+Het oorspronkelijke beveiligde bestand wordt verwijderd (bijvoorbeeld Sample.ptxt) en vervangen door een bestand met dezelfde naam, maar met de niet-beveiligde bestandsnaamextensie (bijvoorbeeld Sample.txt).
 
-To remove protection from a file (that is, unprotect a file) that was previously protected by using the RMS sharing application, use the **Remove Protection** option from File Explorer.
+Om de beveiliging van een bestand te verwijderen (dat wil zeggen, de beveiliging van een bestand opheffen) dat eerder is beveiligd met de RMS-toepassing voor delen, gebruikt u de optie **Beveiliging opheffen** in Verkenner.
 
 > [!IMPORTANT]
-> You must be an owner of the file to remove protection.
+> U moet de eigenaar zijn van een bestand om de beveiliging op te heffen.
 
-### <a name="BKMK_ShortcutKeys"></a>Use keyboard shortcuts in the Rights Management sharing application
-Press the **Alt** key to see the available access keys, and then press **Alt** + the access key to select an option.
+### <a name="BKMK_ShortcutKeys"></a>Sneltoetsen gebruiken in de Rights Management-toepassing voor delen
+Druk op de toets **Alt** voor een overzicht van de beschikbare sneltoetsen en druk vervolgens op **Alt** + de sneltoets om een optie te selecteren.
 
-#### More information
-As an example, in the **share protected** dialog box, press **Alt** to see the access keys, and then press **Alt + u** to select the **Users must login every time they open this file** check box.
+#### Meer informatie
+In het dialoogvenster voor **beveiligd delen** drukt u bijvoorbeeld op **Alt** voor een overzicht van de sneltoetsen, en drukt u vervolgens op **Alt + u** om het selectievakje **Gebruikers moeten zich elke keer aanmelden wanneer ze dit bestand openen** in te schakelen.
 
 ![](../Image/ADRMS_MSRMSApp_AccessKeys.png)
 
-### <a name="BKMK_SpecifyDialogOptions"></a>Specify options in the Rights Management dialog box
+### <a name="BKMK_SpecifyDialogOptions"></a>Opties opgeven in het dialoogvenster Rights Management
 
-|Option|Description|
-|----------|---------------|
-|**USERS**|Type the email addresses of the people that you want to be able to open the file. Use semicolons for multiple addresses. These can be email addresses inside your organization, or outside.<br /><br />For example: janetm@contoso.com; pdover@fabricom.com|
-|**Allow consumption on all devices**|When you choose this option that lets users open the file on mobile devices such as an iPad, the permissions is automatically set to **CO-OWNER** (all permissions) so that generic protection is used to protect the file.|
-|**PERMISSIONS**|Move the slider to the permission that you want for this file.<br /><br />In some cases, the permissions are automatically set to CO-OWNER and cannot be changed. This happens if you select **Allow consumption on all devices**. And it also happens if you are protecting a file that cannot be natively protected by RMS, and so must be generically protected. The sharing application makes this determination, based on the file name extension. **Tip:** You can use the [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) page on the Microsoft website to quickly check which applications support built-in protection.|
-|**Users must login every time they open this file**|Select this option when you need higher security for a file because it requires that the users you specify are always authenticated, every time they access the file. To do this, if their credentials are not cached, they will be prompted for their user name and password. However, this setting requires that these users always have Internet access to open the file, and being prompted to unlock a file and waiting for the authentication process to finish can be frustrating.|
-|**Content expires on**|Select this option only for time-sensitive files that the users that you selected should not be able to open after a date that you specify. You will still be able to open the original file.|
+|Optie|Beschrijving|
+|---------|----------------|
+|**GEBRUIKERS**|Typ de e-mailadressen van de mensen waarvan u wilt dat zij het bestand kunnen openen. Gebruik puntkomma's voor meerdere adressen. Dit kunnen e-mailadressen binnen of buiten uw organisatie zijn.<br /><br />Bijvoorbeeld: janetm@contoso.com; pdover@fabricom.com|
+|**Gebruik op alle apparaten toestaan**|Als u deze optie kiest waarmee gebruikers het bestand kunnen openen op mobiele apparaten zoals een iPad, worden de machtigingen automatisch ingesteld op **MEDE-EIGENAAR** (alle machtigingen) zodat algemene beveiliging wordt gebruikt voor het beveiligen van het bestand.|
+|**MACHTIGINGEN**|Verplaats de schuifregelaar naar de machtiging die u wilt gebruiken voor dit bestand.<br /><br />In sommige gevallen worden de machtigingen automatisch ingesteld op MEDE-EIGENAAR en kunnen deze niet worden gewijzigd. Dit gebeurt als u de optie **Gebruik op alle apparaten toestaan** inschakelt. Het gebeurt ook wanneer u een bestand beveiligt dat niet systeemeigen kan worden beveiligd door RMS en dus algemeen moet worden beveiligd. De toepassing voor delen maakt deze beslissing op basis van de bestandsnaamextensie. **Tip:** U kunt de pagina [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) op de website van Microsoft gebruiken om snel te controleren welke toepassingen geïntegreerde beveiliging ondersteunen.|
+|**Gebruikers moeten zich elke keer aanmelden wanneer ze dit bestand openen**|Selecteer deze optie als u betere beveiliging nodig hebt voor een bestand omdat het vereist dat de gebruikers die u opgeeft altijd worden geverifieerd, elke keer wanneer ze het bestand openen. Hiervoor worden zij gevraagd om hun gebruikersnaam en wachtwoord als hun referenties niet in de cache zijn opgeslagen. Voor deze instelling is echter vereist dat deze gebruikers altijd internettoegang hebben om het bestand te openen, en het kan frustrerend zijn om een bestand te ontgrendelen en te moeten wachten tot het verificatieproces is voltooid.|
+|**Inhoud verloopt op**|Selecteer deze optie alleen voor tijdsgebonden bestanden die de gebruikers die u hebt geselecteerd niet kunnen openen na de datum die u opgeeft. U kunt het oorspronkelijke bestand nog wel openen.|
 
-#### More information
-Use the table to help you specify the options in the sharing application **add protection** dialog box or the **share protected** dialog box. You will see this dialog box when you protect a file in place and choose custom permissions, or you protect a file to share.
+#### Meer informatie
+Gebruik de tabel bij het opgeven van de opties in het dialoogvenster **beveiliging toevoegen** of **beveiligd delen** van de toepassing voor delen. U ziet dit dialoogvenster wanneer u een bestand in-place beveiligt en kiest voor aangepaste machtigingen of wanneer u een bestand om te delen beveiligt.
 
-For more information about protecting a file in place and protecting a file to share, see the [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) section of this guide.
+Zie voor meer informatie over het direct beveiligen van een bestand en het beveiligen van een bestand om te delen de sectie [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide_-_revision_for_single_topic.md#BKMK_UsingMSRMSApp) van deze handleiding.
 
-## See Also
-[Rights Management sharing application administrator guide](../Topic/Rights_Management_sharing_application_administrator_guide.md)
- [Microsoft Rights Management sharing application download](http://go.microsoft.com/fwlink/?LinkId=303970)
- [FAQ for Microsoft Rights Management Sharing Application for Windows](http://go.microsoft.com/fwlink/?LinkId=303971)
+## Zie ook
+[Rights Management delen toepassing beheerdershandleiding](../Topic/Rights_Management_sharing_application_administrator_guide.md)
+ [Microsoft Rights Management-toepassing voor delen downloaden](http://go.microsoft.com/fwlink/?LinkId=303970)
+ [Veelgestelde vragen over Microsoft Rights Management-toepassing voor delen voor Windows](http://go.microsoft.com/fwlink/?LinkId=303971)
 

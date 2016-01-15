@@ -3,237 +3,235 @@ description: na
 keywords: na
 title: Quick Start Tutorial for Azure Rights Management
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1db923bf-7d19-4fdd-a413-bfeb58af5e03
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Quick Start Tutorial for Azure Rights Management
-Use this tutorial to quickly try out Microsoft Azure Rights Management (also known as Azure RMS) for your organization with just 5 steps that should take you less than 15 minutes. You’ll activate the service, securely send a confidential document by email to somebody in another organization, and then be able to track when that document is opened. When the confidential document is emailed, it is encrypted while in transit and can be read only by the person it is sent to, using the permissions that are set by the sender.
+# Snel starten zelfstudie voor Azure Rights Management
+Gebruik deze zelfstudie snel uit te proberen Microsoft Azure Rights Management (ook wel bekend als Azure RMS) voor uw organisatie met slechts 5 stappen die u minder dan 15 minuten gaat. U zult de service activeren, veilig vertrouwelijk document per e-mail verzenden aan iemand in een andere organisatie en kunnen bijhouden wanneer dat document wordt geopend. Wanneer de vertrouwelijk document per e-mail is verzonden, is versleuteld onderweg en kunnen alleen worden gelezen door de persoon, wordt verzonden met de machtigingen die zijn ingesteld door de afzender.
 
 ![](../Image/AzRMS_QuickStartStepsAll.PNG)
 
-This tutorial is aimed at IT administrators and consultants, to help them evaluate Azure Rights Management as an information protection solution for an organization. In a production environment, the instructions to activate the service would be done by an administrator and the instructions to send the document would be done by end users. Both sets of instructions are included in this tutorial, to demonstrate the end-to-end scenario of securely sending a confidential document to somebody in another organization. If you have any problems completing this tutorial, send an email message to [AskIPTeam](mailto:askipteam@microsoft.com?subject=Having%20problems%20with%20the%20Quick%20Start%20tutorial) and we will help you out.
+In deze zelfstudie is gericht op IT-beheerders en adviseurs, waarmee ze Azure Rights Management worden geëvalueerd als een oplossing voor de beveiliging van gegevens voor een organisatie. In een productieomgeving zou de instructies voor het activeren van de service door een beheerder worden uitgevoerd en de instructies voor het verzenden van het document door eindgebruikers zou worden uitgevoerd. Beide sets instructies zijn opgenomen in deze zelfstudie te demonstreren van het end-to-end scenario vertrouwelijk document veilig te verzenden naar iemand in een andere organisatie. Als u problemen voltooien van deze zelfstudie hebt, stuurt u een e-mailbericht naar [AskIPTeam](mailto:askipteam@microsoft.com?subject=Having%20problems%20with%20the%20Quick%20Start%20tutorial) en we helpen u af.
 
-To complete this tutorial, you will need the following:
+Deze zelfstudie moet u het volgende:
 
--   A subscription that supports Azure Rights Management . This can be a paid subscription or a trial subscription. If you want to use document tracking, which is required for step 5 in this tutorial, your subscription must support document tracking. For more information about the subscription options and links to free trials, see the [Cloud subscriptions that support Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedSubscriptions) section in the [Requirements for Azure Rights Management](../Topic/Requirements_for_Azure_Rights_Management.md) topic.
+-   Een abonnement dat Azure Rights Management ondersteunt. Dit is een betaald abonnement of een proefabonnement. Als u gebruiken document bijhouden wilt, die vereist voor de stap 5 in deze zelfstudie is, moet uw abonnement document bijhouden ondersteunen. Zie voor meer informatie over de opties van abonnement en koppelingen naar de gratis proefversie de [Cloud-abonnementen die ondersteuning van Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedSubscriptions) sectie de [Vereisten voor Azure Rights Management](../Topic/Requirements_for_Azure_Rights_Management.md) onderwerp.
 
-    Tip: If you need to get a subscription, do this in advance because this process can sometimes take a while to complete.
+    Tip: Als u nodig hebt om een abonnement, hiervoor vooraf omdat dit proces soms even duren kan om te voltooien.
 
--   An administrator account to sign in to the Office 365 admin center or the Azure classic portal, so that you can activate the Rights Management service. This account must also have an email address and a working email service (for example, Exchange Online or Exchange Server).
+-   Een administrator-account voor aanmelding bij het Office 365-beheercentrum of de Azure-portal, zodat u de service Rights Management kan activeren. Dit account moet ook hebben een e-mailadres en een werkende e-service (bijvoorbeeld Exchange Online of Exchange Server).
 
--   A computer running Windows (minimum of Windows 7 SP1), and which has installed either Office 2016, Office 2013, or Office 2010.
+-   Een computer met Windows (minimum van Windows 7 SP1) en die Office 2016, Office 2013 of Office 2010 is geïnstalleerd.
 
-Let’s get started.
+Laten we beginnen.
 
-## Step 1: Activate the Rights Management service
+## Stap 1: De service Rights Management activeren
 ![](../Image/AzRMS_QuickStartSteps1.PNG)
 
-Even though you might have a subscription that supports Azure Rights Management, the service is disabled by default. To activate it, you can use either the Office 365 admin center, or the Azure classic portal:
+Hoewel er mogelijk een abonnement dat Azure Rights Management ondersteunt, wordt de service is standaard uitgeschakeld. Om deze te activeren, kunt u het Office 365-beheercentrum of het Azure-portal:
 
--   If you have an Office 365 subscription that includes Azure Rights Management, or an Office 365 subscription that excludes Azure Rights Management but you have a subscription for Azure RMS Premium: **Use the Office 365 admin center**.
+-   Als u een Office 365-abonnement met Azure Rights Management of een Office 365-abonnement hebt die worden uitgesloten Azure Rights Management, maar u hebt een abonnement voor Azure RMS zelfstandige: **Gebruik van het Office 365-beheercentrum**.
 
--   If you do not have an Office 365 subscription: **Use the Azure classic portal**.
+-   Als u beschikt niet over een Office 365-abonnement: **Het Azure-portal gebruiken**.
 
 ![](../Image/AzRMS_Tutorial_1_Screenshots.png)
 
-#### To activate Rights Management from the Office 365 admin center
+#### Rights Management van het Office 365-beheercentrum activeren
 
-1.  Go to the [Office 365 portal](https://portal.office.com/) and sign in with your work or school account.
+1.  Ga naar de [Office 365-portal](https://portal.office.com/) en meld u aan met uw werk of school-account.
 
-2.  If the Office 365 admin center does not automatically display, select the app launcher icon in the upper-left and choose **Admin**. The **Admin** tile appears only to Office 365 administrators.
+2.  Als het Office 365-beheercentrum niet automatisch wordt weergegeven, selecteert u de app launcher-pictogram in de linkerbovenhoek en kies **Admin**. De **Admin** tegel alleen zichtbaar voor Office 365-beheerders.
 
     > [!TIP]
-    > For admin center help, see [About the Office 365 admin center - Admin Help](https://support.office.com/article/About-the-Office-365-admin-center-Admin-Help-58537702-d421-4d02-8141-e128e3703547).
+    > Raadpleeg voor informatie over admin center [over de Office 365-beheercentrum - beheer Help](https://support.office.com/article/About-the-Office-365-admin-center-Admin-Help-58537702-d421-4d02-8141-e128e3703547).
 
-3.  In the left pane, expand **SERVICE SETTINGS**.
+3.  Vouw in het linkerdeelvenster **SERVICE-instellingen**.
 
-4.  Click **Rights Management**.
+4.  Klik op **Rights Management**.
 
-5.  On the **RIGHTS MANAGEMENT** page, click **Manage**.
+5.  Op de **RIGHTS MANAGEMENT** pagina, klikt u op **beheren**.
 
-6.  On the **rights management** page, click **activate**.
+6.  Op de **rights management** pagina, klikt u op **activeren**.
 
-7.  When prompted **Do you want to activate Rights Management?**, click **activate**.
+7.  Als u wordt gevraagd **wilt u Rights Management activeren?**, klikt u op **activeren**.
 
-You should now see **Rights management is activated** and the option to deactivate (you might need to manually refresh the page)
+U ziet nu **Rights management is geactiveerd** en de optie deactiveren (mogelijk moet u de pagina handmatig te vernieuwen)
 
-At this time, do not click **advanced features**. This takes you to the Azure classic portal where you can configure templates, which are not needed for this tutorial. Instead, you can close the Office 365 admin center.
+Op dit moment niet op **Geavanceerde functies**. Dit gaat u naar de Azure-portal waar u de sjablonen die niet nodig zijn voor deze zelfstudie kunt configureren. U kunt in plaats daarvan het Office 365-beheercentrum sluiten.
 
-#### To activate Rights Management from the Azure portal
+#### Rights Management activeren van de Azure-portal
 
-1.  Go to the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=275081) and sign in.
+1.  Ga naar de [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=275081) en aanmelden.
 
-2.  In the left pane, click **ACTIVE DIRECTORY**.
+2.  Klik in het linkerdeelvenster op **ACTIVE DIRECTORY**.
 
-3.  From the **active directory** page, click **RIGHTS MANAGEMENT**.
+3.  Uit de **active directory** pagina, klikt u op **RIGHTS MANAGEMENT**.
 
-4.  Select the directory to manage for [!INCLUDE[aad_rightsmanagement_2](../Token/aad_rightsmanagement_2_md.md)], click **ACTIVATE**, and then confirm your action.
+4.  Selecteer de map voor het beheren van voor [!INCLUDE[aad_rightsmanagement_2](../Token/aad_rightsmanagement_2_md.md)], klikt u op **activeren**, en Bevestig uw actie.
 
-The **RIGHTS MANAGEMENT STATUS** should now display **Active** and the **ACTIVATE** option is replaced with **DEACTIVATE**.
+De **RIGHTS MANAGEMENT-STATUS** moet nu weergeven **Active** en de **activeren** optie wordt vervangen door **DEACTIVEREN**.
 
-Although you can configure other options for Rights Management in the portal, these are not needed for this tutorial, so you can close the Azure classic portal.
+Hoewel u andere opties voor Rights Management in de portal configureren kunt, worden deze niet nodig voor deze zelfstudie, zodat u kunt de Azure-portal sluiten.
 
-That’s all you need to do for this first step. The service is activated so all users in your organization can now start to protect important and sensitive documents. In a production environment, you might want to restrict who can do this initially, for a phased rollout. But it’s not necessary for this tutorial.
+Dat hoeft u voor deze stap is. De service is geactiveerd, zodat alle gebruikers in uw organisatie nu beginnen met het kunnen beschermen van belangrijke en vertrouwelijke documenten. U kunt in een productieomgeving beperken die deze aanvankelijk voor een gefaseerde implementatie kunnen uitvoeren. Maar het is niet nodig is om deze zelfstudie.
 
-Although not included here, for a production deployment, you probably will also probably want to configure custom templates. Templates make it easier for users to quickly apply the right settings when they need to protect files. When you activate Rights Management, you automatically get 2 default templates and it’s likely you will want to supplement these with your own custom templates in a production environment. But templates are not needed for this tutorial, so you’re ready to go to the next step.
+Hoewel niet opgenomen, voor een productie-implementatie wilt u waarschijnlijk waarschijnlijk ook configureren van aangepaste sjablonen. Sjablonen maken het gemakkelijker voor gebruikers snel de juiste instellingen toepassen wanneer ze nodig hebt om bestanden te beschermen. Als u Rights Management activeren, wordt u automatisch 2 standaardsjablonen en is het waarschijnlijk wilt u aanvullen met uw eigen aangepaste sjablonen in een productieomgeving. Maar sjablonen zijn niet nodig voor deze zelfstudie, zodat u klaar bent om door te gaan met de volgende stap.
 
-|If you want more information|Additional information|
-|--------------------------------|--------------------------|
-|About activating Rights Management and controlling who can protect files and email when the service is activated   →|[Activating Azure Rights Management](../Topic/Activating_Azure_Rights_Management.md)|
-|About the default templates and how to create new, custom templates   →|[Configuring Custom Templates for Azure Rights Management](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md)|
+|Als u meer informatie|Aanvullende informatie|
+|-------------------------|--------------------------|
+|Over het activeren van Rights Management en te beheren die kunnen worden beveiligd bestanden en e-mailbericht wanneer de service is geactiveerd →|[Azure Rights Management activeren](../Topic/Activating_Azure_Rights_Management.md)|
+|Over de standaardsjablonen en het maken van nieuwe, aangepaste sjablonen →|[Aangepaste sjablonen configureren voor Azure Rights Management](../Topic/Configuring_Custom_Templates_for_Azure_Rights_Management.md)|
 
-## Step 2: Install the Rights Management sharing application
+## Stap 2: Installeer de Rights Management-toepassing delen
 ![](../Image/AzRMS_QuickStartSteps2.PNG)
 
-The Rights Management sharing application (also known as the “RMS sharing app”) isn’t a requirement for Azure Rights Management, but we recommend it for all computers and mobile devices that support Azure Rights Management. The RMS sharing application integrates with Office applications by installing an Office add-in so that users can easily protect files directly from the ribbon. It also makes it possible to protect all files types by applying generic protection for files that are not natively supported by Azure Rights Management, and a document tracking site for users to track and revoke files that they have protected. We’ll be using the document tracking site later in this tutorial.
+De Rights Management-toepassing (ook wel bekend als de "app RMS sharing") delen niet een vereiste voor Azure Rights Management, maar wij raden aan voor alle computers en mobiele apparaten die ondersteuning van Azure Rights Management. De RMS sharing van toepassing is geïntegreerd met Office toepassingen door de installatie van een Office-invoegtoepassing zodat gebruikers eenvoudig bestanden rechtstreeks vanuit het lint beveiligen kunnen. Ook kunt bestandstypen van alle beveiligen door toe te passen algemene beveiliging voor bestanden die worden niet ondersteund door Azure Rights Management en een document bijhouden van de site voor gebruikers bijhouden en bestanden die ze hebben beveiligd intrekken. We wilt het document bijhouden site later in deze zelfstudie gebruiken.
 
-This application is free to download and offers a scripted install for production environments. But for this tutorial, we’ll install it locally.
+Deze toepassing is gratis te downloaden en biedt een installeren voor productieomgevingen. Maar voor deze zelfstudie we gaan deze lokaal installeren.
 
 ![](../Image/AzRMS_Tutorial_2_Screenshots.png)
 
-#### To download and install the Rights Management sharing application
+#### Downloaden en installeren van de Rights Management-toepassing delen
 
-1.  Go to the [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) page on the Microsoft website.
+1.  Ga naar de [Microsoft Rights Management](http://go.microsoft.com/fwlink/?LinkId=303970) pagina op de website van Microsoft.
 
-2.  In the **Computers** section, click the icon for the **RMS app for Windows** and save the **Setup.exe** file to install the Microsoft Rights Management sharing application.
+2.  In de **Computers** sectie, klikt u op het pictogram voor de **RMS-app voor Windows** en sla de **Setup.exe** bestand voor het installeren van de Microsoft Rights Management-toepassing voor delen.
 
-3.  For a local install, you must use an administrator account to run the Setup.exe file that was downloaded. If you are prompted to continue, click **Yes**.
+3.  Voor een lokale installatie, moet u een administrator-account gebruiken om uit te voeren van de Setup.exe-bestand dat is gedownload. Als u wordt gevraagd om door te gaan, klikt u op **Ja**.
 
-4.  On the **Setup Microsoft RMS** page, click **Next**, and wait for the installation to finish.
+4.  Op de **Setup Microsoft RMS** pagina, klikt u op **volgende**, en wacht tot de installatie te voltooien.
 
-5.  When the installation finishes, click **Restart** if prompted to restart your computer, or click  **Close** to complete the installation.
+5.  Als de installatie is voltooid, klikt u op **starten** als gevraagd de computer opnieuw opstarten of klik op  **Sluiten** om de installatie te voltooien.
 
-You’re now ready to start protecting files that contain information that you want to share but only with the people that you specify.
+U kunt nu beginnen met het beveiligen van bestanden met gegevens die u wilt delen met de mensen die u opgeeft.
 
-|If you want more information|Additional information|
-|--------------------------------|--------------------------|
-|About a local installation of the Rights Management sharing application for Windows and user instructions   →|[Rights Management sharing application user guide](http://technet.microsoft.com/library/dn339006.aspx)|
-|About the scripted installation of the Rights Management sharing application for Windows and more technical information   →|[Rights Management sharing application administrator guide](http://technet.microsoft.com/library/dn339003.aspx)|
-|To understand the difference between native protection and generic protection   →|[What’s the difference between generic protection and built-in (native) protection?](https://technet.microsoft.com/library/dn574738.aspx)|
+|Als u meer informatie|Aanvullende informatie|
+|-------------------------|--------------------------|
+|Over een lokale installatie van de Rights Management-toepassing voor Windows en de gebruiker instructies → delen|[Rights Management delen toepassing handleiding](http://technet.microsoft.com/library/dn339006.aspx)|
+|Over de installatie van de Rights Management-toepassing voor Windows en meer technische informatie → delen van scripts|[Rights Management delen toepassing beheerdershandleiding](http://technet.microsoft.com/library/dn339003.aspx)|
+|Het verschil tussen de systeemeigen bescherming en algemene → begrijpen|[Wat is het verschil tussen algemene bescherming en ingebouwde (standaard)?](https://technet.microsoft.com/library/dn574738.aspx)|
 
-## Step 3: Email your document that you want to protect
+## Stap 3: E-uw document dat u wilt beveiligen
 ![](../Image/AzRMS_QuickStartSteps3.PNG)
 
-For this step, first create and save a document using Word that will represent your document that you want to protect, and name it **Confidential.docx**. For this tutorial, it doesn’t matter what text it actually contains, but you will want it to contain some text so you can more easily confirm that the authorized recipient could read it. For example, you might type: **If you can read this from your email attachment, the sender has successfully shared a file that was protected with Azure RMS.**
+Voor deze stap eerst maken en opslaan van een document met Word die vertegenwoordigen van uw document dat u wilt beveiligen en geef deze de naam **Confidential.docx**. Voor deze zelfstudie maakt niet uit welke tekst bevat in feite maar gewenste tekst bevatten, zodat het gemakkelijker om te bevestigen dat de geautoriseerde ontvanger kan lezen. U kunt bijvoorbeeld typen: **Als u dit van uw e-mailbijlage lezen kunt, heeft de afzender is een bestand dat is beveiligd gedeeld met Azure RMS.**
 
-You’re then ready to safely share this document by email.
+U kunt nu vervolgens veilig delen van dit document per e-mail.
 
 ![](../Image/AzRMS_Tutorial_3_Screenshots.png)
 
-#### To safely share your document by email
+#### Veilig delen van uw document per e-mail
 
-1.  Using Outlook, create a new message and attach the file that you just created.
+1.  Met Outlook, een nieuw bericht maakt en koppelt het bestand dat u net hebt gemaakt.
 
-2.  In the **To** box, type one or more business email addresses. Make sure you specify a business email address, such as **janetm@contoso.com** or **p.dover@fabrikam.com** because currently, Azure Rights Management doesn’t support personal email addresses that you might use at home from your Internet provider. Don’t worry about whether the person you’re sending it to also has Azure Rights Management or not.
+2.  In de **naar** vak, typt u een of meer zakelijke e-adressen. Controleer of u een e-mailadres van het bedrijf, zoals **janetm@contoso.com** of **p.dover@fabrikam.com** omdat het momenteel Azure Rights Management ondersteunt geen persoonlijke e-mailadressen die u van uw internetprovider thuis kunt gebruiken. U hoeft niet of over de persoon die u het kan verzendt ook Azure Rights Management of niet.
 
-3.  Type a subject, such as  **Confidential document** and then type a short message for the email, such as **Please read this confidential document and do not share it with others.**
+3.  Typ een onderwerp, zoals  **vertrouwelijk document** en typ een korte bericht voor het e-mailbericht, zoals **Lees deze vertrouwelijk document en niet delen met anderen.**
 
-4.  Then, on the **Message** tab, in the **RMS** group, click **Share Protected** and then click **Share Protected** again:
+4.  Klik vervolgens op de **bericht** tabblad in de **RMS** groep, klikt u op **beveiligd delen** en klik vervolgens op **beveiligd delen** opnieuw:
 
-5.  In the **share protected** dialog box:
+5.  In de **beveiligd delen** in het dialoogvenster:
 
-    1.  Select **Viewer – View Only**.
+    1.  Selecteer **Viewer – alleen in de weergave**.
 
-        This means our recipients will be able to view the document but not edit or print it.
+        Dit betekent onze ontvangers het document weergeven, maar niet bewerken of af te drukken.
 
-    2.  Select **Email me when somebody tries to open these documents**.
+    2.  Selecteer **e-mailbericht mij wanneer iemand probeert te openen van deze documenten**.
 
-        You’ll get an email notification each time the recipients try to open the attachment, and also if somebody else tries to open it—for example, your recipient forwards the email to co-worker. In this last scenario, you’ll see that access was denied and from the user details, you can decide whether to send that person a copy of the document that they can open.
+        U krijgt een e-mailbericht telkens wanneer de ontvangers probeert te openen van de bijlage en ook als iemand anders wordt geprobeerd om deze te openen, bijvoorbeeld de ontvanger het e-mailbericht verzendt aan collega. In dit scenario laatste ziet u dat de toegang is geweigerd en van de gegevens van de gebruiker, u of bepalen kunt verzenden die persoon een kopie van het document dat ze kunnen openen.
 
-    3.  Select **Allow me to instantly revoke access to these documents**.
+    3.  Selecteer **toestaan me meteen intrekken toegang tot deze documenten**.
 
-        This option requires the recipients to have an Internet connection each time they open the attachment but with the benefit that if you later revoke the document, the next time they try to open it, they will not be able to. If you do not select this option, the recipients might be able to open it even without an Internet connection but with the disadvantage that if you later revoke the document, there might be a delay for when that takes effect.
+        Deze optie is vereist voor de geadresseerden hebt een internetverbinding telkens wanneer die zij de bijlage openen, maar met het voordeel dat als u het document later intrekt, de volgende keer dat ze proberen te openen, ze niet kunnen worden. Als u deze optie niet selecteert, is het mogelijk dat de ontvangers kunnen openen zelfs zonder een internetverbinding nodig, maar met het nadeel dat als u het document later intrekt, kan er een vertraging voor als die van kracht.
 
-    4.  Click **Send Now**.
+    4.  Klik op **nu verzenden**.
 
-        The email with attachment is sent to the email addresses that you specified. In addition to your email message, they will see instructions how to read the attached document that is protected by Azure Rights Management.
+        Het e-mailbericht met bijlage wordt verzonden naar de e-mailadressen die u hebt opgegeven. Naast uw e-mailbericht zien ze instructies het lezen van het gekoppelde document die wordt beveiligd door Azure Rights Management.
 
-Now you’ve sent your protected document, you’re ready to ask your recipients to wait for it to arrive and then open it. But don’t close Outlook, because we’ll use it again in our final step to track the attachment.
+Nu u uw beveiligde document verzonden heb, bent u klaar om te vragen van uw ontvangers moet worden gewacht op om door te komen en open deze. Maar niet sluit Outlook, omdat we deze opnieuw in ons laatste stap gebruiken gaat voor het bijhouden van de bijlage.
 
-|If you want more information|Additional information|
-|--------------------------------|--------------------------|
-|Full instructions and alternative methods for protecting files that you share by email   →|[Protect a file that you share by email by using the Rights Management sharing application](https://technet.microsoft.com/library/dn574735.aspx)|
-|About the options in the **share protected** dialog box   →|[Dialog box options for the Rights Management sharing application](https://technet.microsoft.com/library/dn574738.aspx)|
+|Als u meer informatie|Aanvullende informatie|
+|-------------------------|--------------------------|
+|Volledige instructies en alternatieve methoden voor het beschermen van bestanden die u per e-mail → deelt|[Een bestand dat u per e-mail delen met behulp van de Rights Management-toepassing delen beveiligen](https://technet.microsoft.com/library/dn574735.aspx)|
+|Over de opties in de **beveiligd delen** dialoogvenster →|[De opties in het dialoogvenster voor de Rights Management-toepassing delen](https://technet.microsoft.com/library/dn574738.aspx)|
 
-## Step 4: Ask your recipients to open the emailed document
+## Stap 4: Stel uw ontvangers via e-mail verzonden document openen
 ![](../Image/AzRMS_QuickStartSteps4.PNG)
 
-Your recipients can use many devices to read the protected document that you sent as an email attachment. The devices include iPads, iPhones, Android tablets and phones, Mac computers, as well as Windows computers.
+Uw ontvangers kunnen veel apparaten gebruiken voor het lezen van het beveiligde document dat u als een e-mailbijlage verzonden. De apparaten die zijn iPads, iPhones, Android tablets en telefoons, Mac-computers, evenals Windows-computers.
 
-Ask them to read the email message that you sent. They will see your email message and before that, the following text:
+Vragen om het lezen van het e-mailbericht dat u hebt verzonden. Ze zien uw e-mailbericht en vóór de volgende tekst:
 
-**The sender has protected the attachments with Microsoft RMS. You must** [sign in](http://aka.ms/rms)
-      **to open them.**
+**De afzender is bijlagen met Microsoft RMS beveiligd. Moet u** [Aanmelden](http://aka.ms/rms) **om deze te openen.**
 
-When they click the link, it takes them to instructions to install the RMS sharing app and if necessary, sign up for a free account. The free account grants them a subscription for RMS for individuals, which ensures that authorized users can always read a protected document, even if their organization does not have Azure RMS. They are then ready to read the protected attachment by using the following instructions.
+Wanneer ze op de koppeling klikt, duurt deze instructies voor het installeren van de app RMS sharing en indien nodig, meld u voor een gratis account. Gratis account verleent ze een abonnement voor RMS voor personen die zorgt ervoor dat geautoriseerde gebruikers altijd een beveiligd document kunnen lezen, zelfs als hun organisatie geen Azure RMS heeft. Vervolgens zijn klaar om te lezen van de beveiligde bijlage met behulp van de volgende instructies.
 
 ![](../Image/AzRMS_Tutorial_4_Screenshots.png)
 
-#### To view the protected document attachment
+#### De bijlage beveiligd document weergeven
 
-1.  Because Azure Rights Management protected a Word document, there are two attachments for the email message. These are actually two versions of the same file but with different file name extensions. Open the version that has the **.ppdf** file name extension (**Confidential.ppdf**).
+1.  Omdat Azure Rights Management beveiligd een Word-document, zijn er twee bijlagen voor het e-mailbericht. Dit zijn daadwerkelijk twee versies van hetzelfde bestand, maar met verschillende bestandsextensies. Open de versie die de **.ppdf** -bestandsextensie (**Confidential.ppdf**).
 
-    If you have a version of [Office on your device that supports Rights Management](https://technet.microsoft.com/library/dn655136.aspx), you can open the other version of the file (**Confidential.docx**), so that it opens in Word.
+    Als er een versie van [Office op het apparaat dat Rights Management ondersteunt](https://technet.microsoft.com/library/dn655136.aspx), kunt u de andere versie van het bestand openen (**Confidential.docx**), zodat in Word wordt geopend.
 
-2.  If you are prompted for your user name and password, enter your user name in the same format as the email address that was used to send you the email and attachment. For example, **janetm@contoso.com** or **p.dover@fabrikam.com**. For your password, type the password that you supplied when you signed up for RMS for individuals. Or, if your organization has Azure RMS, enter your usual work password.
+2.  Als u wordt gevraagd uw gebruikersnaam en wachtwoord, voert u uw gebruikersnaam in de indeling van het e-mailadres waarmee u het e-mailbericht en bijlage te verzenden. Bijvoorbeeld, **janetm@contoso.com** of **p.dover@fabrikam.com**. Typ het wachtwoord dat u hebt opgegeven als u aangemeld voor RMS voor personen om uw wachtwoord. Of als uw organisatie Azure RMS heeft, voert u uw wachtwoord gebruikelijke werk.
 
-The document opens and you can now read the contents. For example, it might say **If you can read this from your email attachment, the sender has successfully shared a file that was protected with Azure RMS.** Because it’s read-only, you cannot change the contents.
+Het document wordt geopend en u kunt nu de inhoud lezen. Dit kan bijvoorbeeld **Als u dit van uw e-mailbijlage lezen kunt, de afzender is een bestand dat is beveiligd met Azure RMS. heeft gedeeld** Omdat het alleen-lezen, kunt u de inhoud niet wijzigen.
 
-As an optional step, you could ask your recipient to forward the email to other people that you didn’t include in your original email. Even if those other people work for an organization that has Azure Rights Management or they apply for their own RMS for individuals subscription, they won’t be able to open the attachment. When they are promoted for their user name, access to the document will be denied.
+U kunt de geadresseerde voor het doorsturen van het e-mailbericht naar andere mensen die u hebt opgenomen in de oorspronkelijke e-mailbericht vragen als een optionele stap. Zelfs als de andere mensen werken voor een organisatie met Azure Rights Management of ze een aanvraag voor hun eigen RMS voor personen abonnement indienen, niet worden kunnen de bijlage openen. Wanneer ze worden gepromoveerd voor hun gebruikersnaam, worden toegang tot het document geweigerd.
 
-Now that the recipient has opened the attachment and optionally, forwarded it to somebody else, expect to get an email notification that reports this activity. But email messages are easy to lose over time, so a better way to track who accessed your document is to use the document tracking site, which is covered in the final step.
+Nu dat de ontvanger heeft de bijlage geopend en eventueel doorgestuurd naar iemand anders, verwacht voor het ophalen van een e-mailbericht van rapporten van deze activiteit. Maar e-mailberichten zijn gemakkelijk te verliezen gedurende een periode, zodat een betere manier om bij te houden die toegang uw document tot is het gebruik van het document bijhouden site die is beschreven in de laatste stap.
 
-|If you want more information|Additional information|
-|--------------------------------|--------------------------|
-|Full instructions for viewing files that are protected by Azure Rights Management   →|[View and use files that have been protected by Rights Management](https://technet.microsoft.com/library/dn574741.aspx)|
-|About the free subscription, RMS for individuals   →|[RMS for Individuals and Azure Rights Management](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md)|
-|About the two versions of the file that you see attached to the email message   →|[What’s the .ppdf file that’s automatically created?](https://technet.microsoft.com/library/dn574738.aspx)|
+|Als u meer informatie|Aanvullende informatie|
+|-------------------------|--------------------------|
+|Volledige instructies voor het weergeven van bestanden die worden beschermd door → Azure Rights Management|[Weergeven en gebruiken van bestanden die zijn beveiligd door Rights Management](https://technet.microsoft.com/library/dn574741.aspx)|
+|Over de gratis abonnement, RMS voor personen →|[RMS voor personen en Azure Rights Management](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md)|
+|Over de twee versies van het bestand dat is gekoppeld aan het e-mailbericht →|[Wat is het bestand .ppdf die automatisch wordt gemaakt?](https://technet.microsoft.com/library/dn574738.aspx)|
 
-## Step 5: Track your protected document
+## Stap 5: Uw beveiligde document bijhouden
 ![](../Image/AzRMS_QuickStartSteps5.PNG)
 
 > [!NOTE]
-> For this step, you must have a subscription that supports document tracking. To check whether your subscription includes document tracking, see [Comparison of Rights Management Services (RMS) Offerings](https://technet.microsoft.com/dn858608.aspx).
+> Voor deze stap is uitgevoerd, moet u een abonnement dat document bijhouden ondersteunt hebben. Als u wilt controleren of uw abonnement bevat document bijhouden, Zie [aanbiedingen voor vergelijking van Rights Management Services (RMS)](https://technet.microsoft.com/dn858608.aspx).
 
-This step is optional, but most people like to know if the attachment they sent to people has been opened, when, and even from where. For example:
+Deze stap is optioneel, maar de meeste mensen graag weten of de bijlage die ze naar personen verzonden is geopend, wanneer en zelfs van waaruit. Bijvoorbeeld:
 
--   You’re expecting a response from somebody by a specified time and you can see from the document tracking site that she hasn’t opened the document even though the deadline is approaching. You send her a follow-up email or telephone her as a timely reminder.
+-   U verwacht een reactie van iemand door een bepaalde tijd en u kunt zien van de site document bijhouden dat zij het document is niet geopend, ondanks de deadline bijna is bereikt. U haar een follow-up e-mail verzenden of haar telefoonnummer als een tijdige herinnering.
 
--   After seeing that somebody has opened the document, you follow up to ask her if she has any questions or requires additional information.
+-   Na die iemand het document heeft geopend, aan te vragen van haar als ze vragen heeft of is vereist als u meer informatie.
 
 ![](../Image/AzRMS_Tutorial_5_Screenshots.png)
 
-#### To track your protected document
+#### Uw beveiligde document bijhouden
 
-1.  Using Outlook, on the **Home** tab, in the **RMS** group, click **Track Usage**.
+1.  Met Outlook, op de **Home** tabblad in de **RMS** groep, klikt u op **bijhouden gebruik**.
 
-2.  If you see the **Protect and share on your terms** page, click **Sign in** and supply your user name and password again.
+2.  Als u de **beveiligen en delen op uw eigen voorwaarden** pagina, klikt u op **Aanmelden** en uw gebruikersnaam en wachtwoord opnieuw.
 
-3.  On the **Your shared documents** page, you’ll see the document that you attached to the email, **Confidential.docx**. At this point, it’s the only file displayed but as you share additional protected documents, the list will grow.
+3.  Op de **uw gedeelde documenten** pagina ziet u het document dat u hebt gekoppeld aan het e-mailbericht, **Confidential.docx**. Op dit moment is het enige bestand weergegeven, maar als u aanvullende beveiligde documenten deelt, wordt de lijst met de grootte.
 
-    From this page, you’ll see when you shared the document (when you sent the email with the protected attachment), the date of the last activity, and the name of the recipient you sent the email to. Click the document name for additional details.
+    Op deze pagina ziet u wanneer u het document (als u het e-mailbericht met de beveiligde bijlage verzonden), de datum van laatste activiteit en de naam van de geadresseerde verzonden van het e-mailbericht naar gedeeld. Klik op de naam van het document voor meer informatie.
 
-4.  On the new page, which has the name of the file that you clicked, you’ll see summary details for that document only, and a list of other options that are available for the document (**List**, **Timeline**, **Map**, **Settings**).
+4.  Op de nieuwe pagina heeft de naam van het bestand dat u hebt geklikt, ziet u samenvatting details voor dat document alleen en een lijst met andere opties die beschikbaar zijn voor het document (**lijst**, **tijdlijn**, **kaart**, **instellingen**).
 
-    Click each option to explore different ways to track your protected document. Or, still on the **Summary** page, click **Open in Excel** to export the information to a spreadsheet, or click **Revoke access** to stop sharing the document.
+    Klik op elke optie op verschillende manieren om bij te houden van uw beveiligde document verkennen. Nog steeds in de **Samenvatting** pagina, klikt u op **openen in Excel** naar de informatie die naar een spreadsheet exporteren of klik op **Toegang intrekken** delen van het document beëindigen.
 
-You can return to this site to track further activity for your protected document, or revoke access if necessary. You can even access the site from your mobile device or tablet, by using a browser with this link: [document tracking](http://go.microsoft.com/fwlink/?LinkId=529562)
+U kunt terug naar deze site om bij te houden verder activiteit voor het beveiligde document of toegang intrekken indien nodig. U kunt ook toegang tot de site op het mobiele apparaat of tablet, met een browser met deze koppeling: [document bijhouden](http://go.microsoft.com/fwlink/?LinkId=529562)
 
-|If you want more information|Additional information|
-|--------------------------------|--------------------------|
-|Full instructions for tracking your documents   →|[Track and revoke your documents when you use the RMS sharing application](https://technet.microsoft.com/library/dn986611.aspx)|
-|Two minute video that explains and shows document tracking   →|[Azure RMS Document Tracking and Revocation](http://channel9.msdn.com/Series/Information-Protection/Azure-RMS-Document-Tracking-and-Revocation)|
-|For troubleshooting and customer questions   →|[FAQ for Document Tracking](https://technet.microsoft.com/dn947488)|
+|Als u meer informatie|Aanvullende informatie|
+|-------------------------|--------------------------|
+|Volledige instructies voor het bijhouden van uw documenten →|[Bijhouden en uw documenten intrekken wanneer u de RMS sharing toepassing](https://technet.microsoft.com/library/dn986611.aspx)|
+|Twee minuut video die wordt beschreven en het document bijhouden → bevat|[Azure RMS Document bijhouden en intrekken](http://channel9.msdn.com/Series/Information-Protection/Azure-RMS-Document-Tracking-and-Revocation)|
+|Voor het oplossen van problemen en klant vragen →|[Veelgestelde vragen over het Document bijhouden](https://technet.microsoft.com/dn947488)|
 
-## Next Steps
-This tutorial stepped you through just one scenario for how Azure RMS can help protect your data. To see other common uses, see the [Azure RMS in action](https://technet.microsoft.com/library/jj585026.aspx) section from the [What is Azure Rights Management?](../Topic/What_is_Azure_Rights_Management_.md) article. There are other sections in this article that you might also find useful, such as how Azure RMS works and what business problems it can solve.
+## Volgende stappen
+In deze zelfstudie interval u slechts één scenario voor hoe Azure RMS kan helpen beschermen van uw gegevens. Andere vaak gebruikt, raadpleegt u de [Azure RMS in actie](https://technet.microsoft.com/library/jj585026.aspx) gedeelte van het [Wat is Azure Rights Management?](../Topic/What_is_Azure_Rights_Management_.md) artikel. Er zijn andere secties in dit artikel die mogelijk ook interessant, zoals de werking van Azure RMS en welke bedrijfsproblemen het kunt oplossen.
 
-If you’re ready to start deploying Azure RMS, use the [Azure Rights Management Deployment Roadmap](../Topic/Azure_Rights_Management_Deployment_Roadmap.md) for your deployment steps and links for how-to instructions.
+Als u klaar bent om te beginnen Azure RMS, gebruik implementeren de [Azure Rights Management-implementatieschema](../Topic/Azure_Rights_Management_Deployment_Roadmap.md) voor uw implementatiestappen en koppelingen voor procedures voor instructies.
 
-## See Also
-[Getting Started with Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md)
+## Zie ook
+[Aan de slag met Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md)
 

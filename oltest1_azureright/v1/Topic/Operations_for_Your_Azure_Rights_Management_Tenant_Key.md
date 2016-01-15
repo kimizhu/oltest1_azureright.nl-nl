@@ -3,160 +3,159 @@ description: na
 keywords: na
 title: Operations for Your Azure Rights Management Tenant Key
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 1284d0ee-0a72-45ba-a64c-3dcb25846c3d
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Operations for Your Azure Rights Management Tenant Key
-Depending on your tenant key topology (Microsoft-managed or customer-managed), you have different levels of control and responsibility for your Microsoft Azure Rights Management (Azure RMS) tenant key after it is implemented.
+# Bewerkingen voor uw Azure Rights Management Tenant-sleutel
+Afhankelijk van uw tenant key-topologie (Microsoft beheerde of klant beheerd) hebben verschillende niveaus van controle en verantwoordelijkheid voor uw tenant Microsoft Azure Rights Management (Azure RMS) sleutel nadat deze is geïmplementeerd.
 
-When you manage your own tenant key, this is often referred to as bring your own key (BYOK). For more information about this scenario and how to choose between the two tenant key topologies, see [Planning and Implementing Your Azure Rights Management Tenant Key](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md).
+Wanneer u uw eigen sleutel tenant beheren, is dit vaak genoemd om als uw eigen sleutel (BYOK). Zie voor meer informatie over dit scenario en hoe u kunt kiezen tussen de twee tenant sleutel topologieën [Plannen en implementeren van uw Azure Rights Management Tenant-sleutel](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md).
 
-The following table identifies which operations you can do, depending on the topology that you’ve chosen for your Azure RMS tenant key.
+De volgende tabel bevat welke bewerkingen die u doen kunt, afhankelijk van de topologie die u hebt gekozen voor uw Azure RMS tenant-sleutel.
 
-|Lifecycle operation|Microsoft-managed (default)|Customer-managed (BYOK)|
-|-----------------------|-------------------------------|---------------------------|
-|Revoke your tenant key|No (automatic)|No (automatic)|
-|Re-key your tenant key|Yes|Yes|
-|Backup and recover your tenant key|No|Yes|
-|Export your tenant key|Yes|No|
-|Respond to a breach|Yes|Yes|
-After you have identified which topology you have implemented, use one of the following sections for more information about these operations for your Azure RMS tenant key.
+|Lifecycle-bewerking|Microsoft wordt beheerd (standaard)|Klant beheerde (BYOK)|
+|-----------------------|---------------------------------------|-------------------------|
+|De sleutel tenant intrekken|Geen (automatisch)|Geen (automatisch)|
+|Uw tenant sleutel opnieuw worden ingevoerd|Ja|Ja|
+|Back-up en herstellen van de tenant-sleutel|Nee|Ja|
+|Het exporteren van de tenant-sleutel|Ja|Nee|
+|Reageren op een inbreuk op|Ja|Ja|
+Nadat u hebt aangegeven welke topologie die u hebt geïmplementeerd, kunt u een van de volgende secties voor meer informatie over deze bewerkingen voor uw Azure RMS tenant sleutel gebruiken.
 
-## <a name="BKMK_MSManagedOperations"></a>Microsoft-managed: Tenant key lifecycle operations
-If Microsoft manages your tenant key for Azure Rights Management (the default), use the following sections for more information about the lifecycle operations that are relevant to this topology:
+## <a name="BKMK_MSManagedOperations"></a>Microsoft beheerd: Tenant sleutel lifecycle bewerkingen
+Als Microsoft beheert de tenant-sleutel voor Azure Rights Management (standaard), gebruikt u de volgende secties voor meer informatie over de lifecycle-bewerkingen die relevant voor deze topologie zijn:
 
--   [Revoke your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSRevoke)
+-   [De sleutel tenant intrekken](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSRevoke)
 
--   [Re-key your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSRekey)
+-   [Uw tenant sleutel opnieuw worden ingevoerd](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSRekey)
 
--   [Backup and recover your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSBackup)
+-   [Back-up en herstellen van de tenant-sleutel](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSBackup)
 
--   [Export your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSExport)
+-   [Het exporteren van de tenant-sleutel](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSExport)
 
--   [Respond to a breach](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSBreach)
+-   [Reageren op een inbreuk op](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSBreach)
 
-### <a name="BKMK_MSRevoke"></a>Revoke your tenant key
-When you unsubscribe from Azure RMS, Azure RMS stops using your tenant key and no action is needed from you.
+### <a name="BKMK_MSRevoke"></a>De sleutel tenant intrekken
+Wanneer u zich van Azure RMS afmeldt, Azure RMS stopt met uw tenant sleutel en van u is geen actie vereist.
 
-### <a name="BKMK_MSRekey"></a>Re-key your tenant key
-Re-keying is also known as rolling your key. Do not re-key your tenant key unless it’s really necessary. Older clients, such as Office 2010, were not designed to handle key changes gracefully. In this scenario, you must clear the RMS state on computers by using Group Policy or an equivalent mechanism. However, there are some legitimate events that may force you to re-key your tenant key. For example:
+### <a name="BKMK_MSRekey"></a>Uw tenant sleutel opnieuw worden ingevoerd
+Opnieuw instellen van sleutels wordt ook wel uw sleutel implementeren. Niet opnieuw sleutel uw tenant sleutel tenzij het wordt echt nodig. Oudere clients, zoals Office 2010, zijn niet ontworpen om belangrijke wijzigingen correct verwerken. In dit geval moet u de RMS-status op computers met Groepsbeleid of een equivalente mechanisme wissen. Er zijn echter enkele legitieme gebeurtenissen zodat u uw tenant sleutel opnieuw worden ingevoerd. Bijvoorbeeld:
 
--   Your company has split into two or more companies. When you re-key your tenant key, the new company will not have access to new content that your employees publish. They can access the old content if they have a copy of the old tenant key.
+-   Uw bedrijf is gesplitst in twee of meer bedrijven. Wanneer u uw tenant sleutel opnieuw worden ingevoerd, het nieuwe bedrijf geen toegang tot nieuwe inhoud die uw werknemers publiceren. Toegang te krijgen tot de oude inhoud als ze beschikken over een kopie van de oude tenant-sleutel.
 
--   You believe the master copy of your tenant key (the copy in your possession) was compromised.
+-   U denkt dat het originele exemplaar van de tenant-sleutel (kopiëren beschikt) is ingebroken.
 
-You can re-key your tenant key by calling Microsoft Customer Support Services (CSS) and proving that you are the tenant administrator.
+U kunt uw tenant sleutel opnieuw sleutel door het aanroepen van Microsoft klantenondersteuning (CSS) en waaruit u de tenantbeheerder zijn.
 
-When you re-key your tenant key, new content is protected by using the new tenant key. This happens in a phased manner, so for a period of time, some new content will continue to be protected with the old tenant key. Previously protected content stays protected to your old tenant key. To support this scenario, Azure RMS retains your old tenant key so that it can issue licenses for old content.
+Wanneer u uw tenant sleutel opnieuw worden ingevoerd, worden nieuwe inhoud wordt beveiligd door met de nieuwe sleutel van de tenant. Dit komt voor in een gefaseerde wijze, zodat voor een bepaalde tijd een aantal nieuwe inhoud blijven met de oude tenant sleutel worden beveiligd. Beveiligde inhoud blijft eerder beveiligde voor uw oude tenant-sleutel. Azure RMS behoudt de oude tenant-sleutel voor dit scenario, zodat deze licenties voor oude inhoud kan verlenen.
 
-### <a name="BKMK_MSBackup"></a>Backup and recover your tenant key
-Microsoft is responsible for backing up your tenant key and no action is required from you.
+### <a name="BKMK_MSBackup"></a>Back-up en herstellen van de tenant-sleutel
+Microsoft is verantwoordelijk voor het back-ups van uw tenant sleutel en er is geen actie vereist van u.
 
-### <a name="BKMK_MSExport"></a>Export your tenant key
-You can export your Azure RMS configuration and tenant key by following the instructions in these three steps:
+### <a name="BKMK_MSExport"></a>Het exporteren van de tenant-sleutel
+U kunt uw Azure RMS-configuratie en tenant-sleutel exporteren door de instructies in deze drie stappen:
 
-##### Step 1: Initiate export
+##### Stap 1: Exporteren starten
 
--   To do this, contact Microsoft Customer Service Support (CSS). You must prove you are an administrator for your Azure RMS tenant.
+-   U doet dit door contact op met Microsoft klantondersteuning Service (CSS). U moet als bewijs dat u beheerder bent voor uw Azure RMS-tenant.
 
-##### Step 2: Wait for verification
+##### Stap 2: Wacht tot de verificatie
 
--   Microsoft verifies that your request to release your RMS tenant key is legitimate. This process can take up to 3 weeks.
+-   Microsoft wordt gecontroleerd of uw aanvraag voor de RMS-tenant loslaat geldig is. Dit kan tot 3 weken duren.
 
-##### Step 3: Receive key instructions from CSS
+##### Stap 3: Sleutel instructies van CSS ontvangen
 
--   Microsoft Customer Support Services (CSS) will send you your Azure RMS configuration and tenant key as encrypted in a password-protected file that has a .tpd file name extension. To do this, CSS first sends you (as the person who initiated the export) a tool by email. You must run the tool from a command prompt as follows:
+-   Microsoft klantenondersteuning (CSS) stuurt u uw Azure RMS-configuratie en tenant sleutel als versleutelde in een wachtwoord zijn beveiligd bestand met de extensie .tpd. U doet dit door stuurt CSS eerst u (als de persoon die de uitvoer gestart) een hulpmiddel per e-mail. U moet het hulpprogramma uitvoeren vanaf een opdrachtprompt als volgt:
 
     ```
     AadrmTpd.exe -createkey
     ```
-    This generates an RSA key pair and saves the public and private halves as files in the current folder. For example: **PublicKey-FA29D0FE-5049-4C8E-931B-96C6152B0441.txt** and **PrivateKey-FA29D0FE-5049-4C8E-931B-96C6152B0441.txt**.
+    Dit genereert een combinatie van de RSA-sleutel en de openbare en persoonlijke halve als bestanden opgeslagen in de huidige map. Voorbeeld: **PublicKey-FA29D0FE-5049-4C8E-931B-96C6152B0441.txt** en **PrivateKey-FA29D0FE-5049-4C8E-931B-96C6152B0441.txt**.
 
-    Respond to the email from CSS, attaching the file that has a name that starts with **PublicKey**. CSS will next send you a TPD file as an .xml file that is encrypted with your RSA key. Copy this file to the same folder as you ran the AadrmTpd tool originally, and run the tool again, using your file that starts with **PrivateKey** and the file from CSS. For example:
+    Reageren op het e-mailbericht van CSS, bijvoegen van het bestand met een naam die wordt gestart met **PublicKey**. CSS vervolgens stuurt u een bestand vertrouwde Uitgiftedomein als een .xml-bestand is versleuteld met de RSA-sleutel. Dit bestand kopiëren naar dezelfde map als u het hulpprogramma AadrmTpd oorspronkelijk hebt uitgevoerd en het hulpprogramma opnieuw uitvoeren met behulp van het bestand dat met begint **PrivateKey** en het bestand van CSS. Bijvoorbeeld:
 
     ```
     AadrmTpd.exe -key PrivateKey-FA29D0FE-5049-4C8E-931B-96C6152B0441.txt -target TPD-77172C7B-8E21-48B7-9854-7A4CEAC474D0.xml
     ```
-    The output of this command should be two files: One contains the plaintext password for the password-protected TPD, and the other is the password-protected TPD itself. For cross-referencing purposes, both should have the same GUID as the public and private key files from when you ran the AadrmTpd.exe -createkey command:
+    De uitvoer van deze opdracht moet twee bestanden: Een bevat het leesbare wachtwoord voor het wachtwoord zijn beveiligd vertrouwde Uitgiftedomein en de andere is het vertrouwde wachtwoord Uitgiftedomein zelf. Voor kruisverwijzingen doeleinden, hebben beide dezelfde GUID als de openbare en persoonlijke sleutels bestanden uit tijdens het uitvoeren van de opdracht AadrmTpd.exe - createkey:
 
     -   Password-FA29D0FE-5049-4C8E-931B-96C6152B0441.txt
 
     -   ExportedTPD-FA29D0FE-5049-4C8E-931B-96C6152B0441.xml
 
-    Backup these files and store them safely to ensure that you can continue to decrypt content that is protected with this tenant key. In addition, if you are migrating to AD RMS, you can import this TPD file (the file that starts with **ExportedTDP**) to your AD RMS server.
+    Back-up maken van deze bestanden en slaan deze veilig om ervoor te zorgen dat u kunt doorgaan met het ontsleutelen van inhoud die is beveiligd met de sleutel voor deze tenant. Als u naar AD RMS migreren wilt, kunt u bovendien dit vertrouwde Uitgiftedomein-bestand importeren (het bestand dat met begint **ExportedTDP**) met de AD RMS-server.
 
-##### Step 4: Ongoing: Protect your tenant key
+##### Stap 4: Lopende: De sleutel tenant beveiligen
 
--   After you receive your tenant key, keep it well-guarded, because if somebody gets access to it, they can decrypt all documents that are protected by using that key.
+-   Nadat u uw tenant sleutel ontvangen, moet deze goed beveiligde omdat als iemand toegang tot deze ontvangt, kunnen ze alle documenten die worden beschermd met behulp van deze sleutel gedecodeerd.
 
-    If the reason for exporting your tenant key is because you no longer want to use Azure RMS, as a best practice, now deactivate your RMS tenant. Do not delay doing this after you receive your tenant key because this precaution will help to minimize the consequences if your tenant key is accessed by somebody who should not have it. For instructions, see [Decommissioning and Deactivating Azure Rights Management](../Topic/Decommissioning_and_Deactivating_Azure_Rights_Management.md).
+    Als de reden voor het exporteren van de tenant-sleutel is omdat u niet meer wilt gebruiken Azure RMS wordt aangeraden, moet u nu uw RMS-tenant deactiveren. Geen vertraging hierdoor nadat u uw tenant sleutel hebt ontvangen, omdat deze voorzorgsmaatregelen de gevolgen minimaliseren kunnen als uw tenant sleutel wordt gebruikt door iemand die geen moet hebben. Zie voor instructies [Buiten gebruik stellen en Azure Rights Management deactiveren](../Topic/Decommissioning_and_Deactivating_Azure_Rights_Management.md).
 
-### <a name="BKMK_MSBreach"></a>Respond to a breach
-No security system, no matter how strong, is complete without a breach response process. Your tenant key might be compromised or stolen. Even when it’s well protected well, vulnerabilities might be found in current generation HSM technology or current key lengths and algorithms.
+### <a name="BKMK_MSBreach"></a>Reageren op een inbreuk op
+Er is geen beveiligingssysteem zo sterk is voltooid zonder een antwoord inbreuk proces. Uw tenant sleutel mogelijk ingebroken of gestolen. Zelfs als het ook goed beveiligd, mogelijk door beveiligingslekken in de huidige generatie HSM technologie of huidige sleutellengte en algoritmen worden gevonden.
 
-Microsoft has a dedicated team to respond to security incidents in its products and services. As soon as there is a credible report of an incident, this team engages to investigate the scope, root cause, and mitigations. If this incident affects your assets, then Microsoft will notify your Azure RMS tenant administrators by email by using the address that you supplied when you subscribed.
+Microsoft heeft een speciale team om te reageren op beveiligingsincidenten in de producten en services. Als er een geloofwaardige rapport van een incident is, wordt dit team voert het bereik, de hoofdoorzaak en tijdelijke oplossingen voor problemen te onderzoeken. Als dit incident heeft betrekking op de activa, klikt u vervolgens stuurt Microsoft uw Azure RMS tenant beheerders e-mailbericht met het adres dat u hebt opgegeven als u geabonneerd.
 
-If you have a breach, the best action that you or Microsoft can take depends on the scope of the breach; Microsoft will work with you through this process. The following table shows some typical situations and the likely response, although the exact response will depend on all the information that is revealed during the investigation.
+Als er een inbreuk, de aanbevolen actie die u of Microsoft kunt is afhankelijk van het bereik van de schending; Microsoft werkt samen met u via deze procedure. De volgende tabel ziet enkele situaties en de waarschijnlijke reactie Hoewel de exacte reactie afhankelijk van de informatie die wordt weergegeven tijdens het onderzoek.
 
-|Incident description|Likely response|
-|------------------------|-------------------|
-|Your tenant key is leaked.|Re-key your tenant key. See the [Re-key your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSRekey) section in this topic.|
-|An unauthorized individual or malware got rights to use your tenant key but the key itself did not leak.|Re-keying your tenant key does not help here and requires root-cause analysis. If a process or software bug was responsible for the unauthorized individual to get access, that situation must be resolved.|
-|Vulnerability discovered in the RSA algorithm, or key length, or brute-force attacks become computationally feasible.|Microsoft must update the Azure RMS to support new algorithms and longer key lengths that are resilient, and instruct all customers to renew their tenant keys.|
+|Beschrijving van incident|Waarschijnlijke antwoord|
+|-----------------------------|----------------------------|
+|Er is meer in uw tenant-sleutel.|Uw tenant sleutel opnieuw worden ingevoerd. Zie de [Uw tenant sleutel opnieuw worden ingevoerd](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_MSRekey) in dit onderwerp.|
+|Een niet-geautoriseerde persoon of malware hebt u recht op uw tenant sleutel, maar heeft niet de sleutel zelf lekken.|Opnieuw instellen van uw tenant sleutel sleutels niet hier helpt en hoofdoorzaak analyse vereist. Als een proces of software-fout verantwoordelijk voor het niet-geautoriseerde persoon om toegang te krijgen is, moet deze situatie worden opgelost.|
+|Door een beveiligingslek in de RSA-algoritme, of sleutellengte of gewelddadige aanvallen ontdekt worden rekenkundig uitvoerbaar is.|Microsoft moet de Azure RMS ter ondersteuning van nieuwe algoritmes en sleutellengte die robuuste bijwerken en alle klanten voor het vernieuwen van de sleutels tenant geven.|
 
-## <a name="BKMK_BYOKManagedOperations"></a>Customer-managed: Tenant key lifecycle operations
-If you manage your tenant key for Azure Rights Management (the bring your own key, or BYOK, scenario), use the following sections for more information about the lifecycle operations that are relevant to this topology:
+## <a name="BKMK_BYOKManagedOperations"></a>Klant beheerd: Tenant sleutel lifecycle bewerkingen
+Als u uw tenant sleutel voor Azure Rights Management beheren (het Breng uw eigen sleutel of BYOK, scenario), gebruikt u de volgende secties voor meer informatie over de lifecycle-bewerkingen die relevant voor deze topologie zijn:
 
--   [Revoke your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKRevoke)
+-   [De sleutel tenant intrekken](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKRevoke)
 
--   [Re-key your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKRekey)
+-   [Uw tenant sleutel opnieuw worden ingevoerd](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKRekey)
 
--   [Backup and recover your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKBackup)
+-   [Back-up en herstellen van de tenant-sleutel](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKBackup)
 
--   [Export your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKExport)
+-   [Het exporteren van de tenant-sleutel](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKExport)
 
--   [Respond to a breach](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKBreach)
+-   [Reageren op een inbreuk op](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKBreach)
 
-### <a name="BKMK_BYOKRevoke"></a>Revoke your tenant key
-When you unsubscribe from Azure RMS, Azure RMS stops using your tenant key and no action is needed from you.
+### <a name="BKMK_BYOKRevoke"></a>De sleutel tenant intrekken
+Wanneer u zich van Azure RMS afmeldt, Azure RMS stopt met uw tenant sleutel en van u is geen actie vereist.
 
-### <a name="BKMK_BYOKRekey"></a>Re-key your tenant key
-Re-keying is also known as rolling your key. Do not re-key your tenant key unless it’s really necessary. Older clients, such as Office 2010, were not designed to handle key changes gracefully. In this scenario, you must clear the RMS state on computers by using Group Policy or an equivalent mechanism. However, there are some legitimate events that may force you to re-key your tenant key. For example:
+### <a name="BKMK_BYOKRekey"></a>Uw tenant sleutel opnieuw worden ingevoerd
+Opnieuw instellen van sleutels wordt ook wel uw sleutel implementeren. Niet opnieuw sleutel uw tenant sleutel tenzij het wordt echt nodig. Oudere clients, zoals Office 2010, zijn niet ontworpen om belangrijke wijzigingen correct verwerken. In dit geval moet u de RMS-status op computers met Groepsbeleid of een equivalente mechanisme wissen. Er zijn echter enkele legitieme gebeurtenissen zodat u uw tenant sleutel opnieuw worden ingevoerd. Bijvoorbeeld:
 
--   Your company has split into two or more companies. When you re-key your tenant key, the new company will not have access to new content that your employees publish. They can access the old content if they have a copy of the old tenant key.
+-   Uw bedrijf is gesplitst in twee of meer bedrijven. Wanneer u uw tenant sleutel opnieuw worden ingevoerd, het nieuwe bedrijf geen toegang tot nieuwe inhoud die uw werknemers publiceren. Toegang te krijgen tot de oude inhoud als ze beschikken over een kopie van de oude tenant-sleutel.
 
--   You believe the master copy of your tenant key (the copy in your possession) was compromised.
+-   U denkt dat het originele exemplaar van de tenant-sleutel (kopiëren beschikt) is ingebroken.
 
-When you re-key your tenant key, new content is protected by using the new tenant key. This happens in a phased manner, so for a period of time, some new content will continue to be protected with the old tenant key. Previously protected content stays protected to your old tenant key. To support this scenario, Azure RMS retains your old tenant key so that it can issue licenses for old content.
+Wanneer u uw tenant sleutel opnieuw worden ingevoerd, worden nieuwe inhoud wordt beveiligd door met de nieuwe sleutel van de tenant. Dit komt voor in een gefaseerde wijze, zodat voor een bepaalde tijd een aantal nieuwe inhoud blijven met de oude tenant sleutel worden beveiligd. Beveiligde inhoud blijft eerder beveiligde voor uw oude tenant-sleutel. Azure RMS behoudt de oude tenant-sleutel voor dit scenario, zodat deze licenties voor oude inhoud kan verlenen.
 
-To re-key your tenant key, generate and create a new key over the Internet or in person, by using the procedures in the [Implementing bring your own key (BYOK)](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_ImplementBYOK) section from the [Planning and Implementing Your Azure Rights Management Tenant Key](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md) topic.
+Naar de sleutel opnieuw uw tenant sleutel, genereren en maak een nieuwe sleutel via het Internet of persoonlijk, met behulp van de procedures in de [Implementing bring your own key (BYOK)](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_ImplementBYOK) gedeelte van de [Plannen en implementeren van uw Azure Rights Management Tenant-sleutel](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md) onderwerp.
 
-### <a name="BKMK_BYOKBackup"></a>Backup and recover your tenant key
-You are responsible for backing up your tenant key. If you generated your tenant key in a Thales HSM, to back up the key, just back up the Tokenized Key file, the World file, and the Administrator Cards.
+### <a name="BKMK_BYOKBackup"></a>Back-up en herstellen van de tenant-sleutel
+U bent verantwoordelijk voor het back-ups van uw tenant-sleutel. Als u uw tenant-sleutel in een HSM Thales gegenereerd, om een back-up van de sleutel alleen back-up van het bestand Getokeniseerd sleutel, de hele wereld-bestand en de beheerder kaarten.
 
-If you transferred your key by following the procedures in the [Implementing bring your own key (BYOK)](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_ImplementBYOK) section from the [Planning and Implementing Your Azure Rights Management Tenant Key](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md) topic, Azure RMS will persist the Tokenized Key File, to protect against failure of any Azure RMS nodes. However, do not consider this to be a full backup. For example, if you ever need a plaintext copy of your key to use outside a Thales HSM, Azure RMS will not be able to retrieve it for you because it only has a non-recoverable copy.
+Als u uw sleutel overgebracht door de procedures in de [Implementing bring your own key (BYOK)](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_ImplementBYOK) gedeelte van de [Plannen en implementeren van uw Azure Rights Management Tenant-sleutel](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md) Azure RMS-onderwerp te beschermen tegen fouten van Azure RMS knooppunten bestand sleutel Getokeniseerd blijft bewaard. Echter beschouwen dit moet een volledige back-up. Bijvoorbeeld als u een kopie platte tekst van de sleutel moet worden gebruikt buiten een HSM Thales ooit nodig hebt, is Azure RMS niet mogelijk om op te halen voor u omdat er slechts een niet-herstelbare kopie.
 
-### <a name="BKMK_BYOKExport"></a>Export your tenant key
-If you use BYOK, you cannot export your tenant key from Azure RMS. The copy in Azure RMS is non-recoverable. If you want to delete this key so it can no longer be used, contact Microsoft Customer Service Support (CSS).
+### <a name="BKMK_BYOKExport"></a>Het exporteren van de tenant-sleutel
+Als u BYOK gebruikt, kunt u uw tenant sleutel niet exporteren van Azure RMS. Het exemplaar in Azure RMS is niet meer worden hersteld. Als u verwijderen van deze sleutel wilt, zodat deze niet meer kan worden gebruikt, moet u contact op met Microsoft klantondersteuning Service (CSS).
 
-### <a name="BKMK_BYOKBreach"></a>Respond to a breach
-No security system, no matter how strong, is complete without a breach response process. Your tenant key might be compromised or stolen. Even when it’s well protected well, vulnerabilities might be found in current generation HSM technology or current key lengths and algorithms.
+### <a name="BKMK_BYOKBreach"></a>Reageren op een inbreuk op
+Er is geen beveiligingssysteem zo sterk is voltooid zonder een antwoord inbreuk proces. Uw tenant sleutel mogelijk ingebroken of gestolen. Zelfs als het ook goed beveiligd, mogelijk door beveiligingslekken in de huidige generatie HSM technologie of huidige sleutellengte en algoritmen worden gevonden.
 
-Microsoft has a dedicated team to respond to security incidents in its products and services. As soon as there is a credible report of an incident, this team engages to investigate the scope, root cause, and mitigations. If this incident affects your assets, then Microsoft will notify your Azure RMS tenant administrators by email by using the address that you supplied when you subscribed.
+Microsoft heeft een speciale team om te reageren op beveiligingsincidenten in de producten en services. Als er een geloofwaardige rapport van een incident is, wordt dit team voert het bereik, de hoofdoorzaak en tijdelijke oplossingen voor problemen te onderzoeken. Als dit incident heeft betrekking op de activa, klikt u vervolgens stuurt Microsoft uw Azure RMS tenant beheerders e-mailbericht met het adres dat u hebt opgegeven als u geabonneerd.
 
-If you have a breach, the best action that you or Microsoft can take  depends on the scope of the breach; Microsoft will work with you through this process. The following table shows some typical situations and the likely response, although the exact response will depend on all the information that is revealed during the investigation.
+Als er een inbreuk, de aanbevolen actie die u of Microsoft kunt is afhankelijk van het bereik van de schending; Microsoft werkt samen met u via deze procedure. De volgende tabel ziet enkele situaties en de waarschijnlijke reactie Hoewel de exacte reactie afhankelijk van de informatie die wordt weergegeven tijdens het onderzoek.
 
-|Incident description|Likely response|
-|------------------------|-------------------|
-|Your tenant key is leaked.|Re-key your tenant key. See the [Re-key your tenant key](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKRekey) section in this topic.|
-|An unauthorized individual or malware got rights to use your tenant key but the key itself did not leak.|Re-keying your tenant key does not help here and requires root-cause analysis. If a process or software bug was responsible for the unauthorized individual to get access, that situation must be resolved.|
-|Vulnerability discovered in the current-generation HSM technology.|Microsoft must update the HSMs. If there is reason to believe that the vulnerability exposed keys, then Microsoft will instruct all customers to renew their tenant keys.|
-|Vulnerability discovered in the RSA algorithm, or key length, or brute-force attacks become computationally feasible.|Microsoft must update the Azure RMS to support new algorithms and longer key lengths that are resilient, and instruct all customers to renew their tenant keys.|
+|Beschrijving van incident|Waarschijnlijke antwoord|
+|-----------------------------|----------------------------|
+|Er is meer in uw tenant-sleutel.|Uw tenant sleutel opnieuw worden ingevoerd. Zie de [Uw tenant sleutel opnieuw worden ingevoerd](../Topic/Operations_for_Your_Azure_Rights_Management_Tenant_Key.md#BKMK_BYOKRekey) in dit onderwerp.|
+|Een niet-geautoriseerde persoon of malware hebt u recht op uw tenant sleutel, maar heeft niet de sleutel zelf lekken.|Opnieuw instellen van uw tenant sleutel sleutels niet hier helpt en hoofdoorzaak analyse vereist. Als een proces of software-fout verantwoordelijk voor het niet-geautoriseerde persoon om toegang te krijgen is, moet deze situatie worden opgelost.|
+|Door een beveiligingslek in de huidige generatie HSM technologie gedetecteerd.|Microsoft moet de HSM's bijwerken. Als er ervan overtuigd dat het beveiligingslek sleutels blootgesteld, geven Microsoft alle klanten voor het vernieuwen van de tenant-sleutels.|
+|Door een beveiligingslek in de RSA-algoritme, of sleutellengte of gewelddadige aanvallen ontdekt worden rekenkundig uitvoerbaar is.|Microsoft moet de Azure RMS ter ondersteuning van nieuwe algoritmes en sleutellengte die robuuste bijwerken en alle klanten voor het vernieuwen van de sleutels tenant geven.|
 
-## See Also
-[Using Azure Rights Management](../Topic/Using_Azure_Rights_Management.md)
+## Zie ook
+[Met behulp van Azure Rights Management](../Topic/Using_Azure_Rights_Management.md)
 

@@ -3,62 +3,61 @@ description: na
 keywords: na
 title: View and use files that have been protected by Rights Management
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: e5fa4666-6906-405a-9e0c-2c52d4cd27c8
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# View and use files that have been protected by Rights Management
-When the [Rights Management (RMS) sharing application is installed on your computer](https://technet.microsoft.com/library/dn574734%28v=ws.10%29.aspx), you view a protected file by simply double-clicking it. The file might be an attachment in an email message, or you might see it when you use File Explorer.
+# Weergeven en gebruiken van bestanden die zijn beveiligd door Rights Management
+Wanneer de [RMS (Rights Management) voor het delen van toepassing is geïnstalleerd op uw computer](https://technet.microsoft.com/library/dn574734%28v=ws.10%29.aspx), u een beveiligd bestand weergeven door te dubbelklikken op. Het bestand is mogelijk een bijlage in een e-mailbericht of kunnen zien wanneer u bestand Explorer gebruikt.
 
 > [!NOTE]
-> Before you can view the protected file, RMS must first confirm that you are authorized to view the file, which it does by checking your user name and password. In some cases, this might be cached and you will not see a prompt that asks for your credentials. In other cases, you will be prompted to supply your credentials.
+> Voordat u het beveiligde bestand weergeven kunt, moet eerst RMS bevestigen dat u bent gemachtigd om het bestand, dat het geval is door het controleren van uw gebruikersnaam en wachtwoord weer te geven. In sommige gevallen kan dit mogelijk in de cache opgeslagen en u ziet niet gevraagd om uw referenties. In andere gevallen wordt u gevraagd de referenties op te geven.
 > 
-> If your organization does not use either Azure Rights Management (Azure RMS) or AD RMS, you can apply for a free account that will accept your credentials so that you can open files that are protected by using RMS:
+> Als uw organisatie geen Azure Rights Management (Azure RMS) of AD RMS, kunt u voor een gratis account dat uw referenties accepteren wilt, zodat u kunt bestanden die worden beschermd met behulp van RMS openen toepassen:
 > 
-> -   To apply for this account, click the link to apply for [RMS for individuals](http://go.microsoft.com/fwlink/?LinkId=309469).
+> -   Voor dit account, klikt u op de koppeling naar een aanvraag indienen voor [RMS voor personen](http://go.microsoft.com/fwlink/?LinkId=309469).
 > 
->     When you sign up, use your company email address rather than a personal email address. If you are signing up because you were emailed a protected attachment, use the same email address that was used to send you the email message.
-> -   For more information, see [RMS for Individuals and Windows Azure Rights Management](http://technet.microsoft.com/library/dn592127.aspx).
+>     Wanneer u zich aanmeldt, gebruikt u de e-mailadres van uw bedrijf in plaats van een persoonlijke e-mailadres. Als u zich aanmeldt van omdat u een beveiligde bijlage zijn verzonden, gebruikt u het e-mailadres dat is gebruikt voor het verzenden van e-mailbericht.
+> -   Zie voor meer informatie [RMS voor personen en Windows Azure Rights Management](http://technet.microsoft.com/library/dn592127.aspx).
 
-## <a name="BKMK_ViewPFILE"></a>To view a protected file
-By using File Explorer or the email message that contains the attachment, double-click the protected file, and enter your credentials if prompted to do so.
+## <a name="BKMK_ViewPFILE"></a>Een beveiligd bestand weergeven
+Dubbelklik op het beveiligde bestand via File Explorer of het e-mailbericht met de bijlage en voer uw referenties als u daarom wordt gevraagd.
 
-If you see two versions of the file but with different file name extensions, open the file that has a .ppdf file extension only if the other file does not open. If you cannot open the .ppdf version either, first install the [RMS sharing application](http://technet.microsoft.com/library/dn574734.aspx), which knows how to open files that have a .ppdf file name extension.
+Als er twee versies van het bestand, maar met verschillende bestandsextensies, open het bestand met een extensie .ppdf alleen als het bestand niet wordt geopend. Als u de versie .ppdf ofwel niet openen, het eerst installeert de [RMS sharing toepassing](http://technet.microsoft.com/library/dn574734.aspx), die het openen van bestanden met de extensie .ppdf kent.
 
 > [!NOTE]
-> For more information, see “[What’s the .ppdf file that’s automatically created?](../Topic/Dialog_box_options_for_the_Rights_Management_sharing_application.md#BKMK_PPDF)”.
+> Zie voor meer informatie "[Wat is het bestand .ppdf die automatisch wordt gemaakt?](../Topic/Dialog_box_options_for_the_Rights_Management_sharing_application.md#BKMK_PPDF)".
 
-How the file opens depends on how it was protected, which you can tell by looking at the file name extension. In each case, opening the file might be audited and remains audited as long as it is protected. In addition, if the file was sent as an email attachment, the sender might be notified by email each time you open the file.
+Hoe het bestand wordt geopend is afhankelijk van hoe is beveiligd, die u zien kunt eens kijken naar de extensie. In elk geval openen van het bestand kan worden gecontroleerd en blijft gecontroleerde zolang het is beveiligd. Bovendien als het bestand is verzonden als e-mailbijlage, de afzender kan de hoogte gesteld via e-mail telkens wanneer die u het bestand opent.
 
-|File name extension and protection|More information|
-|--------------------------------------|--------------------|
-|The file has a **.pfile** file name extension.<br /><br />The file was generically protected.|When you open the file, you see a **protected file** dialog box from the sharing application that tells you who protected the file and that you are expected to honor the co-owner permissions. Click **Open** to read the file.<br /><br />![](../Image/ADRMS_MSRMSApp_PfilePermission.png)|
-|The file has a **.ppdf** file name extension or is a protected text or image file (such as **.ptxt** or **.pjpg**).<br /><br />The file has been natively protected as a read-only copy.|The file opens by using the viewer that installs with the RMS sharing application. This file is read-only, even if you save it to another location or rename it.|
-|Other file name extensions.<br /><br />The file has been natively protected.|The file opens by using the application that is associated with the original file name extension, and a restriction banner is displayed at the top of the file. The banner might display the permissions that are applied to the file, or it might provide a link to display them. For example, you might see the following where you must click **Permission is currently restricted** to see the actual permissions that are applied to the file and the people that can access it:<br /><br />![](../Image/ADRMS_MSRMSApp_RestrictedAccess.png)|
-For a complete list of file name extensions that Rights Management supports, see the [Supported file types and file name extensions](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_SupportFileTypes) sections in the  [Rights Management sharing application administrator guide](../Topic/Rights_Management_sharing_application_administrator_guide.md). If your file name extension is not listed, use a web search to see if it is a file name extension that is supported by another application.
+|Bestandsextensie en beveiliging|Meer informatie|
+|-----------------------------------|-------------------|
+|Het bestand heeft een **.pfile** extensie.<br /><br />Het bestand is generieke beveiligd.|Wanneer u het bestand opent, ziet u een **beveiligd bestand** in het dialoogvenster vanuit de delen die kunt u zien wie het bestand beveiligd en u wordt geacht de eigenaarsmachtigingen collega te. Klik op **Openen** om het bestand te lezen.<br /><br />![](../Image/ADRMS_MSRMSApp_PfilePermission.png)|
+|Het bestand heeft een **.ppdf** bestandsnaamextensie of is een beveiligd bestand tekst of afbeelding (zoals **.ptxt** of **.pjpg**).<br /><br />Het bestand is standaard beveiligd als een kopie van de alleen-lezen.|Het bestand geopend met behulp van de viewer die met de RMS sharing toepassing wordt geïnstalleerd. Dit bestand is alleen-lezen, zelfs als u op een andere locatie opslaan of wijzig de naam.|
+|Andere extensies.<br /><br />Het bestand is oorspronkelijk beveiligd.|Het bestand wordt geopend met behulp van de toepassing die is gekoppeld aan de oorspronkelijke bestandsextensie en een beperking banner wordt weergegeven aan de bovenkant van het bestand. De banner kan de machtigingen die worden toegepast op het bestand wordt weergegeven, of het mogelijk een koppeling om deze weer te geven. Bijvoorbeeld, ziet u mogelijk het volgende waar klikt u op **machtigingen zijn beperkt** om de werkelijke machtigingen die worden toegepast op het bestand en de mensen die toegang dit tot te bekijken:<br /><br />![](../Image/ADRMS_MSRMSApp_RestrictedAccess.png)|
+Zie voor een volledige lijst met bestandsextensies die Rights Management ondersteunt de [Ondersteunde bestandstypen en bestandsextensies](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_SupportFileTypes) secties in de  [Rights Management delen toepassing beheerdershandleiding](../Topic/Rights_Management_sharing_application_administrator_guide.md). Als de bestandsnaamextensie niet wordt weergegeven, gebruikt u web te zoeken op te geven als een extensie die wordt ondersteund door een andere toepassing is.
 
 > [!NOTE]
-> If, after confirming that the file is protected by Rights Management, and the file does not open, download and use the [RMS Analyzer tool](https://www.microsoft.com/en-us/download/details.aspx?id=46437). Follow the instructions in the tool to check for problems on your computer that might prevent a protected document from opening.
+> Als na vastgesteld dat het bestand is beveiligd door Rights Management en het bestand niet wordt geopend, downloaden en gebruiken de [RMS Analyzer tool](https://www.microsoft.com/en-us/download/details.aspx?id=46437). Volg de instructies in het hulpprogramma om te controleren op problemen die voorkomen een beveiligd document openen dat kunnen op uw computer.
 
-## <a name="BKMK_UserDefined"></a>To use files that have been protected (for example, edit and print the file)
-If, after opening the protected file,  you want to do more than just read it (for example, edit, copy, and print it):
+## <a name="BKMK_UserDefined"></a>Gebruik van bestanden die zijn beveiligd (voor bijvoorbeeld, bewerken en afdrukken van het bestand)
+Als u na het openen van het beveiligde bestand dat u wilt meer dan alleen lezen (bijvoorbeeld, bewerken, kopiëren en afdrukken):
 
-|File name extension|Instructions|
-|-----------------------|----------------|
-|The file has a **.pfile** file name extension.|Save the opened file and give it a new file name extension that is associated with the application that you want to use.<br /><br />For example, if a file was protected by using the file name document.vsdx.pfile, view the file and in File Explorer, save the file as document.vsdx.<br /><br />The new file is no longer protected. If you want to protect it, you must do this manually. For instructions, see [Protect a file on a device &#40;protect in-place&#41; by using the Rights Management sharing application](../Topic/Protect_a_file_on_a_device__protect_in-place__by_using_the_Rights_Management_sharing_application.md).|
-|The file has a **.ppdf** file name extension or is a protected text or image file (such as **.ptxt** or **.pjpg**).|You can only view the file and if you rename or move it, the protection remains with the file.|
-|Other file name extensions.|Your device must have an application that understands Rights Management to use these files. These applications are called RMS-enlightened applications. Applications from Office 2016, Office 2013,  and Office 2010 (such as Word, Excel, PowerPoint, and Outlook) are examples of applications that are enlightened for Rights Management. But applications that do not come from Microsoft, such as other software companies and your own line-of-business applications, might also be enlightened for Rights Management.<br /><br />Applications that are enlightened for Rights Management know how to open files that have been protected by other Rights Management enlightened applications. They also persist the protection that is applied to them, even if you edit the file or save it to another file name or another location. These applications let you use the file according to the permissions that are currently applied to the file, so that if you have permissions to use the file, you can do so. For example, you might be able to edit the file but not print it.|
+|Bestandsextensie|Instructies|
+|--------------------|---------------|
+|Het bestand heeft een **.pfile** extensie.|Sla het bestand is geopend en geef deze een nieuwe bestandsnaamextensie die is gekoppeld aan de toepassing die u wilt gebruiken.<br /><br />Als een bestand is beveiligd met de naam van bestand document.vsdx.pfile, bijvoorbeeld het bestand weergeven en in File Explorer, kunt u het bestand opslaan als document.vsdx.<br /><br />Het nieuwe bestand is niet langer beveiligd. Als u beveiligen wilt, moet u dit handmatig doen. Zie voor instructies [Een bestand op een apparaat worden beveiligd &#40;beveiligen&#41; met behulp van de Rights Management-toepassing delen](../Topic/Protect_a_file_on_a_device__protect_in-place__by_using_the_Rights_Management_sharing_application.md).|
+|Het bestand heeft een **.ppdf** bestandsnaamextensie of is een beveiligd bestand tekst of afbeelding (zoals **.ptxt** of **.pjpg**).|U kunt alleen het bestand weergeven en als u wilt wijzigen of verplaatsen, de beveiliging te blijven met het bestand.|
+|Andere extensies.|Het apparaat moet een toepassing die Rights Management begrijpt gebruiken deze bestanden hebben. Deze toepassingen worden RMS enlightened toepassingen genoemd. Toepassingen van Office 2016, Office 2013 en Office 2010 (zoals Word, Excel, PowerPoint en Outlook) zijn voorbeelden van toepassingen die zijn enlightened voor Rights Management. Maar toepassingen die niet afkomstig van Microsoft, zoals andere softwarebedrijven en uw eigen line-of-business-toepassingen kunnen ook worden enlightened voor Rights Management.<br /><br />Toepassingen die zijn enlightened voor Rights Management weten hoe bestanden te openen die zijn beveiligd door andere Rights Management enlightened toepassingen. Ze ook bewaard de beveiliging, die is toegepast, zelfs als u het bestand bewerken of op een andere naam of een andere locatie opslaan. Deze toepassingen kunnen u het bestand volgens de machtigingen die momenteel worden toegepast op het bestand dat als u machtigingen voor het gebruik van het bestand hebt, kunt u dit doen. Bijvoorbeeld, u mogelijk het bestand bewerken, maar niet afdrukken.|
 
-## Examples and other instructions
-For examples for how you might use the Rights Management sharing application, and how-to instructions, see the following sections from the Rights Management sharing application user guide:
+## Voorbeelden en andere instructies
+Zie de volgende secties van de Rights Management delen application user guide voor voorbeelden voor het gebruik van de Rights Management-toepassing en praktische instructies delen:
 
--   [Examples for using the RMS sharing application](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
+-   [Voorbeelden voor het gebruik van de RMS sharing toepassing](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingExamples)
 
--   [What do you want to do?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
+-   [Wat wilt u doen?](../Topic/Rights_Management_sharing_application_user_guide.md#BKMK_SharingInstructions)
 
-## See Also
-[Rights Management sharing application user guide](../Topic/Rights_Management_sharing_application_user_guide.md)
+## Zie ook
+[Rights Management delen toepassing handleiding](../Topic/Rights_Management_sharing_application_user_guide.md)
 

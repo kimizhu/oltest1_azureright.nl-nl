@@ -3,481 +3,479 @@ description: na
 keywords: na
 title: Rights Management sharing application administrator guide
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: d9992e30-f3d1-48d5-aedc-4e721f7d7c25
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Rights Management sharing application administrator guide
-Use the following information if you are responsible for the Microsoft Rights Management sharing application on an enterprise network, or if you want more technical information than is in the [Rights Management sharing application user guide](../Topic/Rights_Management_sharing_application_user_guide.md) or [FAQ for Microsoft Rights Management Sharing Application for Windows](http://go.microsoft.com/fwlink/?LinkId=303971):
+# Rights Management delen toepassing beheerdershandleiding
+Gebruik de volgende informatie als u bent verantwoordelijk voor het delen van toepassing op een bedrijfsnetwerk van Microsoft Rights Management of als u meer technische informatie dan is in de [Rights Management delen toepassing handleiding](../Topic/Rights_Management_sharing_application_user_guide.md) of [Veelgestelde vragen over Microsoft Rights Management delen van de toepassing voor Windows](http://go.microsoft.com/fwlink/?LinkId=303971):
 
--   [Automatic deployment for the Microsoft Rights Management sharing application](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_ScriptedInstall)
+-   [Automatische implementatie voor de Microsoft Rights Management-toepassing voor delen](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_ScriptedInstall)
 
-    -   [Verifying installation success](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted)
+    -   [Installatie geslaagd verifiëren](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted)
 
-    -   [Uninstall commands](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_uninstallscripted)
+    -   [Opdrachten verwijderen](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_uninstallscripted)
 
-    -   [Suppressing automatic updates](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_SuppressAutomaticUpdates)
+    -   [Onderdrukken van automatische updates](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_SuppressAutomaticUpdates)
 
-    -   [Azure RMS only: Configuring document tracking](#BKMK_DocumentTracking)
+    -   [Alleen Azure RMS: Document bijhouden configureren](#BKMK_DocumentTracking)
 
-    -   [AD RMS only: Support for multiple email domains within your organization](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_FederatedDomains)
+    -   [AD RMS: Ondersteuning voor meerdere e-mailbericht domeinen binnen uw organisatie](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_FederatedDomains)
 
--   [Technical overview for the Microsoft Rights Management sharing application](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_AdminOverview)
+-   [Technisch overzicht voor de Microsoft Rights Management-toepassing voor delen](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_AdminOverview)
 
-    -   [Levels of protection – native and generic](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_LevelsofProtection)
+    -   [Niveaus van beveiliging – systeemeigen en algemene](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_LevelsofProtection)
 
-    -   [Supported file types and file name extensions](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_SupportFileTypes)
+    -   [Ondersteunde bestandstypen en bestandsextensies](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_SupportFileTypes)
 
-    -   [Changing the default protection level of files](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_ChangeDefaultProtection)
+    -   [Het standaardniveau van de beveiliging van bestanden wijzigen](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_ChangeDefaultProtection)
 
 > [!TIP]
-> If you are new to the RMS sharing app, or looking for more information, see [How RMS protects all file types – by using the RMS sharing app](https://curah.microsoft.com/191031/how-rms-protects-all-file-types-by-using-the-rms-sharing-app).
+> Als u geen ervaring met de delen RMS-app of op zoek naar meer informatie, Zie [hoe RMS beschermt alle bestandstypen – met behulp van de app RMS sharing](https://curah.microsoft.com/191031/how-rms-protects-all-file-types-by-using-the-rms-sharing-app).
 
-The RMS sharing application is best suited to work with Azure RMS, because this deployment configuration supports sending protected attachments to users in another organization, and options such as email notifications and document tracking with revocation.  However, with some limitations, it also works with the on-premises version, AD RMS. For a comprehensive comparison of features that are supported by Azure RMS and AD RMS, see [Comparing Azure Rights Management and AD RMS](https://technet.microsoft.com/library/jj739831.aspx). If you have AD RMS and want to migrate to Azure RMS, see [Migrating from AD RMS to Azure Rights Management](https://technet.microsoft.com/library/dn858447.aspx).
+De RMS sharing van toepassing is het meest geschikt is voor gebruik met Azure RMS omdat deze implementatieconfiguratie ondersteunt verzenden beveiligde bijlagen voor gebruikers in een andere organisatie en opties voor e-mailmeldingen en documenten bijhouden met ingetrokken.  Echter met een aantal beperkingen werkt ook met de lokale versie, AD RMS. Zie voor een uitgebreide vergelijking van functies die worden ondersteund door Azure RMS en AD RMS [vergelijken Azure Rights Management en AD RMS](https://technet.microsoft.com/library/jj739831.aspx). AD RMS als migreren naar Azure RMS, Zie [migratie van AD RMS naar Azure Rights Management](https://technet.microsoft.com/library/dn858447.aspx).
 
-## <a name="BKMK_ScriptedInstall"></a>Automatic deployment for the Microsoft Rights Management sharing application
-The Windows version of the RMS sharing application supports a scripted installation, which makes it suitable for enterprise deployments.
+## <a name="BKMK_ScriptedInstall"></a>Automatische implementatie voor de Microsoft Rights Management-toepassing voor delen
+Een script installatie, waardoor het geschikt is voor bedrijfsimplementaties biedt ondersteuning voor de Windows-versie van de RMS-toepassing voor delen.
 
-The only prerequisites for installations are that the computers run a minimum version of Windows 7 Service Pack 1, and that the Microsoft Framework, minimum version 4.0 is installed. If you need to install the Microsoft .NET Framework 4.0, you can [download it for installation from the Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=17718).
+De enige vereisten voor installaties zijn dat de computers die een minimale versie van Windows 7 Service Pack 1 uitgevoerd en of de Microsoft-Framework minimumversie 4.0 is geïnstalleerd. Als u nodig hebt voor het installeren van Microsoft .NET Framework 4.0, kunt u [downloaden voor de installatie van het Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=17718).
 
-#### To download the RMS sharing application for automatic deployment
+#### De RMS sharing toepassing voor automatische implementatie downloaden
 
-1.  Go to the [Microsoft Rights Management sharing application for Windows](http://www.microsoft.com/download/details.aspx?id=40857) page in the Microsoft Download Center, and click **Download**.
+1.  Ga naar de [Microsoft Rights Management-toepassing voor Windows delen](http://www.microsoft.com/download/details.aspx?id=40857) pagina in het Microsoft Download Center en klik op **downloaden**.
 
-2.  Select and download the files that you need. There are two client installation packages: one for Windows 64-bit (Microsoft Rights Management sharing application x64.zip), and another for Windows 32-bit (Microsoft Rights Management sharing application x86.zip).
+2.  Selecteer en download de bestanden die u nodig hebt. Er zijn twee client installatiepakketten: een voor Windows 64-bits (Microsoft Rights Management delen toepassing x64.zip) en een voor Windows 32-bits (Microsoft Rights Management delen van de toepassing x86.zip).
 
-3.  Extract the files from the compressed installation packages, for example, by double-clicking them. Then copy the extracted files to a network location that client computers can access.
+3.  Pak de bestanden uit de van gecomprimeerde installatiepakketten, bijvoorbeeld door te dubbelklikken op deze. Kopieer de uitgepakte bestanden naar een netwerklocatie waartoe clientcomputers toegang heeft.
 
-The setup packages for the RMS sharing application supports different deployment scenarios and includes the following:
+De setuppakketten voor de RMS-toepassing voor delen biedt ondersteuning voor verschillende implementatiescenario's en omvat de volgende:
 
-|Description|Deployment scenario|
-|---------------|-----------------------|
-|Microsoft Online Sign-In Assistant|Office 2010 and Azure RMS<br /><br />Office 2013 and Azure RMS if you have not installed the [June 9, 2015, update for Office 2013](https://support.microsoft.com/kb/3054853) (KB3054853)|
-|Hotfix for Office (KB 2596501)|Office 2010 and Azure RMS<br /><br />Office 2010 and Active Directory RMS|
-|Hotfix to enable the AD RMS Client 1.0 to work with Azure RMS (KB 2843630)|Office 2010 and Azure RMS<br /><br />Office 2010 and Active Directory RMS|
-|AD RMS Client and the RMS sharing application|Office 2016 or Office 2013 and Azure RMS or Active Directory RMS<br /><br />Office 2010 and Azure RMS<br /><br />Office 2010 and Active Directory RMS<br /><br />RMS sharing application and Office add-in only|
-|Office add-in for the ribbon|Office 2016 or Office 2013 and Azure RMS or Active Directory RMS<br /><br />Office 2010 and Azure RMS<br /><br />Office 2010 and Active Directory RMS<br /><br />RMS sharing application and Office add-in only|
-|Azure Active Directory Rights Management preparation tool|Office 2010 and Azure RMS|
-Use the following procedures to identify the commands required to deploy the RMS sharing application for these deployment scenarios:
+|Beschrijving|Implementatiescenario voor|
+|----------------|------------------------------|
+|Microsoft Online-aanmeldhulp|Vereist voor het volgende:<br /><br />-   Office 2010 en Azure RMS<br />-   Office 2013 en Azure RMS als u niet hebt geïnstalleerd de [9 juni 2015 bijwerken voor Office 2013](https://support.microsoft.com/kb/3054853) (KB3054853)|
+|Hotfix voor Office (KB 2596501)|Vereist voor het volgende:<br /><br />-   Office 2010 en Azure RMS<br />-   Office 2010 en Active Directory RMS|
+|Hotfix naar de AD RMS-Client 1.0 werken met Azure RMS (KB 2843630) inschakelen|Vereist voor het volgende:<br /><br />-   Office 2010 en Azure RMS<br />-   Office 2010 en Active Directory RMS|
+|AD RMS-Client en de RMS-toepassing voor delen|Vereist voor het volgende:<br /><br />-   Office 2016 of Office 2013 en Azure RMS of Active Directory RMS<br />-   Office 2010 en Azure RMS<br />-   Office 2010 en Active Directory RMS<br />-   RMS-toepassing en Office-invoegtoepassing alleen delen|
+|Office-invoegtoepassing voor het lint|Vereist voor het volgende:<br /><br />-   Office 2016 of Office 2013 en Azure RMS of Active Directory RMS<br />-   Office 2010 en Azure RMS<br />-   Office 2010 en Active Directory RMS<br />-   RMS-toepassing en Office-invoegtoepassing alleen delen|
+|Azure Active Directory Rights Management-hulpprogramma voor systeemvoorbereiding|Vereist voor het volgende:<br /><br />-   Office 2010 en Azure RMS|
+De volgende procedures gebruiken om op te sporen de opdrachten die zijn vereist voor de implementatie van de RMS sharing toepassing voor deze implementatie scenario's:
 
--   **Office 2016 or Office 2013 and Azure RMS or Active Directory RMS**
+-   **Office 2016 of Office 2013 en Azure RMS of Active Directory RMS**
 
-    Your users are running Office 2016 or Office 2013, your organization uses Azure RMS or Active Directory RMS, and users collaborate with other organizations who use Azure RMS or Active Directory RMS.
+    Uw gebruikers Office 2016 of Office 2013 uitvoert, uw organisatie Azure RMS of Active Directory RMS gebruikt en gebruikers samenwerken met andere organisaties die gebruikmaken van Azure RMS of Active Directory RMS.
 
--   **Office 2010 and Azure RMS**
+-   **Office 2010 en Azure RMS**
 
-    Your users are running Office 2010, your organization uses Azure RMS, and users collaborate with other organizations who use Azure RMS or Active Directory RMS.
+    Uw gebruikers Office 2010 worden uitgevoerd en gebruikers samenwerken met andere organisaties die gebruikmaken van Azure RMS of Active Directory RMS Azure RMS maakt gebruik van uw organisatie.
 
--   **Office 2010 and Active Directory RMS**
+-   **Office 2010 en Active Directory RMS**
 
-    Your users are running Office 2010, your organization uses AD RMS, and users collaborate with other organizations who use Azure RMS.
+    Uw gebruikers Office 2010 worden uitgevoerd, uw organisatie AD RMS gebruikt en gebruikers samenwerken met andere organisaties die gebruikmaken van Azure RMS.
 
--   **RMS sharing application and Office add-in only**
+-   **RMS-toepassing en Office-invoegtoepassing alleen delen**
 
-    Your users are running Office 2016, Office 2013, or Office 2010, your organization uses AD RMS, and users do not need to collaborate with other organizations who use Azure RMS. This installation lets you install just the sharing application and Office add-in.
+    Uw gebruikers worden uitgevoerd 2016 van Office, Office 2013 of Office 2010 en gebruikers hoeven niet samenwerking met andere organisaties die gebruikmaken van Azure RMS AD RMS maakt gebruik van uw organisatie. Deze installatie, kunt u alleen de delen installeren toepassing en Office-invoegtoepassing.
 
 > [!NOTE]
-> In these scenarios, if your organization is running AD RMS, your users can receive protected content from other organizations who use Azure RMS, but your users cannot send protected content to users in an organization that uses Azure RMS. However, if your organization is running Azure RMS, your users can send and receive protected content from other organizations.
+> In deze scenario's, als uw organisatie AD RMS wordt uitgevoerd, kunnen uw gebruikers beveiligde inhoud ontvangen van andere organisaties die gebruikmaken van Azure RMS, maar uw gebruikers kunnen geen beveiligde verzenden inhoud voor gebruikers in een organisatie die gebruikmaakt van Azure RMS. Echter, als uw organisatie Azure RMS wordt uitgevoerd, uw gebruikers kunnen verzenden en ontvangen beveiligde inhoud van andere organisaties.
 
-To complete the installation for each procedure, the computer must restart. You can initiate an automatic restart by using a command such as shutdown /i.
+Om de installatie voor elke procedure, moet de computer opnieuw. U kunt een automatisch opnieuw opstarten starten met behulp van een opdracht als afsluiten /i.
 
-#### To deploy the RMS sharing application for Office 2016 or Office 2013 and Azure RMS or Active Directory RMS
+#### De RMS sharing toepassing voor Office 2016 of Office 2013 en Azure RMS of Active Directory RMS implementeren
 
--   On each computer on which you want to install the RMS sharing application and related components, run the following command with elevated privileges:
+-   Voer de volgende opdracht met verhoogde bevoegdheden op elke computer waarop u wilt de RMS sharing toepassing en gerelateerde onderdelen installeren:
 
     ```
     setup.exe /s
     ```
 
-To verify success, see the [Verifying installation success](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted) section in this topic.
+Om te controleren of geslaagd, Zie de [Installatie geslaagd verifiëren](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted) in dit onderwerp.
 
-#### To deploy the RMS sharing application for Office 2010 and Azure RMS
+#### De RMS sharing toepassing voor Office 2010 en Azure RMS implementeren
 
-1.  You must be the global administrator for your Office 365 or Azure Active Directory tenant so that you can get your organization’s certification service URL by running the Azure Active Directory Rights Management preparation tool. You need run this tool only once, on a single computer. You will use the certification service URL when you install the RMS sharing application on each computer:
+1.  U moet de globale beheerder voor uw Office 365- of Azure Active Directory-tenant zodat u de URL van de service-certificering van uw organisatie door het uitvoeren van de Azure Active Directory Rights Management-hulpprogramma voor systeemvoorbereiding krijgt. U moet dit hulpprogramma slechts één keer uitgevoerd op een computer. Gebruikt u de URL van de certificeringsinstantie tijdens de installatie van de RMS sharing van toepassing op elke computer:
 
-    1.  Log in to a computer by using a local administrator account.
+    1.  Aanmelden bij een computer met een lokale beheerdersaccount.
 
-    2.  On that computer, [download and install the Microsoft Online Sign In Assistant](http://www.microsoft.com/download/details.aspx?id=28177).
+    2.  Op die computer [download en installeer de Microsoft Online aanmeldhulp](http://www.microsoft.com/download/details.aspx?id=28177).
 
-    3.  Run the following command to see displayed on the screen the certification service URL, which you can then copy and save for the next step:
+    3.  Voer de volgende opdracht om te zien weergegeven op het scherm de URL van de certificeringsinstantie, die u kunt vervolgens kopiëren en opslaan voor de volgende stap:
 
-        -   For Windows 8.1 and Windows 8, 64-bit:
+        -   Voor Windows 8.1 en Windows 8, 64-bits:
 
             ```
             x64\aadrmprep.exe /findCertificationUrl /logfile "<log file path and name>"
             ```
 
-        -   For Windows 8.1 and  Windows 8, 32-bit:
+        -   Voor Windows 8.1 en Windows 8, 32-bits:
 
             ```
             X86\aadrmprep.exe /findCertificationUrl /logfile "<log file path and name>"
             ```
 
-        -   For Windows 7, 64-bit:
+        -   Voor Windows 7, 64-bits:
 
             ```
             x64\win7\aadrmprep.exe /findCertificationUrl /logfile "<log file path and name>"
             ```
 
         > [!NOTE]
-        > This command might prompt you to enter your credentials for Azure. If the computer is not joined to a domain, you will be prompted. If the computer is joined to a domain, the tool might be able to use cached credentials.
+        > Met deze opdracht vraagt u mogelijk uw referenties voor Azure invoeren. Als de computer is niet toegevoegd aan een domein, wordt u gevraagd. Als de computer is toegevoegd aan een domein, kan het hulpprogramma mogelijk in cache opgeslagen referenties gebruiken.
 
-2.  On each computer on which you will install the RMS sharing application, run the following command with elevated privileges:
+2.  Voer de volgende opdracht met verhoogde bevoegdheden op elke computer waarop u de RMS sharing toepassing wilt installeren:
 
     ```
     setup.exe /s /configureO2010Admin /certificationUrl <certification_url>
     ```
 
-3.  On each computer on which you will install the RMS sharing application, users must run the following command (does not need elevated privileges). There are different ways to achieve this, including asking users to run the command (for example, a link in an email message or a link on the help desk portal) or you can add it to their logon script:
+3.  Op elke computer waarop u de RMS sharing toepassing wordt geïnstalleerd, moeten gebruikers de volgende opdracht uitvoeren (niet nodig voor verhoogde bevoegdheden). Er zijn verschillende manieren om te bereiken, met inbegrip van vragen van gebruikers de opdracht (bijvoorbeeld een koppeling in een e-mailbericht of een koppeling in de portal help helpdesk) uit te voeren of u het kunt toevoegen aan hun aanmeldingsscript:
 
     ```
     bin\RMSSetup.exe /configureO2010Only
     ```
 
-To verify success, see the [Verifying installation success](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted) section in this topic.
+Om te controleren of geslaagd, Zie de [Installatie geslaagd verifiëren](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted) in dit onderwerp.
 
-#### To deploy the RMS sharing application for Office 2010 and Active Directory RMS
+#### De RMS sharing toepassing voor Office 2010 en Active Directory RMS implementeren
 
-1.  On each computer on which you will install the RMS sharing application, run the following command with elevated privileges:
+1.  Voer de volgende opdracht met verhoogde bevoegdheden op elke computer waarop u de RMS sharing toepassing wilt installeren:
 
     ```
     setup.exe /s /configureO2010Admin
     ```
 
-2.  On each computer on which you will install the RMS sharing application, users must run the following command (does not need elevated privileges). There are different ways to achieve this, including asking users to run the command (for example, a link in an email message or a link on the help desk portal) or you can add it to their logon script:
+2.  Op elke computer waarop u de RMS sharing toepassing wordt geïnstalleerd, moeten gebruikers de volgende opdracht uitvoeren (niet nodig voor verhoogde bevoegdheden). Er zijn verschillende manieren om te bereiken, met inbegrip van vragen van gebruikers de opdracht (bijvoorbeeld een koppeling in een e-mailbericht of een koppeling in de portal help helpdesk) uit te voeren of u het kunt toevoegen aan hun aanmeldingsscript:
 
-    -   For Windows 10, Windows 8.1  and Windows 8, 64-bit:
+    -   Voor Windows-10, Windows 8.1 en Windows 8, 64-bits:
 
         ```
         x64\aadrmprep.exe /configureO2010
         ```
 
-    -   For Windows 10, Windows 8.1 and Windows 8, 32-bit:
+    -   Voor Windows-10, Windows 8.1 en Windows 8, 32-bits:
 
         ```
         X86\aadrmprep.exe /configureO2010
         ```
 
-    -   For Windows 7, 64-bit:
+    -   Voor Windows 7, 64-bits:
 
         ```
         x64\win7\aadrmpep.exe /configureO2010
         ```
 
-To verify success, see the [Verifying installation success](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted) section in this topic.
+Om te controleren of geslaagd, Zie de [Installatie geslaagd verifiëren](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted) in dit onderwerp.
 
-#### To install the RMS sharing application and Office add-in only
+#### Het delen van de toepassing en Office-invoegtoepassing alleen RMS installeren
 
-1.  Install the AD RMS Client and the RMS sharing application by using the following command:
+1.  De AD RMS-Client en de RMS-toepassing voor delen met behulp van de volgende opdracht installeren:
 
-    -   For 64-bit Windows:
+    -   Voor 64-bits Windows:
 
         ```
         x64\setup_ipviewer.exe /norestart /quiet /msicl "MSIRESTARTMANAGERCONTROL=Disable" /log "<log file path and name>"
         ```
 
-    -   For 32-bit Windows:
+    -   Voor 32-bits Windows:
 
         ```
         X86\setup_ipviewer.exe /norestart /quiet /msicl "MSIRESTARTMANAGERCONTROL=Disable" /log "<log file path and name>"
         ```
 
-    For example: `\\server5\apps\rms\x64\setup_ipviewer.exe /norestart /quiet /msicl "MSIRESTARTMANAGERCONTROL=Disable" /log "C:\Log files\ipviewerinstall.log"`
+    Bijvoorbeeld: `\\server5\apps\rms\x64\setup_ipviewer.exe /norestart /quiet /msicl "MSIRESTARTMANAGERCONTROL=Disable" /log "C:\Log files\ipviewerinstall.log"`
 
-2.  Install the Office add-in by using the following commands:
+2.  De Office-invoegtoepassing installeren met behulp van de volgende opdrachten:
 
-    -   For 64-bit version of Office:
+    -   Voor 64-bits versie van Office:
 
         ```
         msiexec.exe /norestart /quiet MSIRESTARTMANAGERCONTROL=Disable /i "x64\Setup64.msi" /L*v "<log file path and name>"
         ```
 
-    -   For 32-bit version of Office:
+    -   Voor 32-bits versie van Office:
 
         ```
         msiexec.exe /norestart /quiet MSIRESTARTMANAGERCONTROL=Disable /i "x86\Setup.msi" /L*v "<log file path and name>"
         ```
 
-    For example: `\\server5\apps\rms\msiexec.exe /norestart /quiet MSIRESTARTMANAGERCONTROL=Disable /i "x64\Setup64.msi" /L*v "C:\Log files\rmsofficeinstall.log"`
+    Bijvoorbeeld: `\\server5\apps\rms\msiexec.exe /norestart /quiet MSIRESTARTMANAGERCONTROL=Disable /i "x64\Setup64.msi" /L*v "C:\Log files\rmsofficeinstall.log"`
 
-To verify success, see the [Verifying installation success](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted) section in this topic.
+Om te controleren of geslaagd, Zie de [Installatie geslaagd verifiëren](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_verifyscripted) in dit onderwerp.
 
-### <a name="BKMK_verifyscripted"></a>Verifying installation success
-You can use the installation log files to verify a successful installation.
+### <a name="BKMK_verifyscripted"></a>Installatie geslaagd verifiëren
+De logboekbestanden van de installatie kunt u controleren of een geïnstalleerd.
 
-##### To verify installation success for the RMS sharing application for Office 2016 or Office 2013 and Azure RMS or Active Directory RMS
+##### Om te controleren of de installatie geslaagd voor de toepassing voor Office 2016 of Office 2013 en Azure RMS of Active Directory RMS sharing RMS
 
--   To verify success of the Setup.exe command, on each computer, search for the installation log file **RMInstaller.log** in the *%temp%\RMS_installer_&lt;guid&gt;* folder, and then identify the exit code.
+-   Om te controleren of succes van de opdracht Setup.exe op elke computer zoeken naar het installatielogboekbestand **RMInstaller.log** in de *%temp%\RMS_installer_ &lt; guid &gt;* map, en vervolgens de afsluitcode identificeren.
 
-    A successful installation has an exit code of 0 and any other number indicates a failed installation.
+    Een installatie heeft een afsluitcode 0 en een ander getal geeft aan dat een mislukte installatie.
 
-    Example log file name: **C:\temp\RMS_Installer_9352fc91-1982-43bf-958a-2ef1fe9c2ed0\RMInstaller.log**
+    Voorbeeld van de naam van logboekbestand: **C:\temp\RMS_Installer_9352fc91-1982-43bf-958a-2ef1fe9c2ed0\RMInstaller.log**
 
-##### To verify installation success for the RMS sharing application for Office 2010 and Azure RMS
+##### Om te controleren of de installatie geslaagd voor de toepassing voor Office 2010 en Azure RMS sharing RMS
 
-1.  To verify success of the Setup.exe command, on each computer, search for the installation log file **RMInstaller.log** in the *%temp%\RMS_installer_&lt;guid&gt;* folder, and then identify the exit code.
+1.  Om te controleren of succes van de opdracht Setup.exe op elke computer zoeken naar het installatielogboekbestand **RMInstaller.log** in de *%temp%\RMS_installer_ &lt; guid &gt;* map, en vervolgens de afsluitcode identificeren.
 
-    A successful installation has an exit code of 0 and any other number indicates a failed installation.
+    Een installatie heeft een afsluitcode 0 en een ander getal geeft aan dat een mislukte installatie.
 
-    Example log file name: **C:\temp\RMS_Installer_9352fc91-1982-43bf-958a-2ef1fe9c2ed0**
+    Voorbeeld van de naam van logboekbestand: **C:\temp\RMS_Installer_9352fc91-1982-43bf-958a-2ef1fe9c2ed0**
 
-2.  To verify success for the RMSSetup.exe command, the user should have the following files created in their *%localappdata%\microsoft\drm* folder:
+2.  Om te controleren of geslaagd voor de opdracht RMSSetup.exe, moet de gebruiker de volgende bestanden gemaakt in hun *%localappdata%\microsoft\drm* map:
 
-    -   CERT-Machine-2048.drm
+    -   CERTIFICAAT-Machine-2048.drm
 
-    -   CERT-Machine.drm
+    -   CERTIFICAAT Machine.drm
 
-    -   CLC-&#42;.drm
+    -   CLC &#42;.drm
 
-    -   GIC-&#42;.drm
+    -   GICA &#42;.drm
 
-    Example of a CLC-&#42;.drm file:
+    Voorbeeld van een bestand CLC &#42;.drm:
 
-    **CLC-alice@isvtenant999.onmicrosoft.com-{1b9cfccf;k5b11;k4a10;kac15;k29b2b6980f4c}.drm**
+    **CLC-alice@isvtenant999.onmicrosoft.com-{1b9cfccf; k5b11; k4a10; kac15; k29b2b6980f4c} .drm**
 
-##### To verify installation success for the RMS sharing application for Office 2010 and Active Directory RMS
+##### Om te controleren of de installatie geslaagd voor de toepassing voor Office 2010 en Active Directory RMS sharing RMS
 
-1.  To verify success of the Setup.exe command, on each computer, search for the installation log file in the *%temp%\RMS_installer_&lt;guid&gt;* folder, and identify the exit code.
+1.  Om te controleren of succes van de opdracht Setup.exe op elke computer zoeken naar het installatielogboekbestand in de *%temp%\RMS_installer_ &lt; guid &gt;* map, en de afsluitcode identificeren.
 
-    A successful installation has an exit code of 0 and any other number indicates a failed installation.
+    Een installatie heeft een afsluitcode 0 en een ander getal geeft aan dat een mislukte installatie.
 
-    Example log file name: **C:\temp\RMS_Installer_9352fc91-1982-43bf-958a-2ef1fe9c2ed0**
+    Voorbeeld van de naam van logboekbestand: **C:\temp\RMS_Installer_9352fc91-1982-43bf-958a-2ef1fe9c2ed0**
 
-2.  To verify success of the aadrmprep.exe command, on each computer, search for the following text in the installation log file: **aadrmprep.exe exited with status SUCCESS**
+2.  Om te controleren of succes van de opdracht aadrmprep.exe op elke computer zoeken naar de volgende tekst in het installatielogboekbestand: **aadrmprep.exe is afgesloten met de status geslaagd**
 
     > [!NOTE]
-    > Sometimes, this installation can run twice; the first occurrence fails and the second is successful.
+    > Soms kunt deze installatie tweemaal uitvoeren het eerste exemplaar is mislukt en de tweede is geslaagd.
 
-    If you want to manually check the registry changes that this tool makes, they are as follows:
+    Als u handmatig controleren of de wijzigingen in het register dat dit programma maakt wilt, zijn ze als volgt:
 
     -   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSDRM\Federation]
 
-        "FederationHomeRealm"="urn:HostedRmsOnlineService:Certification"
+        "FederationHomeRealm"="urn: HostedRmsOnlineService:Certification"
 
     -   [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\MSDRM\Federation]
 
-        "FederationHomeRealm"="urn:HostedRmsOnlineService:Certification"
+        "FederationHomeRealm"="urn: HostedRmsOnlineService:Certification"
 
     -   [HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\MSDRM\ServiceLocation\Activation]
 
-        @="&lt;certification url&gt;"
+        @= "&lt; certificering url &gt;"
 
     -   [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Office\14.0\Common\DRM]
 
-        DefaultUser="&lt;default_user&gt;"
+        DefaultUser = "&lt; default_user &gt;"
 
-##### To verify installation success for the RMS sharing application and Office add-in only
+##### Installatie geslaagd voor de RMS sharing toepassing en Office-invoegtoepassing alleen controleren
 
-1.  To verify success of the Setup_ipviewer.exe command, search for the following text in the installation log file: **Installation success or error status: 0**
+1.  Om te controleren of succes van de opdracht Setup_ipviewer.exe, zoekt u de volgende tekst in het installatielogboekbestand: **Status van de installatie voltooid of fout: 0**
 
-    Example lines from a successful installation:
+    Voorbeeld van de regels van een geslaagde installatie:
 
-    **MSI (s) (F0:B8) [14:19:57:854]: Product: Active Directory Rights Management Services Client 2.1 -- Installation completed successfully.**
+    **MSI (s) (F0:B8) [14:19:57:854]: Product: Active Directory Rights Management Services Client 2.1--installatie is voltooid.**
 
-    **MSI (s) (F0:B8) [14:19:57:854]: Windows Installer installed the product. Product Name: Active Directory Rights Management Services Client 2.1. Product Version: 1.0.1179.1. Product Language: 1033. Manufacturer: Microsoft Corporation. Installation success or error status: 0.**
+    **MSI (s) (F0:B8) [14:19:57:854]: Het product is geïnstalleerd. Productnaam: Active Directory Rights Management Services Client 2.1. Versie van het product: 1.0.1179.1. Taal van product: 1033. Fabrikant: Microsoft Corporation. Status van de installatie voltooid of fout: 0.**
 
-2.  To verify success of the Office add-in, on each computer, search for the following text in the installation log file: **Installation success or error status: 0**
+2.  Zoeken naar de volgende tekst in het installatielogboekbestand om te controleren of succes van de Office-invoegtoepassing, op elke computer: **Status van de installatie voltooid of fout: 0**
 
-    Example lines from a successful installation:
+    Voorbeeld van de regels van een geslaagde installatie:
 
-    **MSI (s) (9C:88) [18:49:04:007]: Product: Microsoft RMS Office Addins -- Installation completed successfully.**
+    **MSI (s) (9C: 88) [18:49:04:007]: Product: Microsoft RMS Office-invoegtoepassingen--Installatie is voltooid.**
 
-    **MSI (s) (9C:88) [18:49:04:007]: Windows Installer installed the product. Product Name: Microsoft RMS Office Addins. Product Version: 1.0.7. Product Language: 1033. Manufacturer: Microsoft. Installation success or error status: 0.**
+    **MSI (s) (9C: 88) [18:49:04:007]: Het product is geïnstalleerd. Productnaam: Microsoft RMS Office-invoegtoepassingen. Versie van het product: 1.0.7. Taal van product: 1033. Fabrikant: Microsoft. Status van de installatie voltooid of fout: 0.**
 
-### <a name="BKMK_uninstallscripted"></a>Uninstall commands
-Not all of the installation commands that are required for these deployments support an uninstallation command. You can uninstall the AD RMS client and the sharing application, and you can uninstall the Office add-in. Use the following commands to uninstall these elements.
+### <a name="BKMK_uninstallscripted"></a>Opdrachten verwijderen
+Niet alle van de installatieopdrachten die vereist voor implementaties zijn ondersteuning voor een opdracht verwijderen. Verwijderen van de AD RMS-client en de toepassing voor delen en kunt u de Office-invoegtoepassing verwijderen. Gebruik de volgende opdrachten verwijderen van deze elementen bevatten.
 
-##### To uninstall the AD RMS Client and the RMS sharing application
+##### Verwijderen van de AD RMS-Client en de RMS-toepassing voor delen
 
--   Use the following commands:
+-   Gebruik de volgende opdrachten:
 
-    -   For 64-bit Windows:
+    -   Voor 64-bits Windows:
 
         ```
         x64\setup_ipviewer.exe /uninstall /quiet
         ```
 
-    -   For 32-bit Windows:
+    -   Voor 32-bits Windows:
 
         ```
         x86\setup_ipviewer.exe /uninstall /quiet
         ```
 
-##### To uninstall the Office add-in
+##### De Office-invoegtoepassing verwijderen
 
--   Use the following commands:
+-   Gebruik de volgende opdrachten:
 
-    -   For 64-bit version of Office:
+    -   Voor 64-bits versie van Office:
 
         ```
         msiexec /x \x64\Setup[64].msi /quiet
         ```
 
-    -   For 32-bit version of Office:
+    -   Voor 32-bits versie van Office:
 
         ```
         msiexec /x \x86\Setup.msi /quiet
         ```
 
-### <a name="BKMK_SuppressAutomaticUpdates"></a>Suppressing automatic updates
-By default, users are notified if there is a later version of the RMS sharing application, and prompted to download it. You can suppress this notification by making the following registry edit:
+### <a name="BKMK_SuppressAutomaticUpdates"></a>Onderdrukken van automatische updates
+Standaard zijn gebruikers als er een nieuwere versie van de RMS-toepassing voor delen op de hoogte gesteld en gevraagd om deze te downloaden. U kunt deze melding onderdrukken door de volgende registersleutel bewerken:
 
-1.  Navigate to **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC** and if not already present, create a new key named **RmsSharingApp**.
+1.  Ga naar **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC** en als niet al aanwezig is, maakt u een nieuwe sleutel met de naam **RmsSharingApp**.
 
-2.  Select **RmsSharingApp**, create a new DWORD Value of **AllowUpdatePrompt**, and set the value to **0**.
+2.  Selecteer **RmsSharingApp**, maak een nieuwe DWORD-waarde van **AllowUpdatePrompt**, en de waarde instelt op **0**.
 
-Because the RMS sharing application is not supported by WSUS, you can use the following technique to test any new versions of the RMS sharing application before deploying it to all users:
+Omdat de RMS-toepassing voor delen wordt niet ondersteund door WSUS, kunt u de volgende techniek gebruiken nieuwe versies van de RMS sharing toepassing voordat deze is geïmplementeerd op alle gebruikers testen:
 
-1.  On all users’ computers, run a script to suppress automatic updates. On the computers that administrators use to test new versions, do not run this script.
+1.  Op computers met alle gebruikers, voert u een script onderdrukken van automatische updates uit. Op de computers die beheerders gebruiken voor het testen van nieuwe versies, u dit script niet uitvoeren.
 
-2.  When a new version is available, administrators download it and test it.
+2.  Wanneer een nieuwe versie beschikbaar is, kunnen beheerders het downloaden en testen.
 
-3.  When testing is complete and any issues resolved, deploy the latest version to all users by using the automatic deployment instructions in this guide.
+3.  Wanneer testen is voltooid en eventuele problemen opgelost, de meest recente versie voor alle gebruikers implementeren met behulp van de automatische implementatie-instructies in deze handleiding.
 
-### <a name="BKMK_DocumentTracking"></a>Azure RMS only: Configuring document tracking
-If you have a [subscription that supports document tracking](https://technet.microsoft.com/en-us/dn858608), the document tracking site is enabled by default for all users in your organization.  Document tracking shows information such as email addresses of the people who attempted to access protected documents that users shared, when these people tried to access them, and their location. If displaying this information is prohibited in your organization because of privacy requirements, you can disable access to the document tracking site by using the  [Disable-AadrmDocumentTrackingFeature](http://go.microsoft.com/fwlink/?LinkId=623032) cmdlet. You can re-enable access to the site at any time, by using the [Enable-AadrmDocumentTrackingFeature](http://go.microsoft.com/fwlink/?LinkId=623037), and you can check whether access is currently enabled or disabled by using [Get-AadrmDocumentTrackingFeature](http://go.microsoft.com/fwlink/?LinkId=623037).
+### <a name="BKMK_DocumentTracking"></a>Alleen Azure RMS: Document bijhouden configureren
+Als u hebt een [abonnement dat document bijhouden ondersteunt](https://technet.microsoft.com/en-us/dn858608), het bijhouden van document site is standaard ingeschakeld voor alle gebruikers in uw organisatie.  Bijhouden document bevat informatie zoals e-mailadressen van de mensen die poging tot toegang tot beveiligde documenten die gebruikers gedeeld, wanneer deze mensen probeert te openen en hun locatie. Als deze gegevens om weer te geven is niet toegestaan in uw organisatie vanwege privacyvereisten, kunt u uitschakelen toegang tot het document site bijhouden met behulp van de  [Disable AadrmDocumentTrackingFeature](http://go.microsoft.com/fwlink/?LinkId=623032) cmdlet. U kunt toegang tot de site opnieuw op elk gewenst moment inschakelen via het [inschakelen AadrmDocumentTrackingFeature](http://go.microsoft.com/fwlink/?LinkId=623037), en u kunt controleren of toegang momenteel is ingeschakeld of uitgeschakeld met behulp van [Get-AadrmDocumentTrackingFeature](http://go.microsoft.com/fwlink/?LinkId=623037).
 
-To run these cmdlets, you must have at least version **2.3.0.0** of the Azure RMS module for Windows PowerShell.  For installation instructions, see [Installing Windows PowerShell for Azure Rights Management](https://technet.microsoft.com/library/jj585012.aspx).
+ Deze als cmdlets wilt uitvoeren, moet u er ten minste versie **2.3.0.0** van de Azure RMS-module voor Windows PowerShell.  Voor installatie-instructies Zie [installatie van Windows PowerShell voor Azure Rights Management](https://technet.microsoft.com/library/jj585012.aspx).
 
 > [!TIP]
-> If you have previously downloaded and installed the module, check the version number by running: `(Get-Module aadrm –ListAvailable).Version`
+> Als u eerder hebt gedownload en geïnstalleerd van de module, het versienummer controleren door het uitvoeren van: `(Get-Module aadrm –ListAvailable).Version`
 
-The following URLs are used for document tracking and must be allowed (for example, add them to your Trusted Sites if you're using Internet Explorer with Enhanced Security):
+De volgende URL's worden gebruikt voor het document bijhouden en moet worden toegestaan (bijvoorbeeld toegevoegd aan de zone Vertrouwde websites als u met behulp van Internet Explorer met verbeterde beveiliging):
 
 -   https://&#42;.azurerms.com
 
 -   https://ecn.dev.virtualearth.net
 
     > [!NOTE]
-    > This URL is for Bing maps.
+    > deze URL is voor Bing maps.
 
 -   https://&#42;.microsoftonline.com
 
 -   https://&#42;.microsoftonline-p.com
 
-### <a name="BKMK_FederatedDomains"></a>AD RMS only: Support for multiple email domains within your organization
-If you use AD RMS and users in your organization have multiple email domains, perhaps as a result of a merger or acquisition, you must make the following registry edit:
+### <a name="BKMK_FederatedDomains"></a>AD RMS: Ondersteuning voor meerdere e-mailbericht domeinen binnen uw organisatie
+Als u AD RMS en gebruikers in uw organisatie meerdere e-mailbericht domeinen hebben, moet bijvoorbeeld als gevolg van een fusie of overname, u ervoor de volgende registersleutel bewerken:
 
-1.  Navigate to **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC** and if not already present, create a new key named **RmsSharingApp**.
+1.  Ga naar **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC** en als niet al aanwezig is, maakt u een nieuwe sleutel met de naam **RmsSharingApp**.
 
-2.  Select **RmsSharingApp**, create a new Multi-String Value named **FederatedDomains**, and then add the domains and all the subdomains that your organization uses. Wildcards are not supported.
+2.  Selecteer **RmsSharingApp**, maak een nieuwe waarde met meerdere tekenreeksen met de naam **FederatedDomains**, en voeg de domeinen en alle subdomeinen die gebruikmaakt van uw organisatie. Jokertekens worden niet ondersteund.
 
-    For example: The company Coho Vineyard &amp; Winery has a standard email domain of **cohovineyardandwinery.com**, but as a result of mergers, they also use the email domains **cohowinery.com**, **eastcoast.cohowinery.com**, and **cohovineyard**. For the **FederatedDomains** value data, the administrator enters: **cohowinery.com; eastcoast.cohowinery.com; cohovineyard**
+    Bijvoorbeeld: Het bedrijf Coho bedrijf &amp; Winery heeft een domein standaard e-mailbericht van **cohovineyardandwinery.com**, maar als gevolg van fusie, ook gebruiken de e-mailbericht domeinen **cohowinery.com**, **eastcoast.cohowinery.com**, en **cohovineyard**. Voor de **FederatedDomains** krijgt de beheerder van de waardegegevens: **cohowinery.com; eastcoast.cohowinery.com; cohovineyard**
 
-If you do not make this registry change, users might not be able to consume content that has been protected by other users in their organization. This registry edit is not needed if you use Azure RMS.
+Als u niets in dit register wijzigen, gebruikers mogelijk geen inhoud te gebruiken die is beveiligd door andere gebruikers in hun organisatie. Deze bewerking van het register is niet nodig als u Azure RMS.
 
-## <a name="BKMK_AdminOverview"></a>Technical overview for the Microsoft Rights Management sharing application
-The Microsoft Rights Management sharing application is an optional downloadable application for Microsoft Windows and other platforms that provides the following:
+## <a name="BKMK_AdminOverview"></a>Technisch overzicht voor de Microsoft Rights Management-toepassing voor delen
+De Microsoft Rights Management-toepassing voor delen is een optionele downloadbare toepassing voor Microsoft Windows en andere platforms die voorziet in het volgende:
 
--   Protection of a single file or bulk protection of multiple files as well as all files within a selected folder.
+-   Beveiliging van één bestand of bulksgewijs bescherming van meerdere bestanden of van een geselecteerde map.
 
--   Full support for protection of any type of file and a built-in viewer for commonly used text and image file types.
+-   Volledige ondersteuning voor de beveiliging van elk type bestand met een ingebouwde viewer voor veelgebruikte tekst en afbeelding bestandstypen.
 
--   Generic protection for files that do not support RMS protection.
+-   Algemene beveiliging voor bestanden die RMS beveiliging niet ondersteunen.
 
--   Full interoperability with files protected using Office Information Rights Management (IRM).
+-   Volledige interoperabiliteit met bestanden beveiligd met Office Information Rights Management (IRM).
 
--   Full interoperability with PDF files protected using SharePoint, FCI, and supported PDF authoring tools.
+-   Volledige compatibiliteit met PDF-bestanden beveiligen via SharePoint, FCI en ondersteunde PDF-hulpprogramma's voor schrijven.
 
-The Microsoft Rights Management sharing application uses the new [AD RMS Client 2.1 runtime](http://www.microsoft.com/download/details.aspx?id=38396). By using the functionality of AD RMS 2.1, the Microsoft Rights Management sharing application provides end users a simple protection and consumption experience.
+De Microsoft Rights Management-toepassing voor delen maakt gebruik van de nieuwe [AD RMS 2.1-Client runtime](http://www.microsoft.com/download/details.aspx?id=38396). Met behulp van biedt de functionaliteit van AD RMS 2.1, de Microsoft Rights Management-toepassing voor delen eindgebruikers een eenvoudige ervaring voor beveiliging en verbruik.
 
-With the October 2013 release of RMS, you can natively protect documents by using Office 2010 and send them to people in another company, who can then consume them by using Azure RMS. In addition, with this release, if you use AD RMS in Cryptographic Mode 2, you can use RMS for individuals and consume content from people in another company that uses Azure RMS. For more information about Cryptographic Mode 2, see [AD RMS Cryptographic Modes](http://technet.microsoft.com/library/hh867439%28v=ws.10%29.aspx).
+Met de release van oktober 2013 van RMS, kunt u systeemeigen documenten beveiligen met behulp van Office 2010 en ze verzenden naar mensen in een ander bedrijf, die u kunt deze vervolgens door Azure RMS verbruiken. Bovendien in deze versie kunt als u AD RMS in cryptografische modus 2, u gebruiken RMS voor personen en inhoud van mensen in een ander bedrijf die gebruikmaakt van Azure RMS in beslag nemen. Zie voor meer informatie over cryptografische modus 2 [AD RMS cryptografische modi](http://technet.microsoft.com/library/hh867439%28v=ws.10%29.aspx).
 
-### <a name="BKMK_LevelsofProtection"></a>Levels of protection – native and generic
-Microsoft Rights Management sharing application supports protection at two different levels, as described in the following table.
+### <a name="BKMK_LevelsofProtection"></a>Niveaus van beveiliging – systeemeigen en algemene
+Microsoft Rights Management-toepassing voor delen ondersteunt beveiliging op twee verschillende niveaus, zoals beschreven in de volgende tabel.
 
-|Type of protection|Native|Generic|
-|----------------------|----------|-----------|
-|Description|For text, image, Microsoft Office (Word, Excel, PowerPoint) files, .pdf files, and other application file types that support AD RMS, native protection provides a strong level of protection that includes both encryption and enforcement of rights (permissions).|For all other applications and file types, generic protection provides a level of protection that includes both file encapsulation using the .pfile file type and authentication to verify if a user is authorized to open the file.|
-|Protection|Files are fully encrypted and protection is enforced in the following ways:<br /><br />Before protected content is rendered, successful authentication must occur for those who receive the file through email or are given access to it through file or share permissions.<br /><br />Additionally, usage rights and policy set by the content owner when files are protected are fully enforced when the content is rendered in either IP Viewer (for protected text and image files) or the associated application (for all other supported file types).|File protection is enforced in the following ways:<br /><br />Before protected content is rendered, successful authentication must occur for those who are authorized to open the file and given access to it. If authorization fails, the file does not open.<br /><br />Usage rights and policy set by the content owner are displayed to inform authorized users of the intended usage policy.<br /><br />Audit logging of authorized users opening and accessing files occurs, however, no usage rights are enforced by non-supporting applications.|
-|Default for file types|This is the default level of protection for the following file types:<br /><br />Text and image files<br /><br />Microsoft Office (Word, Excel, PowerPoint) files<br /><br />Portable document format (.pdf)<br /><br />For more information, see the following section, [Supported file types and file name extensions](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_SupportFileTypes).|This is the default protection for all other file types (such as .vsdx, .rtf, and so on) that are not supported by full protection.|
-You can change the default protection level that the RMS sharing application applies. You can change the default level of native to generic, from generic to native, and even prevent the RMS sharing application from applying protection. For more information, see the [Changing the default protection level of files](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_ChangeDefaultProtection) section in this topic.
+|Type beveiliging|Systeemeigen|Algemene|
+|--------------------|----------------|------------|
+|Beschrijving|Voor tekst, afbeeldingen, Microsoft Office (Word, Excel, PowerPoint)-bestanden, PDF-bestanden en andere bestandstypen toepassing die ondersteuning bieden voor AD RMS, biedt native protection een sterk niveau van bescherming met zowel versleuteling en de handhaving van rechten (machtigingen).|Voor alle andere toepassingen en bestandstypen biedt algemene protection een niveau van bescherming met beide bestand inkapseling met behulp van het type .pfile en verificatie om te controleren of een gebruiker is gemachtigd om het bestand te openen.|
+|Beveiliging|Bestanden volledig zijn gecodeerd en beveiliging wordt afgedwongen in de volgende manieren:<br /><br />-   Voordat beveiligde inhoud wordt weergegeven, moet verificatie is geslaagd voor iemand die het bestand via e-mail ontvangen of toegang krijgen tot dit via bestand of de share machtigingen optreden.<br />-   Bovendien worden gebruiksrechten en beleid dat door de eigenaar van de inhoud wordt ingesteld als bestanden worden beveiligd volledig afgedwongen wanneer de inhoud wordt weergegeven in een IP-Viewer (voor beveiligde tekst en image-bestanden) of de bijbehorende toepassing (voor alle andere ondersteunde bestandstypen).|Bestandsbeveiliging wordt afgedwongen in de volgende manieren:<br /><br />-   Voordat beveiligde inhoud wordt weergegeven, moet succesvolle verificatie optreden voor gebruikers die gemachtigd zijn om het bestand te openen en gegeven toegang toe. Als de verificatie is mislukt, wordt het bestand niet openen.<br />-   Gebruiksrechten en instelling in de inhoudseigenaar worden om u te informeren geautoriseerde gebruikers van het beleid voor het beoogde gebruik weergegeven.<br />-   Logboekregistratie van gemachtigde gebruikers openen en toegang tot bestanden optreedt, wordt echter geen gebruiksrechten worden afgedwongen door de niet-ondersteuning van toepassingen.|
+|Standaard voor bestandstypen|Dit is het standaardniveau van beveiliging voor de volgende bestandstypen:<br /><br />-   Tekst en afbeeldingsbestanden<br />-   Microsoft Office (Word, Excel en PowerPoint)-bestanden<br />-   Document (Portable document format)<br /><br />Voor meer informatie raadpleegt u de volgende sectie [Ondersteunde bestandstypen en bestandsextensies](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_SupportFileTypes).|Dit is de beveiliging voor alle andere bestandstypen (zoals .vsdx, RTF, enzovoort) niet ondersteund door de volledige bescherming tegen.|
+U kunt het standaard beveiligingsniveau dat de RMS-toepassing voor het delen van toepassing is. U kunt het standaardniveau van eigen algemene, van algemene naar native wijzigen en zelfs voorkomen dat de RMS sharing toepassing beveiliging toe te passen. Zie voor meer informatie de [Het standaardniveau van de beveiliging van bestanden wijzigen](../Topic/Rights_Management_sharing_application_administrator_guide.md#BKMK_ChangeDefaultProtection) in dit onderwerp.
 
-### <a name="BKMK_SupportFileTypes"></a>Supported file types and file name extensions
-The following table lists file types that are natively supported by Microsoft Rights Management sharing application. For these file types, the original file name extension is changed when native protected is applied, and these files become read-only.
+### <a name="BKMK_SupportFileTypes"></a>Ondersteunde bestandstypen en bestandsextensies
+De volgende tabel bevat de bestandstypen die worden ondersteund door Microsoft Rights Management delen toepassing. Voor deze bestandstypen, wordt de oorspronkelijke extensie gewijzigd als native beveiligd wordt toegepast en deze bestanden alleen-lezen worden.
 
-In addition, when the RMS sharing application natively protects a Word, Excel, or PowerPoint file that users protect by sharing, this action automatically creates a second file that is a copy of the original with the same file name but with a **.ppdf** file name extension ¹. This version of the file ensures that recipients who install the RMS sharing application can always open the file that has native protection applied.
+Bovendien wanneer de RMS sharing toepassing systeemeigen beveiligd een Word, Excel of PowerPoint-bestand dat gebruikers worden beveiligd door te delen, deze actie maakt automatisch een tweede bestand dat een kopie van het origineel met dezelfde naam maar met een **.ppdf** bestandsnaamextensie ¹. Deze versie van het bestand zorgt u ervoor ontvangers die de RMS sharing toepassing installeren kunnen altijd open het bestand dat systeemeigen beveiliging toegepast is.
 
-For files that are generically protected, the original file name extension is always changed to .pfile.
+Om de bestanden die generieke zijn beveiligd, wordt de oorspronkelijke extensie altijd gewijzigd in .pfile.
 
 > [!WARNING]
-> If you have firewalls, web proxies, or security software that inspect and take action according to file name extensions, you might need to reconfigure these to support these new file name extensions.
+> Hebt u firewalls, webproxy of beveiligingssoftware die bekijken en actie volgens bestandsextensies, moet u mogelijk opnieuw configureren van deze ter ondersteuning van deze nieuwe extensies.
 
-|Original file name extension|RMS-protected file name extension|
-|--------------------------------|-------------------------------------|
+|Oorspronkelijke bestandsextensie|RMS beveiligde bestandsnaamextensie|
+|------------------------------------|---------------------------------------|
 |.txt|.ptxt|
-|.xml|.pxml|
+|.XML|.pxml|
 |.jpg|.pjpg|
-|.jpeg|.ppng|
-|.pdf|.ppdf|
-|.png|.ppng|
-|.tif|.ptif|
-|.tiff|.ptiff|
+|JPEG|.ppng|
+|PDF|.ppdf|
+|.PNG|.ppng|
+|TIFF|.ptiff|
 |.bmp|.pbmp|
 |.gif|.pgif|
 |.giff|.pgiff|
 |.jpe|.pjpe|
 |.jfif|.pjfif|
 |.jif|.pjif|
-|.jt|.pjt|
-¹ PDF Rendering Powered by Foxit. Copyright © 2003–2014 by Foxit Corporation.
+|.JT|.pjt|
+¹ PDF-Rendering mogelijk gemaakt door Foxit. Copyright © 2003-2014 van Foxit Corporation.
 
-The following table lists the file types that the Microsoft Rights Management sharing application natively supports in Microsoft Office 2016,  Office 2013, and Office 2010. For these files, the file name extension remains the same after the file is protected by RMS.
+De volgende tabel bevat de typen die de delen Microsoft Rights Management-toepassing in Microsoft Office 2016, Office 2013 en Office 2010 ondersteunt. Voor deze bestanden blijft de extensie hetzelfde nadat het bestand wordt beveiligd door RMS.
 
-|File types supported by Office|File types supported by Office|
-|----------------------------------|----------------------------------|
-|.doc<br /><br />.docm<br /><br />.docx<br /><br />.dot<br /><br />.dotm<br /><br />.dotx<br /><br />.potm<br /><br />.potx<br /><br />.pps<br /><br />.ppsm<br /><br />.ppsx<br /><br />.ppt<br /><br />.pptm|.pptx<br /><br />.thmx<br /><br />.xla<br /><br />.xlam<br /><br />.xls<br /><br />.xlsb<br /><br />.xlt<br /><br />.xlsm<br /><br />.xlsx<br /><br />.xltm<br /><br />.xltx<br /><br />.xps|
+|Bestandstypen die worden ondersteund door Office|Bestandstypen die worden ondersteund door Office|
+|----------------------------------------------------|----------------------------------------------------|
+|doc<br /><br />DOCM<br /><br />DOCX<br /><br />dot<br /><br />dotm<br /><br />dotx<br /><br />.potm<br /><br />potx<br /><br />PPS<br /><br />.ppsm<br /><br />ppsx<br /><br />.ppt<br /><br />.pptm|.pptx<br /><br />.thmx<br /><br />.xla<br /><br />.xlam<br /><br />.xls<br /><br />.xlsb<br /><br />.xlt<br /><br />xlsm<br /><br />.xlsx<br /><br />.xltm<br /><br />werkmap<br /><br />XPS|
 
-### <a name="BKMK_ChangeDefaultProtection"></a>Changing the default protection level of files
-You can change how the RMS sharing application protects files by editing the registry. For example, you can force files that support native protection to be generically protected by the RMS sharing application.
+### <a name="BKMK_ChangeDefaultProtection"></a>Het standaardniveau van de beveiliging van bestanden wijzigen
+U kunt wijzigen hoe de RMS sharing toepassing bestanden beschermt door het bewerken van het register. U kunt bijvoorbeeld bestanden die ondersteuning bieden voor systeemeigen protection generieke worden beschermd door de RMS-toepassing voor delen forceren.
 
-Reasons for why you might want to do this:
+Redenen waarom het handig om dit te doen:
 
--   To ensure that all users can open the file from their mobile devices.
+-   Om ervoor te zorgen dat alle gebruikers het bestand vanuit hun mobiele apparaten openen kunnen.
 
--   To ensure that all users can open the file if they don’t have an application that supports native protection.
+-   Om ervoor te zorgen dat alle gebruikers het bestand openen kunnen als ze niet beschikken over een toepassing ondersteunt die native beveiliging.
 
--   To accommodate security systems that take action on files by their file name extension and can be reconfigured to accommodate the .pfile file name extension but cannot be reconfigured to accommodate multiple file name extensions for native protection.
+-   Aangepast aan waarin bestanden acties uitvoeren door de bestandsnaamextensie en kunnen worden geconfigureerd zodat de extensie .pfile, maar kunnen niet worden geconfigureerd zodat deze kunnen meerdere extensies voor systeemeigen beveiliging.
 
-Similarly, you can force the RMS sharing application to apply native protection to files that by default, would have generic protection applied. This might be appropriate if you have an application that supports the RMS APIs – for example, a line-of-business application written by your internal developers or an application purchased from an independent software vendor (ISV).
+Op deze manier kunt u de RMS sharing toepassing systeemeigen beveiliging toepassen op bestanden die standaard algemene beveiliging toegepast forceren. Dit wordt mogelijk als er een toepassing die de RMS-APIs – bijvoorbeeld ondersteunt, een line-of-business-toepassingen geschreven door uw interne ontwikkelaars of een toepassing hebt gekocht van een onafhankelijke softwareleverancier (ISV).
 
-You can also force the RMS sharing application to block the protection of files (not apply native protection or generic protection). For example, this might be required if you have an automated application or service that must be able to open a specific file to process its contents. When you block protection for a file type, users cannot use the RMS sharing application to protect a file that has that file type. When they try, they see a message that the administrator has prevented protection and they must cancel their action to protect the file.
+U kunt ook de RMS sharing van toepassing op de beveiliging van bestanden blokkeren dwingen (niet van toepassing systeemeigen bescherming of algemene beveiliging). Bijvoorbeeld, dit wordt mogelijk vereist als er een automatische toepassing of service die een specifieke bestand voor het verwerken van de inhoud ervan te openen. Als u beveiliging voor een bestandstype blokkeert, kunnen gebruikers de RMS sharing toepassing niet gebruiken ter bescherming van een bestand met dat bestandstype. Wanneer ze proberen, zien ze een bericht dat de beheerder protection voorkomen heeft en ze hun optreden ter bescherming van het bestand moeten annuleren.
 
-To configure the RMS sharing application to apply generic protection to all files that by default, would have native protection applied, make the following registry edits:
+Als u de RMS sharing toepassing algemene beveiliging toepassen op alle bestanden die standaard systeemeigen beveiliging toegepast configureren, moet de volgende wijzigingen in het register:
 
-1.  **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection**: Create a new key named **&#42;**.
+1.  **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection**: Maak een nieuwe sleutel met de naam **&#42;**.
 
-    This setting denotes files with any file name extension.
+    Deze instelling geeft bestanden met de extensie.
 
-2.  In the newly added key of **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection\&#42;**, create a new string value (REG_SZ) named **Encryption** that has the data value of **Pfile**.
+2.  In de toegevoegde sleutel van **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection\ &#42;**, maak een nieuwe tekenreekswaarde (REG_SZ) met de naam **versleuteling** waarvoor de waarde van **Pfile**.
 
-    This setting results in the RMS sharing application applying generic protection.
+    Deze instelling resulteert in de RMS sharing toepassen algemene bescherming van de toepassing.
 
-These two settings result in the RMS sharing application applying generic protection to all files that have a file name extension. If this is your goal, no further configuration is required. However, you can define exceptions for specific file types, so that they are still natively protected. To do this, you must make three additional registry edits for each file type:
+Deze twee instellingen resulteren in de RMS sharing toepassen algemene bescherming van toepassing op alle bestanden die extensie hebben. Als dit het doel, is geen verdere configuratie vereist. U kunt echter uitzonderingen voor specifieke bestandstypen definiëren zodat ze nog steeds systeemeigen worden beveiligd. Hiervoor moet u drie extra register wijzigingen aanbrengen voor elk bestandstype:
 
-1.  **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection**: Add a new key that has the name of the file name extension (without the preceding period).
+1.  **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection**: Voeg een nieuwe sleutel met de naam van de bestandsextensie (zonder de voorafgaande periode).
 
-    For example, for files that have a .docx file name extension, create a key named **DOCX**.
+    Bijvoorbeeld: voor bestanden met een DOCX-bestandsextensie, maakt u een sleutel met de naam **DOCX**.
 
-2.  In the newly added file type key (for example, **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection\DOCX**), create a new DWORD Value named **AllowPFILEEncryption** that has a value of **0**.
+2.  In de sleutel voor het nieuwe bestandstype (bijvoorbeeld **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection\DOCX**), maak een nieuwe DWORD-waarde met de naam **AllowPFILEEncryption** de waarde van **0**.
 
-3.  In the newly added file type key (for example, **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection\DOCX**), create a new String Value named **Encryption** that has a value of **Native**.
+3.  In de sleutel voor het nieuwe bestandstype (bijvoorbeeld **HKEY_LOCAL_MACHINE\Software\Microsoft\MSIPC\RMSSharingApp\FileProtection\DOCX**), maak een nieuwe tekenreekswaarde met de naam **versleuteling** de waarde van **systeemeigen**.
 
-As a result of these settings, all files are generically protected except files that have a .docx file name extension, which are natively protected by the RMS sharing application.
+Als gevolg van deze instellingen worden alle bestanden generieke beveiligd met uitzondering van bestanden met een bestand naam extensie, die standaard worden beschermd door de RMS-toepassing voor delen.
 
-Repeat these three steps for other file types that you want to define as exceptions because they support native protection and you do not want them to be generically protected by the RMS sharing application.
+Deze drie stappen voor andere bestandstypen die u definiëren als uitzonderingen wilt omdat ze systeemeigen beveiliging ondersteunen en u niet wilt dat de generieke worden beveiligd door de RMS-toepassing voor delen.
 
-You can make similar registry edits for other scenarios by changing the value of the **Encryption** string that supports the following values:
+U kunt vergelijkbare wijzigingen in het register voor andere scenario's maken door het wijzigen van de waarde van de **versleuteling** tekenreeks die de volgende waarden ondersteunt:
 
--   **Pfile**: Generic protection
+-   **Pfile**: Algemene beveiliging
 
--   **Native**: Native protection
+-   **Systeemeigen**: Systeemeigen beveiliging
 
--   **Off**: Block protection
+-   **Off**: Beveiliging blokkeren
 
-## See Also
-[Rights Management sharing application user guide](../Topic/Rights_Management_sharing_application_user_guide.md)
+## Zie ook
+[Rights Management delen toepassing handleiding](../Topic/Rights_Management_sharing_application_user_guide.md)
 

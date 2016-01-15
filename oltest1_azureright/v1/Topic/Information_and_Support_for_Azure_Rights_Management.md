@@ -3,105 +3,104 @@ description: na
 keywords: na
 title: Information and Support for Azure Rights Management
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 7cc73d92-27d6-49ff-a8ab-2fae73519b4b
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Information and Support for Azure Rights Management
-Use the following resources for additional information about Microsoft [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] (Azure RMS).
+# Informatie en ondersteuning voor Azure Rights Management
+Gebruik de volgende bronnen voor meer informatie over Microsoft [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] (Azure RMS).
 
-|To do this …|.. do this:|
-|----------------|---------------|
-|… read the most current [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] product documentation →|Use the TechNet documentation library for  [Azure Rights Management](../Topic/Azure_Rights_Management.md)|
-|… provide feedback about the documentation or ask a question about the documentation →|Email [askipteam](mailto:%20askipteam@microsoft.com?subject=Documentation%20feedback)|
-|… receive tweets about Rights Management and announcements about documentation updates from the product group →|Follow Dan Plastina, who helps lead the Microsoft Rights Management Team. See [Dan Plastina @TheRMSGuy](https://twitter.com/TheRMSGuy)|
-|… get a trial version of [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] →|[Sign up for free 30-day trial](https://portal.microsoftonline.com/Signup/MainSignUp15.aspx?&amp;OfferId=A43415D3-404C-4df3-B31B-AAD28118A778&amp;dl=RIGHTSMANAGEMENT&amp;ali=1)|
-The following sections provide additional information about [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)]:
+|Om dit te doen...|.. Ga als volgt:|
+|---------------------|--------------------|
+|… Lees de meest recente [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] product documentatie →|Gebruik de documentatie van TechNet library voor  [Azure Rights Management](../Topic/Azure_Rights_Management.md)|
+|… feedback over de documentatie of stel een vraag over de → documentatie|E-mailbericht [askipteam](mailto:%20askipteam@microsoft.com?subject=Documentation%20feedback)|
+|… tweets over Rights Management en meldingen over updates van de documentatie van het product groep → ontvangen|Ga als volgt Dan Plastina, die helpt bij het Team van Microsoft Rights Management leiden. Zie [Dan Plastina @TheRMSGuy](https://twitter.com/TheRMSGuy)|
+|… ophalen van een evaluatieversie van [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] →|[Meld u gratis 30-daagse evaluatieversie](https://portal.microsoftonline.com/Signup/MainSignUp15.aspx?&amp;OfferId=A43415D3-404C-4df3-B31B-AAD28118A778&amp;dl=RIGHTSMANAGEMENT&amp;ali=1)|
+De volgende secties vindt u meer informatie over [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)]:
 
--   [Search the documentation library](../Topic/Information_and_Support_for_Azure_Rights_Management.md#BKMK_SearchTips)
+-   [Zoeken in de Documentatiebibliotheek](../Topic/Information_and_Support_for_Azure_Rights_Management.md#BKMK_SearchTips)
 
--   [Downloadable documentation](../Topic/Information_and_Support_for_Azure_Rights_Management.md#BKMK_Download)
+-   [Downloadbare documentatie](../Topic/Information_and_Support_for_Azure_Rights_Management.md#BKMK_Download)
 
--   [The Rights Management product group blog](../Topic/Information_and_Support_for_Azure_Rights_Management.md#BKMK_ProductGroupBlog)
+-   [De Rights Management product groep blog](../Topic/Information_and_Support_for_Azure_Rights_Management.md#BKMK_ProductGroupBlog)
 
--   [Support options and community resources](../Topic/Information_and_Support_for_Azure_Rights_Management.md#BKMK_SupportOptions)
+-   [Ondersteuning en community-hulpbronnen](../Topic/Information_and_Support_for_Azure_Rights_Management.md#BKMK_SupportOptions)
 
-## <a name="BKMK_SearchTips"></a>Search the documentation library
-[Use this scoped search query](http://www.bing.com/search?q=%28"Rights%20Management"%29%20site:technet.microsoft.com/library%20meta:search.MSCategory%28jj619159%29) to find documentation in the TechNet Library that is scoped to [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] only.
+## <a name="BKMK_SearchTips"></a>Zoeken in de Documentatiebibliotheek
+[Gebruik deze query afgebakende zoekopdracht](http://www.bing.com/search?q=%28"Rights%20Management"%29%20site:technet.microsoft.com/library%20meta:search.MSCategory%28jj619159%29) documentatie vinden in de TechNet-bibliotheek is binnen het bereik [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] alleen.
 
-The search results for that query do not include results about Active Directory Rights Management Services (AD RMS) or Windows Rights Management, or community resources. You can narrow the search results further by replacing the string, “Rights Management,” in the URL with your own search string.
+De zoekresultaten voor deze query geen resultaten over Active Directory Rights Management Services (AD RMS) of Windows Rights Management of community-hulpbronnen. U kunt de zoekresultaten verder beperken door het vervangen van de tekenreeks, "Rights Management," in de URL met uw eigen zoekreeks.
 
-### Example searches
-[Use this search query](http://www.bing.com/search?q=%28"Rights%20Management"%29%20site:technet.microsoft.com/library%20meta:search.MSCategory%28jj619159%29) and then customize the search by using the following examples.
+### Voorbeeld zoekopdrachten
+[Gebruik deze zoekopdracht](http://www.bing.com/search?q=%28"Rights%20Management"%29%20site:technet.microsoft.com/library%20meta:search.MSCategory%28jj619159%29) en vervolgens de zoekactie aanpassen met behulp van de volgende voorbeelden.
 
--   Single search string: To search for topics that contain the search string **RMS connector**, replace **“Rights Management”** with **“RMS connector”**:
+-   Enkele zoekreeks: Zoeken naar onderwerpen met de zoekreeks **RMS-connector**, vervangen **“Rights Management”** met **“RMS connector”**:
 
     ```
     ("RMS connector") site:technet.microsoft.com/library meta:search.MSCategory(jj619159)
     ```
 
--   Combining search strings: To search for topics that contain the search strings **Exchange** and **SharePoint**, use the **AND** operator:
+-   Combineren zoeken tekenreeksen: Zoeken naar onderwerpen met zoeken **Exchange** en **SharePoint**, gebruikt u de **AND** operator:
 
     ```
     ("Exchange") AND ("SharePoint") site:technet.microsoft.com/library meta:search.MSCategory(jj619159)
     ```
 
--   Alternative search strings: To search for topics that contain the search string **Exchange** or **SharePoint**, use the **OR** operator:
+-   Alternatieve zoeken tekenreeksen: Zoeken naar onderwerpen met de zoekreeks **Exchange** of **SharePoint**, gebruikt u de **OR** operator:
 
     ```
     ("Exchange" OR "SharePoint") site:technet.microsoft.com/library meta:search.MSCategory(jj619159)
     ```
 
--   Exclude search strings: To search for topics that contain the search string **Exchange** and exclude topics about **SharePoint**, use the **NOT** operator:
+-   Zoek tekenreeksen uitsluiten: Zoeken naar onderwerpen met de zoekreeks **Exchange** en onderwerpen over uitsluiten **SharePoint**, gebruikt u de **NOT** operator:
 
     ```
     ("Exchange)" NOT ("SharePoint") site:technet.microsoft.com/library meta:search.MSCategory(jj619159)
     ```
 
-### Search tips
-Use the following search tips to help you find the information that you need:
+### Zoektips
+Met de volgende zoektips kunt u de informatie die u nodig hebt:
 
--   When you are searching for official documentation, use search terms that match those that you see in the user interface (UI) and TechNet documentation, rather than unofficial terms or abbreviations that you might see in community content. For example, search for "Azure Rights Management" rather than "AADRMS" or other unofficial abbreviations for this cloud service. Although you might often hear and see “RMS”, the full name is Rights Management service, so try searching for “rights management” rather than RMS when you are looking for official documentation. You can use the [Terminology for Azure Rights Management](../Topic/Terminology_for_Azure_Rights_Management.md) to help identify official terms that are specific to [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)].
+-   Wanneer u naar officiële documentatie zoekt, zoektermen die overeenkomen met die in de gebruikersinterface (UI) en TechNet-documentatie, u ziet in plaats van onofficiële termen of afkortingen die u in de community-inhoud zien kunt gebruiken. Zoek bijvoorbeeld naar voor "Azure Rights Management" in plaats van "AADRMS" of andere onofficiële afkortingen voor deze cloudservice. Hoewel u mogelijk vaak horen en "RMS" ziet, wordt de volledige naam is Rights Management-service, dus zoek naar "rights management" in plaats van RMS wanneer u officiële documentatie zoekt. U kunt de [Terminologie voor Azure Rights Management](../Topic/Terminology_for_Azure_Rights_Management.md) om vast te stellen officiële voorwaarden die specifiek zijn voor [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)].
 
--   When you search on a page in TechNet (press Ctrl-F, and enter search terms in the **Find** box), the results exclude text that is in collapsed sections. To search for text in collapsed sections, expand the sections before you search the page. To do this, you can click the **Expand All** button at the top of the page, or double-click any collapsed section. When all sections are expanded, a search of the page will then search all sections on that page.
+-   Wanneer u een zoekopdracht op een pagina in TechNet (druk op Ctrl-F en voer zoektermen in de **vinden** vak), de resultaten tekst in samengevouwen secties uitsluiten. Als u wilt zoeken naar tekst in samengevouwen secties, vouwt u de secties voordat u de pagina zoeken. Hiervoor klikt u op de **Alles uitvouwen** boven aan de pagina, of dubbelklik op een willekeurige samengevouwen sectie. Als u alle secties uitgevouwen, zoekt een zoekopdracht van de pagina alle secties op deze pagina.
 
--   Whenever possible, use the TechNet library online rather than downloaded documentation. TechNet Library online contains the most up-to-date information, and the information that you are searching for might not be in the downloaded documentation or there might be corrections or additional information online.
+-   Gebruik de TechNet online in plaats van gedownloade bibliotheekdocumentatie waar mogelijk. Online TechNet-bibliotheek bevat de meest actuele informatie en de gegevens die u zoekt mogelijk niet in de gedownloade documentatie of er zijn mogelijk correcties of aanvullende informatie online.
 
--   If you find it easier and faster to search documentation when it is stored locally, you can select multiple topics on TechNet and save them locally. For more information, see the next section.
+-   Als u deze gemakkelijker en sneller documentatie zoeken wanneer lokaal is opgeslagen, kunt u meerdere onderwerpen op TechNet selecteren en deze lokaal opslaan. Zie de volgende sectie voor meer informatie.
 
-## <a name="BKMK_Download"></a>Downloadable documentation
-You can download pages from TechNet and save them locally —for example, save them to a PDF file to read on your laptop, tablet, or phone when you don’t have Internet connectivity. Or, annotate them yourself and print the information. Using this method, you can effectively create your own white papers or project documentation by grouping together the topics that you need for a specific set of tasks, or for an end-to-end scenario.
+## <a name="BKMK_Download"></a>Downloadbare documentatie
+U kunt downloaden van pagina's van TechNet en deze lokaal opslaan, bijvoorbeeld opslaan op een PDF-bestand op uw laptop, tablet of telefoon lezen wanneer er geen verbinding met Internet. Of uzelf aantekeningen en de informatie afdrukken. Met deze methode, kunt u effectief maken uw eigen white papers of projectdocumentatie door het groeperen van de onderwerpen die u nodig hebt voor een specifieke taken of voor een end-to-end scenario instellen.
 
-This method works for all documentation libraries on TechNet, not just [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)].
+Deze methode werkt voor alle documentatie bibliotheken op TechNet, niet alleen [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)].
 
-#### To download the docs from TechNet:
+#### De documenten downloaden van TechNet:
 
-1.  Sign in to TechNet.
+1.  Meld u aan bij TechNet.
 
-2.  On the top of the page that you want to save locally, click **Export** (next to **Print**).
+2.  Boven aan de pagina die u wilt lokaal opslaan, klikt u op **exporteren** (naast **Afdrukken**).
 
-    You then see the **Export multiple sets of pages** banner that lets you add and remove pages that you want to save.
+    Vervolgens ziet u de **meerdere Series pagina's exporteren** banner waarmee u kunt toevoegen en verwijderen van pagina's die u wilt opslaan.
 
-3.  Click **Manage pages** to export them.
+3.  Klik op **pagina's beheren** exporteren.
 
-For more information, click **Help** on the banner.
+Klik voor meer informatie **helpen** op de banner.
 
 > [!NOTE]
-> Information on TechNet is frequently updated, so use the online version whenever possible to ensure that you have the latest information.
+> Informatie over TechNet wordt regelmatig bijgewerkt, zodat de online versie indien mogelijk om ervoor te zorgen dat u de meest recente informatie hebt kunnen gebruiken.
 > 
-> You can use the monthly documentation announcements on the [Microsoft Rights Management (RMS) Team Blog and the docs tag](http://blogs.technet.com/b/rms/archive/tags/docs/) to check whether topics that you have previously downloaded for [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] are now revised, and what changes were made.
+> Kunt u de maandelijkse documentatie aankondigingen op de [teamblog Microsoft Rights Management (RMS) en het label documenten](http://blogs.technet.com/b/rms/archive/tags/docs/) om te controleren of onderwerpen die u eerder hebt gedownload voor [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] zijn nu herzien en welke wijzigingen zijn aangebracht.
 
-## <a name="BKMK_ProductGroupBlog"></a>The Rights Management product group blog
-The Rights Management product group uses the [Microsoft Rights Management (RMS) Team Blog](http://blogs.technet.com/b/rms/) to provide you with technical information and other news about [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)], AD RMS, and related technologies. These blog posts supplement the product documentation and support information.
+## <a name="BKMK_ProductGroupBlog"></a>De Rights Management product groep blog
+Rights Management product gebruikt de de [Microsoft Rights Management (RMS)-teamblog](http://blogs.technet.com/b/rms/) om u te bieden technische informatie en andere nieuws over [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)], AD RMS en verwante technologieën. Deze blogberichten aanvulling van de gegevens voor het product documentatie en ondersteuning.
 
 > [!TIP]
-> If you are developing applications for Azure RMS or AD RMS, you might also be interested in the [Active Directory Rights Management Services (AD RMS) Developer's Corner Blog](http://blogs.msdn.com/b/rms/).
+> Als u toepassingen voor Azure RMS of AD RMS ontwikkelt, u ook mogelijk geïnteresseerd in de [Active Directory Rights Management Services (AD RMS)-ontwikkelaars hoek Blog](http://blogs.msdn.com/b/rms/).
 
-## <a name="BKMK_SupportOptions"></a>Support options and community resources
-The following links provide information about support and troubleshooting options, and community resources:
+## <a name="BKMK_SupportOptions"></a>Ondersteuning en community-hulpbronnen
+De volgende koppelingen vindt u informatie over ondersteuning en probleemoplossing opties en community-hulpbronnen:
 
 -   [RMS Analyzer tool](http://www.microsoft.com/en-us/download/details.aspx?id=46437)
 
@@ -109,12 +108,12 @@ The following links provide information about support and troubleshooting option
 
 -   [Forum: Microsoft RMS (Cloud)](https://social.technet.microsoft.com/Forums/en-US/home?forum=rmscloud)
 
--   [Forum: RMS for Users (applications)](https://social.technet.microsoft.com/Forums/en-US/home?forum=rmsapps)
+-   [Forum: RMS voor gebruikers (toepassingen)](https://social.technet.microsoft.com/Forums/en-US/home?forum=rmsapps)
 
--   [Microsoft Help and Support](http://go.microsoft.com/fwlink/?LinkId=243064)
+-   [Microsoft Help en ondersteuning](http://go.microsoft.com/fwlink/?LinkId=243064)
 
-In addition, visit the [Microsoft Rights Management services portal](http://www.microsoft.com/rms) to find other supporting resources for [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)].
+Daarnaast vindt u de [Microsoft Rights Management serviceportal](http://www.microsoft.com/rms) om te zoeken naar andere ondersteunende bronnen voor [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)].
 
-## See Also
-[Getting Started with Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md)
+## Zie ook
+[Aan de slag met Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md)
 

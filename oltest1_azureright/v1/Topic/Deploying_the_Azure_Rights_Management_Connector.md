@@ -3,52 +3,51 @@ description: na
 keywords: na
 title: Deploying the Azure Rights Management Connector
 search: na
-ms.date: 2015-12-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 90e7e33f-9ecc-497b-89c5-09205ffc5066
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# Deploying the Azure Rights Management Connector
-Use this information to learn about the Microsoft Rights Management (RMS) connector and how you can use it to provide information protection with existing on-premises deployments that use Microsoft Exchange Server, Microsoft SharePoint Server, or file servers that run Windows Server and use the File Classification Infrastructure (FCI) capability of File Server Resource Manager.
+# Implementatie van de Connector van de Azure Rights Management
+Deze informatie gebruiken voor meer informatie over de connector Microsoft Rights Management (RMS) en hoe u deze kunt gebruiken om informatie te beschermen met bestaande lokale implementaties die gebruikmaken van Microsoft Exchange Server, Microsoft SharePoint Server of bestandsservers waarop Windows Server wordt uitgevoerd en de mogelijkheid bestand classificatie infrastructuur (FCI) van Bestandsserverbronbeheer gebruiken.
 
 > [!TIP]
-> For a high-level example scenario with screenshots, see the [Automatically protecting files on file servers running Windows Server and File Classification Infrastructure](../Topic/What_is_Azure_Rights_Management_.md#BKMK_Example_FCI) section in the [What is Azure Rights Management?](../Topic/What_is_Azure_Rights_Management_.md) topic.
+> Voor een op hoog niveau voorbeeldscenario met schermafdrukken, raadpleegt u de [Bestanden op bestandsservers met Windows Server en bestand classificatie infrastructuur beveiligen automatisch](../Topic/What_is_Azure_Rights_Management_.md#BKMK_Example_FCI) sectie de [Wat is Azure Rights Management?](../Topic/What_is_Azure_Rights_Management_.md) onderwerp.
 
-## <a name="OverviewConnector"></a>Overview of the Microsoft Rights Management connector
-The Microsoft Rights Management (RMS) connector lets you quickly enable existing on-premises servers to use their Information Rights Management (IRM) functionality with the cloud-based Microsoft Rights Management service (Azure RMS). With this functionality, IT and users can easily protect documents and pictures both inside your organization and outside, without having to install additional infrastructure or establish trust relationships with other organizations. You can use this connector even if some of your users are connecting to online services, in a hybrid scenario. For example, some users' mailboxes use Exchange Online and some users' mailboxes use Exchange Server. After you install the RMS connector, all users can protect and consume emails and attachments by using Azure RMS, and information protection works seamlessly between the two deployment configurations.
+## <a name="OverviewConnector"></a>Overzicht van de Microsoft Rights Management-connector
+De connector voor Microsoft Rights Management (RMS) kunt u snel bestaande lokale servers inschakelen voor het gebruik van hun functionaliteit Information Rights Management (IRM) met de cloud-gebaseerde Microsoft Rights Management-service (Azure RMS). Met deze functionaliteit IT en gebruikers kunnen gemakkelijk beschermen documenten en foto's binnen uw organisatie en buiten, zonder te hoeven installeren aanvullende infrastructuur of relaties met andere organisaties vertrouwensrelatie tot stand brengen. U kunt deze connector zelfs als sommige gebruikers verbinding met de online services in een scenario hybride maken. Bijvoorbeeld postvakken van enkele gebruikers gebruik Exchange Online en postvakken van enkele gebruikers Exchange Server gebruikt. Nadat u de RMS-connector hebt geïnstalleerd, alle gebruikers kunnen worden beveiligd en e-mailberichten en bijlagen gebruiken met behulp van Azure RMS en beveiliging van gegevens tussen de twee implementatieconfiguraties naadloos.
 
-The RMS connector is a small-footprint service that you install on-premises, on servers that run Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. In addition to running the connector on physical computers, you can also run it on virtual machines, including Azure IaaS VMs. After you install and configure the connector, it acts as a communications interface (a relay) between the on-premises servers and the cloud service.
+De RMS-connector is een klein willen-service op locatie te installeren op servers waarop Windows Server 2012 R2, Windows Server 2012 of Windows Server 2008 R2 wordt uitgevoerd. Naast de connector op fysieke computers wordt uitgevoerd, kunt u deze ook op virtuele machines, met inbegrip van Azure IaaS VM's uitvoeren. Nadat u installeren en configureren van de connector, wordt deze fungeert als een communicatie-interface (relay) tussen de lokale servers en de cloudservice.
 
-If you manage your own tenant key for Azure RMS (the bring you own key, or BYOK scenario), the RMS connector and the on-premises servers that use it do not access the hardware security module (HSM) that contains your tenant key. This is because all cryptographic operations that use the tenant key are performed in Azure RMS, and not on-premises.
+Als u uw eigen sleutel tenant beheren voor Azure RMS (het Breng u eigenaar bent sleutel of BYOK scenario), de RMS-connector en de lokale-servers die gebruikmaken van deze de hardware HSM (security module) met de sleutel van de tenant niet openen. Dit is omdat alle cryptografische bewerkingen die gebruikmaken van de tenant-sleutel worden uitgevoerd in Azure RMS, en niet op locatie.
 
 ![](../Image/RMS_connector.png)
 
-The RMS connector supports the following on-premises servers: Exchange Server, SharePoint Server, and file servers that run Windows Server and use File Classification Infrastructure to classify and apply policies to Office documents in a folder. If you want to protect all files types using File Classification, do not use the RMS connector, but instead, use the [RMS Protection cmdlets](https://msdn.microsoft.com/library/azure/mt433195.aspx).
+De RMS-connector ondersteunt de volgende lokale servers: Exchange Server, SharePoint Server en bestandsservers waarop Windows Server wordt uitgevoerd en gebruik bestand classificatie infrastructuur te classificeren en beleid toepassen op de Office-documenten in een map. Als u beveiligen van alle bestandstypen met bestand classificatie wilt, moet u de RMS-connector niet gebruiken, maar in plaats daarvan gebruiken de [RMS Protection cmdlets](https://msdn.microsoft.com/library/azure/mt433195.aspx).
 
 > [!NOTE]
-> For supported versions of these on-premises servers, see “On-premises servers that support Azure RMS” in the [Applications that support Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedApplications) section of the [Requirements for Azure Rights Management](../Topic/Requirements_for_Azure_Rights_Management.md) topic.
+> Zie voor ondersteunde versies van deze servers lokale "On-premises-servers die ondersteuning van Azure RMS in de [Toepassingen die ondersteuning van Azure RMS](../Topic/Requirements_for_Azure_Rights_Management.md#BKMK_SupportedApplications) sectie van de [Vereisten voor Azure Rights Management](../Topic/Requirements_for_Azure_Rights_Management.md) onderwerp.
 
-Use the following sections to help you plan for, install, and configure the RMS connector. You must then do some post installation configuration so that your servers can use the connector.
+Gebruik de volgende secties om te plannen, installeren en configureren van de RMS-connector. Vervolgens moet u een bericht installatie configuratie doen zodat uw servers van de connector gebruikmaken kunnen.
 
 -   [Prerequisites for the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_Prereqs)
 
--   **Step 1:**  [Installing the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_InstallingConnector)
+-   **Stap 1:**  [Installing the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_InstallingConnector)
 
--   **Step 2:**  [Entering credentials](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#EnteringCredentials)
+-   **Stap 2:**  [Entering credentials](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#EnteringCredentials)
 
--   **Step 3:**  [Authorizing servers to use the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#AuthorizingServers)
+-   **Stap 3:**  [Authorizing servers to use the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#AuthorizingServers)
 
--   **Step 4:**  [Configuring load balancing and high availability](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#ConfiguringConnector)
+-   **Stap 4:**  [Configuring load balancing and high availability](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#ConfiguringConnector)
 
--   Optional: [Configuring the RMS connector to use HTTPS](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringHTTPS)
+-   Optioneel: [Configuring the RMS connector to use HTTPS](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringHTTPS)
 
--   Optional: [Configuring the RMS connector for a web proxy server](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringWebProxy)
+-   Optioneel: [Configuring the RMS connector for a web proxy server](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringWebProxy)
 
--   Optional: [Installing the RMS connector administration tool on administrative computers](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_InstallingStandaloneTool)
+-   Optioneel: [Installing the RMS connector administration tool on administrative computers](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_InstallingStandaloneTool)
 
--   **Step 5:**  [Configuring servers to use the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#ConfiguringServers)
+-   **Stap 5:**  [Configuring servers to use the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#ConfiguringServers)
 
     -   [Configuring an Exchange server to use the connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ExchangeServer)
 
@@ -58,66 +57,66 @@ Use the following sections to help you plan for, install, and configure the RMS 
 
 -   [Next steps](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_NextSteps)
 
-## <a name="BKMK_Prereqs"></a>Prerequisites for the RMS connector
-Before you install the RMS connector, make sure that the following requirements are in place.
+## <a name="BKMK_Prereqs"></a>Vereisten voor de RMS-connector
+Voordat u de RMS-connector hebt geïnstalleerd, ervoor zorgen dat de volgende vereisten zijn.
 
-|Requirement|More information|
-|---------------|--------------------|
-|The Rights Management (RMS) service is activated|[Activating Azure Rights Management](../Topic/Activating_Azure_Rights_Management.md)|
-|Directory synchronization between your on-premises Active Directory forests and Azure Active Directory|After RMS is activated, Azure Active Directory must be configured to work with the users and groups in your Active Directory database.<br /><br />**Important**: You must do this directory synchronization step for the RMS connector to work, even for a test network. Although you can use Office 365 and Azure Active Directory by using accounts that you manually create in Azure Active Directory, this connector requires that the accounts in Azure Active Directory are synchronized with Active Directory Domain Services; manual password synchronization is not sufficient.<br /><br />For more information, see the following resources:<br /><br />[Instructions for configuring your Azure AD tenant](http://technet.microsoft.com/library/hh967611.aspx)<br /><br />[Instructions for enabling directory synchronization with AAD using DirSync](http://technet.microsoft.com/library/hh967642.aspx)|
-|Optional but recommended:<br /><br />Enable federation between your on-premises Active Directory and Azure Active Directory|You can enable identity federation between your on-premises directory and Azure Active Directory. This configuration enables a more seamless user experience by using single sign-on to the RMS service. Without single sign on, users are prompted for their credentials before they can use rights-protected content.<br /><br />For instructions to configure federation by using Active Directory Federation Services (AD FS) between Active Directory Domain Services and Azure Active Directory, see the [Checklist: Use AD FS to implement and manage single sign-on](http://technet.microsoft.com/library/jj205462.aspx) in the Windows Server library.|
-|A minimum of two member computers on which to install the RMS connector:<br /><br />A 64-bit physical or virtual computer running one of the following operating systems:  Windows Server 2012 R2,  Windows Server 2012, or Windows Server 2008 R2.<br /><br />At least 1 GB of RAM.<br /><br />A minimum of 64 GB of disk space<br /><br />At least one network interface.<br /><br />Access to the Internet via a firewall (or web proxy) that does not require authentication.<br /><br />Must be in a forest or domain that trusts other forests in the organization that contain installations of Exchange or SharePoint servers that you want to use with the RMS connector.|For fault tolerance and high availability, you must install the RMS connector on a minimum of two computers.<br /><br />**Tip**: If you are using Outlook Web Access or mobile devices that use Exchange ActiveSync IRM and it is critical that you maintain access to emails and attachments that are protected by Azure RMS, we recommend that you deploy a load-balanced group of connector servers to ensure high availability.<br /><br />You do not need dedicated servers to run the connector but you must install it on a separate computer from the servers that will use the connector.<br /><br />**Important**: Do not install the connector on a computer that runs Exchange Server, SharePoint Server, or a file server that is configured for file classification infrastructure if you want to use the functionality from these services with Azure RMS. Also, do not install this connector on a domain controller.|
+|Vereiste|Meer informatie|
+|------------|-------------------|
+|De service Rights Management (RMS) is geactiveerd|[Azure Rights Management activeren](../Topic/Activating_Azure_Rights_Management.md)|
+|Directory-synchronisatie tussen uw Active Directory-forest en Azure Active Directory|Na activering van RMS moet Azure Active Directory worden geconfigureerd met de gebruikers en groepen in uw Active Directory-database. **Important:** U moet deze stap directory synchronisatie voor de RMS-connector te werken, zelfs voor een testnetwerk doen. Maar u Office 365 en Azure Active Directory gebruiken kunt met behulp van accounts die u handmatig in Azure Active Directory maken, deze connector is vereist dat de accounts in Azure Active Directory worden gesynchroniseerd met Active Directory Domain Services; handmatige Wachtwoordsynchronisatie is niet voldoende.<br />Voor meer informatie, Zie de volgende bronnen:<br /><br />-   [Instructies voor het configureren van uw Azure AD-tenant](http://technet.microsoft.com/library/hh967611.aspx)<br />-   [Instructies voor het synchroniseren van adreslijsten met AAD met DirSync inschakelen](http://technet.microsoft.com/library/hh967642.aspx)|
+|Optioneel maar aanbevolen:<br /><br />-   Federatie tussen uw lokale Active Directory en Azure Active Directory inschakelen|U kunt identiteitsfederatie tussen uw lokale en Azure Active Directory inschakelen. Deze configuratie wordt een naadloze gebruikerservaring kan via eenmalige aanmelding bij de RMS-service. Zonder eenmalige aanmelding voor gebruikers voor hun referenties gevraagd voordat rechten beveiligde inhoud kan worden gebruikt.<br /><br />Zie voor instructies federation configureren met Active Directory Federation Services (AD FS) tussen Active Directory Domain Services en Azure Active Directory, de [Checklist: Gebruik AD FS te implementeren en beheren van eenmalige aanmelding](http://technet.microsoft.com/library/jj205462.aspx) in de bibliotheek voor Windows Server.|
+|Ten minste twee lidcomputers waarop de RMS-connector te installeren:<br /><br /><ul><li>Een 64-bits fysieke of virtuele computer met een van de volgende besturingssystemen:<br /><br /><ul><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li></ul></li><li>Ten minste 1 GB RAM-geheugen</li><li>Een minimum van 64 GB schijfruimte</li><li>Ten minste één netwerkinterface</li><li>Toegang tot het Internet via een firewall (of webproxy) die geen verificatie nodig</li><li>Moet zich in een forest of domein dat andere forests in de organisatie die installaties van Exchange of SharePoint-servers die u wilt gebruiken met de RMS-connector bevatten vertrouwensrelaties</li></ul>|Voor fouttolerantie en hoge beschikbaarheid, moet u de RMS-connector installeren op een minimum van twee computers. **Tip:** Als u gebruikmaakt van Outlook Web Access of mobiele apparaten die gebruikmaken van Exchange ActiveSync IRM en is het belangrijk dat u toegang tot e-mailberichten en bijlagen die worden beschermd door Azure RMS onderhouden, wordt u aangeraden dat u een groep taakverdeling connector servers om te controleren of hoge beschikbaarheid implementeren.<br />U hoeft niet aangewezen servers om uit te voeren van de connector, maar moet u deze installeren op een afzonderlijke computer van de servers die door de connector wordt gebruikt. **Important:** Installeer de connector niet op een computer waarop Exchange Server, SharePoint-Server of een bestandsserver die is geconfigureerd voor bestand classificatie infrastructuur als u wilt gebruiken de functionaliteit van deze services met Azure RMS wordt uitgevoerd. Installeer deze connector ook niet op een domeincontroller.|
 
-## <a name="BKMK_InstallingConnector"></a>Installing the RMS connector
-After you have confirmed the prerequisites in the preceding section, use the following instructions to install the RMS connector:
+## <a name="BKMK_InstallingConnector"></a>De connector RMS installeren
+Als u de vereiste items in de vorige sectie hebt gecontroleerd, gebruikt u de volgende instructies voor het installeren van de RMS-connector:
 
-1.  Identify the computers (minimum of two) that will run the RMS connector. They must meet the minimum specification listed in the preceding section.
-
-    > [!NOTE]
-    > You will install a single RMS connector (consisting of multiple servers for high availability) per tenant (Office 365 tenant or Azure AD tenant). Unlike Active Directory RMS, you do not have to install an RMS connector in each forest.
-
-2.  Download the source files for the RMS connector from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=314106).
-
-    To install the RMS connector, download RMSConnectorSetup.exe.
-
-    In addition:
-
-    -   If you later want to configure the connector from a 32-bit computer, also download RMSConnectorAdminToolSetup_x86.exe.
-
-    -   If you want to use the server configuration tool for the RMS connector, to automate the configuration of registry settings on you on-premises servers, also download GenConnectorConfig.ps1.
-
-3.  On the computer on which you want to install the RMS connector, run **RMSConnectorSetup.exe** with Administrator privileges.
-
-4.  On the Welcome page of the Microsoft Rights Management Connector Setup page, select **Install Microsoft Rights Management connector on the computer**, and then click **Next**.
-
-5.  Read and agree to the RMS connector license terms, and then click **Next**.
-
-To continue, enter an account and password to configure the RMS connector.
-
-## <a name="EnteringCredentials"></a>Entering credentials
-Before you can configure the RMS connector, you must enter credentials for an account that has sufficient privileges to configure the RMS connector.
-
-In addition, if you have implemented [onboarding controls](https://technet.microsoft.com/library/jj658941.aspx), make sure that the account you specify is able to protect content. For example, if you restricted the ability to protect content to the “IT department” group, the account that you specify here must be a member of that group. If not, you will see the error message: **The attempt to discover the location of the administration service and organization failed. Make sure Microsoft Rights Management service is enabled for your organization.**
-
-You can use an account that has one of the following privileges:
-
--   **Office 365 tenant administrator**: An account that is a global admin for your Office 365 tenant.
-
--   **Azure Rights Management global administrator**: An account with administrator privileges for the Azure RMS tenant.
-
--   **Microsoft RMS connector Administrator**: An account in Azure Active Directory that has been granted rights to install and administer the RMS connector for your organization.
+1.  Zoek de computers (minimaal twee) die de RMS-connector wordt uitgevoerd. Zij moeten voldoen aan de minimale vereisten vermeld in de voorgaande sectie.
 
     > [!NOTE]
-    > If you want to use the Microsoft RMS connector Administrator account, you must first do the following to assign the RMS connector administrator role:
+    > Een enkele RMS-connector (bestaande uit meerdere servers voor hoge beschikbaarheid) installeert u per tenant (Office 365-tenant of Azure AD-tenant). In tegenstelling tot de Active Directory RMS u beschikt niet over een RMS-connector in elke forest installeren.
+
+2.  Download de bronbestanden voor de RMS-connector van de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=314106).
+
+    Als u wilt de RMS-connector hebt geïnstalleerd, RMSConnectorSetup.exe te downloaden.
+
+    Bovendien:
+
+    -   Als u later configureren van de connector van een 32-bits computer wilt, ook RMSConnectorAdminToolSetup_x86.exe te downloaden.
+
+    -   Als u gebruiken van de server configuration tool voor de RMS-connector wilt, klikt u om de configuratie van de registerinstellingen op u lokale servers, automatiseren ook downloaden GenConnectorConfig.ps1.
+
+3.  Uitvoeren op de computer waarop u wilt installeren van de RMS-connector **RMSConnectorSetup.exe** met beheerdersbevoegdheden.
+
+4.  Selecteer op de pagina van de pagina Microsoft Rights Management-Connector Setup **installeren Microsoft Rights Management-connector op de computer**, en klik vervolgens op **volgende**.
+
+5.  Gelezen en ga akkoord met de licentievoorwaarden van de RMS-connector en klik vervolgens op **volgende**.
+
+Geef een account en wachtwoord de RMS-connector configureren om door te gaan.
+
+## <a name="EnteringCredentials"></a>Invoeren van referenties
+Voordat u de RMS-connector configureren kunt, moet u referenties voor een account met voldoende machtigingen heeft voor de RMS-connector hebt geconfigureerd.
+
+Als u hebt geïmplementeerd bovendien [onboarding besturingselementen](https://technet.microsoft.com/library/jj658941.aspx), zorg ervoor dat het account dat u opgeeft kan om inhoud te beschermen. Als u de mogelijkheid om inhoud aan de groep "IT-afdeling" te beschermen beperkt, moet het account dat u hier een lid van de groep zijn. Als dat niet het geval is, ziet u het foutbericht weergegeven: **Het detecteren van de locatie van de beheerservice en de organisatie is mislukt. Zorg ervoor dat Microsoft Rights Management-service is ingeschakeld voor uw organisatie.**
+
+U kunt een account met een van de volgende bevoegdheden:
+
+-   **Office 365-Tenantbeheerder**: Een account dat wordt een globale beheerder voor uw Office 365-tenant.
+
+-   **Microsoft RMS globale Tenantbeheerder**: Een account met beheerdersmachtigingen op de Microsoft RMS-tenant.
+
+-   **Microsoft RMS-connector beheerder**: Een account in Azure Active Directory die rechten om te installeren en beheren van de RMS-connector voor de organisatie is toegekend.
+
+    > [!NOTE]
+    > Als u de connector voor Microsoft RMS Administrator-account gebruiken wilt, moet u eerst de volgende stappen uit om de beheerdersrol RMS-connector toewijzen doen:
     > 
-    > 1.  On the same computer, download and install Windows PowerShell for Rights Management. For more information, see [Installing Windows PowerShell for Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
+    > 1.  Op dezelfde computer downloaden en installeren van Windows PowerShell voor Rights Management. Zie voor meer informatie [Installatie van Windows PowerShell voor Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
     > 
-    >     Start Windows PowerShell with the **Run as administrator** command, and connect to the Azure RMS service by using the [Connect-AadrmService](https://msdn.microsoft.com/library/azure/dn629415.aspx) command:
+    >     Start van Windows PowerShell met de **Als administrator uitvoeren** opdracht en verbinding maken met de Azure RMS-service met behulp van de [Connect AadrmService](http://msdn.microsoft.com/library/windowsazure/dn629415.aspx) opdracht:
     > 
     >     ```
-    >     Connect-AadrmService                   //provide Office 365 tenant administrator or Azure RMS global administrator credentials
+    >     Connect-AadrmService                   //provide Office365 Tenant Administrator or Microsoft RMS Tenant Global Administrator credential
     >     ```
-    > 2.  Then run the [Add-AadrmRoleBasedAdministrator](https://msdn.microsoft.com/library/azure/dn629417.aspx) command, using just one of the following parameters:
+    > 2.  Voer de [toevoegen AadrmRoleBasedAdministrator](http://msdn.microsoft.com/library/windowsazure/dn629417.aspx) -opdracht, met slechts één van de volgende parameters:
     > 
     >     ```
     >     Add-AadrmRoleBasedAdministrator -EmailAddress <email address> -Role "ConnectorAdministrator"
@@ -130,198 +129,198 @@ You can use an account that has one of the following privileges:
     >     ```
     >     Add-AadrmRoleBasedAdministrator -SecurityGroupDisplayName <group Name> -Role "ConnectorAdministrator"
     >     ```
-    >     For example, type: **Add-AadrmRoleBasedAdministrator -EmailAddress melisa@contoso.com -Role " ConnectorAdministrator "**
+    >     Typ bijvoorbeeld: **Add-AadrmRoleBasedAdministrator -EmailAddress melisa@contoso.com -Role " ConnectorAdministrator "**
     > 
-    >     Although these commands use the ConnectorAdministrator role, you could also use the GlobalAdministrator role here, as well.
+    >     Hoewel deze opdrachten met de rol ConnectorAdministrator, ook u de rol GlobalAdministrator hier ook.
 
-During the RMS connector installation process, all prerequisite software is validated and installed, Internet Information Services (IIS) is installed if not already present, and the connector software is installed and configured. In addition, Azure RMS is prepared for configuration by creating the following:
+Tijdens de installatie van de connector RMS alle vereiste software is gevalideerd en geïnstalleerd, Internet Information Services (IIS) is geïnstalleerd als dit nog niet geïnstalleerd en de connector-software is geïnstalleerd en geconfigureerd. Bovendien is RMS voorbereid voor configuratie door het maken van het volgende:
 
--   An empty table of servers that are authorized to use the connector to communicate with Azure RMS. You will add servers to this table later.
+-   Een lege tabel geautoriseerd zijn om de connector gebruiken om te communiceren met Azure RMS-servers. U wordt later servers toevoegen aan deze tabel.
 
--   A set of security tokens for the connector, which authorize operations with Azure RMS. These tokens are downloaded from Azure RMS and installed on the local computer in the registry. They are protected by using the data protection application programming interface (DPAPI) and the Local System account credentials.
+-   Een verzameling van beveiligingstokens voor de connector die bewerkingen met Azure RMS toestaan. Deze tokens zijn van Azure RMS gedownload en geïnstalleerd op de lokale computer in het register. Ze worden beschermd met behulp van de data protection application programming interface (DPAPI) en de referenties van de account lokaal systeem.
 
-On the final page of the wizard, do the following, and then click **Finish**:
+Voer de volgende stappen uit op de laatste pagina van de wizard en klik vervolgens op **Voltooien**:
 
--   If this is the first connector that you have installed, do not select **Launch connector administrator console to authorize servers** at this time. You will select this option after you have installed your second (or final) RMS connector. Instead, run the wizard again on at least one other computer. You must install a minimum of two connectors.
+-   Als dit de eerste connector die u hebt geïnstalleerd, niet de optie **starten connector beheerdersconsole servers te machtigen** op dit moment. Nadat u uw tweede (of definitieve) RMS-connector hebt geïnstalleerd, wordt u deze optie selecteert. In plaats daarvan de wizard opnieuw uitvoeren op ten minste één andere computer. U moet ten minste twee connectors installeren.
 
--   If you have installed your second (or final) connector, select **Launch connector administrator console to authorize servers**.
+-   Als u de tweede (of definitieve)-connector hebt geïnstalleerd, selecteert u **starten connector beheerdersconsole servers te machtigen**.
 
 > [!TIP]
-> At this point, there is a verification test that you can perform to test whether the web services for the RMS connector are operational:
+> Er is op dit moment een verificatiestest die u uitvoeren kunt om te controleren of de webservices voor de RMS-connector operationeel zijn:
 > 
-> -   From a web browser, connect to **http://&lt;connectoraddress&gt;/_wmcs/certification/servercertification.asmx**, replacing *&lt;connectoraddress&gt;* with the server address or name that has the RMS connector installed. A successful connection displays a **ServerCertificationWebService** page.
+> -   Verbinding maken met een webbrowser **http://&lt;connectoraddress&gt;/_wmcs/certification/servercertification.asmx**, vervangt *&lt; connectoraddress &gt;* met het adres van de server of de naam met de RMS-connector geïnstalleerd. Een geslaagde verbinding bevat een **ServerCertificationWebService** pagina.
 
-If you need to uninstall the RMS connector, run the wizard again and select the uninstall option.
+Als u de RMS-connector verwijderen, voert u de wizard opnieuw uit en selecteer de optie verwijderen.
 
-## <a name="AuthorizingServers"></a>Authorizing servers to use the RMS connector
-When you have installed the RMS connector on at least two computers, you are ready to authorize the servers and services that you want to use the RMS connector. For example, servers running Exchange Server 2013 or SharePoint Server 2013.
+## <a name="AuthorizingServers"></a>Autorisatie servers gebruik van de RMS-connector
+Wanneer u de RMS-connector op ten minste twee computers hebt geïnstalleerd, bent u klaar om te machtigen servers en services die u wilt gebruiken de RMS-connector. Bijvoorbeeld, servers met Exchange Server 2013 of SharePoint Server 2013.
 
-To define these servers, run the RMS connector administration tool and add entries to the list of allowed servers. You can run this tool when you select **Launch connector administration console to authorize servers** at the end of the Microsoft Rights Management connector Setup wizard, or you can run it separately from the wizard.
+Als u deze servers definieert, voer het beheerprogramma voor RMS-connector en vermeldingen toevoegen aan de lijst met toegestane servers. U kunt dit hulpprogramma uitvoeren wanneer u selecteert **Start connector-beheerconsole servers te machtigen** aan het einde van de Microsoft Rights Management-connector Setup wizard of u kunt uitvoeren afzonderlijk in de wizard.
 
-When you authorize these servers, be aware of the following considerations:
+Als u deze servers machtigen, rekening met de volgende overwegingen:
 
--   Servers that you add will be granted special privileges. All accounts that you specify for the Exchange Server role in the connector configuration will be granted the [super user role](https://technet.microsoft.com/library/mt147272.aspx) in Azure RMS, which gives them access to all content for this RMS tenant. The super user feature is automatically enabled at this point, if necessary. To avoid the security risk of elevation of privileges, be careful to specify only the accounts that are used by your organization’s Exchange servers. All servers configured as SharePoint servers or file servers that use FCI will be granted regular user privileges.
+-   Servers die u toevoegt, speciale bevoegdheden krijgen. Alle accounts die u opgeeft voor de Exchange Server-rol in de configuratie van de connector krijgt de [super gebruikersrol](https://technet.microsoft.com/library/mt147272.aspx) in Azure RMS, waardoor ze toegang tot alle inhoud voor deze tenant RMS. De functie supergebruiker wordt automatisch op dit moment ingeschakeld indien nodig. Zorg dat u alleen de accounts die worden gebruikt door uw organisatie Exchange-servers opgeven om te voorkomen dat het beveiligingsrisico van misbruik van bevoegdheden. Alle servers die zijn geconfigureerd als SharePoint-servers of bestandsservers met FCI krijgt de met normale gebruikersbevoegdheden.
 
--   You can add multiple servers as a single entry by specifying an Active Directory security or distribution group, or a service account that is used by more than one server. When you use this configuration, the group of servers will share the same RMS certificates and will all be considered owners for content that any of them have protected. To minimize administrative overheads, we recommend that you use this configuration of a single group rather than individual servers to authorize your organization’s Exchange servers or a SharePoint server farm.
+-   U kunt meerdere servers als één vermelding toevoegen door te geven van een Active Directory-beveiliging of distributiegroep of een serviceaccount die wordt gebruikt door meer dan één server. Wanneer u deze configuratie gebruikt, de groep servers delen dezelfde RMS-certificaten en alle komen in aanmerking voor de inhoud die deze zijn beveiligd. U wordt aangeraden deze configuratie van een groep in plaats van afzonderlijke servers te machtigen van uw organisatie Exchange-servers of een SharePoint-server-farm gebruiken om te beperken administratieve overhead.
 
-On the **Servers allowed to utilize the connector** page, click **Add**.
+Op de **Servers kunnen gebruikmaken van de connector** pagina, klikt u op **toevoegen**.
 
-### <a name="BKMK_AddServer"></a>Add a server to the list of allowed servers
-On the **Allow a server to utilize the connector** page, enter the name of the object, or browse to identify the object to authorize.
+### <a name="BKMK_AddServer"></a>Een server toevoegen aan de lijst met toegestane servers
+Op de **dat een server kan gebruikmaken van de connector** pagina, geef de naam van het object of bladeren om u te identificeren van het object toe te staan.
 
-It is important that you authorize the correct object. For a server to use the connector, the account that runs the on-premises service (for example, Exchange or SharePoint) must be selected for authorization. For example, if the service is running as a configured service account, add the name of that service account to the list. If the service is running as Local System, add the name of the computer object (for example, SERVERNAME$). As a best practice, create a group that contains these accounts and specify the group instead of individual server names.
+Het is belangrijk dat u de juiste object machtigen. Voor een server naar de connector gebruiken, moet het account dat de lokale service (bijvoorbeeld Exchange of SharePoint) wordt uitgevoerd voor autorisatie worden geselecteerd. Bijvoorbeeld als de service wordt uitgevoerd als een geconfigureerde serviceaccount, de naam van toevoegen die serviceaccount aan de lijst. Als de service wordt uitgevoerd als lokaal systeem, moet u de naam van het computerobject (bijvoorbeeld servernaam$) toevoegen. Aanbevolen om een groep met deze accounts maken en geef de groep in plaats van namen van de afzonderlijke servers.
 
-More information about the different server roles:
+Meer informatie over de verschillende serverfuncties:
 
--   For servers that run Exchange: You must specify a security group and you can use the default group (**Exchange Servers**) that Exchange automatically creates and maintains of all Exchange servers in the forest.
+-   Voor servers met Exchange: U moet een beveiligingsgroep opgeven en kunt u de standaard-groep (**Exchange-Servers**) die Exchange automatisch gemaakt en onderhouden van alle Exchange-servers in de forest.
 
--   For servers that run SharePoint:
+-   Voor servers waarop SharePoint worden uitgevoerd:
 
-    -   If a SharePoint 2010 server is configured to run as Local System (it's not using a service account), manually create a security group in Active Directory Domain Services, and add the computer name object for the server in this configuration to this group.
+    -   Als een SharePoint 2010-server is geconfigureerd om te worden uitgevoerd als lokaal systeem (deze geen gebruik maakt van een serviceaccount), maak handmatig een beveiligingsgroep in Active Directory Domain Services en het computerobject naam voor de server in de configuratie aan deze groep toevoegen.
 
-    -   If a SharePoint server is configured to use a service account (the recommended practice for SharePoint 2010 and the only option for SharePoint 2013), do the following:
+    -   Als een SharePoint-server is geconfigureerd voor een serviceaccount (de aanbevolen voor SharePoint 2010) en de optie alleen gebruiken voor SharePoint 2013, het volgende doen:
 
-        1.  Add the service account that runs the SharePoint Central Administration service to enable SharePoint to be configured from its administrator console.
+        1.  Voeg de serviceaccount die de service Centraal beheer van SharePoint om in te schakelen SharePoint worden geconfigureerd vanuit de administrator-console wordt uitgevoerd.
 
-        2.  Add the account that is configured for the SharePoint App Pool.
+        2.  Het account dat is geconfigureerd voor de SharePoint-App Pool toevoegen.
 
         > [!TIP]
-        > If these two accounts are different, consider creating a single group that contains both accounts to minimize the administrative overheads.
+        > Als deze twee accounts verschillende zijn, moet u het maken van een groep die beide accounts om te minimaliseren administratieve overhead bevat.
 
--   For file servers that use File Classification Infrastructure, the associated services run as the Local System account, so you must authorize the computer account for the file servers (for example, SERVERNAME$) or a group that contains those computer accounts.
+-   Voor bestandsservers met bestand classificatie infrastructuur, de bijbehorende services uitgevoerd als het account lokaal systeem zodat u moet het computeraccount voor de bestandsservers (bijvoorbeeld servernaam$) of een groep met de computeraccounts van deze toestaan.
 
-When you have finished adding servers to the list, click **Close**.
+Als u klaar bent met het toevoegen van servers aan de lijst, klikt u op **Sluiten**.
 
-If you haven’t already done so, you must now configure load balancing for the servers that have the RMS connector installed, and consider whether to use HTTPS for the connections between these servers and the servers that you have just authorized.
+Als u nog niet hebt gedaan, moet u nu configureren taakverdeling voor de servers waarvoor de RMS-connector geïnstalleerd en overweeg om te gebruiken HTTPS voor de verbindingen tussen deze servers en de servers die u net hebt gemachtigd.
 
-## <a name="ConfiguringConnector"></a>Configuring load balancing and high availability
-After you have installed the second or final instance of the RMS connector, define a connector URL server name and configure a load balancing system.
+## <a name="ConfiguringConnector"></a>Configureren van load balancing en hoge beschikbaarheid
+Nadat u het tweede of definitieve exemplaar van de RMS-connector hebt geïnstalleerd, een connector-URL-servernaam definiëren en configureren van een systeem voor de taakverdeling.
 
-The connector URL server name can be any name under a namespace that you control. For example, you could create an entry in your DNS system for **rmsconnector.contoso.com** and configure this entry to use an IP address in your load balancing system. There are no special requirements for this name and it doesn’t need to be configured on the connector servers themselves. Unless your Exchange and SharePoint servers are going to be communicating with the connector over the Internet, this name doesn’t have to resolve on the Internet.
+De naam van de connector URL-server kan elke willekeurige naam onder een naamruimte die u bepalen zijn. U kunt bijvoorbeeld een vermelding maken in uw systeem voor de DNS- **rmsconnector.contoso.com** en configureer deze vermelding voor een IP-adres gebruiken in uw systeem voor de taakverdeling. Er zijn geen speciale vereisten voor deze naam en het niet hoeft te worden geconfigureerd op de connector servers zelf. Tenzij de Exchange- en SharePoint servers communiceren met de connector via het Internet gaat, deze naam hoeft niet omzetten op Internet.
 
 > [!IMPORTANT]
-> We recommend that you don’t change this name after you have configured Exchange or SharePoint servers to use the connector, because you have to then clear these servers of all IRM configurations and then reconfigure them.
+> Het is raadzaam dat u deze naam niet wijzigen nadat u Exchange of SharePoint-servers voor gebruik van de connector hebt geconfigureerd omdat u schakelt u deze servers van alle IRM configuraties en configureer deze vervolgens opnieuw.
 
-After the name is created in DNS and is configured for an IP address, configure load balancing for that address, which directs traffic to the connector servers. You can use any IP-based load balancer for this purpose, which includes  the Network Load Balancing (NLB) feature in Windows Server. For more information, see [Load Balancing Deployment Guide](http://technet.microsoft.com/library/cc754833%28v=WS.10%29.aspx).
+Nadat de naam in DNS is gemaakt en is geconfigureerd voor een IP-adres, configureren load balancing voor dit adres die ervoor zorgt het verkeer naar de connector-servers dat. U kunt elke IP-adres op basis van een load balancer voor dit doel, waaronder de functie Network Load Balancing (NLB) in Windows Server. Zie voor meer informatie [Load Balancing Deployment Guide](http://technet.microsoft.com/library/cc754833%28v=WS.10%29.aspx).
 
-Use the following settings to configure the NLB cluster:
+Gebruik de volgende instellingen configureren van de NLB-cluster:
 
--   Ports: 80 (for HTTP) or 443 (for HTTPS)
+-   Poorten: 80 (voor HTTP) of 443 (voor HTTPS)
 
-    For more information about whether to use HTTP or HTTPS, see the next section.
+    Zie de volgende sectie voor meer informatie over de vraag of HTTP-of HTTPS.
 
--   Affinity: None
+-   Affiniteit: Geen
 
--   Distribution method: Equal
+-   Distributiemethode: Gelijk aan
 
-This name that you define for the load-balanced system (for the servers running the RMS connector service) is your organization’s RMS connector name that you will use later, when you configure the on-premises servers to use Azure RMS.
+Deze naam die u definieert voor het systeem taakverdeling (voor de servers waarop de RMS-connector-service) is de naam van uw organisatie RMS-connector die u later gebruiken wilt wanneer u de lokale-servers gebruik van Azure RMS configureren.
 
-## <a name="BKMK_ConfiguringHTTPS"></a>Configuring the RMS connector to use HTTPS
+## <a name="BKMK_ConfiguringHTTPS"></a>De RMS-connector voor gebruik van HTTPS configureren
 > [!NOTE]
-> This configuration step is optional, but recommended for additional security.
+> Deze configuratiestap is optioneel maar aanbevolen voor aanvullende beveiligingsinstellingen.
 
-Although the use of TLS or SSL is optional for the RMS connector, we recommend it for any HTTP-based security-sensitive service. This configuration authenticates the servers running the connector to your Exchange and SharePoint servers that use the connector. In addition, all data that is sent from these servers to the connector is encrypted.
+Hoewel het gebruik van TLS of SSL optioneel voor de RMS-connector is, wordt aangeraden deze voor elke service vertrouwelijke op basis van HTTP. Deze configuratie wordt geverifieerd door de servers waarop de connector aan de Exchange- en SharePoint-servers die gebruikmaken van de connector wordt uitgevoerd. Bovendien alle gegevens die door deze servers wordt verzonden naar de connector is versleuteld.
 
-To enable the RMS connector to use TLS, on each server that runs the RMS connector, install a server authentication certificate that contains the name that you will use for the connector. For example, if your RMS connector name that you defined in DNS is **rmsconnector.contoso.com**, deploy a server authentication certificate that contains **rmsconnector.contoso.com** in the certificate subject as the common name. Or, specify **rmsconnector.contoso.com** in the certificate alternative name as the DNS value. The certificate does not have to include the name of the server. Then in IIS, bind this certificate to the Default Web Site.
+Als u de RMS-connector voor gebruik met TLS, op elke server waarop de connector RMS installeert een certificaat voor verificatie met de naam die u voor de connector gebruiken wilt. Als uw RMS-connector die u hebt gedefinieerd de naam DNS is bijvoorbeeld **rmsconnector.contoso.com**, implementeren van een certificaat voor verificatie met **rmsconnector.contoso.com** in de onderwerpregel certificaat als de algemene naam. Of geef **rmsconnector.contoso.com** in de alternatieve naam als de DNS-waarde van het certificaat. Het certificaat heeft niet de naam van de server op te nemen. Klik in IIS, de dit certificaat binden aan de standaardwebsite.
 
-If you use the HTTPS option, ensure that all servers that run the connector have a valid server authentication certificate that chains to a root CA that your Exchange and SharePoint servers trust. In addition, if the certification authority (CA) that issued the certificates for the connector servers publishes a certificate revocation list (CRL), the Exchange and SharePoint servers must be able to download this CRL.
+Als u de optie HTTPS, zorg dat alle servers die worden uitgevoerd van de connector een geldige server-verificatie certificaat dat is gekoppeld aan een basis-CA of de vertrouwensrelatie van de Exchange- en SharePoint-servers. Bovendien als de certificeringsinstantie (CA) die de certificaten voor de servers connector publiceert een lijst met certificaatintrekkingen (CRL), moet de Exchange- en SharePoint-Server kunnen deze CRL kan worden gedownload.
 
 > [!TIP]
-> You can use the following information and resources to help you request and install a server authentication certificate, and to bind this certificate to the Default Web Site in IIS:
+> U kunt de volgende informatie en bronnen gebruiken om te vragen en een certificaat voor verificatie installeren en dit certificaat binden aan de standaardwebsite in IIS:
 > 
-> -   If you use Active Directory Certificate Services (AD CS) and an enterprise certification authority (CA) to deploy these server authentication certificates, you can duplicate and then use the Web Server certificate template. This certificate template uses **Supplied in the request** for the certificate subject name, which means that you can provide the FQDN of the RMS connector name for the certificate subject name or subject alternative name when you request the certificate.
-> -   If you use a stand-alone CA or purchase this certificate from another company, see [Configuring Internet Server Certificates (IIS 7)](http://technet.microsoft.com/library/cc731977%28v=ws.10%29.aspx) in the [Web Server (IIS)](http://technet.microsoft.com/library/cc753433%28v=ws.10%29.aspx) documentation library on TechNet.
-> -   To configure IIS to use the certificate, see [Add a Binding to a Site (IIS 7)](http://technet.microsoft.com/library/cc731692.aspx) in the in the [Web Server (IIS)](http://technet.microsoft.com/library/cc753433%28v=ws.10%29.aspx) documentation library on TechNet.
+> -   Als u deze server-verificatiecertificaten implementeren met Active Directory Certificate Services (AD CS) en een enterprise-certificeringsinstantie (CA), kunt u dubbele en gebruik vervolgens de certificaatsjabloon webserver. Dit certificaatsjabloon gebruikt **opgegeven in de aanvraag** voor de naam van de certificaathouder, dus u kunt de FQDN-naam van de naam van de RMS-connector voor de naam van de certificaathouder of alternatieve onderwerpnaam opgeven wanneer u het certificaat aanvragen.
+> -   Als u een zelfstandige Certificeringsinstantie of aankoop van dit certificaat van een ander bedrijf, Zie [Internet servercertificaten configureren (IIS 7)](http://technet.microsoft.com/library/cc731977%28v=ws.10%29.aspx) in de [webserver (IIS)](http://technet.microsoft.com/library/cc753433%28v=ws.10%29.aspx) Documentatiebibliotheek op TechNet.
+> -   Zie het configureren van IIS om het certificaat te gebruiken [een Binding toevoegen aan een Site (IIS 7)](http://technet.microsoft.com/library/cc731692.aspx) in de in de [webserver (IIS)](http://technet.microsoft.com/library/cc753433%28v=ws.10%29.aspx) Documentatiebibliotheek op TechNet.
 
-## <a name="BKMK_ConfiguringWebProxy"></a>Configuring the RMS connector for a web proxy server
-If your connector servers are installed in a network that does not have direct Internet connectivity and requires manual configuration of a web proxy server for outbound Internet access, you must configure the registry on these servers for the RMS connector.
+## <a name="BKMK_ConfiguringWebProxy"></a>De RMS-connector voor een webserver proxy configureren
+Als de connector-servers in een netwerk dat geen directe verbinding met Internet en handmatige configuratie van een web proxy-server voor uitgaande internettoegang vereist zijn geïnstalleerd, moet u het register op deze servers voor de RMS-connector configureren.
 
-#### To configure the RMS connector to use a web proxy server
+#### De RMS-connector voor gebruik van een web proxy-server configureren
 
-1.  On each server running the RMS connector, open a registry editor, such as Regedit.
+1.  Open op elke server waarop de RMS-connector wordt uitgevoerd, een register-editor, zoals Regedit.
 
-2.  Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AADRM\Connector**
+2.  Ga naar **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AADRM\Connector**
 
-3.  Add the string value of **ProxyAddress** and then set the Data for this value to be **http://&lt;MyProxyDomainOrIPaddress&gt;:&lt;MyProxyPort&gt;**
+3.  Voeg de tekenreekswaarde van **ProxyAddress** en stelt u de gegevens voor deze waarde moet **http://&lt;MyProxyDomainOrIPaddress&gt;:&lt;MyProxyPort&gt;**
 
-    For example: **http://proxyserver.contoso.com:8080**
+    Bijvoorbeeld: **http://proxyserver.contoso.com:8080**
 
-4.  Close the registry editor, and then restart the server or perform an IISReset command to restart IIS.
+4.  Sluit de Register-editor en start de server of een opdracht IISReset IIS opnieuw uitvoeren.
 
-## <a name="BKMK_InstallingStandaloneTool"></a>Installing the RMS connector administration tool on administrative computers
-You can run the RMS connector administration tool from a computer that does not have the RMS connector installed, if that computer meets the following requirements:
+## <a name="BKMK_InstallingStandaloneTool"></a>Het beheerprogramma voor RMS-connector installeren op administratieve computers
+U kunt het beheerprogramma voor RMS-connector uitvoeren op een computer waarop geen de RMS-connector is geïnstalleerd, als deze computer voldoet aan de volgende:
 
--   A physical or virtual computer running Windows Server 2012 or Windows Server 2012 R2 (all editions), Windows Server 2008 R2 or Windows Server 2008 R2 Service Pack 1 (all editions), Windows 8.1, Windows 8, or Windows 7.
+-   Een fysieke of virtuele computer met Windows Server 2012 of Windows Server 2012 R2 (alle edities), Windows Server 2008 R2 of Windows Server 2008 R2 Service Pack 1 (alle edities), Windows 8.1, Windows 8 of Windows 7.
 
--   At least 1 GB of RAM.
+-   Ten minste 1 GB RAM.
 
--   A minimum of 64 GB of disk space.
+-   Een minimum van 64 GB schijfruimte.
 
--   At least one network interface.
+-   Ten minste één netwerkinterface.
 
--   Access to the Internet via a firewall (or web proxy).
+-   Toegang tot het Internet via een firewall (of webproxy).
 
-To install the RMS connector administration tool, run the following files:
+Om het beheerprogramma voor RMS-connector hebt geïnstalleerd, voert u de volgende bestanden:
 
--   For a 32-bit computer: RMSConnectorAdminToolSetup_x86.exe
+-   Voor een 32-bits-computer: RMSConnectorAdminToolSetup_x86.exe
 
--   For a 64-bit computer: RMSConnectorSetup.exe
+-   Voor een 64-bits-computer: RMSConnectorSetup.exe
 
-If you haven’t already downloaded these files, you can do so from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=314106).
+Als u al deze bestanden nog niet hebt gedownload, kunt u dit doen in de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=314106).
 
-## <a name="ConfiguringServers"></a>Configuring servers to use the RMS connector
-After you have installed and configured the RMS connector, you are ready to configure your on-premises servers that will use Rights Management and connect to Azure RMS by using the connector. This means configuring the following servers:
+## <a name="ConfiguringServers"></a>Servers gebruik van de connector RMS configureren
+Nadat u hebt geïnstalleerd en de RMS-connector geconfigureerd, bent u klaar om uw lokale servers die Rights Management gebruiken en via de connector verbinding maken met Azure RMS te configureren. Dit betekent dat de volgende servers configureren:
 
--   For Exchange 2013: Client access servers and mailbox servers
+-   Voor Exchange 2013: Client-servers en Postvak servers
 
--   For Exchange 2010: Client access servers and hub transport servers
+-   Voor Exchange 2010: Client-servers en hub transport-servers
 
--   For SharePoint: Front-end SharePoint webservers, including those hosting the Central Administration server
+-   Voor SharePoint: Front-end SharePoint webservers, met inbegrip van die als host fungeert voor de Centraal beheerserver
 
--   For File Classification Infrastructure: Windows Server computers that have installed File Resource Manager
+-   Voor bestand classificatie infrastructuur: Windows Server-computers waarop bestand Resource Manager is geïnstalleerd
 
-This configuration requires registry settings. To do this, you have two options:
+Deze configuratie vereist registerinstellingen. Hiervoor hebt u twee opties:
 
-|Configuration option|Advantages|Disadvantages|
-|------------------------|--------------|-----------------|
-|Automatically by using the server configuration tool for Microsoft RMS connector|No direct editing of the registry. This is automated for you by using a script.<br /><br />No need to run a Windows PowerShell cmdlet to obtain your Microsoft RMS URL.<br /><br />The prerequisites are automatically checked for you (but not automatically remediated) if you run it locally.|When you run the tool, you must make a connection to a server that is already running the RMS connector.|
-|Manually by editing the registry|No connectivity to a server running the RMS connector is required.|More administrative overheads that are error-prone.<br /><br />You must obtain your Microsoft RMS URL, which requires you to run a Windows PowerShell command.<br /><br />You must always make all the prerequisites checks yourself.|
+|Configuratieoptie|Voordelen|Nadelen|
+|---------------------|-------------|-----------|
+|Automatisch met behulp van de server configuration tool voor Microsoft RMS-connector|Er is geen directe bewerken van het register. Dit wordt automatisch voor u met behulp van een script.<br /><br />Uitvoeren van een Windows PowerShell-cmdlet om te achterhalen van uw Microsoft RMS-URL is niet nodig.<br /><br />De vereiste onderdelen worden automatisch voor u dit selectievakje is ingeschakeld (maar niet automatisch opgelost) als u lokaal uitvoeren.|Wanneer u het programma uitvoert, moet u een verbinding met een server waarop al de RMS-connector wordt uitgevoerd.|
+|Handmatig door het register bewerken|Er is geen verbinding met een server met de RMS-connector is vereist.|Meer administratieve overhead die fout gevoelig zijn.<br /><br />U moet uw Microsoft RMS-URL, waarvoor u een Windows PowerShell-opdracht wordt uitgevoerd.<br /><br />U moet altijd zelf alle vereisten controles maken.|
 > [!IMPORTANT]
-> In both cases, you must manually install any prerequisites and configure Exchange, SharePoint, and File Classification Infrastructure to use Rights Management.
+> In beide gevallen moet u handmatig alle vereiste software installeren en configureren van Exchange, SharePoint en bestand classificatie infrastructuur voor het gebruik van Rights Management.
 
-For most organizations, automatic configuration by using the server configuration tool for Microsoft RMS connector will be the better option, because it provides greater efficiency and reliability than manual configuration.
+Voor de meeste organisaties worden automatische configuratie met behulp van de server configuration tool voor Microsoft RMS-connector van de betere optie, omdat hiermee de grotere efficiëntie en betrouwbaarheid dan handmatig configureren.
 
-After making the configuration changes on these servers, you must restart them if they are running Exchange or SharePoint and previously configured to use AD RMS. There is no need to restart these servers if you are configuring them for Rights Management for the first time. You must always restart the file server that is configured to use File Classification Infrastructure after you make these configuration changes.
+Nadat u de wijzigingen in de configuratie op deze servers, moeten opnieuw als ze met Exchange of SharePoint en eerder geconfigureerd voor gebruik van AD RMS. Er is geen opnieuw moet worden deze servers als u deze voor Rights Management voor de eerste keer configureert. U moet altijd de bestandsserver die is geconfigureerd voor het bestand classificatie infrastructuur gebruiken nadat u deze wijzigingen in de configuratie opnieuw.
 
-#### How to use the server configuration tool for Microsoft RMS connector
+#### Het gebruik van de server configuration tool voor Microsoft RMS-connector
 
-1.  If you haven’t already downloaded the script for the server configuration tool for Microsoft RMS connector (GenConnectorConfig.ps1), download it from the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=314106).
+1.  Als u al het script voor de server configuration tool voor Microsoft RMS-connector (GenConnectorConfig.ps1) nog niet hebt gedownload, downloaden vanaf de [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=314106).
 
-2.  Save the GenConnectorConfig.ps1 file on the computer where you will run the tool. If you will run the tool locally, this must be the server that you want to configure to communicate with the RMS connector. Otherwise, you can save it on any computer.
+2.  Sla het bestand GenConnectorConfig.ps1 op de computer waarop u het programma wordt uitgevoerd. Als u het hulpprogramma lokaal wordt uitgevoerd, moet de server die u wilt configureren om te communiceren met de RMS-connector. U kunt deze anders opslaan op elke computer.
 
-3.  Decide how to run the tool:
+3.  Opgeven hoe u het hulpprogramma uitvoeren:
 
-    -   **Locally**: You can run the tool interactively, from the server to be configured to communicate with the RMS connector. This is useful for a one-off configuration, such as a testing environment.
+    -   **Lokaal**: U kunt het hulpprogramma interactief uitvoeren van de server worden geconfigureerd om te communiceren met de RMS-connector. Dit is handig voor een eenmalige configuratie, zoals een testomgeving.
 
-    -   **Software deployment**: You can run the tool to produce registry files that you then deploy to one or more relevant servers by using a systems management application that supports software deployment, such as System Center Configuration Manager.
+    -   **Software-implementatie**: U kunt het hulpprogramma Register-bestanden die u vervolgens op een of meer relevante servers implementeren met behulp van een toepassing voor systemen die software-implementatie, zoals System Center Configuration Manager ondersteunt produceren uitvoeren.
 
-    -   **Group Policy**: You can run the tool to produce a script that you give to an administrator who can create Group Policy objects for the servers to be configured. This script creates one Group Policy object for each server type to be configured, which the administrator can then assign to the relevant servers.
+    -   **Groepsbeleid**: U kunt het hulpprogramma te maken van een script dat u een beheerder die Groepsbeleid objecten voor de servers die moeten worden geconfigureerd, kan maken geven uitvoeren. Dit script maakt een Group Policy object voor elk servertype te configureren, die de beheerder aan de relevante servers toewijzen kunt.
 
     > [!NOTE]
-    > This tool configures the servers that will communicate with the RMS connector and that are listed at the beginning of this section. Do not run this tool on the servers that run the RMS connector.
+    > Dit hulpprogramma configureert u de servers die communiceert met de RMS-connector en die aan het begin van deze sectie worden weergegeven. Dit hulpprogramma niet uitgevoerd op de servers waarop de RMS-connector wordt uitgevoerd.
 
-4.  Start Windows PowerShell with the **Run as an administrator** option, and use the Get-help command to read instructions how to the use the tool for your chosen configuration method:
+4.  Start van Windows PowerShell met de **uitvoeren als beheerder** de optie en gebruikt u de opdracht Get-help instructies lezen hoe u het gebruik van het hulpprogramma voor de methode gekozen configuratie:
 
     ```
     Get-help .\GenConnectorConfig.ps1 -detailed
     ```
 
-To run the script, you must enter the URL of the RMS connector for your organization. Enter the protocol prefix (HTTP:// or HTTPS://) and the name of the connector that you defined in DNS for the load balanced address of your connector. For example, https://connector.contoso.com. The tool then uses that URL to contact the servers running the RMS connector and obtain other parameters that are used to create the required configurations.
+Wanneer het programma wordt uitgevoerd, vraagt u de URL van de RMS-connector voor uw organisatie opgeven. Voer het voorvoegsel protocol (HTTP:// of HTTPS://) en de naam van de connector die u hebt gedefinieerd in de DNS voor de taakverdeling-adres van de connector. Bijvoorbeeld, https://connector.contoso.com. Het hulpprogramma vervolgens die URL maakt verbinding met de servers waarop de RMS-connector wordt uitgevoerd en andere parameters die worden gebruikt voor het maken van de vereiste configuraties verkrijgen.
 
 > [!IMPORTANT]
-> When you run this tool, make sure that you specify the name of the load-balanced RMS connector for your organization and not the name of a single server that runs the RMS connector service.
+> Als u dit programma uitvoert, moet u de naam van de connector RMS taakverdeling opgeven voor uw organisatie en niet de naam van één server waarop de RMS-connector-service wordt uitgevoerd.
 
-Use the following sections for specific information for each service type:
+Gebruik de volgende secties voor specifieke informatie voor elk servicetype:
 
 -   [Configuring an Exchange server to use the connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ExchangeServer)
 
@@ -330,204 +329,184 @@ Use the following sections for specific information for each service type:
 -   [Configuring a file server for File Classification Infrastructure to use the connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_FileServer)
 
 > [!NOTE]
-> After these servers are configured to use the connector, client applications that are installed locally on these servers might not work with RMS. When this happens, it is because the applications try to use the connector rather than use RMS directly, which is not supported.
+> Nadat deze servers zijn geconfigureerd voor gebruik van de connector, kan het zijn dat clienttoepassingen die lokaal zijn geïnstalleerd op deze servers niet werken met RMS. Wanneer dit gebeurt, is dit omdat de toepassingen probeert te gebruiken van de connector dan RMS rechtstreeks, wat niet wordt ondersteund gebruiken.
 > 
-> In addition, if Office 2010 is installed locally on an Exchange server, the client app’s IRM features might work from that computer after the server is configured to use the connector, but this is not supported.
+> Bovendien als Office 2010 lokaal op een Exchange-server is geïnstalleerd, IRM-functies van de client-app werkt mogelijk van die computer nadat de server is geconfigureerd voor gebruik van de connector, maar dit wordt niet ondersteund.
 > 
-> In both scenarios, you must install the client applications on separate computers that are not configured to use the connector. They will then correctly use RMS directly.
+> In beide gevallen moet u de clienttoepassingen installeren op afzonderlijke computers die niet zijn geconfigureerd voor gebruik van de connector. Deze wordt vervolgens correct RMS rechtstreeks gebruiken.
 
-### <a name="BKMK_ExchangeServer"></a>Configuring an Exchange server to use the connector
-The following Exchange roles communicate with the RMS connector:
+### <a name="BKMK_ExchangeServer"></a>Configureren van een Exchange-server voor gebruik van de connector
+De volgende Exchange-rollen communiceren met de RMS-connector:
 
--   For Exchange 2013: Client access server and mailbox server
+-   Voor Exchange 2013: Client- en postvakserver
 
--   For Exchange 2010: Client access server and hub transport server
+-   Voor Exchange 2010: Client- en hub Transportserver
 
-To use the RMS connector, these servers running Exchange must be running one of the following software versions:
+Als u wilt de RMS-connector gebruiken, moeten u deze servers met Exchange uitgevoerd een van de volgende versies van software:
 
--   Exchange Server 2013 with Exchange 2013 Cumulative Update 3
+-   Exchange Server 2013 met Exchange 2013 cumulatieve Update 3
 
--   Exchange Server 2010 with Exchange 2010 Service Pack 3 Rollup Update 6
+-   Exchange Server 2010 met Exchange 2010 Service Pack 3 Rollup Update 6
 
-You will also need to install on these servers, a version of the RMS client that includes support for RMS Cryptographic Mode 2. The minimum version that is supported in Windows Server 2008 is included in the hotfix that you can download from [RSA key length is increased to 2048 bits for AD RMS in Windows Server 2008 R2 and in Windows Server 2008](http://support.microsoft.com/kb/2627272). The minimum version for Windows Server 2008 R2 can be downloaded from [RSA key length is increased to 2048 bits for AD RMS in Windows 7 or in Windows Server 2008 R2](http://support.microsoft.com/kb/2627273). Windows Server 2012 and Windows Server 2012 R2 natively support Cryptographic Mode 2.
+U moet ook installeren op deze servers, een versie van de RMS-client die ondersteuning biedt voor RMS cryptografische modus 2. De minimale versie die wordt ondersteund in Windows Server 2008 is opgenomen in de hotfix die u van downloaden kunt [lengte van de RSA-sleutel wordt verhoogd tot 2048 bits voor AD RMS in Windows Server 2008 R2 en in Windows Server 2008](http://support.microsoft.com/kb/2627272). De minimale versie voor Windows Server 2008 R2 kan worden gedownload van [lengte van de RSA-sleutel wordt verhoogd tot 2048 bits voor AD RMS in Windows 7 of Windows Server 2008 R2](http://support.microsoft.com/kb/2627273). Windows Server 2012 en Windows Server 2012 R2 ondersteuning native voor cryptografische modus 2.
 
 > [!IMPORTANT]
-> If these versions or later versions of Exchange and the RMS client are not installed, you will not be able to configure Exchange to use the connector. Check that these versions are installed before you continue.
+> Als deze versies of nieuwere versies van Exchange en de RMS-client niet worden geïnstalleerd, wordt het niet mogelijk Exchange connector gebruiken voor het configureren. Controleer of deze versies zijn geïnstalleerd voordat u doorgaat.
 
-##### To configure Exchange servers to use the connector
+##### Exchange-servers voor gebruik van de connector configureren
 
-1.  On the Exchange server roles that communicate with the RMS connector, do one of the following:
+1.  Voer op de Exchange server-functies die met de RMS-connector communiceren, een van de volgende:
 
-    -   Run the server configuration tool for Microsoft RMS connector. For more information, see [How to use the server configuration tool for Microsoft RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_HowToRunTheTool) in this topic.
+    -   De server configuration tool voor Microsoft RMS-connector uitvoeren. Zie voor meer informatie [How to use the server configuration tool for Microsoft RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_HowToRunTheTool) in dit onderwerp.
 
-        For example, to run the tool locally to configure a server running Exchange 2013:
+    -   Handmatige register wijzigingen aanbrengen met behulp van de tabellen in de volgende secties handmatig toe te voegen registerinstellingen op de servers.
 
-        ```
-        .\GenConnectorConfig.ps1 -ConnectorUri https://rmsconnector.contoso.com -SetExchange2013
-        ```
+2.  De functie IRM Exchange inschakelen. Zie voor meer informatie [Information Rights Management Procedures](https://technet.microsoft.com/library/dd351212%28v=exchg.150%29.aspx) in de Exchange-bibliotheek.
 
-    -   Make manual registry edits by using the tables in the following sections to manually add registry settings on the servers.
+De tabellen in de volgende secties alleen gebruiken als u handmatig wilt toevoegen of Controleer registerinstellingen op deze servers de servers gebruik van de RMS-connector te configureren. Instructies voor het wanneer u deze tabellen gebruiken:
 
-2.  Enable IRM functionality in Exchange. For more information, see [Information Rights Management Procedures](https://technet.microsoft.com/library/dd351212%28v=exchg.150%29.aspx) in the Exchange library.
+-   *MicrosoftRMSURL* van uw organisatie Microsoft RMS-service-URL is. Deze waarde zoeken:
 
-Use the tables in the following sections only if you want to manually add or check registry settings on these servers, which configures the servers to use the RMS connector. Instructions for when you use these tables:
+    1.  Voer de [Get-AadrmConfiguration](http://msdn.microsoft.com/library/windowsazure/dn629410.aspx) cmdlet voor Azure RMS. Als u hebt al de Windows PowerShell-module voor Azure RMS geïnstalleerd, Zie [Installatie van Windows PowerShell voor Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
 
--   *MicrosoftRMSURL* is your organization’s Microsoft RMS service URL. To find this value:
+    2.  Uit de uitvoer identificeren de **LicensingIntranetDistributionPointUrl** waarde.
 
-    1.  Run the [Get-AadrmConfiguration](http://msdn.microsoft.com/library/windowsazure/dn629410.aspx) cmdlet for Azure RMS. If you haven’t already installed the Windows PowerShell module for Azure RMS, see [Installing Windows PowerShell for Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
+        Bijvoorbeeld: **LicensingIntranetDistributionPointUrl: https://5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com/_wmcs/licensing**
 
-    2.  From the output, identify the **LicensingIntranetDistributionPointUrl** value.
+    3.  Verwijderen van de waarde **_wmcs/licensing** van deze tekenreeks. De resterende tekenreeks is de URL van uw Microsoft RMS. De URL van Microsoft RMS zouden in ons voorbeeld de volgende waarde:
 
-        For example: **LicensingIntranetDistributionPointUrl   : https://5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com/_wmcs/licensing**
+        **https://5c6bb73b-1038-4eec-863d-49bded473437.RMS.na.aadrm.com**
 
-    3.  From the value, remove **/_wmcs/licensing** from this string. The remaining string is your Microsoft RMS URL. In our example, the Microsoft RMS URL would be the following value:
+-   *ConnectorFQDN* is de load balancing-naam die u in DNS voor de connector gedefinieerd. Bijvoorbeeld, **rmsconnector.contoso.com**.
 
-        **https://5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com**
+-   De HTTPS-voorvoegsel voor de URL van de connector te gebruiken als u de connector voor gebruik van HTTPS om te communiceren met uw lokale servers hebt geconfigureerd. Zie voor meer informatie de [Configuring the RMS connector to use HTTPS](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringHTTPS) in dit onderwerp. De URL's van Microsoft RMS altijd gebruiken HTTPS.
 
--   *ConnectorFQDN* is the load-balancing name that you defined in DNS for the connector. For example, **rmsconnector.contoso.com**.
+#### Tabel voor Exchange 2013 registerinstellingen
 
--   Use the HTTPS prefix for the connector URL if you have configured the connector to use HTTPS to communicate with your on-premises servers. For more information, see the [Configuring the RMS connector to use HTTPS](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringHTTPS) section in this topic. The Microsoft RMS URLs always use HTTPS.
+|Register-pad|Type|Waarde|Gegevens|
+|----------------|--------|----------|------------|
+|HKEY_LOCAL_MACHINE\Software\Microsoft\MSDRM\ServiceLocation\Activation|Reg_SZ|Standaardwaarde|https://*_wmcs-MicrosoftRMSURL-certificering*|
+|HKEY_LOCAL_MACHINE\Software\Microsoft\MSDRM\ServiceLocation\EnterprisePublishing|Reg_SZ|Standaardwaarde|https://MicrosoftRMSURL/_wmcs/licensing|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ExchangeServer\v15\IRM\CertificationServerRedirection|Reg_SZ|https://*MicrosoftRMSURL*|Een van de volgende, afhankelijk van of u via HTTP- of HTTPS van de Exchange-server de RMS-connector:<br /><br />-   http://*ConnectorFQDN*<br />-   https://*ConnectorFQDN*|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ExchangeServer\v15\IRM\LicenseServerRedirection|Reg_SZ|https://*MicrosoftRMSURL*|Een van de volgende, afhankelijk van of u via HTTP- of HTTPS van de Exchange-server de RMS-connector:<br /><br />-   http://*ConnectorFQDN*<br />-   https://*ConnectorFQDN*|
 
-#### Table for Exchange 2013 registry settings
+#### Tabel voor Exchange 2010 registerinstellingen
 
-|Registry path|Type|Value|Data|
-|-----------------|--------|---------|--------|
-|HKEY_LOCAL_MACHINE\Software\Microsoft\MSDRM\ServiceLocation\Activation|Reg_SZ|Default|https://*MicrosoftRMSURL/_wmcs/certification*|
-|HKEY_LOCAL_MACHINE\Software\Microsoft\MSDRM\ServiceLocation\EnterprisePublishing|Reg_SZ|Default|https://MicrosoftRMSURL/_wmcs/Licensing|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ExchangeServer\v15\IRM\CertificationServerRedirection|Reg_SZ|https://*MicrosoftRMSURL*|One of the following, depending on whether you are using HTTP or HTTPS from your Exchange server to the RMS connector:<br /><br />http://*ConnectorFQDN*<br /><br />https://*ConnectorFQDN*|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ExchangeServer\v15\IRM\LicenseServerRedirection|Reg_SZ|https://*MicrosoftRMSURL*|One of the following, depending on whether you are using HTTP or HTTPS from your Exchange server to the RMS connector:<br /><br />http://*ConnectorFQDN*<br /><br />https://*ConnectorFQDN*|
+|Register-pad|Type|Waarde|Gegevens|
+|----------------|--------|----------|------------|
+|HKEY_LOCAL_MACHINE\Software\Microsoft\MSDRM\ServiceLocation\Activation|Reg_SZ|Standaardwaarde|https://*MicrosoftRMSURL*_wmcs/certification|
+|HKEY_LOCAL_MACHINE\Software\Microsoft\MSDRM\ServiceLocation\EnterprisePublishing|Reg_SZ|Standaardwaarde|https://*MicrosoftRMSURL*_wmcs/Licensing|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ExchangeServer\v14\IRM\CertificationServerRedirection|Reg_SZ|https://*MicrosoftRMSURL*|Een van de volgende, afhankelijk van of u via HTTP- of HTTPS van de Exchange-server de RMS-connector:<br /><br />-   http://*ConnectorFQDN*<br />-   https://*ConnectorFQDN*|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ExchangeServer\v14\IRM\LicenseServerRedirection|Reg_SZ|https://*MicrosoftRMSURL*|Een van de volgende, afhankelijk van of u via HTTP- of HTTPS van de Exchange-server de RMS-connector:<br /><br />-   http://*ConnectorFQDN*<br />-   https://*ConnectorFQDN*|
 
-#### Table for Exchange 2010 registry settings
+### <a name="BKMK_ConfiguringSharePoint"></a>Een SharePoint-server voor het gebruik van de connector configureren
+De volgende SharePoint-rollen communiceren met de RMS-connector:
 
-|Registry path|Type|Value|Data|
-|-----------------|--------|---------|--------|
-|HKEY_LOCAL_MACHINE\Software\Microsoft\MSDRM\ServiceLocation\Activation|Reg_SZ|Default|https://*MicrosoftRMSURL*/_wmcs/certification|
-|HKEY_LOCAL_MACHINE\Software\Microsoft\MSDRM\ServiceLocation\EnterprisePublishing|Reg_SZ|Default|https://*MicrosoftRMSURL*/_wmcs/Licensing|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ExchangeServer\v14\IRM\CertificationServerRedirection|Reg_SZ|https://*MicrosoftRMSURL*|One of the following, depending on whether you are using HTTP or HTTPS from your Exchange server to the RMS connector:<br /><br />http://*ConnectorFQDN*<br /><br />https://*ConnectorFQDN*|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ExchangeServer\v14\IRM\LicenseServerRedirection|Reg_SZ|https://*MicrosoftRMSURL*|One of the following, depending on whether you are using HTTP or HTTPS from your Exchange server to the RMS connector:<br /><br />http://*ConnectorFQDN*<br /><br />https://*ConnectorFQDN*|
+-   Front-end SharePoint webservers, met inbegrip van die als host fungeert voor de Centraal beheerserver
 
-### <a name="BKMK_ConfiguringSharePoint"></a>Configuring a SharePoint server to use the connector
-The following SharePoint roles communicate with the RMS connector:
+Als u wilt de RMS-connector gebruiken, moeten u deze servers met SharePoint uitgevoerd een van de volgende versies van software:
 
--   Front-end SharePoint webservers, including those hosting the Central Administration server
+-   SharePoint Server 2013
 
-To use the RMS connector, these servers running SharePoint must be running one of the following software versions:
+-   SharePoint Server 2010
 
--   SharePoint Server 2013
-
--   SharePoint Server 2010
-
-A SharePoint 2013 server must also be running a version of the MSIPC client 2.1 that is supported with the RMS connector. To make sure that you have a supported version, download the latest client from the [Microsoft Download Center](http://www.microsoft.com/download/details.aspx?id=38396).
+Een SharePoint 2013-server moet ook een versie van de client MSIPC 2.1 die from1.0.622.34 via 1.0.10907.0 wordt uitgevoerd.
 
 > [!WARNING]
-> There are multiple versions of the MSIPC 2.1 client, so make sure that you have version 1.0.2004.0 or later.
+> Er zijn meerdere versies van de MSIPC 2.1-client, dus zorg ervoor dat een versie waarnaar wordt verwezen in dit artikel te installeren.
 > 
-> You can verify the client version by checking the version number of MSIPC.dll, which is located in **\Program Files\Active Directory Rights Management Services Client 2.1**. The properties dialog box  shows the version number of the MSIPC 2.1 client.
+> U kunt de clientversie controleren met het versienummer van MSIPC.dll, dat zich bevindt in **\Program Files\Active Directory Rights Management Services Client 2.1**. Het eigenschappendialoogvenster bevat het versienummer van de MSIPC 2.1-client.
 
-These servers running SharePoint 2010 must have installed a version of the MSDRM client that includes support for RMS Cryptographic Mode 2. The minimum version that is supported in Windows Server 2008 is included in the hotfix that you can download from [RSA key length is increased to 2048 bits for AD RMS in Windows Server 2008 R2 and in Windows Server 2008](http://support.microsoft.com/kb/2627272), and the minimum version for Windows Server 2008 R2 can be downloaded from [RSA key length is increased to 2048 bits for AD RMS in Windows 7 or in Windows Server 2008 R2](http://support.microsoft.com/kb/2627273). Windows Server 2012 and Windows Server 2012 R2 natively support Cryptographic Mode 2.
+Deze servers SharePoint 2010 uitvoeren, moeten een versie van de client MSDRM die ondersteuning biedt voor RMS cryptografische modus 2 hebt geïnstalleerd. De minimale versie die wordt ondersteund in Windows Server 2008 is opgenomen in de hotfix die u van downloaden kunt [lengte van de RSA-sleutel wordt verhoogd tot 2048 bits voor AD RMS in Windows Server 2008 R2 en in Windows Server 2008](http://support.microsoft.com/kb/2627272), en de minimale versie voor Windows Server 2008 R2 kan worden gedownload van [lengte van de RSA-sleutel wordt verhoogd tot 2048 bits voor AD RMS in Windows 7 of Windows Server 2008 R2](http://support.microsoft.com/kb/2627273). Windows Server 2012 en Windows Server 2012 R2 ondersteuning native voor cryptografische modus 2.
 
-##### To configure SharePoint servers to use the connector
+##### SharePoint-servers voor gebruik van de connector configureren
 
-1.  On the SharePoint servers that communicate with the RMS connector, do one of the following:
+1.  Voer een van de volgende op de SharePoint-servers die met de RMS-connector communiceren:
 
-    -   Run the server configuration tool for Microsoft RMS connector. For more information, see [How to use the server configuration tool for Microsoft RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_HowToRunTheTool) in this topic.
+    -   De server configuration tool voor Microsoft RMS-connector uitvoeren. Zie voor meer informatie [How to use the server configuration tool for Microsoft RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_HowToRunTheTool) in dit onderwerp.
 
-        For example, to run the tool locally to configure a server running SharePoint 2013:
+    -   Als u SharePoint 2013 gebruikt, moet u wijzigingen in het register handmatig met behulp van de tabel in de volgende sectie handmatig toe te voegen registerinstellingen op de servers.
 
-        ```
-        .\GenConnectorConfig.ps1 -ConnectorUri https://rmsconnector.contoso.com -SetSharePoint2013
-        ```
+2.  Schakel IRM in SharePoint. Zie voor meer informatie [configureren Information Rights Management (SharePoint Server 2010)](https://technet.microsoft.com/library/hh545607%28v=office.14%29.aspx) in de SharePoint-documentbibliotheek.
 
-    -   If you are using SharePoint 2013, make manual registry edits by using the table in the following section to manually add registry settings on the servers.
-
-2.  Enable IRM in SharePoint. For more information, see [Configure Information Rights Management (SharePoint Server 2010)](https://technet.microsoft.com/library/hh545607%28v=office.14%29.aspx) in the SharePoint library.
-
-    When you follow these instructions, you must configure SharePoint to use the connector by specifying **Use this RMS server**, and then enter the load-balancing connector URL that you configured. Enter the protocol prefix (HTTP:// or HTTPS://) and the name of the connector that you defined in DNS for the load balanced address of your connector. For example, if your connector name is  https://connector.contoso.com, your configuration will look like the following picture:
+    Als u deze instructies volgen, moet u SharePoint voor gebruik van de connector door te geven **Deze RMS-server**, en voer vervolgens de load balancing-connector URL die u hebt geconfigureerd. Voer het voorvoegsel protocol (HTTP:// of HTTPS://) en de naam van de connector die u hebt gedefinieerd in de DNS voor de taakverdeling-adres van de connector. Bijvoorbeeld als uw connectornaam https://connector.contoso.com, bekijken uw configuratie in de volgende afbeelding:
 
     ![](../Image/AzRMS_SharePointConnector.png)
 
-    After IRM is enabled on a SharePoint farm, you can enable IRM on individual libraries by using the **Information Rights Management** option on the **Library Settings** page for each of the libraries.
+    Nadat u IRM op een SharePoint-farm is ingeschakeld, kunt u IRM op afzonderlijke bibliotheken inschakelen met behulp van de **Information Rights Management** optie op de **Bibliotheekinstellingen** pagina voor elk van de bibliotheken.
 
     > [!IMPORTANT]
-    > For SharePoint to access RMS by using the connector, you must authorize the corresponding accounts in the RMS connector administration tool. If you haven’t already done this, see [Authorizing servers to use the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#AuthorizingServers) in this topic.
+    > Voor SharePoint voor toegang tot RMS met behulp van de connector, moet u de bijbehorende accounts in het beheerprogramma voor RMS-connector machtigen. Als u nog niet hebt gedaan, raadpleegt u [Authorizing servers to use the RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#AuthorizingServers) in dit onderwerp.
 
-Use the table in the following section only if you want to manually add or check registry settings on a server that runs SharePoint 2013.
+De tabel in de volgende sectie alleen gebruiken als u handmatig wilt toevoegen of Controleer registerinstellingen op een server met SharePoint 2013.
 
-#### Table for SharePoint 2013 registry settings
-Instructions for when you use this table:
+#### Tabel voor SharePoint 2013 registerinstellingen
+Instructies voor het wanneer u deze tabel gebruiken:
 
--   *MicrosoftRMSURL* is your organization’s Microsoft RMS service URL. To find this value:
+-   *MicrosoftRMSURL* van uw organisatie Microsoft RMS-service-URL is. Deze waarde zoeken:
 
-    1.  Run the [Get-AadrmConfiguration](http://msdn.microsoft.com/library/windowsazure/dn629410.aspx) cmdlet for Azure RMS. If you haven’t already installed the Windows PowerShell module for Azure RMS, see [Installing Windows PowerShell for Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
+    1.  Voer de [Get-AadrmConfiguration](http://msdn.microsoft.com/library/windowsazure/dn629410.aspx) cmdlet voor Azure RMS. Als u hebt al de Windows PowerShell-module voor Azure RMS geïnstalleerd, Zie [Installatie van Windows PowerShell voor Azure Rights Management](../Topic/Installing_Windows_PowerShell_for_Azure_Rights_Management.md).
 
-    2.  From the output, identify the **LicensingIntranetDistributionPointUrl** value.
+    2.  Uit de uitvoer identificeren de **LicensingIntranetDistributionPointUrl** waarde.
 
-        For example: **LicensingIntranetDistributionPointUrl   : https://5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com/_wmcs/licensing**
+        Bijvoorbeeld: **LicensingIntranetDistributionPointUrl: https://5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com/_wmcs/licensing**
 
-    3.  From the value, remove **/_wmcs/licensing** from this string. The remaining string is your Microsoft RMS URL. In our example, the Microsoft RMS URL would be the following value:
+    3.  Verwijderen van de waarde **_wmcs/licensing** van deze tekenreeks. De resterende tekenreeks is de URL van uw Microsoft RMS. De URL van Microsoft RMS zouden in ons voorbeeld de volgende waarde:
 
-        **https://5c6bb73b-1038-4eec-863d-49bded473437.rms.na.aadrm.com**
+        **https://5c6bb73b-1038-4eec-863d-49bded473437.RMS.na.aadrm.com**
 
--   *ConnectorFQDN* is the load-balancing name that you defined in DNS for the connector. For example, **rmsconnector.contoso.com**.
+-   *ConnectorFQDN* is de load balancing-naam die u in DNS voor de connector gedefinieerd. Bijvoorbeeld, **rmsconnector.contoso.com**.
 
--   Use the HTTPS prefix for the connector URL if you have configured the connector to use HTTPS to communicate with your on-premises servers. For more information, see the [Configuring the RMS connector to use HTTPS](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringHTTPS) section in this topic. The Microsoft RMS URLs always use HTTPS.
+-   De HTTPS-voorvoegsel voor de URL van de connector te gebruiken als u de connector voor gebruik van HTTPS om te communiceren met uw lokale servers hebt geconfigureerd. Zie voor meer informatie de [Configuring the RMS connector to use HTTPS](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringHTTPS) in dit onderwerp. De URL's van Microsoft RMS altijd gebruiken HTTPS.
 
-|Registry path|Type|Value|Data|
-|-----------------|--------|---------|--------|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSIPC\ServiceLocation\LicensingRedirection|Reg_SZ|https://*MicrosoftRMSURL*/_wmcs/licensing|One of the following, depending on whether you are using HTTP or HTTPS from your SharePoint server to the RMS connector:<br /><br />http://*ConnectorFQDN*/_wmcs/licensing<br /><br />https://*ConnectorFQDN*/_wmcs/licensing|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSIPC\ServiceLocation\EnterpriseCertification|Reg_SZ|Default|One of the following, depending on whether you are using HTTP or HTTPS from your SharePoint server to the RMS connector:<br /><br />http://*ConnectorFQDN*/_wmcs/certification<br /><br />https://*ConnectorFQDN*/_wmcs/certification|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSIPC\ServiceLocation\EnterprisePublishing|Reg_SZ|Default|One of the following, depending on whether you are using HTTP or HTTPS from your SharePoint server to the RMS connector:<br /><br />http://*ConnectorFQDN*/_wmcs/licensing<br /><br />https://*ConnectorFQDN*/_wmcs/licensing|
+|Register-pad|Type|Waarde|Gegevens|
+|----------------|--------|----------|------------|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSIPC\ServiceLocation\LicensingRedirection|Reg_SZ|https://*MicrosoftRMSURL*_wmcs/licensing|Een van de volgende, afhankelijk van of u via HTTP- of HTTPS van uw SharePoint-server de RMS-connector:<br /><br />-   http://*ConnectorFQDN*_wmcs/licensing<br />-   https://*ConnectorFQDN*_wmcs/licensing|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSIPC\ServiceLocation\EnterpriseCertification|Reg_SZ|Standaardwaarde|Een van de volgende, afhankelijk van of u via HTTP- of HTTPS van uw SharePoint-server de RMS-connector:<br /><br />-   http://*ConnectorFQDN*_wmcs/certification<br />-   https://*ConnectorFQDN*_wmcs/certification|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSIPC\ServiceLocation\EnterprisePublishing|Reg_SZ|Standaardwaarde|Een van de volgende, afhankelijk van of u via HTTP- of HTTPS van uw SharePoint-server de RMS-connector:<br /><br />-   http://*ConnectorFQDN*_wmcs/licensing<br />-   https://*ConnectorFQDN*_wmcs/licensing|
 
-### <a name="BKMK_FileServer"></a>Configuring a file server for File Classification Infrastructure to use the connector
-To use the RMS connector and File Classification Infrastructure to protect Office documents, the file server must be running one of the following operating systems:
+### <a name="BKMK_FileServer"></a>Een bestandsserver voor bestand classificatie infrastructuur gebruik van de connector configureren
+Als u de RMS-connector en bestand classificatie infrastructuur Office-documenten beveiligen, moet u de bestandsserver uitgevoerd een van de volgende besturingssystemen:
 
--   Windows Server 2012 R2
+-   Windows Server 2012 R2
 
--   Windows Server 2012
+-   Windows Server 2012
 
-##### To configure file servers to use the connector
+##### Bestandsservers voor gebruik van de connector configureren
 
-1.  On the file servers configured for File Classification Infrastructure and that will communicate with the RMS connector, do one of the following:
+1.  Voer een van de volgende opties op het bestand servers die zijn geconfigureerd voor het bestand classificatie infrastructuur en die met de RMS-connector communiceert:
 
-    -   Run the server configuration tool for Microsoft RMS connector. For more information, see [How to use the server configuration tool for Microsoft RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_HowToRunTheTool) in this topic.
+    -   De server configuration tool voor Microsoft RMS-connector uitvoeren. Zie voor meer informatie [How to use the server configuration tool for Microsoft RMS connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_HowToRunTheTool) in dit onderwerp.
 
-        For example, to run the tool locally to configure a file server running FCI:
+    -   Handmatige register wijzigingen aanbrengen op basis van de tabel in de volgende sectie handmatig toe te voegen registerinstellingen op de servers.
 
-        ```
-        .\GenConnectorConfig.ps1 -ConnectorUri https://rmsconnector.contoso.com -SetFCI2012
-        ```
+2.  Classificatieregels en bestandsbeheertaken beveiligen van documenten met RMS-versleuteling maken en geef vervolgens een sjabloon RMS automatisch RMS beleid toepassen. Zie voor meer informatie [Bestandsserverbronbeheer overzicht](http://technet.microsoft.com/library/hh831701.aspx) in de bibliotheek voor Windows Server-documentatie.
 
-    -   Make manual registry edits by using the table in the following section to manually add registry settings on the servers.
+De tabel in de volgende sectie alleen gebruiken als u handmatig wilt toevoegen of Controleer registerinstellingen op een server die gebruikmaakt van de infrastructuur van de classificatie bestand beveiligen van documenten.
 
-2.  Create classification rules and file management tasks to protect documents with RMS Encryption, and then specify an RMS template to automatically apply RMS policies. For more information, see [File Server Resource Manager Overview](http://technet.microsoft.com/library/hh831701.aspx) in the Windows Server documentation library.
+#### Tabel voor bestandsserver en registerinstellingen bestand classificatie infrastructuur
+Instructies voor het wanneer u deze tabel gebruiken:
 
-Use the table in the following section only if you want to manually add or check registry settings on a file server that uses the File Classification Infrastructure to protect documents.
+-   *ConnectorFQDN* is de load balancing-naam die u in DNS voor de connector gedefinieerd. Bijvoorbeeld, **rmsconnector.contoso.com**.
 
-#### Table for file server and File Classification Infrastructure registry settings
-Instructions for when you use this table:
+-   De HTTPS-voorvoegsel voor de URL van de connector te gebruiken als u de connector voor gebruik van HTTPS om te communiceren met uw lokale servers hebt geconfigureerd. Zie voor meer informatie de [Configuring the RMS connector to use HTTPS](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringHTTPS) in dit onderwerp. De URL's van Microsoft RMS altijd gebruiken HTTPS.
 
--   *ConnectorFQDN* is the load-balancing name that you defined in DNS for the connector. For example, **rmsconnector.contoso.com**.
+|Register-pad|Type|Waarde|Gegevens|
+|----------------|--------|----------|------------|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSDRM\ServiceLocation\EnterprisePublishing|Reg_SZ|Standaardwaarde|http://*ConnectorFQDN*_wmcs/licensing|
+|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSDRM\ServiceLocation\Activation|Reg_SZ|Standaardwaarde|http://*ConnectorFQDN*_wmcs/certification|
 
--   Use the HTTPS prefix for the connector URL if you have configured the connector to use HTTPS to communicate with your on-premises servers. For more information, see the [Configuring the RMS connector to use HTTPS](../Topic/Deploying_the_Azure_Rights_Management_Connector.md#BKMK_ConfiguringHTTPS) section in this topic. The Microsoft RMS URLs always use HTTPS.
+## <a name="BKMK_NextSteps"></a>Volgende stappen
+De RMS-connector is geïnstalleerd en geconfigureerd en uw servers zijn geconfigureerd voor het gebruik, kunnen IT-beheerders en gebruikers worden beveiligd en e-mailbericht en documenten met behulp van Azure RMS in beslag neemt. Om dit toegankelijk maken voor gebruikers, de implementatie van de RMS sharing toepassing die een invoegtoepassing voor Office installeert en nieuwe met de rechtermuisknop opties worden toegevoegd aan bestand Explorer. Zie voor meer informatie de [delen toepassing Rights Management-beheerdershandleiding](http://technet.microsoft.com/library/%20dn339003%28v=ws.10%29.aspx).
 
-|Registry path|Type|Value|Data|
-|-----------------|--------|---------|--------|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSDRM\ServiceLocation\EnterprisePublishing|Reg_SZ|Default|http://*ConnectorFQDN*/_wmcs/licensing|
-|HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSDRM\ServiceLocation\Activation|Reg_SZ|Default|http://*ConnectorFQDN*/_wmcs/certification|
+Bovendien kunt u overwegen het volgende kunt u de RMS-connector en gebruik van uw organisatie van RMS bewaken:
 
-## <a name="BKMK_NextSteps"></a>Next steps
-Now that the RMS connector is installed and configured, and your servers are configured to use it, IT administrators and users can protect and consume email message and documents by using Azure RMS. To make this easy for users, deploy the RMS sharing application, which installs an add-on for Office and adds new right-click options to File Explorer. For more information, see the [Rights Management sharing application administrator guide](http://technet.microsoft.com/library/%20dn339003%28v=ws.10%29.aspx).
+-   Het ingebouwde **Microsoft Rights Management-connector** prestatiemeteritems
 
-In addition, you might consider the following to help you monitor the RMS connector and your organization’s usage of Azure RMS:
+-   [Logboekregistratie en analyseren van Azure Rights Management-gebruik](../Topic/Logging_and_Analyzing_Azure_Rights_Management_Usage.md)
 
--   The built-in **Microsoft Rights Management connector** performance counters.
+U kunt de [Azure Rights Management-implementatieschema](../Topic/Azure_Rights_Management_Deployment_Roadmap.md) om te controleren of er andere configuratiestappen die u kunt doen zijn voor de implementatie [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] gebruikers en beheerders. Als er geen andere configuratiestappen die u nodig hebt om te doen, Zie [Met behulp van Azure Rights Management](../Topic/Using_Azure_Rights_Management.md) voor operationele richtlijnen ter ondersteuning van op een succesvolle implementatie voor uw organisatie.
 
--   The [RMS Analyzer tool](https://www.microsoft.com/en-us/download/details.aspx?id=46437), using the RMS connector option to help you monitor the health of the connector and identify any configuration issues.
-
--   [Logging and Analyzing Azure Rights Management Usage](../Topic/Logging_and_Analyzing_Azure_Rights_Management_Usage.md)
-
-You can use the [Azure Rights Management Deployment Roadmap](../Topic/Azure_Rights_Management_Deployment_Roadmap.md) to check whether there are other configuration steps that you might want to do before you roll out [!INCLUDE[aad_rightsmanagement_1](../Token/aad_rightsmanagement_1_md.md)] to users and administrators. If there are no other configuration steps that you need to do, see [Using Azure Rights Management](../Topic/Using_Azure_Rights_Management.md) for operational guidance to support a successful deployment for your organization.
-
-## See Also
-[Configuring Azure Rights Management](../Topic/Configuring_Azure_Rights_Management.md)
+## Zie ook
+[Azure Rights Management configureren](../Topic/Configuring_Azure_Rights_Management.md)
 

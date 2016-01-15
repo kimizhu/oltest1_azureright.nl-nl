@@ -3,131 +3,130 @@ description: na
 keywords: na
 title: RMS for Individuals and Azure Rights Management
 search: na
-ms.date: 2015-11-01
+ms.date: na
 ms.service: rights-management
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.assetid: 2efcb440-fefd-45e9-872b-f471573aadf2
-ms.author: e8f708ba3bce4153b61467184c747c7f
 ---
-# RMS for Individuals and Azure Rights Management
-RMS for individuals is a free self-service subscription for users in an organization who have been sent sensitive files that have been protected by Microsoft Azure Rights Management (Azure RMS), but they cannot be authenticated because their IT department does not manage an account for them in Azure. For example, the IT department doesn't have Office 365 or use Azure services.
+# RMS voor personen en Azure Rights Management
+RMS voor personen is een gratis abonnement Self-service voor gebruikers in een organisatie die gevoelige bestanden die zijn beveiligd door Microsoft Azure Rights Management (Azure RMS) zijn verzonden, maar kan niet worden geverifieerd omdat hun IT-afdeling niet wordt beheerd een account voor hen in Azure. Bijvoorbeeld, niet de IT-afdeling Office 365 hebben of Azure-services gebruiken.
 
-These users can sign up for a free work or school account to use with Azure RMS, and download and install the Rights Management sharing application. As a result, these users can now authenticate  to prove that they are the person that the protected files were sent to, and then read the protected files on computers or mobile devices.
+Deze gebruikers kunnen aanmelden voor een gratis werk of opleiding account te gebruiken met Azure RMS en download en installeer de Rights Management-toepassing delen. Deze gebruikers kunnen als gevolg hiervan nu verifiëren om te laten zien dat zij de persoon die de beveiligde bestanden zijn verzonden naar en u de beveiligde bestanden op computers of mobiele apparaten leest zijn.
 
-Using the Rights Management sharing application on Windows computers, these users can also protect files in place or send protected files by email to people inside or outside their organization. If the recipients of the email that they send are in an organization that also doesn't manage user accounts in Azure, they too can sign up for an RMS for individuals account to read the protected email attachment.
+Met de Rights Management-toepassing op Windows-computers delen, deze gebruikers zouden kunnen ook bestanden in plaats beveiligen of beveiligde bestanden per e-mail verzenden naar personen binnen of buiten de organisatie. Als de ontvangers van het e-mailbericht dat ze verzenden in een organisatie die ook niet van gebruikersaccounts in Azure beheren, kunnen ze te aanmelden voor een RMS voor personen account lezen van de beveiligde e-mailbijlage.
 
 > [!IMPORTANT]
-> This free subscription ensures that authorized people can always read files that have been protected. Currently, you can also use this free subscription to protect documents and create new protected email messages, but the ability to author new protected content is intended for trial use only and might be removed in the future. For more information and any changes to using RMS for individuals to protect content, see the [Microsoft Rights Management Terms of Service](https://portal.aadrm.com/Legal/Service).
+> Met deze gratis abonnement zorgt ervoor dat geautoriseerde altijd leesbare bestanden die zijn beveiligd. Op dit moment ook kunt u dit gratis abonnement voor het beveiligen van documenten en nieuwe beveiligde e-mailberichten maken, maar de mogelijkheid om nieuwe beveiligde inhoud is bedoeld voor alleen proef gebruik en in de toekomst kan worden verwijderd. Zie voor meer informatie en eventuele wijzigingen voor het gebruik van RMS voor personen om inhoud te beschermen, de [Microsoft Rights Management servicevoorwaarden](https://portal.aadrm.com/Legal/Service).
 
-For more information about how you can protect files by using the free Rights Management sharing application, see the [Rights Management sharing application guide for users](http://technet.microsoft.com/library/dn339006.aspx).
+Zie voor meer informatie over hoe u bestanden beveiligen kunt met behulp van de beschikbare Rights Management-toepassing delen, de [Rights Management delen handleiding voor gebruikers](http://technet.microsoft.com/library/dn339006.aspx).
 
-RMS for individuals is an example of a self-service signup that is supported by Azure Active Directory. For more information about how this works, see [What is Self-Service Signup for Azure?](https://azure.microsoft.com/documentation/articles/active-directory-self-service-signup/) in the Microsoft Azure documentation. Use the following sections for more information that is  specific to RMS for individuals:
+RMS voor personen is een voorbeeld van een self-service aanmelding die wordt ondersteund door de Azure Active Directory. Zie voor meer informatie over hoe dit werkt, [Wat Self-Service aanmelding voor Azure is?](https://azure.microsoft.com/documentation/articles/active-directory-self-service-signup/) in de documentatie van Microsoft Azure. Gebruik de volgende secties voor meer informatie die specifiek is voor RMS voor personen:
 
--   [How users sign up for RMS for individuals](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md#BKMK_SignUp)
+-   [Hoe gebruikers aanmelden voor RMS voor personen](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md#BKMK_SignUp)
 
-    -   [Technical overview](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md#BKMK_TechnicalOverview)
+    -   [Technisch overzicht](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md#BKMK_TechnicalOverview)
 
--   [How administrators can control the accounts created for RMS for individuals](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md#BKMK_TakeControlofAccounts)
+-   [Hoe kunnen beheerders de accounts voor RMS gemaakt voor personen](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md#BKMK_TakeControlofAccounts)
 
--   [How to find out if your users have signed up for RMS for individuals](#BKMK_Detect)
+-   [Als uw gebruikers hebt aangemeld voor RMS voor personen bepalen](#BKMK_Detect)
 
-## <a name="BKMK_SignUp"></a>How users sign up for RMS for individuals
-To sign up for this free account, you request it by visiting the [Microsoft Rights Management page](https://portal.aadrm.com/), and provide your work or school email address. The most typical way that you'll be directed to this sign-up page is if you received an email message with a protected attachment, which contains instructions how to sign-up. You'll receive an email in response from Microsoft, and can then complete the sign-up process by entering details to create your account. When you get an email confirmation from Microsoft, this final email message sends you to a page where you can download the sharing application for different devices, and a link to the user guide.
+## <a name="BKMK_SignUp"></a>Hoe gebruikers aanmelden voor RMS voor personen
+Als u wilt aanmelden voor deze gratis account, u vragen door naar de pagina de [pagina Microsoft Rights Management](https://portal.aadrm.com/), en om uw werk of opleiding e-mailadres. De meest voorkomende manier dat u zult worden doorgestuurd naar deze pagina is als u een e-mailbericht met een beveiligde bijlage die instructies hoe bevat ontvangen voor registratie. U ontvangt een e-mailbericht in antwoord van Microsoft en kunt Voltooi het registratieproces door te voeren informatie om uw account te maken. Wanneer u een e-mail ter bevestiging van Microsoft krijgen, ontvangt dit laatste e-mailbericht u op een pagina waar u de toepassing delen voor verschillende apparaten en een koppeling naar de handleiding kunt downloaden.
 
-#### To sign up for RMS for individuals
+#### Aanmelden voor RMS voor personen
 
-1.  Using a Windows or Mac computer, go to the [Microsoft Rights Management page](https://portal.aadrm.com).
+1.  Met behulp van een Windows- of Mac-computer, gaat u naar de [pagina Microsoft Rights Management](https://portal.aadrm.com).
 
-2.  Type in the email address that you use for your organization, such as **janetm@contoso.com** or **p.dover@fabrikam.com**.
+2.  Type in het e-mailadres dat u voor uw organisatie, zoals gebruikt **janetm@contoso.com** of **p.dover@fabrikam.com**.
 
     > [!IMPORTANT]
-    > Personal email accounts are not supported, so do not enter a Microsoft account (formerly known as a Microsoft Live ID account) or another personal account that you might use at home from your Internet provider.
+    > Persoonlijke e-mailaccounts worden niet ondersteund, geef geen een Microsoft-account (voorheen bekend als Microsoft Live ID-account) of een andere persoonlijke account die u van uw internetprovider thuis kunt gebruiken.
 
-3.  Click **Get started**.
+3.  Klik op **aan de slag**.
 
-    Microsoft uses your email address to check whether your organization already has a [paid subscription that includes Azure RMS](https://technet.microsoft.com/library/dn655136.aspx). If that’s the case, you don’t need RMS for individuals so you’ll be signed in immediately and the self-service sign up for RMS for individuals is canceled. If a paid subscription for Azure RMS isn’t found, you'll continue to the next step.
+    Microsoft gebruikt uw e-mailadres om te controleren of uw organisatie al heeft een [betaald abonnement met Azure RMS](https://technet.microsoft.com/library/dn655136.aspx). Als dit het geval is, hoeft u geen RMS voor personen zodat u direct moet worden aangemeld en de self-service Meld u aan voor RMS voor personen is geannuleerd. Als een betaald abonnement voor Azure RMS niet wordt gevonden, zult u doorgaat met de volgende stap.
 
-4.  Wait for a confirmation email message to be sent to the address that you supplied. It will be from Microsoft (DoNotReply@microsoft.com) and has the subject **Microsoft RMS**.
+4.  Wachten op een bevestiging e-mailbericht moet worden verzonden naar het adres dat u hebt opgegeven. Er wordt van Microsoft (DoNotReply@microsoft.com) en het onderwerp heeft **Microsoft RMS**.
 
-5.  When you receive the email, click the link in the instructions to complete the sign up process.
+5.  Wanneer u het e-mailbericht ontvangt, klikt u op de koppeling in de aanwijzingen voor het aanmeldingsproces voltooien.
 
-6.  The link takes you a new **Microsoft Rights Management** page for you to supply details for your account. Type in your first name, your last name, enter and confirm a password of your choice, select your country (or the nearest country to yours if your country is not listed)  from the drop down, and then click **Create**.
+6.  Koppeling gaat u een nieuwe **Microsoft Rights Management** details over de pagina voor op te geven voor uw account. Typ in uw voornaam, uw achternaam in, voer een wachtwoord van uw keuze bevestigen, selecteer uw land (of de dichtstbijzijnde met uw vraag als uw land niet wordt vermeld) in de vervolgkeuzelijst en klik vervolgens op **Create**.
 
-7.  Wait for another email message from Microsoft that now confirms that your account is ready to use.
+7.  Wachten op een ander e-mailbericht van Microsoft die nu bevestigt u dat uw account klaar is voor gebruik.
 
-8.  When you receive the email, click the link to sign in and read the instructions to download and install the sharing application, or click the Help link to read the sharing application user guide.
+8.  Wanneer u het e-mailbericht ontvangt, klikt u op de koppeling voor aanmelden en lezen van de instructies voor het downloaden en installeren van de toepassing voor delen of klik op de koppeling Help voor het lezen van de delen application user guide.
 
-Now your account is created, you’re ready to start protecting files and read files that others have protected. When prompted to sign in to protect or read protected files, enter your email address and password that you used to create the account for RMS for the individuals.
+Nu uw account is gemaakt, bent u klaar om te beginnen bestanden beveiligen en lezen van bestanden die anderen zijn beveiligd. Als u wordt gevraagd voor aanmelding bij beveiligen of beveiligde bestanden lezen, Voer uw e-mailadres en wachtwoord die u gebruikt voor het maken van het account voor RMS voor de personen.
 
-### <a name="BKMK_TechnicalOverview"></a>Technical overview
-RMS for individuals uses a self-service sign up process that is also used by other services that use Microsoft cloud-based technology to authenticate users.
+### <a name="BKMK_TechnicalOverview"></a>Technisch overzicht
+RMS voor personen maakt gebruik van een self-service aanmeldingsprocedure die ook wordt gebruikt door andere services die gebruikmaken van Microsoft op basis van een cloud-technologie om gebruikers te verifiëren.
 
-This is what happens in the background when a user signs up for RMS for individuals and their organization does not have an Office 365 subscription or Azure subscription, and therefore, no directory in Azure to authenticate users:
+Dit is wat er gebeurt in de achtergrond wanneer een gebruiker zich voor RMS voor personen aanmeldt en hun organisatie geen heeft een Office 365-abonnement of Azure-abonnement en daarom geen map in Azure om gebruikers te verifiëren:
 
-1.  When the first user from an organization requests a subscription for RMS for individuals, the domain name supplied in their email address is checked to see whether it is already associated with an Azure tenant. If there is no existing tenant, a new tenant and Azure directory is automatically created for the organization, which contains an account for this first user. Unlike with a paid subscription for Azure, this first account is not a global administrator, but a standard user. The new account uses the email address and password that the user supplied.
+1.  Wanneer de eerste gebruiker van een organisatie die een abonnement voor RMS voor personen, wordt de domeinnaam in hun e-mailadres hebt opgegeven gecontroleerd om te zien of deze al gekoppeld aan een Azure-tenant is. Als er geen bestaande tenant is, wordt automatisch een nieuwe tenant en Azure map gemaakt voor de organisatie die een account voor deze eerste gebruiker bevat. In tegenstelling tot met een betaald abonnement voor Azure, is dit eerste account niet een globale beheerder, maar een standard-gebruiker. De nieuwe account wordt gebruikt voor het e-mailadres en wachtwoord dat de gebruiker opgegeven.
 
     > [!NOTE]
-    > Some domain names cannot be used to create the directory and therefore cannot be used for RMS for individuals. The list of blocked domain names can be viewed from this JavaScript Object Notation file: [http://portal.aadrm.com/content/blocked_domains.json](http://portal.aadrm.com/content/blocked_domains.json)
+    > Sommige domeinnamen kunnen niet worden gebruikt voor het maken van de map en daarom niet worden gebruikt voor RMS voor personen. De lijst met geblokkeerde domeinnamen kan worden bekeken van dit bestand JavaScript-Object notatie: [http://portal.aadrm.com/content/blocked_domains.json](http://portal.aadrm.com/content/blocked_domains.json)
 
-    If an existing tenant is found, it is checked to see whether it already has a subscription for Azure RMS. When no subscription is found, the free RMS for individuals subscription can be added.
+    Als een bestaande tenant wordt gevonden, wordt deze gecontroleerd om te zien of er al een abonnement voor Azure RMS. Als u geen abonnement wordt gevonden, kan de beschikbare RMS voor personen abonnement worden toegevoegd.
 
-2.  The organization is granted the RMS for individuals subscription. Now, this user can be authenticated by Azure and can then protect files and read files that others have protected by using Azure Rights Management. To protect and read protected files, the user must have an RMS-enlightened application, such as  the free [Rights Management sharing application](https://technet.microsoft.com/library/dn919648.aspx).
+2.  De organisatie krijgt de RMS voor personen-abonnement. Nu kunt deze gebruiker kunnen worden geverifieerd door Azure bestanden beveiligen en lezen van bestanden die anderen met Azure Rights Management zijn beveiligd. Als u beveiligde bestanden lezen wilt beveiligen, moet de gebruiker een toepassing RMS enlightened, zoals de gratis hebben [Rights Management-toepassing voor delen](https://technet.microsoft.com/library/dn919648.aspx).
 
-3.  When the second user from the same organization requests an RMS for individuals subscription, a new user account is added to the previously created Azure directory, by using the organization’s RMS for individuals subscription. This second user can do everything that the first user could do (protect files and read protected files), but in addition, these two users can now more easily collaborate securely because they can quickly apply default templates to files that restrict access to accounts in their organization’s Azure directory.
+3.  Wanneer de tweede gebruiker van dezelfde organisatie een RMS voor personen abonnement, wordt een nieuwe gebruikersaccount toegevoegd aan de eerder gemaakte Azure map met behulp van de organisatie RMS voor personen-abonnement. Deze tweede gebruiker kan doen alles wat de eerste gebruiker kan doen (beveiligde bestanden lezen en bestanden beveiligen), maar ook de twee gebruikers kunnen nu meer gemakkelijk veilig samenwerken omdat ze standaardsjablonen snel kunnen toepassen op bestanden met toegang tot accounts in Azure map van hun organisatie beperkte.
 
-4.  Subsequent users from the same organization follow the same pattern, adding user accounts (when new users sign up) to the organization’s Azure directory. The more accounts that are added to the directory, the more users can securely collaborate with co-workers and partners, and more easily prevent unauthorized people from reading their files when they should not have access to them.
+4.  Toekomstige gebruikers van dezelfde organisatie volgen hetzelfde patroon toe te voegen gebruikersaccounts (wanneer nieuwe gebruikers zich aanmelden) naar de organisatie Azure map. Meer accounts die zijn toegevoegd aan de map en meer gebruikers kunnen veilig samenwerken met collega's en partners en meer eenvoudig te voorkomen dat niet-geautoriseerde mensen hun bestanden te lezen wanneer ze mogen geen toegang tot deze.
 
-Throughout this process, there is no charge to the organization and no work required from the IT department. However, the IT department could choose to do either of the following:
+Tijdens dit proces is gratis voor de organisatie en geen werk van de IT-afdeling vereist. De IT-afdeling kan echter kiezen het volgende doen:
 
--   **Manage the accounts and sign-up process**: IT administrators can take ownership of the automatically created directory and accounts in Azure. They can then manage the accounts by implementing directory integration solutions such as password synchronization and single sign-on. Or, they can prevent users from creating accounts or signing up for RMS for individuals.
+-   **Beheren van accounts en het aanmeldingsproces**: IT-beheerders kunnen eigenaar van de automatisch gemaakte map en accounts in Azure. Vervolgens kunnen ze de accounts beheren door directory-integratie-oplossingen zoals Wachtwoordsynchronisatie en eenmalige aanmelding te implementeren. Of ze kunnen voorkomen dat gebruikers accounts maken of zich aanmeldt voor RMS voor personen.
 
-    For more information, see the following section, [How administrators can control the accounts created for RMS for individuals](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md#BKMK_TakeControlofAccounts).
+    Voor meer informatie raadpleegt u de volgende sectie [Hoe kunnen beheerders de accounts voor RMS gemaakt voor personen](../Topic/RMS_for_Individuals_and_Azure_Rights_Management.md#BKMK_TakeControlofAccounts).
 
--   **Manage Rights Management**: IT administrators can convert the RMS for individuals subscription for the organization to a paid subscription that includes Azure Rights Management. When they do this, the existing Azure directory and accounts are preserved for a seamless transition for existing users who were using RMS for individuals. Any files that users protected previously will still be protected with the same policies and the people that they granted permissions to use the files will still be able to use the files in the same way.
+-   **Beheren Rights Management**: IT-beheerders kunnen de RMS voor personen abonnement voor de organisatie in een betaald abonnement met Azure Rights Management worden geconverteerd. Wanneer ze dit doet, worden de bestaande Azure map en accounts behouden voor een naadloze overgang voor bestaande gebruikers die RMS voor personen. Alle bestanden die gebruikers beschermd eerder wordt nog steeds worden beveiligd met dezelfde beleid en de mensen die ze gemachtigd bent om de bestanden te gebruiken nog wel de bestanden op dezelfde manier gebruiken.
 
-    When you take this course of action, your organization benefits by being able to integrate Rights Management into its workflows, services, and data stores. In addition, you can now manage Rights Management because you have control over your organization’s tenant key for Azure Rights Management. You can now do the following:
+    Wanneer u houden met deze cursus komen, de voordelen van uw organisatie door te Rights Management integreert in de werkstromen, services en opgeslagen gegevens. Bovendien kunt u nu Rights Management beheren omdat u over de controle over uw organisatie tenant sleutel voor Azure Rights Management. U kunt nu het volgende doen:
 
-    -   Configure Exchange and SharePoint to support Azure Rights Management, even if these are running on-premises. Exchange and SharePoint are natively supported for the online services, and they are supported by a connector for the on-premises servers. For more information, see the following:
+    -   Configureer Exchange en SharePoint ter ondersteuning van Azure Rights Management, zelfs als deze lokaal worden uitgevoerd. Exchange en SharePoint worden ondersteund voor de online services en ze worden ondersteund door een connector voor de lokale servers. Voor meer informatie, Zie de volgende:
 
-        -   The Exchange Online and SharePoint Online sections from [Office 365: Configuration for clients and online services](../Topic/Configuring_Applications_for_Azure_Rights_Management.md#BKMK_O365) in the [Configuring Applications for Azure Rights Management](../Topic/Configuring_Applications_for_Azure_Rights_Management.md) topic
+        -   De Exchange Online en SharePoint Online-secties van [Office 365: Configuratie voor clients en online services](../Topic/Configuring_Applications_for_Azure_Rights_Management.md#BKMK_O365) in de [Toepassingen voor Azure Rights Management configureren](../Topic/Configuring_Applications_for_Azure_Rights_Management.md) onderwerp
 
-        -   [Deploying the Azure Rights Management Connector](../Topic/Deploying_the_Azure_Rights_Management_Connector.md)
+        -   [Implementatie van de Connector van de Azure Rights Management](../Topic/Deploying_the_Azure_Rights_Management_Connector.md)
 
-    -   Perform e-discovery on company-owned data so that you can, if required, decrypt files that were protected by using Rights Management. For more information, see [Configuring Super Users for Azure Rights Management and Discovery Services or Data Recovery](../Topic/Configuring_Super_Users_for_Azure_Rights_Management_and_Discovery_Services_or_Data_Recovery.md).
+    -   E-detectie uitvoeren op gegevens bedrijf eigendom, zodat u kunt, indien nodig, bestanden die zijn beveiligd decoderen met Rights Management. Zie voor meer informatie [Supergebruikers configureren voor Azure Rights Management en van detectieservices of gegevens te herstellen](../Topic/Configuring_Super_Users_for_Azure_Rights_Management_and_Discovery_Services_or_Data_Recovery.md).
 
-    -   Log all activity for Rights Management as used in your organization. This is very powerful because not only can you monitor which files are being protected and who is successfully accessing those protected files, but you can also identify potentially suspicious behavior from unauthorized people who are trying to access protected files. For more information, see [Logging and Analyzing Azure Rights Management Usage](../Topic/Logging_and_Analyzing_Azure_Rights_Management_Usage.md).
+    -   Meld u alle activiteiten voor Rights Management die gebruikt is in uw organisatie. Dit is zeer krachtige omdat u niet alleen u controleren kunt welke bestanden zijn beveiligd en die met succes toegang heeft tot de beveiligde bestanden, maar u kunt ook mogelijk verdacht gedrag van niet-geautoriseerde personen die probeert toegang tot beveiligde bestanden identificeren. Zie voor meer informatie [Logboekregistratie en analyseren van Azure Rights Management-gebruik](../Topic/Logging_and_Analyzing_Azure_Rights_Management_Usage.md).
 
-    -   Provide users with the ability to track and revoke their protected documents, if these features are supported by your [Azure RMS subscription](https://technet.microsoft.com/dn858608). For more information, see  [Track and revoke your files](https://technet.microsoft.com/library/dn986611.aspx) from the [RMS sharing application user guide](https://technet.microsoft.com/library/dn339006.aspx).
+    -   Gebruikers bieden de mogelijkheid om te volgen en hun beveiligde documenten intrekken als deze functies worden ondersteund door uw [Azure RMS abonnement](https://technet.microsoft.com/dn858608). Zie voor meer informatie  [bijhouden en uw bestanden intrekken](https://technet.microsoft.com/library/dn986611.aspx) van de [RMS delen toepassing handleiding](https://technet.microsoft.com/library/dn339006.aspx).
 
-    -   Implement a bring your own key solution (BYOK) so that your tenant key for Azure Rights Management is generated on-premises according to your IT policies, and securely transferred to Microsoft by using a Hardware Security Module (HSM). For more information, see [Planning and Implementing Your Azure Rights Management Tenant Key](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md).
+    -   Implementeren van een Breng uw eigen sleutel oplossing (BYOK) zodat uw tenant sleutel voor Azure Rights Management gegenereerd op locatie volgens uw IT-beleid is en veilig overgedragen naar Microsoft via een Hardware Security Module HSM (). Zie voor meer informatie [Plannen en implementeren van uw Azure Rights Management Tenant-sleutel](../Topic/Planning_and_Implementing_Your_Azure_Rights_Management_Tenant_Key.md).
 
-## <a name="BKMK_TakeControlofAccounts"></a>How administrators can control the accounts created for RMS for individuals
-If you do not want to convert your organization’s RMS for individuals subscription to a paid subscription, you can still control the user accounts in the Azure directory that was created for your organization in the following ways:
+## <a name="BKMK_TakeControlofAccounts"></a>Hoe kunnen beheerders de accounts voor RMS gemaakt voor personen
+Als u niet converteren van uw organisatie RMS voor personen-abonnement in een betaald abonnement wilt, kunt u bepalen de gebruikersaccounts in de Azure map die is gemaakt voor uw organisatie in de volgende manieren:
 
--   Implement directory integration solutions for Azure Active Directory and your Active Directory Domain Services infrastructure. You can synchronize accounts and passwords so that users will not have to create new accounts to use Rights Management and your on-premises password policies will apply to the new Azure user accounts. You can also synchronize passwords so that users do not have to remember a different password to use Rights Management.
+-   Directory-integratieoplossingen implementeren voor Azure Active Directory en de Active Directory Domain Services-infrastructuur. U kunt de accounts en wachtwoorden synchroniseren zodat gebruikers geen nieuwe accounts voor Rights Management gebruik te maken en uw lokale wachtwoordbeleid worden toegepast op de nieuwe Azure gebruikersaccounts. U kunt ook wachtwoorden synchroniseren zodat gebruikers niet hoeven te onthouden van een ander wachtwoord voor het gebruik van Rights Management.
 
--   You could prevent users from signing up to use Azure Rights Management with the RMS for individuals subscription. In most cases, there is little advantage in doing this because users will either share files without protection (which could put your company at risk), or will use another file protection mechanism that doesn’t provide the IT department with the option to access the data. However, if you want to prevent users from signing up to use RMS for individuals, do one of the following after you have taken ownership of your organization’s directory in Azure:
+-   U kan voorkomen dat gebruikers zich aanmeldt Azure Rights Management gebruiken met de RMS voor personen-abonnement. In de meeste gevallen is er weinig voordeel doet dit omdat gebruikers ofwel van bestanden zonder protection delen wordt (dat kan risico voor uw bedrijf) of een ander bestand protection mechanisme waarvoor de IT-afdeling met de optie voor toegang tot de gegevens niet worden gebruikt. Echter als u dat gebruikers zich wilt aanmeldt voor RMS personen gebruik, voert u een van de volgende nadat u de eigenaar van de map van uw organisatie in Azure hebben getroffen:
 
-    -   Prevent all users from signing up for self-service subscriptions, which includes RMS for individuals.  Currently, you cannot set this by service; the setting applies to all Azure subscriptions that use the self-service process. To do this, set the **AllowAdHocSubscriptions** parameter to false with the [Set-MsolCompanySettings](http://technet.microsoft.com/library/dn194127.aspx) cmdlet from the Windows PowerShell module for Azure Active Directory. For example: **Set-MsolCompanySettings -AllowAdHocSubscriptions $false**
+    -   Voorkomen dat alle gebruikers zich aanmeldt voor selfservice-abonnementen met RMS voor personen.  Op dit moment instellen u dit door de service; niet de instelling geldt voor alle Azure abonnementen die gebruikmaken van het proces Self-service. Stel hiervoor de **AllowAdHocSubscriptions** parameter op false met de [Set MsolCompanySettings](http://technet.microsoft.com/library/dn194127.aspx) cmdlet uit de Windows PowerShell-module voor Azure Active Directory. Bijvoorbeeld: **Set-MsolCompanySettings -AllowAdHocSubscriptions $false**
 
-    -   Prevent users from creating a new account in Azure, which means that only users who already have an account in Azure can sign up for self-service subscriptions, which includes RMS for individuals.  To do this, set the **AllowEmailVerifiedUsers** parameter to false with the [Set-MsolCompanySettings](http://technet.microsoft.com/library/dn194127.aspx) cmdlet from the Windows PowerShell module for Azure Active Directory. For example: **Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true**
+    -   Voorkomen dat gebruikers een nieuw account maken in Azure, wat betekent dat alleen gebruikers die al een account in Azure kunnen aanmelden voor selfservice-abonnementen, waaronder RMS voor personen.  Stel hiervoor de **AllowEmailVerifiedUsers** parameter op false met de [Set MsolCompanySettings](http://technet.microsoft.com/library/dn194127.aspx) cmdlet uit de Windows PowerShell-module voor Azure Active Directory. Bijvoorbeeld: **Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true**
 
-    -   Synchronize your Active Directory Domain Services infrastructure with Azure Active Directory. This action prevents new accounts from being created when users sign up for self-service subscriptions such as RMS for individuals, and you can delete or disable accounts that were previously created in the Azure directory.
+    -   De Active Directory Domain Services-infrastructuur worden gesynchroniseerd met Azure Active Directory. Deze actie geen nieuwe accounts kunnen worden gemaakt wanneer gebruikers zich voor selfservice-abonnementen aanmelden, zoals RMS voor personen en u kunt verwijderen of uitschakelen van accounts die eerder in Azure Active directory zijn gemaakt.
 
-To control the user accounts in the Azure directory, or to prevent users from signing up for RMS for individuals, you must have an Azure subscription and own the directory. If you don't already have an Azure subscription, you can obtain one without charge. If a directory was automatically created for you during the self-service process, take ownership of the domain that was used to create it. If you already own a directory in Azure but users specified a new domain that you use in your organization, merge that domain into your existing directory. For more information, see the instructions in [What is Self-Service Signup for Azure?](https://azure.microsoft.com/documentation/articles/active-directory-self-service-signup/)
+Om te bepalen van de gebruikersaccounts in Azure Active directory, of om te voorkomen dat gebruikers zich aanmeldt voor RMS voor personen, moet u een Azure-abonnement hebt en eigenaar van de map. Als u nog geen Azure-abonnement hebt, kunt u een gratis. Als een map automatisch tijdens de self-service gemaakt is, eigenaar van het domein dat is gemaakt. Als u al een map in Azure eigenaar, maar gebruikers opgegeven een nieuw domein dat u in uw organisatie, samenvoegen met domein uw bestaande map. Voor meer informatie, Zie de instructies in [Wat Self-Service aanmelding voor Azure is?](https://azure.microsoft.com/documentation/articles/active-directory-self-service-signup/)
 
-## <a name="BKMK_Detect"></a>How to find out if your users have signed up for RMS for individuals
-As an administrator, how do you know if your users have signed up for RMS for individuals? You might use any or a combination of the following methods:
+## <a name="BKMK_Detect"></a>Als uw gebruikers hebt aangemeld voor RMS voor personen bepalen
+Als een beheerder hoe wist u dat als uw gebruikers hebt aangemeld voor RMS voor personen? U kunt gebruiken of een combinatie van de volgende methoden:
 
--   Ask users how they protect highly confidential files, especially when collaborating with others outside the organization.
+-   Gebruikers vragen hoe ze uiterst vertrouwelijk bestanden beveiligen met name wanneer het samenwerken met anderen buiten de organisatie.
 
--   When you have an Azure subscription for your organization, use the [Get-MsolAccountSku](https://msdn.microsoft.com/library/azure/dn194118.aspx) cmdlet to see if **RIGHTSMANAGEMENT_ADHOC** is returned as one of the subscriptions. If it is, this is the RMS for individuals subscription that was granted to the organization, with a pool of active units available for users to use the self-service sign-up process.
+-   Als u geen Azure-abonnement voor uw organisatie hebt, gebruikt u de [Get-MsolAccountSku](https://msdn.microsoft.com/library/azure/dn194118.aspx) cmdlet om te zien of **RIGHTSMANAGEMENT_ADHOC** wordt geretourneerd als een van de abonnementen. Als het, is dit de RMS voor personen-abonnement is verleend voor de organisatie, met een groep van actieve eenheden beschikbaar voor gebruikers het aanmeldingsproces Self-service gebruiken.
 
--   Use a system management solution, such as System Center Configuration Manager, to inventory software installed and software in use. The Rights Management sharing application runs by using the **ipviewer.exe** program and you can [download and install the application](http://go.microsoft.com/fwlink/?LinkId=303970) for free to identify other characteristics about this application that you then use for software inventory.
+-   Gebruik een system management-oplossing, zoals System Center Configuration Manager inventarisatie software is geïnstalleerd en software in gebruik. De Rights Management delen van de toepassing wordt uitgevoerd met behulp van de **ipviewer.exe** programma en u kunt [download en installeer de toepassing](http://go.microsoft.com/fwlink/?LinkId=303970) gratis voor andere kenmerken over deze toepassing die u vervolgens voor software-inventarisatie gebruiken.
 
--   Be on the lookout for file name extensions that are created by the Rights Management sharing application. The .pfile and .ppdf file name extensions are the most obvious examples, but there are other files that change their file name extension when they are natively protected by Rights Management. For more information, see the [Supported file types and file name extensions](http://technet.microsoft.com/library/dn339003.aspx) section in the [Rights Management sharing application administrator guide](http://technet.microsoft.com/library/dn339003.aspx).
+-   Worden op zoek naar bestandsextensies die zijn gemaakt door de delen Rights Management-toepassing. De .pfile en .ppdf bestandsextensies zijn de meest duidelijke voorbeelden, maar er zijn andere bestanden die de bestandsnaamextensie wijzigen wanneer ze systeemeigen worden beschermd door Rights Management. Zie voor meer informatie de [ondersteunde bestandstypen en extensies](http://technet.microsoft.com/library/dn339003.aspx) sectie de [delen toepassing Rights Management-beheerdershandleiding](http://technet.microsoft.com/library/dn339003.aspx).
 
-## See Also
-[Getting Started with Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md)
+## Zie ook
+[Aan de slag met Azure Rights Management](../Topic/Getting_Started_with_Azure_Rights_Management.md)
 
